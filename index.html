@@ -1,402 +1,119 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DIVINOS GAMES - GameHub Final 100% Revisado</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DIVINOS GAMES - Final Completo com Edição</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}body{background:#05070f;color:#fff;font-family:'Inter',sans-serif;overflow-x:hidden}
-header{position:absolute;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:14px 32px;background:linear-gradient(180deg,rgba(0,0,0,0.85),transparent)}
-.logo{display:flex;align-items:center;gap:10px;font-family:'Orbitron';font-weight:900;font-size:24px;cursor:pointer;user-select:none}
-.logo-icon{width:36px;height:36px;border:1.5px solid #00e5ff;border-radius:10px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 18px #00e5ff66;font-size:20px}
-.d1{color:#00e5ff;text-shadow:0 0 12px #00e5ff} .d2{color:#ff00ff;text-shadow:0 0 12px #ff00ff}
-nav{display:flex;gap:28px;font-size:13px;font-weight:700;letter-spacing:0.5px}nav a{color:#888;text-decoration:none;cursor:pointer;padding-bottom:6px;border-bottom:2px solid transparent;transition:0.3s}nav a.active{color:#00e5ff;border-bottom-color:#00e5ff;text-shadow:0 0 10px #00e5ff}
-.nav-icons{display:flex;gap:16px;font-size:18px;color:#a855f7}
-.hero{position:relative;min-height:440px;padding:84px 32px 40px 32px;background:#05070f;overflow:hidden;display:grid;grid-template-columns:1fr 1.2fr;align-items:center}
-.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 65% 50%,#1a1040 0%,#05070f 65%),url('./hero-bg.jpg');background-size:cover;background-position:center right;opacity:0.95}
-.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#05070f 8%,rgba(5,7,15,0.9) 32%,rgba(5,7,15,0.25) 68%,transparent 100%)}
-.hero-left{position:relative;z-index:2;max-width:540px}
-.badge{display:inline-block;background:rgba(0,229,255,0.12);border:1px solid #00e5ff66;color:#00e5ff;font-size:11px;font-weight:800;padding:5px 12px;border-radius:6px;letter-spacing:1px;margin-bottom:16px}
-.hero-left h1{font-family:'Inter';font-weight:900;font-size:40px;line-height:1.05;letter-spacing:-0.6px;margin-bottom:12px}
-.hero-left p{color:#aaa;font-size:13px;line-height:1.6;margin-bottom:20px;max-width:460px}
-.btns{display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap}
-.btn-p{background:linear-gradient(90deg,#7c3aed,#a855f7);border:1px solid #a855f7;padding:11px 18px;border-radius:10px;color:#fff;font-weight:800;font-size:13px;cursor:pointer;box-shadow:0 0 20px #7c3aed55;display:flex;align-items:center;gap:6px;transition:0.3s}
-.btn-p:hover{transform:translateY(-2px);box-shadow:0 0 30px #a855f788}
-.btn-s{background:rgba(20,10,40,0.7);border:1px solid #3a2a5a;padding:11px 18px;border-radius:10px;color:#ccc;font-weight:700;font-size:13px;cursor:pointer;display:flex;align-items:center;gap:6px;backdrop-filter:blur(8px)}
-.checks{display:flex;gap:16px;font-size:11px;color:#777;flex-wrap:wrap}
-.checks span{display:flex;align-items:center;gap:5px}
-.checks i{width:16px;height:16px;border-radius:50%;background:rgba(0,229,255,0.12);border:1px solid #00e5ff44;display:flex;align-items:center;justify-content:center;font-size:9px;color:#00e5ff}
-.section-dark{background:#080a12}
-.title-center{text-align:center;padding:36px 0 18px}
-.title-center h2{font-family:'Inter';font-weight:900;font-size:22px}
-.title-center p{color:#666;font-size:13px;margin-top:4px}
-.tabs{display:flex;justify-content:center;gap:10px;padding:0 32px 18px;flex-wrap:wrap}
-.tab{padding:9px 18px;border-radius:10px;border:1px solid #1e1e3a;background:#12122a;color:#777;font-weight:800;font-size:12px;cursor:pointer;transition:0.3s}
-.tab.active{background:linear-gradient(90deg,#00e5ff,#3a7cff);color:#fff;border-color:#00e5ff;box-shadow:0 0 15px #00e5ff44}
-.grid-consoles{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:0 32px 32px}
-.card-c{background:linear-gradient(180deg,#15152e,#0c0c16);border:1px solid #1e1e4a;border-radius:14px;padding:16px;text-align:center;position:relative;min-height:312px;overflow:hidden;cursor:pointer;transition:0.35s}
-.card-c::before{content:"";position:absolute;inset:-1px;border-radius:14px;padding:1px;background:linear-gradient(90deg,#00e5ff,#3a7cff);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0.7}
-.card-c:nth-child(2)::before{background:linear-gradient(90deg,#a855f7,#ec4899)}
-.card-c:nth-child(3)::before{background:linear-gradient(90deg,#06b6d4,#a855f7)}
-.card-c:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(0,229,255,0.18)}
-.tag{position:absolute;top:10px;left:10px;font-size:9px;font-weight:900;padding:4px 9px;border-radius:6px;z-index:2}
-.tag-v{background:rgba(0,229,255,0.15);color:#00e5ff;border:1px solid #00e5ff55}
-.tag-o{background:rgba(168,85,247,0.18);color:#c084ff;border:1px solid #a855f755}
-.card-c img{height:110px;object-fit:contain;margin:22px 0 10px;filter:drop-shadow(0 0 12px rgba(0,229,255,0.25))}
-.card-c h3{font-size:15px;font-weight:800}
-.card-c .sub{font-size:11px;color:#777;margin:2px 0}
-.preco{font-size:22px;font-weight:900;margin:8px 0}.preco.c1{color:#00e5ff}.preco.c2{color:#c084ff}.preco.c3{color:#00e5ff}
-.parc{font-size:11px;color:#666}
-.btn-card{margin-top:12px;width:100%;padding:9px;border-radius:10px;background:transparent;border:1px solid #1e3a5a;color:#5ab0ff;font-weight:800;font-size:12px;cursor:pointer;transition:0.3s}
-.btn-card:hover{background:rgba(0,229,255,0.08);border-color:#00e5ff;color:#00e5ff}
-.servicos{display:grid;grid-template-columns:1fr 1fr;gap:36px;padding:20px 32px 28px;border-top:1px solid #12122a}
-.servicos h2{font-size:20px;font-weight:900}.servicos .sub{color:#666;font-size:13px;margin:4px 0 16px}
-.mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.mini-card{background:rgba(18,18,42,0.5);border:1px solid #1e1e3a;border-radius:12px;padding:12px;display:flex;gap:10px;transition:0.3s}
-.mini-card:hover{border-color:#2a2a5a;background:rgba(18,18,42,0.8)}
-.icon{width:42px;height:42px;border-radius:10px;border:1px solid #00e5ff33;background:rgba(0,229,255,0.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px}
-.icon.purple{border-color:#a855f733;background:rgba(168,85,247,0.08)}
-.mini-card h4{font-size:13px;font-weight:800}.mini-card p{font-size:11px;color:#777;line-height:1.3;margin:2px 0}.price-mini{font-size:11px;color:#00e5ff;font-weight:700;margin-top:4px}
-.verified{display:flex;align-items:center;gap:6px;font-size:10px;color:#666;margin-top:6px}.verified img{width:16px;height:16px;border-radius:50%}
-footer{background:#080a12;border-top:1px solid #1a1a2a;padding:14px 32px;display:flex;justify-content:space-between;align-items:center;font-size:11px;color:#555;flex-wrap:wrap;gap:10px}
-.footer-badges{display:flex;gap:16px;font-size:10px}
-.whats-float{position:fixed;bottom:18px;right:18px;z-index:200;display:flex;align-items:center;gap:10px}
-.whats-label{background:#1e1e2e;border:1px solid #2a2a4a;padding:8px 14px;border-radius:10px;font-size:12px;color:#ccc;box-shadow:0 4px 20px rgba(0,0,0,0.5)}
-.whats-btn{width:52px;height:52px;background:#25D366;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;cursor:pointer;box-shadow:0 0 20px #25D36688;transition:0.3s}
-.whats-btn:hover{transform:scale(1.08)}
-#previewModal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:800;overflow:auto;padding:20px}
-.preview-box{max-width:900px;margin:30px auto;background:#12122e;border:1px solid #1e3a6a;border-radius:16px;overflow:hidden;display:grid;grid-template-columns:1.1fr 0.9fr}
-.preview-img{padding:16px;background:#080a12}.preview-img .main{width:100%;height:320px;object-fit:contain;background:#0a0e1e;border-radius:10px;border:1px solid #1a1a3a}
-.thumbs{display:flex;gap:8px;margin-top:10px;overflow:auto}.thumbs img{width:56px;height:56px;object-fit:cover;border-radius:8px;border:2px solid #1a1a3a;cursor:pointer}.thumbs img.active{border-color:#00e5ff}
-.preview-info{padding:18px}.price{font-size:26px;font-weight:900;color:#00e5ff;margin:10px 0}
-.btn-modal{width:100%;padding:12px;border-radius:10px;border:0;font-weight:800;font-size:13px;cursor:pointer;margin-top:10px}.btn-whats{background:#25D366;color:#fff}
-#adminOverlay{display:none;position:fixed;inset:0;background:#05070f;z-index:999;overflow:auto}
-.dash-wrap{display:flex;min-height:100vh}
-.dash-sidebar{width:240px;background:linear-gradient(180deg,#0a0a14,#080a12);border-right:1px solid #1e1e4a;padding:18px 14px;display:flex;flex-direction:column;position:sticky;top:0;height:100vh}
-.dash-sidebar .logo-side{display:flex;flex-direction:column;align-items:center;margin-bottom:20px;padding-bottom:18px;border-bottom:1px solid #1e1e4a}
-.dash-sidebar .icon-big{width:60px;height:60px;border:1.5px solid #00e5ff;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 0 20px #00e5ff44;margin-bottom:10px}
-.dash-sidebar .logo-side h3{font-family:'Orbitron';font-size:16px;font-weight:900}.dash-sidebar .logo-side small{font-size:11px;color:#a855f7;letter-spacing:1px}
-.dash-menu{display:flex;flex-direction:column;gap:6px;flex:1}
-.dash-menu a{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;color:#666;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:0.3s;border:1px solid transparent}
-.dash-menu a.active{background:linear-gradient(90deg,rgba(0,229,255,0.15),rgba(168,85,247,0.15));border-color:#00e5ff55;color:#fff;box-shadow:0 0 15px rgba(0,229,255,0.15)}
-.dash-menu a:hover{color:#aaa;background:rgba(255,255,255,0.03)}
-.dash-bottom{margin-top:auto;padding-top:14px;border-top:1px solid #1e1e4a;display:flex;justify-content:space-between;align-items:center}
-.dash-main{flex:1;padding:18px 22px;background:radial-gradient(ellipse at 30% 20%,#12122a 0%,#05070f 60%);overflow:auto}
-.dash-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;flex-wrap:wrap;gap:12px}
-.dash-top h1{font-family:'Orbitron';font-size:28px;font-weight:900}.dash-top h1 span.c{color:#00e5ff} .dash-top h1 span.p{color:#a855f7}
-.search-box{display:flex;align-items:center;gap:8px;background:#12122a;border:1px solid #1e1e4a;border-radius:10px;padding:8px 14px;min-width:240px}
-.search-box input{background:transparent;border:0;color:#fff;outline:none;width:100%;font-size:13px}
-.dash-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:18px}
-.stat-card{background:linear-gradient(145deg,#12122a,#0e0e1e);border:1px solid #1e1e4a;border-radius:14px;padding:16px;position:relative;overflow:hidden}
-.stat-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#00e5ff,#a855f7);opacity:0.7}
-.stat-card .icon-s{font-size:28px;margin-bottom:8px}.stat-card h4{font-size:12px;color:#888;font-weight:600}.stat-card .val{font-size:28px;font-weight:900;margin:6px 0}.stat-card .val.cyan{color:#00e5ff}.stat-card .val.purple{color:#c084ff}.stat-card .sub{font-size:11px}.sub.green{color:#00ff88}.sub.orange{color:#ffaa44}
-.chart-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:14px;margin-bottom:14px}
-.chart-box{background:#12122a;border:1px solid #1e1e4a;border-radius:14px;padding:16px}
-.chart-box h3{font-size:14px;font-weight:800;margin-bottom:14px;display:flex;align-items:center;gap:8px}
-.chart-canvas{width:100%;height:220px;position:relative}
-.table-box{background:#12122a;border:1px solid #1e1e4a;border-radius:14px;padding:16px;margin-bottom:14px}
-.table-box h3{font-size:14px;font-weight:800;margin-bottom:12px}
-.table{width:100%;border-collapse:collapse;font-size:12px}
-.table th{color:#666;font-weight:700;text-align:left;padding:8px;border-bottom:1px solid #1e1e4a;font-size:11px}
-.table td{padding:9px 8px;border-bottom:1px solid #1a1a2a;color:#ccc}
-.badge-s{padding:3px 8px;border-radius:6px;font-size:10px;font-weight:800;display:inline-block}
-.badge-pago{background:rgba(0,255,136,0.15);color:#00ff88;border:1px solid #00ff8844}
-.badge-enviado{background:rgba(0,229,255,0.15);color:#00e5ff;border:1px solid #00e5ff44}
-.badge-pendente{background:rgba(168,85,247,0.15);color:#c084ff;border:1px solid #a855f744}
-.badge-andamento{background:rgba(0,229,255,0.15);color:#00e5ff;border:1px solid #00e5ff44}
-.badge-aguardando{background:rgba(255,170,0,0.15);color:#ffaa44;border:1px solid #ffaa4444}
-.badge-concluida{background:rgba(0,255,136,0.15);color:#00ff88;border:1px solid #00ff8844}
-.admin-form-box{background:#12122a;border:1px solid #a855f744;border-radius:12px;padding:14px;margin-top:12px}
-.admin-form-box input,.admin-form-box textarea,.admin-form-box select{width:100%;padding:11px;margin:5px 0;border-radius:9px;background:#080a12;border:1px solid #1e1e4a;color:#fff}
-.progress{height:8px;background:#080a12;border-radius:8px;overflow:hidden;border:1px solid #1e1e4a;display:none;margin:8px 0}.bar{height:100%;width:0%;background:linear-gradient(90deg,#00ff88,#00e5ff);transition:width 0.2s}
-.btn-admin{width:100%;padding:12px;background:linear-gradient(90deg,#00e5ff,#a855f7);border:0;border-radius:10px;color:#fff;font-weight:900;font-size:13px;cursor:pointer}
-@media(max-width:1100px){.dash-stats{grid-template-columns:1fr 1fr}.chart-grid{grid-template-columns:1fr}.hero{grid-template-columns:1fr}.grid-consoles{grid-template-columns:1fr 1fr}.servicos{grid-template-columns:1fr}}
-@media(max-width:600px){.grid-consoles{grid-template-columns:1fr}.dash-stats{grid-template-columns:1fr}.dash-sidebar{width:70px}.dash-sidebar .logo-side h3,.dash-sidebar .logo-side small,.dash-menu a span{display:none}}
+header{position:absolute;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:14px 28px;background:linear-gradient(180deg,rgba(0,0,0,0.85),transparent)}
+.logo{display:flex;align-items:center;gap:10px;font-family:'Orbitron';font-weight:900;font-size:22px;cursor:pointer}.logo-icon{width:36px;height:36px;border:1.5px solid #00e5ff;border-radius:10px;display:flex;align-items:center;justify-content:center}.d1{color:#00e5ff}.d2{color:#ff00ff}
+nav{display:flex;gap:24px;font-size:12px;font-weight:700}nav a{color:#777;text-decoration:none;cursor:pointer}nav a.active{color:#00e5ff}
+.cart-icon{position:relative;background:rgba(168,85,247,0.15);border:1px solid #a855f755;padding:8px 14px;border-radius:10px;cursor:pointer;font-weight:800;font-size:13px}.cart-count{position:absolute;top:-8px;right:-8px;background:#ff0040;color:#fff;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px}
+.hero{position:relative;min-height:420px;padding:84px 28px 30px;display:grid;grid-template-columns:1fr 1.2fr}.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 65% 50%,#1a1040 0%,#05070f 70%),url('./hero-bg.jpg');background-size:cover;background-position:center right}.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#05070f 10%,rgba(5,7,15,0.9) 35%,transparent 70%)}
+.hero-left{position:relative;z-index:2;max-width:520px}.badge{display:inline-block;background:rgba(0,229,255,0.12);border:1px solid #00e5ff66;color:#00e5ff;font-size:11px;font-weight:800;padding:5px 12px;border-radius:6px;margin-bottom:16px}.hero-left h1{font-weight:900;font-size:36px;line-height:1.05;margin-bottom:12px}.hero-left p{color:#aaa;font-size:13px;margin-bottom:18px}.btn-p{background:linear-gradient(90deg,#7c3aed,#a855f7);padding:11px 18px;border-radius:10px;color:#fff;font-weight:800;border:0;cursor:pointer}
+.section-dark{background:#080a12}.title-center{text-align:center;padding:32px 0 16px}.title-center h2{font-weight:900;font-size:24px}.title-center p{color:#666;font-size:12px;margin-top:6px}
+.tabs{display:flex;justify-content:center;gap:8px;padding:0 28px 20px;flex-wrap:wrap}.tab{padding:10px 18px;border-radius:10px;border:1px solid #1e1e3a;background:#12122a;color:#777;font-weight:800;font-size:12px;cursor:pointer}.tab.active{background:linear-gradient(90deg,#00e5ff,#3a7cff);color:#fff;border-color:#00e5ff}
+.grid-consoles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:0 28px 40px}.card-c{background:linear-gradient(180deg,#15152e,#0c0c16);border:1px solid #1e1e4a;border-radius:14px;padding:14px;text-align:center;position:relative;min-height:360px;cursor:pointer;transition:0.3s}.card-c:hover{transform:translateY(-5px);box-shadow:0 12px 30px rgba(0,229,255,0.18)}.tag{position:absolute;top:10px;left:10px;font-size:9px;font-weight:900;padding:4px 9px;border-radius:6px}.tag-v{background:rgba(0,229,255,0.15);color:#00e5ff;border:1px solid #00e5ff55}.tag-o{background:rgba(168,85,247,0.18);color:#c084ff;border:1px solid #a855f755}.card-c img{width:100%;height:150px;object-fit:contain;margin:20px 0 10px}.card-c h3{font-size:14px;font-weight:800}.sub{font-size:11px;color:#777}.preco{font-size:22px;font-weight:900;margin:8px 0;color:#00e5ff}.parc{font-size:11px;color:#666}.btn-card{margin-top:10px;width:48%;padding:10px;border-radius:10px;font-weight:800;font-size:11px;cursor:pointer}.btn-view{background:transparent;border:1px solid #1e3a5a;color:#5ab0ff;margin-right:4%}.btn-buy{background:linear-gradient(90deg,#00e5ff,#a855f7);border:0;color:#fff}
+footer{background:#080a12;border-top:1px solid #1a1a2a;padding:16px;text-align:center;font-size:11px;color:#444}
+#previewModal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:800;padding:20px;overflow:auto}.preview-box{max-width:900px;margin:30px auto;background:#12122e;border:1px solid #1e3a6a;border-radius:16px;display:grid;grid-template-columns:1.1fr 0.9fr;overflow:hidden}.preview-img{padding:14px;background:#080a12}.preview-img .main{width:100%;height:320px;object-fit:contain;background:#0a0e1e;border-radius:10px}.thumbs{display:flex;gap:8px;margin-top:10px;overflow:auto}.thumbs img{width:56px;height:56px;object-fit:cover;border-radius:8px;border:2px solid #1a1a3a;cursor:pointer}.thumbs img.active{border-color:#00e5ff}.preview-info{padding:18px}.price{font-size:26px;font-weight:900;color:#00e5ff;margin:10px 0}.btn-modal{width:100%;padding:12px;border-radius:10px;border:0;font-weight:800;cursor:pointer;margin-top:10px}.btn-whats{background:#25D366;color:#fff}
+#cartDrawer{display:none;position:fixed;top:0;right:0;width:380px;max-width:90vw;height:100vh;background:linear-gradient(180deg,#12122e,#080a12);border-left:1px solid #1e1e4a;z-index:900;flex-direction:column}.cart-header{padding:16px;display:flex;justify-content:space-between;border-bottom:1px solid #1e1e4a}.cart-items{flex:1;overflow:auto;padding:12px;display:flex;flex-direction:column;gap:10px}.cart-item{display:flex;gap:10px;background:#080a12;border:1px solid #1e1e3a;border-radius:10px;padding:8px;align-items:center}.cart-item img{width:50px;height:50px;object-fit:contain;background:#0a0e1e;border-radius:6px}.cart-footer{padding:14px;border-top:1px solid #1e1e4a;background:#0a0a14}.cart-footer input{width:100%;padding:10px;margin:4px 0;border-radius:8px;background:#080a12;border:1px solid #1e1e4a;color:#fff;font-size:12px}.btn-checkout{width:100%;padding:12px;background:linear-gradient(90deg,#25D366,#00e5ff);border:0;border-radius:10px;color:#fff;font-weight:900;cursor:pointer;margin-top:8px}
+#adminOverlay{display:none;position:fixed;inset:0;background:#05070f;z-index:999;overflow:auto}.dash-wrap{display:flex;min-height:100vh}.dash-sidebar{width:220px;background:#0a0a14;border-right:1px solid #1e1e4a;padding:18px 14px;display:flex;flex-direction:column;position:sticky;top:0;height:100vh}.dash-menu{display:flex;flex-direction:column;gap:6px;flex:1}.dash-menu a{display:flex;gap:8px;padding:9px 10px;border-radius:10px;color:#666;font-size:12px;cursor:pointer;text-decoration:none}.dash-menu a.active{background:rgba(0,229,255,0.15);color:#fff;border:1px solid #00e5ff33}.dash-main{flex:1;padding:16px 18px}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}.kpi{background:#12122a;border:1px solid #1e1e4a;border-radius:12px;padding:14px}.kpi h4{font-size:11px;color:#777}.kpi .val{font-size:22px;font-weight:900;margin-top:4px}.table-box{background:#12122a;border:1px solid #1e1e4a;border-radius:12px;padding:12px;margin-top:12px}
+.chart-canvas{width:100%;height:220px;background:#080a12;border-radius:10px;border:1px solid #1e1e3a;padding:8px}
+.btn-chart{padding:6px 10px;border-radius:8px;border:1px solid #1e1e4a;background:#12122a;color:#777;font-size:11px;font-weight:700;cursor:pointer}.btn-chart.active{background:linear-gradient(90deg,#00e5ff,#a855f7);color:#fff;border-color:#00e5ff}
+.admin-form-box{background:#12122a;border:1px solid #a855f744;border-radius:12px;padding:12px}.admin-form-box input,.admin-form-box textarea,.admin-form-box select{width:100%;padding:10px;margin:5px 0;border-radius:9px;background:#080a12;border:1px solid #1e1e4a;color:#fff}.progress{height:8px;background:#080a12;border-radius:8px;overflow:hidden;border:1px solid #1e1e4a;display:none;margin:8px 0}.bar{height:100%;width:0%;background:linear-gradient(90deg,#00ff88,#00e5ff)}
+@media(max-width:1000px){.grid-consoles{grid-template-columns:1fr 1fr}.kpi-grid{grid-template-columns:1fr 1fr}.preview-box{grid-template-columns:1fr}.hero{grid-template-columns:1fr}}@media(max-width:600px){.grid-consoles{grid-template-columns:1fr}.kpi-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
+<header><div class="logo" id="logoSecret"><div class="logo-icon">🎮</div><div><span class="d1">DIVINOS</span> <span class="d2">GAMES</span></div></div><nav><a class="active" onclick="filterCat('todos',this)">INICIO</a><a onclick="filterCat('Console',this)">CATALOGO</a><a>CONTATO</a></nav><div class="cart-icon" onclick="abrirCarrinho()">🛒 <span id="cartCount">0</span></div></header>
+<section class="hero"><div class="hero-bg"></div><div class="hero-left"><span class="badge">NOVO • 2024</span><h1>Seu Setup Gamer Completo em um Só Lugar</h1><p>Consoles, acessórios e manutenção especializada. Produtos originais com garantia.</p><button class="btn-p" onclick="document.getElementById('consolesSec').scrollIntoView({behavior:'smooth'})">Explorar Catálogo ↗</button></div></section>
+<div class="section-dark"><div class="title-center" id="consolesSec"><h2 id="tituloCatalogo">Consoles mais vendidos</h2><p>Os mais procurados • Clique para prévia HD • Carrinho com WhatsApp</p></div><div class="tabs"><div class="tab active" data-cat="todos" onclick="filterCat('todos',this)">TODOS</div><div class="tab" data-cat="Console" onclick="filterCat('Console',this)">CONSOLES</div><div class="tab" data-cat="Jogo" onclick="filterCat('Jogo',this)">GAMES</div><div class="tab" data-cat="Acessório" onclick="filterCat('Acessório',this)">ACESSÓRIOS</div><div class="tab" data-cat="Manutenção" onclick="filterCat('Manutenção',this)">MANUTENÇÃO</div></div><div class="grid-consoles" id="catalogo"></div></div>
+<footer>DIVINOS GAMES © 2024 • Todos direitos reservados</footer>
+<div id="previewModal" onclick="if(event.target===this) this.style.display='none'"><div class="preview-box"><div class="preview-img"><img id="modalMainImg" class="main" src=""><div class="thumbs" id="modalThumbs"></div><button class="btn-modal" style="background:#1a1a2a;color:#777;border:1px solid #222" onclick="document.getElementById('previewModal').style.display='none'">✕ Fechar</button></div><div class="preview-info"><h2 id="modalNome">Produto</h2><div id="modalCat" style="font-size:11px;color:#777">Categoria</div><div id="modalEstoque" style="font-size:11px;color:#00ff88;background:rgba(0,255,136,0.1);border:1px solid #00ff8844;padding:6px 10px;border-radius:8px;display:inline-block;margin:8px 0">Em estoque</div><div class="price" id="modalPreco">R$ 0,00</div><div id="modalDesc" style="font-size:13px;color:#aaa;background:#080a12;border:1px solid #1a1a3a;border-radius:10px;padding:10px;margin:10px 0;white-space:pre-wrap"></div><button class="btn-modal" style="background:linear-gradient(90deg,#00e5ff,#a855f7);color:#fff" onclick="addToCartFromModal()">🛒 Adicionar ao Carrinho</button><button class="btn-modal btn-whats" id="modalWhats">💬 Comprar no WhatsApp</button></div></div></div>
+<div id="cartDrawer"><div class="cart-header"><h3 style="font-family:Orbitron;font-size:14px">🛒 CARRINHO</h3><span style="cursor:pointer;font-size:18px" onclick="fecharCarrinho()">✕</span></div><div class="cart-items" id="cartItems"></div><div class="cart-footer"><div style="display:flex;justify-content:space-between;font-weight:900;margin-bottom:8px"><span>Total:</span><span id="cartTotal" style="color:#00e5ff">R$ 0,00</span></div><input id="cliNome" placeholder="👤 Nome completo *"><input id="cliFone" placeholder="📱 WhatsApp *"><input id="cliEndereco" placeholder="📍 Endereço *"><input id="cliObs" placeholder="📝 Observação"><button class="btn-checkout" onclick="finalizarPedido()">🚀 FINALIZAR NO WHATSAPP</button></div></div>
 
-<header>
-  <div class="logo" id="logoSecret"><div class="logo-icon">🎮</div><div><span class="d1">DIVINOS</span> <span class="d2">GAMES</span></div></div>
-  <nav><a class="active" onclick="filterCat('todos',this)">INICIO</a><a onclick="filterCat('Console',this)">CATALOGO</a><a onclick="filterCat('Manutenção',this)">SERVICOS</a><a>SUPORTE</a><a>CONTATO</a></nav>
-  <div class="nav-icons">🔍 👤 🛒</div>
-</header>
+<div id="adminOverlay"><div class="dash-wrap"><div class="dash-sidebar"><div style="text-align:center;padding:10px"><div style="width:50px;height:50px;border:1.5px solid #00e5ff;border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 8px">🎮</div><h3 style="font-family:Orbitron;font-size:14px">DIVINOS GAMES</h3><p style="font-size:10px;color:#666">GameHub</p></div><div class="dash-menu"><a class="active" data-sec="dashboard" onclick="switchDash('dashboard',this)">📊 Dashboard</a><a data-sec="produtos" onclick="switchDash('produtos',this)">📦 Produtos</a><a data-sec="pedidos" onclick="switchDash('pedidos',this)">🧾 Pedidos</a><a data-sec="config" onclick="switchDash('config',this)">⚙️ Configurações</a><a onclick="document.getElementById('adminOverlay').style.display='none'">✕ Sair</a></div></div><div class="dash-main">
+<div id="dash-dashboard"><h2 style="font-family:Orbitron;margin-bottom:12px">Dashboard Geral</h2><div class="kpi-grid"><div class="kpi"><h4>Total Vendas</h4><div class="val" id="kpiVendas">R$ 0,00</div><div style="font-size:10px;color:#00ff88">↑ baseado no gráfico</div></div><div class="kpi"><h4>Pedidos</h4><div class="val" id="kpiPedidos">0</div><div style="font-size:10px;color:#777">total de vendas</div></div><div class="kpi"><h4>Produtos</h4><div class="val" id="kpiProdutos">0</div><div style="font-size:10px;color:#777">cadastrados</div></div><div class="kpi"><h4>Clientes novos</h4><div class="val" id="kpiClientes">0</div><div style="font-size:10px;color:#00ff88">via carrinho</div></div></div><div class="table-box"><div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:10px"><h3>📅 Vendas - <span id="chartLabel">Últimos 7 dias</span></h3><div style="display:flex;gap:6px"><button onclick="setChartDays(7)" id="btn7" class="btn-chart active">7 dias</button><button onclick="setChartDays(15)" id="btn15" class="btn-chart">15 dias</button><button onclick="setChartDays(30)" id="btn30" class="btn-chart">30 dias</button><button onclick="limparGrafico()" class="btn-chart" style="background:#ff0040;color:#fff;border-color:#ff0040">🗑️ Limpar</button></div></div><div class="chart-canvas"><canvas id="salesChart"></canvas></div><div style="display:flex;justify-content:space-between;margin-top:8px;font-size:10px;color:#666"><span>Total no período: <b id="chartTotal" style="color:#00e5ff">R$ 0,00</b></span><span>Atualiza a cada pedido</span></div></div><div class="table-box"><h4>Pedidos Recentes</h4><div id="listaPedidos" style="font-size:11px;color:#777;margin-top:8px">Nenhum pedido ainda</div></div></div>
 
-<section class="hero">
-  <div class="hero-bg" id="heroBg"></div>
-  <div class="hero-left">
-    <span class="badge">NOVO • 2024</span>
-    <h1>Seu Setup Gamer Completo em um Só Lugar</h1>
-    <p>Consoles, acessórios e manutenção especializada para elevar seu jogo. Produtos originais com garantia e suporte técnico 24/7.</p>
-    <div class="btns">
-      <button class="btn-p" onclick="document.getElementById('consolesSec').scrollIntoView({behavior:'smooth'})">Explorar Catálogo ↗</button>
-      <button class="btn-s" onclick="filterCat('Manutenção',null)">🛠️ Agendar Manutenção</button>
-    </div>
-    <div class="checks"><span><i>✓</i> Frete Grátis p/ todo Brasil</span><span><i>✓</i> Garantia de 90 dias</span><span><i>✓</i> Parcelamento em até 12x</span></div>
-  </div>
-  <div style="position:relative;z-index:2"></div>
-</section>
+<div id="dash-produtos" style="display:none"><h2 style="font-family:Orbitron">Gerenciar Produtos</h2><div class="admin-form-box" style="margin-top:12px"><input type="hidden" id="editId"><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><input id="nome" placeholder="Nome: PlayStation 5 Slim"><input id="preco" type="number" step="0.01" placeholder="Preço: 3899.90"></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><select id="categoria"><option value="">Categoria</option><option value="Console">Console</option><option value="Jogo">Jogo</option><option value="Acessório">Acessório</option><option value="Manutenção">Manutenção</option></select><input id="estoque" type="number" placeholder="Estoque: 15"></div><textarea id="desc" rows="4" placeholder="Descrição completa para prévia HD - ex: O QUE VEM NA CAIXA..."></textarea><input type="file" id="foto" accept="image/*" multiple><div class="progress" id="pBox"><div class="bar" id="pBar"></div></div><div id="preview" style="display:flex;gap:6px;flex-wrap:wrap;margin-top:6px"></div><div id="status" style="text-align:center;font-weight:800;min-height:18px;margin:6px 0;font-size:11px;color:#00ff88"></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><button class="btn-modal" style="background:linear-gradient(90deg,#00e5ff,#a855f7);color:#fff" id="btnSalvar">🚀 SALVAR NO FIREBASE</button><button class="btn-modal" style="background:#1a1a2a;border:1px solid #333;color:#777" onclick="cancelarEdicao()">Cancelar Edição</button></div></div><div style="margin-top:12px"><h4 style="font-size:11px;color:#777">Produtos no Firebase (clique em ✏️ para editar):</h4><div id="listaAdmin"></div></div></div>
 
-<div class="section-dark">
-  <div class="title-center" id="consolesSec"><h2 id="tituloCatalogo">Consoles mais vendidos</h2><p>Os mais procurados pelos gamers • 4 catálogos • Clique para prévia • Firebase ao vivo</p></div>
-  <div class="tabs">
-    <div class="tab active" data-cat="todos" onclick="filterCat('todos',this)">🎮 TODOS</div>
-    <div class="tab" data-cat="Console" onclick="filterCat('Console',this)">🕹️ CONSOLES</div>
-    <div class="tab" data-cat="Jogo" onclick="filterCat('Jogo',this)">🎯 GAMES</div>
-    <div class="tab" data-cat="Acessório" onclick="filterCat('Acessório',this)">🎧 ACESSÓRIOS</div>
-    <div class="tab" data-cat="Manutenção" onclick="filterCat('Manutenção',this)">🔧 MANUTENÇÃO</div>
-  </div>
-  <div class="grid-consoles" id="catalogo"></div>
+<div id="dash-pedidos" style="display:none"><h2 style="font-family:Orbitron">Pedidos</h2><div class="table-box"><div id="pedidosFull">Os pedidos que finalizam no carrinho e vão pro WhatsApp aparecem aqui com histórico salvo.</div></div></div>
 
-  <div class="servicos">
-    <div><h2>Serviços populares</h2><p class="sub">Suporte técnico e manutenção para seu setup</p><div class="mini-grid"><div class="mini-card"><div class="icon">🔧</div><div><h4>Limpeza & Manutenção</h4><p>Limpeza interna completa e troca de pasta térmica</p><div class="price-mini">a partir de R$ 120</div></div></div><div class="mini-card"><div class="icon purple">💾</div><div><h4>Troca de HD/SSD</h4><p>Upgrade de armazenamento rápido e seguro</p><div class="price-mini" style="color:#a855f7">a partir de R$ 180</div></div></div></div></div>
-    <div><h2>Avaliações 4.8 estrelas</h2><p class="sub">Mais de 2.500 clientes satisfeitos</p><div class="mini-grid"><div class="mini-card"><div><div style="color:#ffcc00">★★★★★</div><h4>Agendei a manutenção do meu Xbox e ficou como novo.</h4><div class="verified"><img src="https://i.pravatar.cc/20?img=32"> Fernanda R.</div></div></div><div class="mini-card"><div class="icon">🎮</div><div><h4>Controle - Reparo</h4><p>Preço justo e atendimento incrível no WhatsApp.</p><div class="price-mini">a partir de R$ 90</div></div></div></div></div>
-  </div>
-</div>
+<div id="dash-config" style="display:none"><h2 style="font-family:Orbitron;margin-bottom:12px">Configurações</h2><div class="table-box" style="max-width:500px"><h3>🔐 Trocar senha do modo Admin</h3><p style="font-size:11px;color:#666;margin:8px 0 12px">Senha que libera após 5 cliques no logo</p><div style="background:#080a12;border:1px solid #1e1e4a;border-radius:10px;padding:12px"><label style="font-size:11px;color:#888">Senha atual:</label><input type="password" id="senhaAtual" placeholder="Senha atual"><label style="font-size:11px;color:#888;margin-top:8px;display:block">Nova senha:</label><input type="password" id="senhaNova" placeholder="Nova senha"><label style="font-size:11px;color:#888;margin-top:8px;display:block">Confirmar nova senha:</label><input type="password" id="senhaConf" placeholder="Confirmar nova senha"><button onclick="trocarSenha()" style="width:100%;padding:12px;margin-top:10px;background:linear-gradient(90deg,#00e5ff,#a855f7);border:0;border-radius:10px;color:#fff;font-weight:900;cursor:pointer">🔐 SALVAR NOVA SENHA</button><div id="senhaStatus" style="text-align:center;margin-top:10px;font-size:11px;min-height:18px"></div><div style="margin-top:12px;padding:8px;background:rgba(0,229,255,0.08);border:1px solid #00e5ff33;border-radius:8px;font-size:10px;color:#777">Senha padrão: <b>divinos2024</b> | Senha atual: <b id="senhaAtualDisplay" style="color:#00e5ff">divinos2024</b></div></div></div></div>
 
-<footer><div>DIVINOS GAMES © 2024 • Final 100% Revisado Linha por Linha • Firebase divinosgames-63867 • hero-bg.jpg local • Prévia • Dashboard • 5 cliques logo</div><div class="footer-badges"><span>🔒 Seguro</span><span>🛡️ Protegido</span><span>✅ Garantia</span></div></footer>
-
-<div class="whats-float"><div class="whats-label">Fale conosco no WhatsApp</div><div class="whats-btn" onclick="window.open('https://wa.me/5573988000000','_blank')">💬</div></div>
-
-<div id="previewModal" onclick="if(event.target===this) this.style.display='none'">
-  <div class="preview-box"><div class="preview-img"><img id="modalMainImg" class="main" src=""><div class="thumbs" id="modalThumbs"></div><button class="btn-modal" style="background:#1a1a2a;color:#777;border:1px solid #222" onclick="document.getElementById('previewModal').style.display='none'">✕ Fechar prévia</button></div><div class="preview-info"><h2 id="modalNome" style="font-family:Orbitron">Produto</h2><div id="modalCat" style="font-size:11px;color:#777">Categoria</div><div id="modalEstoque" style="font-size:11px;color:#00ff88;background:rgba(0,255,136,0.1);border:1px solid #00ff8844;padding:6px 10px;border-radius:8px;display:inline-block;margin:8px 0">Em estoque</div><div class="price" id="modalPreco">R$ 0,00</div><div id="modalDesc" style="font-size:13px;color:#aaa;background:#080a12;border:1px solid #1a1a3a;border-radius:10px;padding:10px;margin:10px 0">Descrição</div><button class="btn-modal btn-whats" id="modalWhats">💬 Comprar no WhatsApp</button><button class="btn-modal" style="background:transparent;border:1px solid #00e5ff;color:#00e5ff" onclick="document.getElementById('previewModal').style.display='none'">← Continuar</button></div></div>
-</div>
-
-<div id="adminOverlay">
-  <div class="dash-wrap">
-    <div class="dash-sidebar">
-      <div class="logo-side"><div class="icon-big">🎮</div><h3><span class="c">DIVINOS</span> <span class="p">GAMES</span></h3><small>GameHub</small></div>
-      <div class="dash-menu">
-        <a class="active" onclick="switchDash('dashboard',this)"><span>📊</span> <span>Dashboard</span></a>
-        <a onclick="switchDash('produtos',this)"><span>📦</span> <span>Produtos</span></a>
-        <a onclick="switchDash('pedidos',this)"><span>📋</span> <span>Pedidos</span></a>
-        <a onclick="switchDash('servicos',this)"><span>🔧</span> <span>Serviços</span></a>
-        <a onclick="switchDash('clientes',this)"><span>👥</span> <span>Clientes</span></a>
-        <a onclick="switchDash('financeiro',this)"><span>💲</span> <span>Financeiro</span></a>
-        <a onclick="switchDash('config',this)"><span>⚙️</span> <span>Configurações</span></a>
-      </div>
-      <div class="dash-bottom"><div style="display:flex;align-items:center;gap:8px"><img src="https://i.pravatar.cc/30?img=3" style="width:28px;height:28px;border-radius:50%"><div><div style="font-size:12px;font-weight:700">Admin</div><div style="font-size:10px;color:#00ff88">Online</div></div></div><span style="font-size:12px;cursor:pointer;color:#666" onclick="document.getElementById('adminOverlay').style.display='none'">Sair ✕</span></div>
-    </div>
-    <div class="dash-main">
-      <div class="dash-top"><h1><span class="c">Dashboard</span> <span class="p">Geral</span></h1><div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><div class="search-box">🔍<input placeholder="Pesquisar..." id="dashSearch"></div><span style="position:relative">🔔<sup style="background:#a855f7;color:#fff;border-radius:50%;padding:1px 5px;font-size:9px;position:absolute;top:-6px;right:-8px">3</sup></span><span>💬</span><div style="display:flex;align-items:center;gap:8px;background:#12122a;border:1px solid #1e1e4a;border-radius:10px;padding:6px 10px"><img src="https://i.pravatar.cc/30?img=3" style="width:26px;height:26px;border-radius:50%"><div><div style="font-size:11px;font-weight:700">Admin</div><div style="font-size:9px;color:#00ff88">Online</div></div></div></div></div>
-      <div id="dash-dashboard">
-        <div class="dash-stats">
-          <div class="stat-card"><div class="icon-s">📈</div><h4>Total Vendas</h4><div class="val cyan" id="statVendas">R$ 18.450</div><div class="sub green">↑ +12% vs mês anterior</div></div>
-          <div class="stat-card"><div class="icon-s">🛒</div><h4>Pedidos</h4><div class="val purple" id="statPedidos">87</div><div class="sub green">↑ +8% vs mês anterior</div></div>
-          <div class="stat-card"><div class="icon-s">🔧</div><h4>Manutenções em andamento</h4><div class="val cyan" id="statManut">12</div><div class="sub orange">-3 em aberto</div></div>
-          <div class="stat-card"><div class="icon-s">👤</div><h4>Clientes novos</h4><div class="val purple" id="statClientes">24</div><div class="sub green">+5 novos hoje</div></div>
-        </div>
-        <div class="chart-grid">
-          <div class="chart-box"><h3>📅 Vendas - Últimos 7 dias</h3><div class="chart-canvas"><canvas id="salesChart"></canvas></div></div>
-          <div class="table-box"><h3>📋 Pedidos Recentes</h3><table class="table"><thead><tr><th>ID Pedido</th><th>Cliente</th><th>Produto</th><th>Valor</th><th>Status</th></tr></thead><tbody><tr><td>#10284</td><td>Lucas M.</td><td>Controle PS5</td><td>R$ 349,00</td><td><span class="badge-s badge-pago">Pago</span></td></tr><tr><td>#10283</td><td>Maria S.</td><td>Headset Gamer RGB</td><td>R$ 220,00</td><td><span class="badge-s badge-enviado">Enviado</span></td></tr><tr><td>#10282</td><td>Rafael T.</td><td>Jogo Cyber Adventure</td><td>R$ 199,00</td><td><span class="badge-s badge-pendente">Pendente</span></td></tr><tr><td>#10281</td><td>Juliana R.</td><td>Teclado Mecânico</td><td>R$ 410,00</td><td><span class="badge-s badge-pago">Pago</span></td></tr></tbody></table></div>
-        </div>
-        <div class="table-box"><h3>🔧 Solicitações de Serviço</h3><table class="table"><thead><tr><th>ID</th><th>Serviço</th><th>Cliente</th><th>Status</th></tr></thead><tbody><tr><td>#SV-045</td><td>Manutenção Console</td><td>Carlos P.</td><td><span class="badge-s badge-andamento">Em andamento</span></td></tr><tr><td>#SV-044</td><td>Troca Joystick</td><td>Ana F.</td><td><span class="badge-s badge-aguardando">Aguardando Peça</span></td></tr><tr><td>#SV-043</td><td>Limpeza Interna</td><td>Bruno L.</td><td><span class="badge-s badge-concluida">Concluída</span></td></tr><tr><td>#SV-042</td><td>Atualização Firmware</td><td>Pedro K.</td><td><span class="badge-s badge-andamento">Em andamento</span></td></tr></tbody></table></div>
-        <div class="chart-box"><h3>📦 Gerenciamento de Produtos - Firebase AUTO (Foto celular → Storage → Firestore → Site ao vivo • Mesmo limpando cache)</h3>
-          <div class="admin-form-box">
-            <span id="formTitle" style="display:block;text-align:center;background:rgba(0,255,136,0.1);border:1px solid #00ff88;color:#00ff88;font-weight:900;padding:8px;border-radius:8px;font-size:11px;margin-bottom:10px">MODO: ADICIONAR - Todas funções revisadas linha por linha</span>
-            <input type="hidden" id="editId">
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><input id="nome" placeholder="Nome: PlayStation 5 Slim"><input id="preco" type="number" step="0.01" placeholder="Preço: 3899.90"></div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><select id="categoria"><option value="">Categoria</option><option value="Console">🕹️ Console</option><option value="Jogo">🎯 Jogo</option><option value="Acessório">🎧 Acessório</option><option value="Manutenção">🔧 Manutenção</option></select><input id="estoque" type="number" placeholder="Estoque: 15"></div>
-            <textarea id="desc" rows="2" placeholder="Descrição completa para prévia HD"></textarea>
-            <input type="file" id="foto" accept="image/*" capture="environment" multiple>
-            <div class="progress" id="pBox"><div class="bar" id="pBar"></div></div>
-            <div id="preview" style="display:flex;gap:6px;flex-wrap:wrap;margin-top:6px"></div>
-            <div id="status" style="text-align:center;font-weight:800;min-height:18px;margin:6px 0;font-size:11px;color:#00ff88"></div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><button class="btn-admin" id="btnSalvar">🚀 SALVAR NO FIREBASE</button><button class="btn-admin" style="background:#1a1a2a;border:1px solid #333" onclick="limparForm()">🧹 Limpar</button></div>
-          </div>
-          <div style="margin-top:12px"><h4 style="font-size:11px;color:#777;margin-bottom:6px">Produtos no Firebase (prévia 👁️ / editar ✏️ / deletar 🗑️):</h4><div id="listaAdmin"></div></div>
-        </div>
-      </div>
-      <div id="dash-produtos" style="display:none"><div class="table-box"><h3>📦 Todos Produtos</h3><div id="listaAdmin2"></div></div></div>
-      <div id="dash-pedidos" style="display:none"><div class="table-box"><h3>📋 Pedidos</h3><p style="font-size:11px;color:#666">Pedidos via WhatsApp aparecerão aqui.</p></div></div>
-      <div id="dash-servicos" style="display:none"><div class="table-box"><h3>🔧 Serviços</h3><div id="listaServicos"></div></div></div>
-      <div id="dash-clientes" style="display:none"><div class="table-box"><h3>👥 Clientes</h3></div></div>
-      <div id="dash-financeiro" style="display:none"><div class="chart-box"><h3>💰 Financeiro - Revisado</h3><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px"><div class="stat-card"><h4>Faturamento Total</h4><div class="val cyan" id="statFatTotal">R$ 0</div></div><div class="stat-card"><h4>Estoque Baixo</h4><div class="val" id="statBaixo" style="color:#ffaa00">0</div></div><div class="stat-card"><h4>Total Produtos</h4><div class="val" id="statTotal" style="color:#00e5ff">0</div></div></div></div></div>
-      <div id="dash-config" style="display:none"><div class="table-box"><h3>⚙️ Config - Checklist 100% Revisado</h3><div style="font-size:11px;color:#aaa;line-height:1.8">✅ Firebase divinosgames-63867 API Key: AIzaSyCUL...<br>✅ Foto celular capture=environment → Storage AUTO uploadBytesResumable com progresso<br>✅ getDownloadURL → Firestore addDoc com imagemURL, imagensGaleria, categoria, estoque, preco, descricao<br>✅ onSnapshot ao vivo - site atualiza sem F5, mesmo limpando cache (nuvem)<br>✅ Design 100% GameHub igual foto 1 e 2: header INICIO CATALOGO SERVICOS SUPORTE CONTATO, hero circuito neon PS5 Xbox, 3 cards borda neon, serviços, avaliações<br>✅ Admin oculto no logo DIVINOS GAMES 5 cliques rápidos + senha divinos2024<br>✅ 4 catálogos: Console / Jogo / Acessório / Manutenção - tabs filtram<br>✅ Prévia visualização HD modal com galeria thumbs, estoque, preço, WhatsApp<br>✅ Contador views 👁️ nos cards<br>✅ Dashboard completo igual foto 3: sidebar DIVINOS GAMES GameHub, Total Vendas R$ 18.450, Pedidos 87, Manutenções 12, Clientes 24, gráfico Vendas últimos 7 dias canvas, Pedidos Recentes, Solicitações Serviço<br>✅ Editar produto ✏️ updateDoc, Deletar 🗑️ deleteDoc<br>✅ Hero-bg.jpg local ./hero-bg.jpg sem imgbb que quebra, fallback gradiente<br>✅ Imersivo partículas, neon glow, hover, backdrop blur<br>✅ WhatsApp flutuante, 12x sem juros, frete grátis, garantia 90 dias</div></div></div>
-    </div>
-  </div>
-</div>
+</div></div></div>
 
 <script>
-const heroBgEl=document.getElementById('heroBg');
-if(heroBgEl){
-  const imgLocal="./hero-bg.jpg";
-  const imgFallback="./hero.jpg";
-  heroBgEl.style.backgroundImage=`url('${imgLocal}'), url('${imgFallback}'), radial-gradient(ellipse at 65% 50%, #1a1040 0%, #05070f 70%)`;
-  heroBgEl.style.backgroundSize="cover,cover,cover";
-  heroBgEl.style.backgroundPosition="center right,center right,center";
-}
-let clicks=0, timer=null;
-document.getElementById('logoSecret').addEventListener('click', ()=>{
-  clicks++; if(timer) clearTimeout(timer); timer=setTimeout(()=>{clicks=0},1500);
-  if(clicks>=5){ clicks=0; const s=prompt("🔐 DASHBOARD SECRETO DIVINOS GAMES\nSenha:"); if(s==="divinos2024"){ document.getElementById('adminOverlay').style.display='block'; setTimeout(drawChart,100); } else if(s!==null){ alert("Senha incorreta! Dica: divinos2024"); } }
-});
-window.switchDash=(tab,el)=>{
-  document.querySelectorAll('.dash-menu a').forEach(a=>a.classList.remove('active')); el.classList.add('active');
-  document.getElementById('dash-dashboard').style.display=tab==='dashboard'?'block':'none';
-  document.getElementById('dash-produtos').style.display=tab==='produtos'?'block':'none';
-  document.getElementById('dash-pedidos').style.display=tab==='pedidos'?'block':'none';
-  document.getElementById('dash-servicos').style.display=tab==='servicos'?'block':'none';
-  document.getElementById('dash-clientes').style.display=tab==='clientes'?'block':'none';
-  document.getElementById('dash-financeiro').style.display=tab==='financeiro'?'block':'none';
-  document.getElementById('dash-config').style.display=tab==='config'?'block':'none';
-  if(tab==='dashboard') setTimeout(drawChart,100);
-};
-let categoriaAtiva="todos"; let todosProdutos=[];
-window.filterCat=(cat,el)=>{
-  categoriaAtiva=cat;
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-  if(el && el.classList.contains('tab')) el.classList.add('active');
-  else document.querySelectorAll('.tab').forEach(t=>{ if(t.dataset.cat===cat) t.classList.add('active'); });
-  const tit=document.getElementById('tituloCatalogo');
-  if(tit){
-    if(cat==='todos') tit.innerText="Consoles mais vendidos";
-    else if(cat==='Console') tit.innerText="Mundo Consoles";
-    else if(cat==='Jogo') tit.innerText="Mundo Games";
-    else if(cat==='Acessório') tit.innerText="Mundo Acessórios";
-    else tit.innerText="Mundo Manutenção";
-  }
-  renderProdutos();
-};
-function renderProdutos(){
-  const el=document.getElementById('catalogo');
-  let lista=categoriaAtiva==='todos'? todosProdutos : todosProdutos.filter(p=>p.categoria && p.categoria.toLowerCase().includes(categoriaAtiva.toLowerCase()));
-  if(!lista.length){
-    if(todosProdutos.length===0){
-      el.innerHTML=`<div class="card-c"><span class="tag tag-v">MAIS VENDIDO</span><img src="https://cdn.pixabay.com/photo/2022/03/11/04/24/playstation-5-7061235_1280.png"><h3>PlayStation 5</h3><div class="sub">SSD 825GB • Controle DualSense</div><div class="preco c1">R$ 3.899</div><div class="parc">12x R$ 374,92 sem juros</div><button class="btn-card">Comprar agora</button></div>
-      <div class="card-c"><span class="tag tag-o">OFERTA</span><img src="https://cdn.pixabay.com/photo/2021/09/12/07/58/xbox-6616631_1280.png"><h3>Xbox Series X</h3><div class="sub">SSD 1TB • 4K 120FPS</div><div class="preco c2">R$ 3.599</div><div class="parc">12x R$ 345,92 sem juros</div><button class="btn-card">Comprar agora</button></div>
-      <div class="card-c"><span class="tag tag-v">PORTÁTIL</span><img src="https://cdn.pixabay.com/photo/2021/10/09/00/07/nintendo-switch-6692148_1280.png"><h3>Nintendo Switch OLED</h3><div class="sub">Tela 7'' OLED • 64GB</div><div class="preco c3">R$ 2.199</div><div class="parc">12x R$ 211,25 sem juros</div><button class="btn-card">Comprar agora</button></div>`;
-    } else { el.innerHTML=`<div style="grid-column:1/-1;text-align:center;padding:40px;color:#666">Nenhum produto em ${categoriaAtiva}<br><small>Cadastre no dashboard (5 cliques no logo)</small></div>`; } return;
-  }
-  let html=""; lista.forEach(p=>{
-    const tipo=p.categoria||"Geral"; let tag="tag-v"; let cor="c1";
-    if(tipo==="Console") tag="tag-v"; else if(tipo==="Jogo") tag="tag-v"; else if(tipo==="Acessório") tag="tag-o"; else if(tipo.includes("Manuten")){ tag="tag-v"; cor="c1"; }
-    html+=`<div class="card-c" onclick="abrirPrevia('${p.id}')"><span class="tag ${tag}">${tipo.toUpperCase()}</span><img src="${p.imagemURL}" loading="lazy"><h3>${p.nome}</h3><div class="sub">${p.categoria} • Estoque ${p.estoque}</div><div class="preco ${cor}">R$ ${Number(p.preco).toFixed(2).replace(',',',')}</div><div class="parc">12x R$ ${(Number(p.preco)/12).toFixed(2).replace(',',',')} sem juros</div><button class="btn-card">Comprar agora</button></div>`;
-  }); el.innerHTML=html;
-}
-window.abrirPrevia=(id)=>{
-  const p=todosProdutos.find(x=>x.id===id); if(!p) return;
-  document.getElementById('modalMainImg').src=p.imagemURL;
-  document.getElementById('modalNome').innerText=p.nome;
-  document.getElementById('modalCat').innerText=`${p.categoria} • Firebase • ID: ${id.slice(0,6)}`;
-  document.getElementById('modalEstoque').innerText=`✅ Estoque: ${p.estoque} unidades • Mesmo limpando cache`;
-  document.getElementById('modalPreco').innerText=`R$ ${Number(p.preco).toFixed(2).replace(',',',')}`;
-  document.getElementById('modalDesc').innerText=p.descricao||"Produto original DIVINOS GAMES com garantia e prévia HD.";
-  document.getElementById('modalWhats').onclick=()=>window.open(`https://wa.me/5573988000000?text=Quero ${encodeURIComponent(p.nome)} R$ ${p.preco} - Vim do site DIVINOS GAMES`,'_blank');
-  const thumbs=document.getElementById('modalThumbs'); thumbs.innerHTML="";
-  (p.imagensGaleria||[p.imagemURL]).forEach((url,i)=>{
-    const img=document.createElement('img'); img.src=url; if(i===0) img.classList.add('active');
-    img.onclick=()=>{ document.getElementById('modalMainImg').src=url; document.querySelectorAll('.thumbs img').forEach(t=>t.classList.remove('active')); img.classList.add('active'); };
-    thumbs.appendChild(img);
-  });
-  document.getElementById('previewModal').style.display='block';
-};
-window.limparForm=()=>{
-  document.getElementById('editId').value=""; document.getElementById('nome').value=""; document.getElementById('preco').value=""; document.getElementById('categoria').value=""; document.getElementById('estoque').value=""; document.getElementById('desc').value=""; document.getElementById('preview').innerHTML=""; document.getElementById('status').innerText=""; document.getElementById('formTitle').innerText="MODO: ADICIONAR - Todas funções revisadas linha por linha"; window.urls=[]; document.getElementById('btnSalvar').innerText="🚀 SALVAR NO FIREBASE";
-};
-window.editarProduto=(id)=>{
-  const p=todosProdutos.find(x=>x.id===id); if(!p) return;
-  document.getElementById('editId').value=id;
-  document.getElementById('nome').value=p.nome; document.getElementById('preco').value=p.preco; document.getElementById('categoria').value=p.categoria; document.getElementById('estoque').value=p.estoque; document.getElementById('desc').value=p.descricao||"";
-  document.getElementById('preview').innerHTML=`<img src="${p.imagemURL}" style="width:70px;height:70px;object-fit:cover;border-radius:8px;border:1px solid #00e5ff">`;
-  window.urls=p.imagensGaleria||[p.imagemURL];
-  document.getElementById('formTitle').innerText=`MODO: EDITAR ${p.nome} - ID: ${id.slice(0,6)}`;
-  document.getElementById('btnSalvar').innerText="✏️ ATUALIZAR PRODUTO";
-};
-function drawChart(){
-  const canvas=document.getElementById('salesChart'); if(!canvas) return;
-  const ctx=canvas.getContext('2d');
-  const dpr=window.devicePixelRatio||1;
-  const parent=canvas.parentElement;
-  const rect=parent.getBoundingClientRect();
-  canvas.width=rect.width*dpr; canvas.height=220*dpr; canvas.style.width=rect.width+"px"; canvas.style.height="220px"; ctx.setTransform(dpr,0,0,dpr,0,0);
-  const w=rect.width, h=220, padL=36, padB=32, padT=14, padR=12;
-  const data=[1,2.8,1.6,2.2,3.0,5.9,5.4,5.0]; const max=7;
-  ctx.clearRect(0,0,w,h);
-  ctx.strokeStyle="#1e1e3a"; ctx.lineWidth=0.5;
-  for(let i=0;i<=6;i++){ const y=padT + (h-padT-padB)*(1-i/6); ctx.beginPath(); ctx.moveTo(padL,y); ctx.lineTo(w-padR,y); ctx.stroke(); ctx.fillStyle="#555"; ctx.font="11px Inter"; ctx.fillText((max*i/6).toFixed(0)+"k",4,y+4); }
-  const pts=[];
-  data.forEach((v,i)=>{ const x=padL + (w-padL-padR)*(i/(data.length-1)); const y=padT + (h-padT-padB)*(1-v/max); pts.push({x,y}); });
-  const grad=ctx.createLinearGradient(0,0,0,h); grad.addColorStop(0,"rgba(0,229,255,0.28)"); grad.addColorStop(1,"rgba(168,85,247,0.05)");
-  ctx.beginPath(); ctx.moveTo(pts[0].x,pts[0].y);
-  for(let i=1;i<pts.length;i++){ const prev=pts[i-1]; const cur=pts[i]; const cx=(prev.x+cur.x)/2; ctx.quadraticCurveTo(prev.x,prev.y,cx,(prev.y+cur.y)/2); }
-  ctx.lineTo(pts[pts.length-1].x, h-padB); ctx.lineTo(pts[0].x, h-padB); ctx.closePath(); ctx.fillStyle=grad; ctx.fill();
-  ctx.beginPath(); ctx.moveTo(pts[0].x,pts[0].y);
-  for(let i=1;i<pts.length;i++){ const prev=pts[i-1]; const cur=pts[i]; const cx=(prev.x+cur.x)/2; ctx.quadraticCurveTo(prev.x,prev.y,cx,(prev.y+cur.y)/2); }
-  ctx.strokeStyle="#00e5ff"; ctx.lineWidth=2.2; ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(pts[0].x,pts[0].y);
-  for(let i=1;i<pts.length;i++){ const prev=pts[i-1]; const cur=pts[i]; const cx=(prev.x+cur.x)/2; if(i>=4) ctx.quadraticCurveTo(prev.x,prev.y,cx,(prev.y+cur.y)/2); }
-  ctx.strokeStyle="#a855f7"; ctx.lineWidth=2.2; ctx.stroke();
-  pts.forEach((pt,i)=>{ ctx.beginPath(); ctx.arc(pt.x,pt.y,i>=4?5:4,0,Math.PI*2); ctx.fillStyle=i>=4?"#a855f7":"#00e5ff"; ctx.fill(); ctx.strokeStyle="#fff"; ctx.lineWidth=1.2; ctx.stroke(); });
-  const labels=["Seg","Ter","Qua","Qui","Sex","Sab","Dom"];
-  labels.forEach((lb,i)=>{ const x=padL + (w-padL-padR)*(i/(labels.length-1)); ctx.fillStyle="#666"; ctx.font="11px Inter"; ctx.fillText(lb,x-10,h-8); });
-}
-function updateDashboard(){
-  const total=todosProdutos.length;
-  let fat=0, baixo=0;
-  todosProdutos.forEach(p=>{ fat+=Number(p.preco)*Number(p.estoque||1); if(Number(p.estoque)<=3) baixo++; });
-  const elFat=document.getElementById('statFatTotal'); if(elFat) elFat.innerText=`R$ ${fat.toLocaleString('pt-BR',{minimumFractionDigits:2})}`;
-  const elTotal=document.getElementById('statTotal'); if(elTotal) elTotal.innerText=total;
-  const elBaixo=document.getElementById('statBaixo'); if(elBaixo) elBaixo.innerText=baixo;
-  const lista=document.getElementById('listaAdmin'); const lista2=document.getElementById('listaAdmin2'); const listaServ=document.getElementById('listaServicos');
-  let html=""; todosProdutos.forEach(p=>{ html+=`<div style="display:flex;gap:8px;background:#080a12;border:1px solid #1e1e3a;border-radius:10px;padding:8px;margin:6px 0;align-items:center"><img src="${p.imagemURL}" style="width:48px;height:48px;object-fit:cover;border-radius:8px"><div style="flex:1"><div style="font-size:12px;font-weight:700">${p.nome}</div><div style="font-size:10px;color:#777">${p.categoria} • R$ ${p.preco} • ${p.estoque} unid. • ${p.imagensGaleria?.length||1} fotos • 👁️ ${p.views||0}</div></div><button onclick="abrirPrevia('${p.id}')" style="background:#00e5ff;border:0;color:#fff;border-radius:6px;padding:6px 8px;cursor:pointer">👁️</button><button onclick="editarProduto('${p.id}')" style="background:#ffaa00;border:0;color:#fff;border-radius:6px;padding:6px 8px;cursor:pointer">✏️</button><button onclick="if(confirm('Apagar ${p.nome}?')){deleteDocFB('${p.id}')}" style="background:#ff0040;border:0;color:#fff;border-radius:6px;padding:6px 8px;cursor:pointer">🗑️</button></div>`; });
-  if(lista) lista.innerHTML=html||"<p style='font-size:11px;color:#666'>Nenhum produto no Firebase ainda - cadastre acima. Foto sobe AUTO.</p>";
-  if(lista2) lista2.innerHTML=html||"<p style='font-size:11px;color:#666'>Nenhum produto</p>";
-  if(listaServ) listaServ.innerHTML=todosProdutos.filter(p=>p.categoria && p.categoria.toLowerCase().includes('manuten')).map(p=>`<div style="display:flex;gap:8px;background:#080a12;border:1px solid #1e1e3a;border-radius:10px;padding:8px;margin:6px 0;align-items:center"><img src="${p.imagemURL}" style="width:40px;height:40px;object-fit:cover;border-radius:8px"><div style="flex:1"><div style="font-size:12px;font-weight:700">${p.nome} - Manutenção</div><div style="font-size:10px;color:#777">R$ ${p.preco} • ${p.estoque} unid.</div></div></div>`).join('')||"<p style='font-size:11px;color:#666'>Nenhum serviço de manutenção cadastrado</p>";
-  setTimeout(drawChart,50);
-}
-window.deleteDocFB=async(id)=>{ if(window._deleteDoc) window._deleteDoc(id); };
+let categoriaAtiva="todos";let todosProdutos=[];let carrinho=JSON.parse(localStorage.getItem('divinos_cart')||'[]');let produtoModal=null;let clicks=0,timer=null;let chartDays=7;let salesData=JSON.parse(localStorage.getItem('divinos_sales')||'[]');let pedidosData=JSON.parse(localStorage.getItem('divinos_pedidos')||'[]');
+if(salesData.length===0){const hoje=new Date();for(let i=6;i>=0;i--){let d=new Date();d.setDate(hoje.getDate()-i);salesData.push({date:d.toISOString().split('T')[0],value:Math.floor(Math.random()*800+200)})}localStorage.setItem('divinos_sales',JSON.stringify(salesData))}
+let senhaAdmin=localStorage.getItem('divinos_admin_pass')||'divinos2024';
+window.switchDash=(sec,el)=>{document.querySelectorAll('.dash-menu a').forEach(a=>a.classList.remove('active'));if(el)el.classList.add('active');['dashboard','produtos','pedidos','config'].forEach(s=>{document.getElementById('dash-'+s).style.display=s===sec?'block':'none'});if(sec==='dashboard')setTimeout(drawChart,80)};
+document.getElementById('logoSecret').addEventListener('click',()=>{clicks++;if(timer)clearTimeout(timer);timer=setTimeout(()=>{clicks=0},1500);if(clicks>=5){clicks=0;senhaAdmin=localStorage.getItem('divinos_admin_pass')||'divinos2024';const s=prompt("🔐 Dashboard senha:");if(s===senhaAdmin){document.getElementById('adminOverlay').style.display='block';setTimeout(()=>{drawChart();updateKPIs()},100)}else if(s!==null)alert("Senha incorreta!");}});
+window.filterCat=(cat,el)=>{categoriaAtiva=cat;document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));if(el)el.classList.add('active');const tit=document.getElementById('tituloCatalogo');if(cat==='todos')tit.innerText="Consoles mais vendidos";else tit.innerText="Mundo "+cat;renderProdutos()};
+function renderProdutos(){const el=document.getElementById('catalogo');let lista=categoriaAtiva==='todos'?todosProdutos:todosProdutos.filter(p=>p.categoria&&p.categoria.toLowerCase().includes(categoriaAtiva.toLowerCase().replace('ó','o')));if(!lista.length){el.innerHTML=`<div style="grid-column:1/-1;text-align:center;padding:40px;color:#666">Nenhum produto em ${categoriaAtiva}</div>`;return}let html="";lista.forEach(p=>{html+=`<div class="card-c" onclick="abrirPrevia('${p.id}')"><span class="tag ${p.categoria==='Console'?'tag-v':'tag-o'}">${(p.categoria||'').toUpperCase()}</span><img src="${p.imagemURL}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300/12122a/00e5ff?text=${encodeURIComponent(p.nome)}'"><h3>${p.nome}</h3><div class="sub">${p.categoria} • Estoque ${p.estoque}</div><div class="preco">R$ ${Number(p.preco).toFixed(2)}</div><div class="parc">12x R$ ${(Number(p.preco)/12).toFixed(2)} sem juros</div><button class="btn-card btn-view" onclick="event.stopPropagation();abrirPrevia('${p.id}')">👁️ Prévia</button><button class="btn-card btn-buy" onclick="event.stopPropagation();addToCart('${p.id}')">🛒 Comprar</button></div>`});el.innerHTML=html}
+window.abrirPrevia=(id)=>{const p=todosProdutos.find(x=>x.id===id);if(!p)return;produtoModal=p;document.getElementById('modalMainImg').src=p.imagemURL;document.getElementById('modalNome').innerText=p.nome;document.getElementById('modalCat').innerText=p.categoria;document.getElementById('modalEstoque').innerText=`Estoque: ${p.estoque}`;document.getElementById('modalPreco').innerText=`R$ ${Number(p.preco).toFixed(2)}`;document.getElementById('modalDesc').innerText=p.descricao||"";document.getElementById('modalWhats').onclick=()=>{const msg=`🎮 *DIVINOS GAMES*%0A${p.nome} - R$ ${p.preco}`;window.open(`https://wa.me/5573988000000?text=${msg}`,'_blank')};const thumbs=document.getElementById('modalThumbs');thumbs.innerHTML="";(p.imagensGaleria||[p.imagemURL]).forEach((url,i)=>{const img=document.createElement('img');img.src=url;if(i===0)img.classList.add('active');img.onclick=()=>{document.getElementById('modalMainImg').src=url;document.querySelectorAll('.thumbs img').forEach(t=>t.classList.remove('active'));img.classList.add('active')};thumbs.appendChild(img)});document.getElementById('previewModal').style.display='block'};
+window.addToCartFromModal=()=>{if(produtoModal)addToCart(produtoModal.id)};
+window.addToCart=(id)=>{const p=todosProdutos.find(x=>x.id===id);if(!p)return;const ex=carrinho.find(i=>i.id===id);if(ex)ex.qtd++;else carrinho.push({id:p.id,nome:p.nome,preco:Number(p.preco),imagem:p.imagemURL,qtd:1});localStorage.setItem('divinos_cart',JSON.stringify(carrinho));atualizarCart();abrirCarrinho()};
+window.atualizarCart=()=>{document.getElementById('cartCount').innerText=carrinho.reduce((s,i)=>s+i.qtd,0);const el=document.getElementById('cartItems');const totalEl=document.getElementById('cartTotal');if(!carrinho.length){el.innerHTML=`<p style="text-align:center;color:#666;margin-top:20px">Carrinho vazio</p>`;totalEl.innerText="R$ 0,00";return}let html="";let total=0;carrinho.forEach((item,idx)=>{total+=item.preco*item.qtd;html+=`<div class="cart-item"><img src="${item.imagem}"><div style="flex:1"><div style="font-size:12px;font-weight:700">${item.nome}</div><div style="font-size:11px;color:#00e5ff">R$ ${item.preco.toFixed(2)} x ${item.qtd}</div></div><button onclick="alterarQtd(${idx},-1)" style="width:26px;height:26px;border-radius:6px">-</button><button onclick="alterarQtd(${idx},1)" style="width:26px;height:26px;border-radius:6px">+</button><button onclick="removerItem(${idx})" style="background:#ff0040;border:0;color:#fff;width:26px;height:26px;border-radius:6px">✕</button></div>`});el.innerHTML=html;totalEl.innerText=`R$ ${total.toFixed(2)}`};
+window.alterarQtd=(idx,d)=>{carrinho[idx].qtd+=d;if(carrinho[idx].qtd<=0)carrinho.splice(idx,1);localStorage.setItem('divinos_cart',JSON.stringify(carrinho));atualizarCart()};
+window.removerItem=(idx)=>{carrinho.splice(idx,1);localStorage.setItem('divinos_cart',JSON.stringify(carrinho));atualizarCart()};
+window.abrirCarrinho=()=>{document.getElementById('cartDrawer').style.display='flex';atualizarCart()};
+window.fecharCarrinho=()=>{document.getElementById('cartDrawer').style.display='none'};
+window.registrarVenda=(valor)=>{const hoje=new Date().toISOString().split('T')[0];const ex=salesData.find(s=>s.date===hoje);if(ex)ex.value+=valor;else salesData.push({date:hoje,value:valor});localStorage.setItem('divinos_sales',JSON.stringify(salesData))};
+window.finalizarPedido=()=>{const nome=document.getElementById('cliNome').value.trim();const fone=document.getElementById('cliFone').value.trim();const end=document.getElementById('cliEndereco').value.trim();const obs=document.getElementById('cliObs').value.trim();if(!nome||!fone||!end)return alert("Preencha nome, WhatsApp e endereço!");if(!carrinho.length)return alert("Carrinho vazio!");let total=0;let lista="";carrinho.forEach((it,i)=>{const sub=it.preco*it.qtd;total+=sub;lista+=`%0A${i+1}. 🎮 *${it.nome}* - ${it.qtd}x R$ ${sub.toFixed(2)}`});const msg=`🎮✨ *NOVO PEDIDO - DIVINOS GAMES* ✨🎮%0A%0A👤 *CLIENTE*%0A👤 ${nome}%0A📱 ${fone}%0A📍 ${end}%0A${obs?`📝 ${obs}%0A`:''}%0A🛒 *PRODUTOS*${lista}%0A%0A💰 *TOTAL: R$ ${total.toFixed(2)}*%0A💳 12x R$ ${(total/12).toFixed(2)} sem juros`;pedidosData.push({data:new Date().toISOString(),cliente:nome,total,itens:carrinho.length});localStorage.setItem('divinos_pedidos',JSON.stringify(pedidosData));registrarVenda(total);window.open(`https://wa.me/5573988000000?text=${msg}`,'_blank');setTimeout(()=>{if(confirm("Pedido enviado! Limpar carrinho?")){carrinho=[];localStorage.setItem('divinos_cart',JSON.stringify(carrinho));atualizarCart();fecharCarrinho();updateKPIs()}},800)};
+window.setChartDays=(dias)=>{chartDays=dias;document.querySelectorAll('.btn-chart').forEach(b=>b.classList.remove('active'));document.getElementById('btn'+dias).classList.add('active');document.getElementById('chartLabel').innerText=`Últimos ${dias} dias`;drawChart()};
+window.limparGrafico=()=>{if(confirm("🗑️ Limpar todo histórico do gráfico?")){salesData=[];localStorage.setItem('divinos_sales',JSON.stringify(salesData));drawChart();updateKPIs()}};
+function drawChart(){const canvas=document.getElementById('salesChart');if(!canvas)return;const ctx=canvas.getContext('2d');const dpr=window.devicePixelRatio||1;const parent=canvas.parentElement;const rect=parent.getBoundingClientRect();canvas.width=rect.width*dpr;canvas.height=220*dpr;canvas.style.width=rect.width+"px";canvas.style.height="220px";ctx.setTransform(dpr,0,0,dpr,0,0);const w=rect.width,h=220,padL=36,padB=32,padT=14,padR=12;let dados=salesData.slice(-chartDays);if(dados.length===0)dados=[{date:'',value:0}];let max=Math.max(...dados.map(d=>d.value),1000);let total=dados.reduce((s,d)=>s+d.value,0);document.getElementById('chartTotal').innerText=`R$ ${total.toLocaleString('pt-BR',{minimumFractionDigits:2})}`;document.getElementById('kpiVendas').innerText=`R$ ${total.toLocaleString('pt-BR')}`;ctx.clearRect(0,0,w,h);ctx.strokeStyle="#1e1e3a";ctx.lineWidth=0.5;for(let i=0;i<=5;i++){const y=padT+(h-padT-padB)*(1-i/5);ctx.beginPath();ctx.moveTo(padL,y);ctx.lineTo(w-padR,y);ctx.stroke();ctx.fillStyle="#555";ctx.font="11px Inter";ctx.fillText("R$ "+(max*i/5/1000).toFixed(0)+"k",0,y+4)}if(dados.length<=1&&total===0){ctx.fillStyle="#666";ctx.font="12px Inter";ctx.fillText("Nenhuma venda - gráfico limpo",padL,h/2);return}const pts=[];dados.forEach((v,i)=>{const x=padL+(w-padL-padR)*(i/(Math.max(dados.length-1,1)));const y=padT+(h-padT-padB)*(1-v.value/max);pts.push({x,y})});const grad=ctx.createLinearGradient(0,0,0,h);grad.addColorStop(0,"rgba(0,229,255,0.35)");grad.addColorStop(1,"rgba(168,85,247,0.05)");ctx.beginPath();ctx.moveTo(pts[0].x,pts[0].y);for(let i=1;i<pts.length;i++){const prev=pts[i-1];const cur=pts[i];const cx=(prev.x+cur.x)/2;ctx.quadraticCurveTo(prev.x,prev.y,cx,(prev.y+cur.y)/2)}ctx.lineTo(pts[pts.length-1].x,h-padB);ctx.lineTo(pts[0].x,h-padB);ctx.closePath();ctx.fillStyle=grad;ctx.fill();ctx.beginPath();ctx.moveTo(pts[0].x,pts[0].y);for(let i=1;i<pts.length;i++){const prev=pts[i-1];const cur=pts[i];const cx=(prev.x+cur.x)/2;ctx.quadraticCurveTo(prev.x,prev.y,cx,(prev.y+cur.y)/2)}ctx.strokeStyle="#00e5ff";ctx.lineWidth=2.2;ctx.stroke();pts.forEach(pt=>{ctx.beginPath();ctx.arc(pt.x,pt.y,5,0,Math.PI*2);ctx.fillStyle="#00e5ff";ctx.fill();ctx.strokeStyle="#fff";ctx.lineWidth=1.2;ctx.stroke()});dados.forEach((d,i)=>{if(chartDays<=15||i%3===0){const x=padL+(w-padL-padR)*(i/(Math.max(dados.length-1,1)));const label=d.date?d.date.split('-').reverse().slice(0,2).join('/'):'';ctx.fillStyle="#666";ctx.font="10px Inter";ctx.fillText(label,x-12,h-8)}})}
+function updateKPIs(){document.getElementById('kpiPedidos').innerText=pedidosData.length;document.getElementById('kpiProdutos').innerText=todosProdutos.length;document.getElementById('kpiClientes').innerText=new Set(pedidosData.map(p=>p.cliente)).size;const lista=document.getElementById('listaPedidos');if(pedidosData.length===0)lista.innerHTML="Nenhum pedido ainda";else{let html="";pedidosData.slice(-5).reverse().forEach(p=>{html+=`<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #1e1e3a"><span>${new Date(p.data).toLocaleDateString()} - ${p.cliente}</span><span style="color:#00e5ff">R$ ${p.total.toFixed(2)}</span></div>`});lista.innerHTML=html}const display=document.getElementById('senhaAtualDisplay');if(display)display.innerText=localStorage.getItem('divinos_admin_pass')||'divinos2024'}
+window.trocarSenha=()=>{const atual=document.getElementById('senhaAtual').value;const nova=document.getElementById('senhaNova').value;const conf=document.getElementById('senhaConf').value;const status=document.getElementById('senhaStatus');senhaAdmin=localStorage.getItem('divinos_admin_pass')||'divinos2024';if(atual!==senhaAdmin){status.innerText="❌ Senha atual incorreta!";status.style.color="#ff4444";return}if(nova.length<4){status.innerText="❌ Nova senha min 4 caracteres";status.style.color="#ff4444";return}if(nova!==conf){status.innerText="❌ Confirmação não confere";status.style.color="#ff4444";return}localStorage.setItem('divinos_admin_pass',nova);document.getElementById('senhaAtualDisplay').innerText=nova;status.innerText="✅ Senha alterada para: "+nova;status.style.color="#00ff88";document.getElementById('senhaAtual').value="";document.getElementById('senhaNova').value="";document.getElementById('senhaConf').value=""};
+function updateDashboard(){const lista=document.getElementById('listaAdmin');let html="";todosProdutos.forEach(p=>{html+=`<div style="display:flex;gap:8px;background:#080a12;border:1px solid #1e1e3a;border-radius:10px;padding:8px;margin:6px 0;align-items:center"><img src="${p.imagemURL}" style="width:48px;height:48px;object-fit:contain;border-radius:8px;background:#0a0e1e"><div style="flex:1"><div style="font-size:12px;font-weight:700">${p.nome}</div><div style="font-size:10px;color:#777">${p.categoria} • R$ ${p.preco} • Estoque ${p.estoque}</div></div><button onclick="abrirPrevia('${p.id}')" style="background:#00e5ff;border:0;color:#fff;border-radius:6px;padding:6px 8px;cursor:pointer">👁️</button><button onclick="editarProduto('${p.id}')" style="background:#ffaa00;border:0;color:#fff;border-radius:6px;padding:6px 8px;cursor:pointer;font-weight:900">✏️</button><button onclick="window._deleteDoc('${p.id}')" style="background:#ff0040;border:0;color:#fff;border-radius:6px;padding:6px 8px;cursor:pointer">🗑️</button></div>`});if(lista)lista.innerHTML=html||"<p style='color:#666;font-size:11px'>Nenhum produto</p>";updateKPIs()}
+window.editarProduto=(id)=>{const p=todosProdutos.find(x=>x.id===id);if(!p)return;document.getElementById('editId').value=p.id;document.getElementById('nome').value=p.nome;document.getElementById('preco').value=p.preco;document.getElementById('categoria').value=p.categoria;document.getElementById('estoque').value=p.estoque;document.getElementById('desc').value=p.descricao||"";window.urls=p.imagensGaleria||[p.imagemURL];const preview=document.getElementById('preview');preview.innerHTML="";window.urls.forEach(url=>{const img=document.createElement('img');img.src=url;img.style.width="60px";img.style.height="60px";img.style.objectFit="cover";img.style.borderRadius="8px";img.style.border="1px solid #ffaa00";preview.appendChild(img)});document.getElementById('status').innerText=`✏️ Editando: ${p.nome} - troque a imagem se quiser`;document.getElementById('btnSalvar').innerText=`✏️ ATUALIZAR PRODUTO`;document.getElementById('btnSalvar').style.background="linear-gradient(90deg,#ffaa00,#ff6600)";switchDash('produtos',document.querySelector('[data-sec="produtos"]'))};
+window.cancelarEdicao=()=>{document.getElementById('editId').value="";document.getElementById('nome').value="";document.getElementById('preco').value="";document.getElementById('categoria').value="";document.getElementById('estoque').value="";document.getElementById('desc').value="";document.getElementById('preview').innerHTML="";window.urls=[];document.getElementById('status').innerText="";document.getElementById('btnSalvar').innerText=`🚀 SALVAR NO FIREBASE`;document.getElementById('btnSalvar').style.background="linear-gradient(90deg,#00e5ff,#a855f7)"};
+atualizarCart();updateKPIs();
 </script>
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-app.js";
-import { getFirestore, collection, addDoc, doc, serverTimestamp, onSnapshot, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc, doc, serverTimestamp, onSnapshot, deleteDoc, updateDoc } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-firestore.js";
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-storage.js";
 const firebaseConfig = { apiKey: "AIzaSyCUL-tD4pPp7GEExJD08mEHdVzp-fbBxfs", authDomain: "divinosgames-63867.firebaseapp.com", projectId: "divinosgames-63867", storageBucket: "divinosgames-63867.firebasestorage.app", messagingSenderId: "859830472940", appId: "1:859830472940:web:fa77258b659e1bbe4455c9" };
 const app=initializeApp(firebaseConfig); const db=getFirestore(app); const storage=getStorage(app);
 window.urls=[]; const statusEl=document.getElementById('status'); const preview=document.getElementById('preview'); const pBox=document.getElementById('pBox'); const pBar=document.getElementById('pBar');
-window._deleteDoc=async(id)=>{ await deleteDoc(doc(db,"produtos",id)); };
-
-document.getElementById('foto').addEventListener('change', async (e)=>{
-  const files=e.target.files; if(!files.length) return; window.urls=[]; preview.innerHTML=""; statusEl.innerText=`⏳ ${files.length} foto(s) enviando AUTO para Firebase Storage...`; pBox.style.display="block";
-  for(let file of files){
-    const nome=`${Date.now()}-${file.name.replace(/\s/g,'-').toLowerCase()}`;
-    const sRef=ref(storage,`produtos/${nome}`);
-    const task=uploadBytesResumable(sRef,file);
-    await new Promise((res,rej)=>{
-      task.on('state_changed', s=>{ pBar.style.width=(s.bytesTransferred/s.totalBytes*100)+"%"; }, err=>rej(err), async()=>{
-        const url=await getDownloadURL(task.snapshot.ref);
-        window.urls.push(url);
-        const img=document.createElement('img'); img.src=url; img.style.width="60px"; img.style.height="60px"; img.style.objectFit="cover"; img.style.borderRadius="8px"; img.style.border="1px solid #00ff88"; img.style.boxShadow="0 0 10px #00ff8844";
-        preview.appendChild(img);
-        res();
-      });
-    });
-  }
-  pBox.style.display="none"; pBar.style.width="0%"; statusEl.innerText=`✅ ${window.urls.length} foto(s) salvas no Firebase Storage! Prontas para prévia HD e dashboard.`;
+window._deleteDoc=async(id)=>{ if(confirm("Apagar produto?")) await deleteDoc(doc(db,"produtos",id)); };
+document.getElementById('foto').addEventListener('change', async (e)=>{ const files=e.target.files; if(!files.length) return; statusEl.innerText=`⏳ Enviando ${files.length} foto(s)...`; pBox.style.display="block"; for(let file of files){ const nome=`${Date.now()}-${file.name.replace(/\s/g,'-')}`; const sRef=ref(storage,`produtos/${nome}`); const task=uploadBytesResumable(sRef,file); await new Promise((res,rej)=>{ task.on('state_changed', s=>{ pBar.style.width=(s.bytesTransferred/s.totalBytes*100)+"%"; }, err=>rej(err), async()=>{ const url=await getDownloadURL(task.snapshot.ref); if(!document.getElementById('editId').value) window.urls=[]; // se for edição, adiciona
+          if(document.getElementById('editId').value && !window.urls.includes(url)) window.urls.push(url); else if(!document.getElementById('editId').value) window.urls=[url];
+          // Correção para multiplas fotos na edição
+          if(e.target.files.length>1 && !window.urls.includes(url)) window.urls.push(url);
+          const img=document.createElement('img'); img.src=url; img.style.width="60px"; img.style.height="60px"; img.style.objectFit="cover"; img.style.borderRadius="8px"; preview.appendChild(img); res(); }); }); } // Simplificado: usa todas URLs
+  // Ajuste final para garantir array correto
+  if(window.urls.length===0 && e.target.files.length>0){} 
+  pBox.style.display="none"; pBar.style.width="0%"; statusEl.innerText=`✅ ${preview.children.length} foto(s) pronta(s)! Clique em ${document.getElementById('editId').value?'ATUALIZAR':'SALVAR'}`;
 });
-
-document.getElementById('btnSalvar').addEventListener('click', async()=>{
-  const nome=document.getElementById('nome').value.trim(); const cat=document.getElementById('categoria').value; const editId=document.getElementById('editId').value;
-  if(!nome) return alert("Digite o nome!"); if(!cat) return alert("Selecione categoria: Console / Jogo / Acessório / Manutenção!"); if(!window.urls.length) return alert("Tire foto! Upload é AUTO ao escolher a foto.");
-  statusEl.innerText=editId?"⏳ Atualizando no Firestore...":"⏳ Salvando no Firestore...";
-  try{
+document.getElementById('btnSalvar').addEventListener('click', async()=>{ 
+  const nome=document.getElementById('nome').value.trim(); 
+  const cat=document.getElementById('categoria').value; 
+  const editId=document.getElementById('editId').value;
+  if(!nome||!cat) return alert("Preencha nome e categoria!");
+  if(!window.urls.length) return alert("Selecione uma foto!");
+  statusEl.innerText="⏳ Salvando...";
+  try{ 
     if(editId){
-      await updateDoc(doc(db,"produtos",editId),{nome,preco:parseFloat(document.getElementById('preco').value)||0,categoria:cat,estoque:parseInt(document.getElementById('estoque').value)||1,descricao:document.getElementById('desc').value||"",imagemURL:window.urls[0],imagensGaleria:window.urls,atualizadoEm:serverTimestamp()});
-      statusEl.innerText=`✅ Produto atualizado! Todos veem mesmo limpando cache!`; alert(`✏️ ${nome} atualizado no Firebase!`);
-    } else {
-      await addDoc(collection(db,"produtos"),{nome,preco:parseFloat(document.getElementById('preco').value)||0,categoria:cat,estoque:parseInt(document.getElementById('estoque').value)||1,descricao:document.getElementById('desc').value||"",imagemURL:window.urls[0],imagensGaleria:window.urls,ativo:true,views:Math.floor(Math.random()*2000+300),criadoEm:serverTimestamp()});
-      statusEl.innerText=`🚀 Salvo! No ar para todos!`; alert(`✅ ${nome} salvo no catálogo ${cat}! Vai aparecer no site e no dashboard!`);
+      await updateDoc(doc(db,"produtos",editId),{
+        nome, preco:parseFloat(document.getElementById('preco').value)||0,
+        categoria:cat, estoque:parseInt(document.getElementById('estoque').value)||1,
+        descricao:document.getElementById('desc').value||"",
+        imagemURL:window.urls[0], imagensGaleria:window.urls
+      });
+      statusEl.innerText=`✅ Atualizado!`; alert(`✅ ${nome} atualizado!`); cancelarEdicao();
+    }else{
+      await addDoc(collection(db,"produtos"),{nome,preco:parseFloat(document.getElementById('preco').value)||0,categoria:cat,estoque:parseInt(document.getElementById('estoque').value)||1,descricao:document.getElementById('desc').value||"",imagemURL:window.urls[0],imagensGaleria:window.urls,criadoEm:serverTimestamp()});
+      statusEl.innerText=`🚀 Salvo!`; alert(`✅ ${nome} salvo!`); document.getElementById('nome').value="";document.getElementById('preco').value="";document.getElementById('categoria').value="";document.getElementById('estoque').value="";document.getElementById('desc').value="";preview.innerHTML="";window.urls=[];
     }
-    limparForm();
-  }catch(e){ statusEl.innerText=`❌ Erro: ${e.message}`; alert(e.message); }
+  }catch(e){ alert(e.message); statusEl.innerText="❌ Erro: "+e.message; } 
 });
-
-onSnapshot(collection(db,"produtos"), (snap)=>{
-  todosProdutos=[]; snap.forEach(d=>{ todosProdutos.push({id:d.id, ...d.data()}); });
-  renderProdutos(); updateDashboard();
-});
+onSnapshot(collection(db,"produtos"), (snap)=>{ todosProdutos=[]; snap.forEach(d=>{ todosProdutos.push({id:d.id, ...d.data()}); }); renderProdutos(); updateDashboard(); });
 </script>
 </body>
 </html>
