@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DIVINOS GAMES - Admin - Pasta Admin - Exatamente Foto</title>
+<title>DIVINOS GAMES - Admin Pasta Admin - CRUD Completo - Clientes</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -12,17 +12,16 @@ body{font-family:'Inter',system-ui;background:#05070f;color:#fff;min-height:100v
 .admin-sidebar{width:260px;background:linear-gradient(180deg,#0a0a18 0%,#080810 100%);border:1px solid #00e5ff40;border-radius:0 16px 16px 0;padding:16px 10px;position:sticky;top:0;height:100vh;overflow:auto;box-shadow:0 0 30px #7c3aed20, inset 0 0 20px rgba(0,229,255,.05);margin:8px 0 8px 8px}
 .admin-sidebar-header{text-align:center;padding:14px 8px;margin-bottom:18px;border-bottom:1px solid #ffffff08}
 .admin-sidebar-logo{width:64px;height:64px;margin:0 auto 8px;background:linear-gradient(135deg,#1a1a3a,#2a1a4a);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:32px;box-shadow:0 0 20px #00e5ff40;border:1px solid #00e5ff40}
-.admin-sidebar-title{font-family:Orbitron;font-weight:900;font-size:16px;color:#00e5ff;letter-spacing:.5px;text-shadow:0 0 10px #00e5ff80}
-.admin-sidebar-sub{font-size:12px;color:#a855f7;font-family:Orbitron;letter-spacing:.5px;margin-top:2px}
+.admin-sidebar-title{font-family:Orbitron;font-weight:900;font-size:16px;color:#00e5ff;text-shadow:0 0 10px #00e5ff80}
+.admin-sidebar-sub{font-size:12px;color:#a855f7;font-family:Orbitron}
 .admin-menu{display:flex;flex-direction:column;gap:8px}
 .admin-menu-item{padding:12px 14px;border-radius:10px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:.2s;border:1px solid transparent;color:#8b8ba7;font-size:13px;font-weight:600}
 .admin-menu-item:hover{background:#12122a;border-color:#00e5ff20;color:#fff}
-.admin-menu-item.active{background:linear-gradient(90deg,rgba(0,229,255,.15),rgba(0,229,255,.05));border:1px solid #00e5ff80;color:#00e5ff;box-shadow:0 0 15px #00e5ff30, inset 0 0 10px rgba(0,229,255,.1);font-weight:800}
+.admin-menu-item.active{background:linear-gradient(90deg,rgba(0,229,255,.15),rgba(0,229,255,.05));border:1px solid #00e5ff80;color:#00e5ff;box-shadow:0 0 15px #00e5ff30;font-weight:800}
 .admin-menu-item .icon{width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:16px}
-.admin-sidebar-footer{margin-top:auto;padding-top:16px;border-top:1px solid #ffffff08;display:flex;align-items:center;justify-content:space-between;position:sticky;bottom:0;background:linear-gradient(180deg,transparent,#0a0a18);padding-bottom:8px}
+.admin-sidebar-footer{margin-top:auto;padding-top:16px;border-top:1px solid #ffffff08;display:flex;align-items:center;justify-content:space-between}
 .admin-user{display:flex;align-items:center;gap:10px}
 .admin-user-avatar{width:32px;height:32px;background:linear-gradient(135deg,#1e293b,#334155);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;border:1px solid #00e5ff40}
-.admin-user-name{font-size:12px;font-weight:700} .admin-user-role{font-size:10px;opacity:.6}
 .admin-main{flex:1;padding:16px 20px;background:radial-gradient(1200px at 80% 0%,#1a1033 0%,#0a0a1a 30%,#05070f 70%);min-height:100vh}
 .admin-topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;flex-wrap:wrap;gap:12px;background:#0a0a18;border:1px solid #1a1a3a;border-radius:12px;padding:12px 16px}
 .admin-topbar-title{font-family:Orbitron;font-size:26px;font-weight:900;color:#00e5ff;text-shadow:0 0 15px #00e5ff60}
@@ -30,38 +29,31 @@ body{font-family:'Inter',system-ui;background:#05070f;color:#fff;min-height:100v
 .admin-topbar-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 .admin-search{background:#0f0f1f;border:1px solid #1a1a3a;padding:9px 14px 9px 36px;border-radius:10px;color:#fff;outline:none;width:200px;font-size:13px}
 .admin-search-wrap{position:relative}
-.admin-search-wrap::before{content:'🔍';position:absolute;left:10px;top:50%;transform:translateY(-50%);opacity:.6;z-index:1}
-.admin-top-btn{background:#11112a;border:1px solid #00e5ff30;color:#fff;padding:9px 14px;border-radius:10px;font-size:12px;font-weight:700;cursor:pointer;transition:.2s}
-.admin-top-btn:hover{border-color:#00e5ff;color:#00e5ff;box-shadow:0 0 10px #00e5ff20}
+.admin-search-wrap::before{content:'🔍';position:absolute;left:10px;top:50%;transform:translateY(-50%);opacity:.6}
+.admin-top-btn{background:#11112a;border:1px solid #00e5ff30;color:#fff;padding:9px 14px;border-radius:10px;font-size:12px;font-weight:700;cursor:pointer}
 .admin-top-btn.danger{background:#1a0a14;border-color:#ef444440;color:#ff6b8a}
 .admin-notif{position:relative;width:36px;height:36px;background:#0f0f1f;border:1px solid #1a1a3a;border-radius:10px;display:flex;align-items:center;justify-content:center;cursor:pointer}
 .admin-notif-badge{position:absolute;top:-6px;right:-6px;background:#a855f7;color:#fff;font-size:9px;min-width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900}
 .admin-profile{display:flex;align-items:center;gap:8px;background:#0f0f1f;border:1px solid #1a1a3a;border-radius:10px;padding:6px 10px}
-.admin-profile-avatar{width:28px;height:28px;background:linear-gradient(135deg,#1e293b,#334155);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px}
-.admin-profile-name{font-size:12px;font-weight:700} .admin-profile-status{font-size:10px;color:#22c55e}
 .admin-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:18px}
-.admin-stat-card{background:linear-gradient(180deg,#121228 0%,#0a0a14 100%);border:1px solid #1f1f3a;border-radius:14px;padding:16px;position:relative;overflow:hidden;transition:.2s}
+.admin-stat-card{background:linear-gradient(180deg,#121228 0%,#0a0a14 100%);border:1px solid #1f1f3a;border-radius:14px;padding:16px;position:relative;overflow:hidden}
 .admin-stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,#00e5ff40,transparent)}
-.admin-stat-card:hover{border-color:#00e5ff30;box-shadow:0 8px 30px #0008,0 0 20px #00e5ff10}
 .admin-stat-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:10px}
-.admin-stat-icon.blue{background:#0f172a;border:1px solid #00e5ff40;color:#00e5ff;box-shadow:0 0 10px #00e5ff20}
-.admin-stat-icon.purple{background:#1a1033;border:1px solid #a855f740;color:#a855f7;box-shadow:0 0 10px #a855f720}
+.admin-stat-icon.blue{background:#0f172a;border:1px solid #00e5ff40;color:#00e5ff}
+.admin-stat-icon.purple{background:#1a1033;border:1px solid #a855f740;color:#a855f7}
 .admin-stat-icon.cyan{background:#0a1a1a;border:1px solid #00e5ff30;color:#00e5ff}
 .admin-stat-label{font-size:11px;opacity:.6;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;color:#8b8ba7}
 .admin-stat-value{font-family:Orbitron;font-size:24px;font-weight:900;line-height:1}
-.admin-stat-value.blue{color:#00e5ff;text-shadow:0 0 10px #00e5ff60} 
-.admin-stat-value.purple{color:#a855f7;text-shadow:0 0 10px #a855f760} 
-.admin-stat-value.cyan{color:#00e5ff;text-shadow:0 0 10px #00e5ff60}
+.admin-stat-value.blue{color:#00e5ff;text-shadow:0 0 10px #00e5ff60} .admin-stat-value.purple{color:#a855f7;text-shadow:0 0 10px #a855f760} .admin-stat-value.cyan{color:#00e5ff}
 .admin-stat-sub{font-size:11px;margin-top:6px}
 .admin-stat-sub.green{color:#22c55e} .admin-stat-sub.orange{color:#f59e0b}
 .admin-charts{display:grid;grid-template-columns:1.2fr .8fr;gap:14px;margin-bottom:18px}
-.admin-chart-card{background:linear-gradient(180deg,#121228 0%,#0a0a14 100%);border:1px solid #1f1f3a;border-radius:14px;padding:16px;position:relative;overflow:hidden}
+.admin-chart-card{background:linear-gradient(180deg,#121228 0%,#0a0a14 100%);border:1px solid #1f1f3a;border-radius:14px;padding:16px}
 .admin-chart-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,#a855f740,transparent)}
 .admin-chart-title{font-family:Orbitron;font-size:13px;font-weight:800;margin-bottom:14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;color:#fff}
 .chart-area{position:relative;height:200px;background:radial-gradient(400px at 50% 50%,rgba(168,85,247,.08),transparent 70%);border:1px solid #1f1f3a;border-radius:10px;padding:10px;overflow:hidden}
 .chart-grid{position:absolute;inset:10px;background:repeating-linear-gradient(0deg,transparent,transparent 29px,#1f1f3a 29px,#1f1f3a 30px),repeating-linear-gradient(90deg,transparent,transparent 39px,#1f1f3a 39px,#1f1f3a 40px);opacity:.3}
 .chart-line{position:absolute;inset:10px}
-.chart-line svg{width:100%;height:100%}
 .chart-labels{display:flex;justify-content:space-between;padding:6px 10px 0;font-size:11px;opacity:.6}
 .admin-table{width:100%;border-collapse:collapse;font-size:11px}
 .admin-table th{text-align:left;padding:8px 6px;opacity:.6;font-size:10px;text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid #ffffff0f;color:#8b8ba7}
@@ -76,15 +68,12 @@ body{font-family:'Inter',system-ui;background:#05070f;color:#fff;min-height:100v
 .admin-form{background:#11112a;border:1px solid #1a1a3a;border-radius:16px;padding:20px;max-width:650px}
 .admin-form h3{font-family:Orbitron;font-size:14px;margin-bottom:12px;color:#00e5ff}
 .admin-form input,.admin-form select{width:100%;padding:12px;border-radius:10px;border:1px solid #1f2937;margin:6px 0;background:#070a14;color:#fff;outline:none;font-size:13px}
-.admin-form input:focus,.admin-form select:focus{border-color:#00e5ff;box-shadow:0 0 10px #00e5ff20}
 .subgenero-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0;background:#070a14;padding:12px;border-radius:12px;border:1px solid #1f2937}
-.subgenero-grid label{display:flex;align-items:center;gap:8px;background:#0f172a;padding:8px 10px;border-radius:8px;border:1px solid #ffffff08;cursor:pointer;font-size:11px;transition:.2s}
-.subgenero-grid label:hover{border-color:#00e5ff30;background:#12122a}
+.subgenero-grid label{display:flex;align-items:center;gap:8px;background:#0f172a;padding:8px 10px;border-radius:8px;border:1px solid #ffffff08;cursor:pointer;font-size:11px}
 .subgenero-grid input[type=checkbox]{width:14px;height:14px;accent-color:#00e5ff}
 .btn-salvar{background:linear-gradient(135deg,#00e5ff,#7c3aed);color:#000;border:none;padding:14px;width:100%;border-radius:12px;font-weight:900;margin-top:10px;cursor:pointer;font-size:13px;box-shadow:0 0 20px #00e5ff30}
-.btn-salvar:hover{box-shadow:0 0 30px #00e5ff50;transform:translateY(-1px)}
 .preview{width:100%;height:180px;object-fit:contain;background:#070a14;border-radius:12px;margin-top:8px;display:none;border:1px dashed #334155;padding:8px}
-.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#00e5ff;color:#000;padding:12px 20px;border-radius:24px;font-weight:900;display:none;z-index:500;box-shadow:0 10px 30px #0008}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#00e5ff;color:#000;padding:12px 20px;border-radius:24px;font-weight:900;display:none;z-index:500}
 .config-card{background:linear-gradient(180deg,#121228 0%,#0a0a14 100%);border:1px solid #1f1f3a;border-radius:14px;padding:18px;margin-bottom:14px}
 .config-card h4{font-family:Orbitron;font-size:13px;margin-bottom:10px;color:#00e5ff}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
@@ -94,11 +83,7 @@ body{font-family:'Inter',system-ui;background:#05070f;color:#fff;min-height:100v
 <body>
 <div class="admin-layout">
 <div class="admin-sidebar">
-<div class="admin-sidebar-header">
-<div class="admin-sidebar-logo">🎮</div>
-<div class="admin-sidebar-title">DIVINOS GAMES</div>
-<div class="admin-sidebar-sub">GameHub</div>
-</div>
+<div class="admin-sidebar-header"><div class="admin-sidebar-logo">🎮</div><div class="admin-sidebar-title">DIVINOS GAMES</div><div class="admin-sidebar-sub">GameHub</div></div>
 <div class="admin-menu">
 <div class="admin-menu-item active" id="mDashboard" onclick="switchTab('dashboard')"><div class="icon">📊</div><span>Dashboard</span></div>
 <div class="admin-menu-item" id="mProdutos" onclick="switchTab('produtos')"><div class="icon">📦</div><span>Produtos</span></div>
@@ -109,551 +94,146 @@ body{font-family:'Inter',system-ui;background:#05070f;color:#fff;min-height:100v
 <div class="admin-menu-item" id="mConfig" onclick="switchTab('config')"><div class="icon">⚙️</div><span>Configurações</span></div>
 <div class="admin-menu-item" id="mCadastro" onclick="switchTab('cadastro')" style="border:1px dashed #00e5ff40;margin-top:8px"><div class="icon">➕</div><span>Cadastrar Produto</span></div>
 </div>
-<div class="admin-sidebar-footer">
-<div class="admin-user">
-<div class="admin-user-avatar">👤</div>
-<div><div class="admin-user-name">Admin</div><div class="admin-user-role" style="font-size:10px;opacity:.6">Online • Pasta Admin</div></div>
-</div>
-<button onclick="sairAdmin()" style="background:none;border:none;color:#8b8ba7;font-size:11px;cursor:pointer;display:flex;align-items:center;gap:4px">☰ Sair</button>
-</div>
+<div class="admin-sidebar-footer"><div class="admin-user"><div class="admin-user-avatar">👤</div><div><div class="admin-user-name">Admin</div><div class="admin-user-role" style="font-size:10px;opacity:.6">Sair → Clientes</div></div></div><button onclick="sairAdmin()" style="background:none;border:none;color:#8b8ba7;font-size:11px;cursor:pointer">☰ Sair</button></div>
 </div>
 
 <div class="admin-main">
-<div class="admin-topbar">
-<div class="admin-topbar-title">Dashboard <span>Geral</span></div>
-<div class="admin-topbar-actions">
-<div class="admin-search-wrap"><input class="admin-search" placeholder="Buscar..." id="adminSearch" oninput="buscarAdmin()"></div>
-<div class="admin-notif" onclick="toast('🔔 3 notificações')">🔔<div class="admin-notif-badge">3</div></div>
-<div class="admin-notif" onclick="toast('Mensagens')">💬</div>
-<div class="admin-profile"><div class="admin-profile-avatar">👤</div><div><div class="admin-profile-name">Admin</div><div class="admin-profile-status">● Online</div></div></div>
-<button class="admin-top-btn" onclick="window.location.href='../index.html'" title="Voltar para loja cliente">🏠 Loja</button>
-<button class="admin-top-btn danger" onclick="sairAdmin()">Sair</button>
-</div>
-</div>
+<div class="admin-topbar"><div class="admin-topbar-title">Dashboard <span>Geral</span></div><div class="admin-topbar-actions"><div class="admin-search-wrap"><input class="admin-search" placeholder="Buscar..." id="adminSearch" oninput="buscarAdmin()"></div><div class="admin-notif">🔔<div class="admin-notif-badge">3</div></div><div class="admin-notif">💬</div><div class="admin-profile"><div class="admin-user-avatar">👤</div><div><div style="font-size:12px;font-weight:700">Admin</div><div style="font-size:10px;color:#22c55e">● Online</div></div></div><button class="admin-top-btn" onclick="irParaClientes()">🏠 Loja Cliente</button><button class="admin-top-btn danger" onclick="sairAdmin()">Sair → Clientes</button></div></div>
 
 <div id="viewDashboard">
 <div class="admin-cards">
-<div class="admin-stat-card">
-<div class="admin-stat-icon blue">📈</div>
-<div class="admin-stat-label">Total Vendas</div>
-<div class="admin-stat-value blue" id="dashVendas">R$ 18.450</div>
-<div class="admin-stat-sub green" id="dashVendasSub">↑ +12% vs mês anterior</div>
+<div class="admin-stat-card"><div class="admin-stat-icon blue">📈</div><div class="admin-stat-label">Total Vendas</div><div class="admin-stat-value blue" id="dashVendas">R$ 18.450</div><div class="admin-stat-sub green" id="dashVendasSub">↑ +12% vs mês anterior</div></div>
+<div class="admin-stat-card"><div class="admin-stat-icon purple">🛒</div><div class="admin-stat-label">Pedidos</div><div class="admin-stat-value purple" id="dashPedidos">87</div><div class="admin-stat-sub green">+8% vs mês anterior</div></div>
+<div class="admin-stat-card"><div class="admin-stat-icon cyan">🔧</div><div class="admin-stat-label">Manutenções em andamento</div><div class="admin-stat-value cyan" id="dashManut">12</div><div class="admin-stat-sub orange">-3 em aberto</div></div>
+<div class="admin-stat-card"><div class="admin-stat-icon purple">👥</div><div class="admin-stat-label">Clientes novos</div><div class="admin-stat-value purple" id="dashClientes">24</div><div class="admin-stat-sub green">+5 novos hoje</div></div>
 </div>
-<div class="admin-stat-card">
-<div class="admin-stat-icon purple">🛒</div>
-<div class="admin-stat-label">Pedidos</div>
-<div class="admin-stat-value purple" id="dashPedidos">87</div>
-<div class="admin-stat-sub green">+8% vs mês anterior</div>
-</div>
-<div class="admin-stat-card">
-<div class="admin-stat-icon cyan">🔧</div>
-<div class="admin-stat-label">Manutenções em andamento</div>
-<div class="admin-stat-value cyan" id="dashManut">12</div>
-<div class="admin-stat-sub orange">-3 em aberto</div>
-</div>
-<div class="admin-stat-card">
-<div class="admin-stat-icon purple">👥</div>
-<div class="admin-stat-label">Clientes novos</div>
-<div class="admin-stat-value purple" id="dashClientes">24</div>
-<div class="admin-stat-sub green">+5 novos hoje</div>
-</div>
-</div>
-
 <div class="admin-charts">
-<div class="admin-chart-card">
-<div class="admin-chart-title">📈 Vendas - Últimos 7 dias <button onclick="verResultadosUltimosDias()" style="margin-left:auto;background:#0f0f1f;border:1px solid #00e5ff30;color:#00e5ff;padding:6px 12px;border-radius:8px;font-size:10px;cursor:pointer">Ver últimos 30 dias</button> <button onclick="limparDashboard()" style="background:#1a0a14;border:1px solid #ef444440;color:#ff6b8a;padding:6px 12px;border-radius:8px;font-size:10px;cursor:pointer">🗑️ Limpar</button></div>
-<div class="chart-area">
-<div class="chart-grid"></div>
-<div class="chart-line">
-<svg viewBox="0 0 300 160" preserveAspectRatio="none">
-<defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#00e5ff"/><stop offset="100%" style="stop-color:#a855f7"/></linearGradient></defs>
-<polyline fill="none" stroke="url(#grad)" stroke-width="2.5" points="10,130 50,95 90,75 110,78 140,35 170,55 210,15 250,5 285,2" stroke-linecap="round" stroke-linejoin="round"/>
-<circle cx="10" cy="130" r="4" fill="#00e5ff"/><circle cx="50" cy="95" r="4" fill="#a855f7"/><circle cx="90" cy="75" r="4" fill="#a855f7"/><circle cx="110" cy="78" r="4" fill="#a855f7"/><circle cx="140" cy="35" r="5" fill="#00e5ff"/><circle cx="170" cy="55" r="4" fill="#a855f7"/><circle cx="210" cy="15" r="5" fill="#00e5ff"/><circle cx="250" cy="5" r="4" fill="#a855f7"/><circle cx="285" cy="2" r="5" fill="#00e5ff"/>
-</svg>
+<div class="admin-chart-card"><div class="admin-chart-title">📈 Vendas - Últimos 7 dias <button onclick="verResultadosUltimosDias()" style="margin-left:auto;background:#0f0f1f;border:1px solid #00e5ff30;color:#00e5ff;padding:6px 12px;border-radius:8px;font-size:10px;cursor:pointer">Ver últimos 30 dias</button> <button onclick="limparDashboard()" style="background:#1a0a14;border:1px solid #ef444440;color:#ff6b8a;padding:6px 12px;border-radius:8px;font-size:10px;cursor:pointer">🗑️ Limpar</button></div><div class="chart-area"><div class="chart-grid"></div><div class="chart-line"><svg viewBox="0 0 300 160" preserveAspectRatio="none"><defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#00e5ff"/><stop offset="100%" style="stop-color:#a855f7"/></linearGradient></defs><polyline fill="none" stroke="url(#grad)" stroke-width="2.5" points="10,130 50,95 90,75 110,78 140,35 170,55 210,15 250,5 285,2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="chart-labels"><span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sab</span><span>Dom</span></div><div style="display:flex;align-items:center;gap:6px;margin-top:10px;font-size:11px;opacity:.6"><div style="width:8px;height:8px;background:#00e5ff;border-radius:50%"></div>Vendas - Total R$ <span id="total7dias">18.450</span></div></div>
+<div style="display:flex;flex-direction:column;gap:14px"><div class="admin-chart-card"><div class="admin-chart-title">📋 Pedidos Recentes</div><table class="admin-table"><thead><tr><th>ID Pedido</th><th>Cliente</th><th>Produto</th><th>Valor</th><th>Status</th></tr></thead><tbody id="pedidosRecentes"><tr><td>#10284</td><td>Lucas M.</td><td>Controle PS5</td><td>R$ 349,00</td><td><span class="admin-badge-status status-pago">Pago</span></td></tr></tbody></table></div><div class="admin-chart-card"><div class="admin-chart-title">🔧 Solicitações de Serviço</div><table class="admin-table"><thead><tr><th>ID</th><th>Serviço</th><th>Cliente</th><th>Status</th></tr></thead><tbody><tr><td>#SV-045</td><td>Manutenção Console</td><td>Carlos P.</td><td><span class="admin-badge-status status-andamento">Em andamento</span></td></tr></tbody></table></div></div>
 </div>
-</div>
-<div class="chart-labels"><span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sab</span><span>Dom</span></div>
-<div style="display:flex;align-items:center;gap:6px;margin-top:10px;font-size:11px;opacity:.6"><div style="width:8px;height:8px;background:#00e5ff;border-radius:50%;box-shadow:0 0 8px #00e5ff"></div>Vendas - Total R$ <span id="total7dias">18.450</span></div>
+<div class="grid2" style="margin-top:14px"><div class="admin-chart-card"><div class="admin-chart-title">📦 Produtos - Estoque Real (só ADM)</div><div id="dashProdutosLista" style="font-size:12px;max-height:220px;overflow:auto"></div></div><div class="admin-chart-card"><div class="admin-chart-title">🏷️ Por Subgênero</div><div id="dashSubgeneros" style="max-height:220px;overflow:auto;font-size:12px"></div></div></div>
 </div>
 
-<div style="display:flex;flex-direction:column;gap:14px">
-<div class="admin-chart-card">
-<div class="admin-chart-title">📋 Pedidos Recentes</div>
-<table class="admin-table">
-<thead><tr><th>ID Pedido</th><th>Cliente</th><th>Produto</th><th>Valor</th><th>Status</th></tr></thead>
-<tbody id="pedidosRecentes">
-<tr><td>#10284</td><td>Lucas M.</td><td>Controle PS5</td><td>R$ 349,00</td><td><span class="admin-badge-status status-pago">Pago</span></td></tr>
-<tr><td>#10283</td><td>Maria S.</td><td>Headset Gamer RGB</td><td>R$ 220,00</td><td><span class="admin-badge-status status-enviado">Enviado</span></td></tr>
-<tr><td>#10282</td><td>Rafael T.</td><td>Jogo Cyber Adventure</td><td>R$ 199,00</td><td><span class="admin-badge-status status-pendente">Pendente</span></td></tr>
-<tr><td>#10281</td><td>Juliana R.</td><td>Teclado Mecânico</td><td>R$ 410,00</td><td><span class="admin-badge-status status-pago">Pago</span></td></tr>
-</tbody>
-</table>
-</div>
-<div class="admin-chart-card">
-<div class="admin-chart-title">🔧 Solicitações de Serviço</div>
-<table class="admin-table">
-<thead><tr><th>ID</th><th>Serviço</th><th>Cliente</th><th>Status</th></tr></thead>
-<tbody>
-<tr><td>#SV-045</td><td>Manutenção Console</td><td>Carlos P.</td><td><span class="admin-badge-status status-andamento">Em andamento</span></td></tr>
-<tr><td>#SV-044</td><td>Troca Joystick</td><td>Ana F.</td><td><span class="admin-badge-status status-aguardando">Aguardando Peça</span></td></tr>
-<tr><td>#SV-043</td><td>Limpeza Interna</td><td>Bruno L.</td><td><span class="admin-badge-status status-concluida">Concluída</span></td></tr>
-<tr><td>#SV-042</td><td>Atualização Firmware</td><td>Pedro K.</td><td><span class="admin-badge-status status-andamento">Em andamento</span></td></tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-
-<div class="grid2" style="margin-top:14px">
-<div class="admin-chart-card"><div class="admin-chart-title">📦 Produtos - Estoque Real (só ADM) - Clique para editar</div><div id="dashProdutosLista" style="font-size:12px;max-height:220px;overflow:auto"></div></div>
-<div class="admin-chart-card"><div class="admin-chart-title">🏷️ Por Subgênero - Filtros Cliente - Quantidade</div><div id="dashSubgeneros" style="max-height:220px;overflow:auto;font-size:12px"></div></div>
-</div>
-</div>
-
-<div id="viewProdutos" style="display:none">
-<div class="admin-chart-card">
-<div class="admin-chart-title">📦 Produtos - Adicionar, Remover ou Editar - Pegar imagens pelo celular <button onclick="switchTab('cadastro')" style="margin-left:auto;background:linear-gradient(135deg,#00e5ff,#7c3aed);color:#000;border:none;padding:8px 14px;border-radius:10px;font-weight:800;cursor:pointer">➕ Adicionar pelo celular</button></div>
-<div style="margin-bottom:12px;display:flex;gap:8px;flex-wrap:wrap">
-<input id="filtroProduto" placeholder="Buscar produto por nome, subgênero, categoria..." style="flex:1;min-width:200px;background:#0f0f1f;border:1px solid #1a1a3a;padding:10px 14px;border-radius:10px;color:#fff;outline:none" oninput="carregarAdminLista()">
-<button class="admin-top-btn" onclick="carregarAdminLista()">🔄 Atualizar lista</button>
-</div>
-<div id="listaAdmin"></div>
-</div>
-</div>
+<div id="viewProdutos" style="display:none"><div class="admin-chart-card"><div class="admin-chart-title">📦 Produtos - Adicionar, Remover ou Editar <button onclick="switchTab('cadastro')" style="margin-left:auto;background:linear-gradient(135deg,#00e5ff,#7c3aed);color:#000;border:none;padding:8px 14px;border-radius:10px;font-weight:800;cursor:pointer">➕ Adicionar pelo celular</button></div><div style="margin-bottom:12px;display:flex;gap:8px"><input id="filtroProduto" placeholder="Buscar produto..." style="flex:1;background:#0f0f1f;border:1px solid #1a1a3a;padding:10px 14px;border-radius:10px;color:#fff" oninput="carregarAdminLista()"><button class="admin-top-btn" onclick="carregarAdminLista()">🔄 Atualizar</button></div><div id="listaAdmin"></div></div></div>
 
 <div id="viewPedidos" style="display:none">
-<div class="admin-chart-card"><div class="admin-chart-title">🛒 Pedidos - WhatsApp 73 9962-7083 - Controle completo</div>
-<table class="admin-table">
-<thead><tr><th>ID Pedido</th><th>Cliente</th><th>Produto</th><th>Valor</th><th>Contato</th><th>Status</th><th>Ação</th></tr></thead>
-<tbody id="viewPedidosLista">
-<tr><td>#10284</td><td>Lucas M.</td><td>Controle PS5</td><td>R$ 349,00</td><td>73 9962-7083</td><td><select style="background:#0f0f1f;border:1px solid #1a1a3a;color:#fff;padding:4px 8px;border-radius:8px;font-size:11px"><option>Pago</option><option>Enviado</option><option>Pendente</option></select></td><td><button class="admin-top-btn" style="padding:6px 10px;font-size:10px" onclick="toast('WhatsApp')">💬</button></td></tr>
-</tbody>
-</table>
+<div class="admin-chart-card">
+<div class="admin-chart-title">📋 Pedidos - Adicionar, Editar, Remover - WhatsApp 73 9962-7083 <button onclick="mostrarFormPedido()" style="margin-left:auto;background:linear-gradient(135deg,#00e5ff,#7c3aed);color:#000;border:none;padding:8px 14px;border-radius:10px;font-weight:800;cursor:pointer">➕ Adicionar Pedido</button></div>
+<div id="formPedido" style="display:none;background:#070a14;border:1px solid #1f2937;border-radius:12px;padding:16px;margin:12px 0">
+<h4 style="font-family:Orbitron;font-size:13px;color:#00e5ff;margin-bottom:10px">➕ Adicionar/Editar Pedido - CRUD Completo</h4>
+<input id="pedidoCliente" placeholder="Cliente ex: Lucas M."><input id="pedidoProduto" placeholder="Produto ex: Controle PS5"><input id="pedidoValor" type="number" placeholder="Valor ex: 349"><select id="pedidoStatus"><option>Pago</option><option>Enviado</option><option>Pendente</option><option>Cancelado</option></select><input id="pedidoWhats" placeholder="WhatsApp ex: 73 9962-7083">
+<div style="display:flex;gap:8px;margin-top:10px"><button class="btn-salvar" id="btnSalvarPedido" style="margin:0" onclick="salvarPedido()">💾 Salvar Pedido</button><button class="admin-top-btn danger" style="flex:1" onclick="cancelarPedido()">❌ Cancelar</button></div>
+</div>
+<table class="admin-table"><thead><tr><th>ID</th><th>Cliente</th><th>Produto</th><th>Valor</th><th>WhatsApp</th><th>Status</th><th>Ação</th></tr></thead><tbody id="viewPedidosLista"></tbody></table>
 </div>
 </div>
 
 <div id="viewServicosAdm" style="display:none">
-<div class="admin-chart-card"><div class="admin-chart-title">🔧 Serviços - Solicitações de serviço - Adicionar, editar, concluir</div>
-<div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap">
-<button class="admin-top-btn" onclick="adicionarServico()">➕ Adicionar serviço</button>
+<div class="admin-chart-card">
+<div class="admin-chart-title">🔧 Serviços - Adicionar, Editar, Remover <button onclick="mostrarFormServico()" style="margin-left:auto;background:linear-gradient(135deg,#00e5ff,#7c3aed);color:#000;border:none;padding:8px 14px;border-radius:10px;font-weight:800;cursor:pointer">➕ Adicionar Serviço</button></div>
+<div id="formServico" style="display:none;background:#070a14;border:1px solid #1f2937;border-radius:12px;padding:16px;margin:12px 0">
+<h4 style="font-family:Orbitron;font-size:13px;color:#00e5ff;margin-bottom:10px">➕ Adicionar/Editar Serviço</h4>
+<input id="servicoNome" placeholder="Serviço ex: Manutenção Console"><input id="servicoCliente" placeholder="Cliente ex: Carlos P."><input id="servicoTelefone" placeholder="Telefone ex: 73 9xxxx"><input id="servicoValor" type="number" placeholder="Valor ex: 150"><select id="servicoStatus"><option>Em andamento</option><option>Aguardando Peça</option><option>Concluída</option><option>Cancelado</option></select>
+<div style="display:flex;gap:8px;margin-top:10px"><button class="btn-salvar" style="margin:0" onclick="salvarServico()">💾 Salvar Serviço</button><button class="admin-top-btn danger" style="flex:1" onclick="cancelarServico()">❌ Cancelar</button></div>
 </div>
-<table class="admin-table">
-<thead><tr><th>ID</th><th>Serviço</th><th>Cliente</th><th>Telefone</th><th>Valor</th><th>Status</th><th>Ação</th></tr></thead>
-<tbody id="viewServicosLista">
-<tr><td>#SV-045</td><td>Manutenção Console</td><td>Carlos P.</td><td>73 9xxxx</td><td>R$ 150</td><td><span class="admin-badge-status status-andamento">Em andamento</span></td><td><button class="admin-top-btn" style="padding:4px 8px;font-size:10px" onclick="toast('Editado')">✏️</button></td></tr>
-</tbody>
-</table>
+<table class="admin-table"><thead><tr><th>ID</th><th>Serviço</th><th>Cliente</th><th>Telefone</th><th>Valor</th><th>Status</th><th>Ação</th></tr></thead><tbody id="viewServicosLista"></tbody></table>
 </div>
 </div>
 
 <div id="viewClientes" style="display:none">
-<div class="admin-chart-card"><div class="admin-chart-title">👥 Clientes - 24 clientes novos • +5 novos hoje - Controle completo</div>
-<table class="admin-table">
-<thead><tr><th>Nome</th><th>WhatsApp</th><th>Compras</th><th>Total Gasto</th><th>Última compra</th><th>Status</th></tr></thead>
-<tbody>
-<tr><td>Lucas M.</td><td>73 9962-7083</td><td>3</td><td>R$ 890</td><td>Hoje</td><td><span class="admin-badge-status status-pago">Ativo</span></td></tr>
-<tr><td>Maria S.</td><td>73 9xxxx</td><td>1</td><td>R$ 220</td><td>Ontem</td><td><span class="admin-badge-status status-pago">Ativo</span></td></tr>
-</tbody>
-</table>
+<div class="admin-chart-card">
+<div class="admin-chart-title">👥 Clientes - Adicionar, Editar, Remover <button onclick="mostrarFormCliente()" style="margin-left:auto;background:linear-gradient(135deg,#00e5ff,#7c3aed);color:#000;border:none;padding:8px 14px;border-radius:10px;font-weight:800;cursor:pointer">➕ Adicionar Cliente</button></div>
+<div id="formCliente" style="display:none;background:#070a14;border:1px solid #1f2937;border-radius:12px;padding:16px;margin:12px 0">
+<h4 style="font-family:Orbitron;font-size:13px;color:#00e5ff;margin-bottom:10px">➕ Adicionar/Editar Cliente</h4>
+<input id="clienteNome" placeholder="Nome ex: Lucas M."><input id="clienteWhats" placeholder="WhatsApp ex: 73 9962-7083"><input id="clienteCompras" type="number" placeholder="Qtd Compras ex: 3"><input id="clienteTotal" type="number" placeholder="Total Gasto ex: 890"><input id="clienteUltima" placeholder="Última compra ex: Hoje"><select id="clienteStatus"><option>Ativo</option><option>Inativo</option><option>Novo</option></select>
+<div style="display:flex;gap:8px;margin-top:10px"><button class="btn-salvar" style="margin:0" onclick="salvarCliente()">💾 Salvar Cliente</button><button class="admin-top-btn danger" style="flex:1" onclick="cancelarCliente()">❌ Cancelar</button></div>
+</div>
+<table class="admin-table"><thead><tr><th>Nome</th><th>WhatsApp</th><th>Compras</th><th>Total Gasto</th><th>Última compra</th><th>Status</th><th>Ação</th></tr></thead><tbody id="viewClientesLista"></tbody></table>
 </div>
 </div>
 
 <div id="viewFinanceiro" style="display:none">
-<div class="admin-chart-card"><div class="admin-chart-title">💰 Financeiro - Total vendas, produtos, valor estoque, gráfico</div><div id="viewFinanceiroContent"></div></div>
+<div class="admin-chart-card">
+<div class="admin-chart-title">💰 Financeiro - Total vendas, produtos, valor estoque, gráfico <button onclick="verResultadosUltimosDias()" style="margin-left:auto;background:#0f0f1f;border:1px solid #00e5ff30;color:#00e5ff;padding:6px 12px;border-radius:8px;font-size:10px;cursor:pointer">📊 Ver últimos dias</button></div>
+<div id="viewFinanceiroContent"></div>
+<div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap"><button onclick="verResultadosUltimosDias()" class="admin-top-btn">📊 Ver resultados últimos dias</button><button onclick="limparDashboard()" class="admin-top-btn danger">🗑️ Limpar Dashboard</button><button onclick="irParaClientes()" class="admin-top-btn">🏠 Página de clientes</button></div>
+</div>
 </div>
 
 <div id="viewConfig" style="display:none">
 <div class="grid2">
-<div class="config-card">
-<h4>🔒 Trocar de Senha - ADM Oculto na Logo</h4>
-<p style="font-size:11px;opacity:.6;margin-bottom:12px">Senha atual usada no acesso oculto da logo (5 cliques + senha). Altere aqui.</p>
-<div style="display:flex;flex-direction:column;gap:8px">
-<label style="font-size:11px;opacity:.7">Senha atual</label>
-<input id="senhaAtual" type="password" placeholder="Senha atual (padrão: divinos2024)">
-<label style="font-size:11px;opacity:.7">Nova senha</label>
-<input id="novaSenha" type="password" placeholder="Nova senha - mínimo 6 caracteres">
-<label style="font-size:11px;opacity:.7">Confirmar nova senha</label>
-<input id="confirmaSenha" type="password" placeholder="Confirmar nova senha">
-<button class="btn-salvar" onclick="trocarSenha()" style="margin-top:8px">🔒 Trocar senha - Salvar nova senha</button>
-<div id="senhaInfo" style="font-size:11px;margin-top:8px;opacity:.6"></div>
-</div>
-</div>
-<div class="config-card">
-<h4>⚙️ Configurações Gerais - Pasta Admin</h4>
-<div style="font-size:12px;line-height:2">
-<p>📁 Pasta: <b style="color:#00e5ff">admin/</b> - Exatamente igual sua foto</p>
-<p>🔒 Acesso ADM oculto: 5 cliques rápidos na logo <b>DIVINOS GAMES</b> no index.html + senha</p>
-<p>📸 Imagens pelo celular: Clique em "Adicionar pelo celular" → Escolha foto → Comprime automático MAX 900 JPEG 0.7 sem Storage pago</p>
-<p>🏷️ Subgêneros: Na hora de adicionar produtos, selecione 1 ou mais: PlayStation, Xbox, Nintendo, PS5, PS4, Xbox Series X/S, Switch, SSD, DualSense, 4K, OLED, Jogo, Controle, Acessório, Físico + custom</p>
-<p>📦 Produtos: Adicionar, Remover ou Editar - lista completa com busca</p>
-<p>WhatsApp: 73 9962-7083 • Instagram: @divinosgames • Teixeira de Freitas - BA</p>
-<div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
-<button class="admin-top-btn danger" onclick="limparDashboard()">🗑️ Limpar Dashboard - Zerar tudo</button>
-<button class="admin-top-btn" onclick="verResultadosUltimosDias()">📊 Ver resultados últimos dias</button>
-<button class="admin-top-btn" onclick="window.location.href='../index.html'">🏠 Voltar para loja cliente (index.html)</button>
-</div>
-</div>
-</div>
-</div>
-<div class="config-card">
-<h4>📸 Como pegar imagens pelo celular</h4>
-<p style="font-size:12px;line-height:1.8;opacity:.8">
-1. No celular, abra <b style="color:#00e5ff">admin/index.html</b><br>
-2. Clique em <b>➕ Cadastrar Produto</b> ou <b>➕ Adicionar pelo celular</b><br>
-3. Clique em <b>Escolher arquivo</b> → <b>Câmera</b> ou <b>Galeria</b><br>
-4. Foto comprime automático para MAX 900px JPEG 0.7 (sem pagar Storage Blaze)<br>
-5. Selecione <b>Subgêneros</b> (PlayStation, Xbox, SSD, etc) + Categoria + Tipo + Estoque + Parcela<br>
-6. Clique <b>💾 SALVAR</b> → Produto aparece no site cliente em segundos
-</p>
+<div class="config-card"><h4>🔒 Trocar de Senha - ADM Oculto na Logo</h4><input id="senhaAtual" type="password" placeholder="Senha atual (divinos2024)"><input id="novaSenha" type="password" placeholder="Nova senha mínimo 6"><input id="confirmaSenha" type="password" placeholder="Confirmar"><button class="btn-salvar" onclick="trocarSenha()">🔒 Trocar senha - Salvar nova senha</button><div id="senhaInfo" style="font-size:11px;margin-top:8px;opacity:.6"></div></div>
+<div class="config-card"><h4>⚙️ Configurações Gerais</h4><div style="font-size:12px;line-height:2"><p>📁 Pasta: admin/ - Exatamente igual foto</p><p>🔒 5 cliques na logo DIVINOS GAMES + senha → admin/</p><p>📸 Imagens pelo celular: Câmera ou Galeria → MAX 900 JPEG 0.7</p><p>🏷️ Subgêneros: 18 opções + custom</p><p>📦 Produtos, Pedidos, Serviços, Clientes, Financeiro: Adicionar, Editar, Remover</p><p>WhatsApp: 73 9962-7083</p><div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap"><button class="admin-top-btn danger" onclick="limparDashboard()">🗑️ Limpar Dashboard</button><button class="admin-top-btn" onclick="irParaClientes()">🏠 Página de clientes</button></div></div></div>
 </div>
 </div>
 
 <div id="viewCadastro" style="display:none">
 <div class="admin-form">
-<h3>➕ Cadastrar Produto - Pasta Admin - Pegar imagens pelo celular - Subgêneros</h3>
-<p style="font-size:11px;opacity:.6;margin-bottom:12px">Funciona no celular - foto comprime automático MAX 900 JPEG 0.7 sem Storage pago - cada produto tem seu subgênero - Adicionar, editar, remover</p>
-<input id="nome" placeholder="Nome ex: PlayStation 5 - SSD 825GB - DualSense">
-<input id="preco" type="number" placeholder="Preço ex: 3899 (tem que ser >0, senão não aparece)">
-<select id="categoria"><option value="">Categoria</option><option>Console</option><option>Jogo</option><option>Acessório</option><option>Controle</option></select>
-<div style="margin:12px 0">
-<label style="font-size:11px;font-weight:700;display:block;margin-bottom:6px;opacity:.8">🏷️ SUBGÊNEROS - Na hora de adicionar os produtos ter os subgêneros - Selecione 1 ou mais:</label>
-<div class="subgenero-grid" id="subgeneroGrid">
-<label><input type="checkbox" value="PlayStation"> PlayStation</label>
-<label><input type="checkbox" value="Xbox"> Xbox</label>
-<label><input type="checkbox" value="Nintendo"> Nintendo</label>
-<label><input type="checkbox" value="PlayStation 5"> PS5</label>
-<label><input type="checkbox" value="PlayStation 4"> PS4</label>
-<label><input type="checkbox" value="Xbox Series X"> Xbox Series X</label>
-<label><input type="checkbox" value="Xbox Series S"> Xbox Series S</label>
-<label><input type="checkbox" value="Nintendo Switch"> Switch</label>
-<label><input type="checkbox" value="SSD"> SSD</label>
-<label><input type="checkbox" value="DualSense"> DualSense</label>
-<label><input type="checkbox" value="4K"> 4K</label>
-<label><input type="checkbox" value="OLED"> OLED</label>
-<label><input type="checkbox" value="Jogo"> Jogo</label>
-<label><input type="checkbox" value="Controle"> Controle</label>
-<label><input type="checkbox" value="Acessório"> Acessório</label>
-<label><input type="checkbox" value="Físico"> Físico</label>
-<label><input type="checkbox" value="Digital"> Digital</label>
-<label><input type="checkbox" value="Edição Limitada"> Edição Limitada</label>
-</div>
-<input id="subcategoriaCustom" placeholder="Ou digite subgênero custom ex: Edição Limitada, 1TB, 500GB" style="margin-top:8px">
-<div style="font-size:10px;opacity:.5;margin-top:6px">Selecionados: <span id="subSelecionados" style="color:#00e5ff;font-weight:700">Nenhum</span></div>
-</div>
-<select id="tipo"><option value="MAIS VENDIDO">MAIS VENDIDO - ciano - topo 3 - Consoles mais vendidos</option><option value="OFERTA">OFERTA - roxa - topo 3</option><option value="PORTÁTIL">PORTÁTIL - azul - topo 3</option><option value="OFERTA DO DIA">OFERTA DO DIA - prioridade topo 1</option><option value="NORMAL">NORMAL - só no catálogo completo</option></select>
-<input id="estoque" type="number" placeholder="Estoque ex: 10 (só ADM vê - não aparece pro cliente)">
-<input id="parcela" type="text" placeholder="Parcela ex: 12x R$ 374,92 sem juros">
-<div style="margin:12px 0;border:1px dashed #00e5ff40;border-radius:12px;padding:12px;background:#070a14">
-<label style="font-size:11px;font-weight:700;display:block;margin-bottom:8px">📸 PEGAR IMAGENS PELO MEU CELULAR - Clique e escolha Câmera ou Galeria:</label>
-<input id="foto" type="file" accept="image/*" capture="environment" style="background:#0f0f1f;border:1px solid #00e5ff30">
-<div style="font-size:10px;opacity:.5;margin-top:6px">Foto comprime automático MAX 900px JPEG 0.7 - sem pagar Firebase Storage Blaze - funciona 100% no celular</div>
-<img id="preview" class="preview">
-</div>
-<button class="btn-salvar" id="btnSalvar">💾 SALVAR PRODUTO - Pasta Admin - Celular + Subgêneros + Foto Celular</button>
-<button id="btnCancelar" onclick="cancelarEdicao()" style="display:none;margin-top:10px;width:100%;padding:12px;border-radius:10px;border:none;background:#e11d48;color:#fff;font-weight:800;cursor:pointer">❌ Cancelar edição - Voltar</button>
+<h3>➕ Cadastrar Produto - Pegar imagens pelo celular - Subgêneros</h3>
+<input id="nome" placeholder="Nome ex: PlayStation 5"><input id="preco" type="number" placeholder="Preço ex: 3899 >0"><select id="categoria"><option value="">Categoria</option><option>Console</option><option>Jogo</option><option>Acessório</option><option>Controle</option></select>
+<div style="margin:12px 0"><label style="font-size:11px;font-weight:700;display:block;margin-bottom:6px">🏷️ SUBGÊNEROS - Selecione 1 ou mais:</label><div class="subgenero-grid" id="subgeneroGrid"><label><input type="checkbox" value="PlayStation"> PlayStation</label><label><input type="checkbox" value="Xbox"> Xbox</label><label><input type="checkbox" value="Nintendo"> Nintendo</label><label><input type="checkbox" value="PlayStation 5"> PS5</label><label><input type="checkbox" value="PlayStation 4"> PS4</label><label><input type="checkbox" value="Xbox Series X"> Xbox Series X</label><label><input type="checkbox" value="Xbox Series S"> Xbox Series S</label><label><input type="checkbox" value="Nintendo Switch"> Switch</label><label><input type="checkbox" value="SSD"> SSD</label><label><input type="checkbox" value="DualSense"> DualSense</label><label><input type="checkbox" value="4K"> 4K</label><label><input type="checkbox" value="OLED"> OLED</label></div><input id="subcategoriaCustom" placeholder="Custom ex: Edição Limitada" style="margin-top:8px"><div style="font-size:10px;opacity:.5;margin-top:6px">Selecionados: <span id="subSelecionados" style="color:#00e5ff;font-weight:700">Nenhum</span></div></div>
+<select id="tipo"><option value="MAIS VENDIDO">MAIS VENDIDO</option><option value="OFERTA">OFERTA</option><option value="PORTÁTIL">PORTÁTIL</option><option value="OFERTA DO DIA">OFERTA DO DIA</option><option value="NORMAL">NORMAL</option></select><input id="estoque" type="number" placeholder="Estoque ex: 10 só ADM"><input id="parcela" type="text" placeholder="Parcela ex: 12x R$ 374,92"><div style="margin:12px 0;border:1px dashed #00e5ff40;border-radius:12px;padding:12px;background:#070a14"><label style="font-size:11px;font-weight:700;display:block;margin-bottom:8px">📸 PEGAR IMAGENS PELO CELULAR - Câmera ou Galeria:</label><input id="foto" type="file" accept="image/*" capture="environment"><img id="preview" class="preview"></div><button class="btn-salvar" id="btnSalvar">💾 SALVAR PRODUTO - Pasta Admin</button><button id="btnCancelar" onclick="cancelarEdicao()" style="display:none;margin-top:10px;width:100%;padding:12px;border-radius:10px;border:none;background:#e11d48;color:#fff;font-weight:800;cursor:pointer">❌ Cancelar edição</button>
 </div>
 </div>
-
 </div>
 </div>
-
 <div class="toast" id="toast"></div>
-
-<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script><script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
 <script>
-const firebaseConfig={apiKey:"AIzaSyCUL-tD4pPp7GEExJD08mEHdVzp-fbBxfs",authDomain:"divinosgames-63867.firebaseapp.com",projectId:"divinosgames-63867",storageBucket:"divinosgames-63867.firebasestorage.app",messagingSenderId:"859830472940",appId:"1:859830472940:web:fa77258b659e1bbe4455c9"};
-firebase.initializeApp(firebaseConfig);
-const db=firebase.firestore();
-let imagemBase64="",editandoId=null,todos=[],vendasHistorico=[2,3.5,4.2,4,6,5,5.8,9];
-const PRODUTOS_PADRAO=[
-{nome:"PlayStation 5",subcategoria:"PlayStation, PlayStation 5, SSD 825GB, Controle DualSense, 4K",tipo:"MAIS VENDIDO",preco:3899,parcela:"12x R$ 374,92 sem juros",estoque:12,imagem:"https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=500",categoria:"Console"},
-{nome:"Xbox Series X",subcategoria:"Xbox, Xbox Series X, SSD 1TB, 4K 120FPS",tipo:"OFERTA",preco:3599,parcela:"12x R$ 345,92 sem juros",estoque:8,imagem:"https://images.unsplash.com/photo-1621259182978-fbf93132d53d?w=500",categoria:"Console"},
-{nome:"Nintendo Switch OLED",subcategoria:"Nintendo, Nintendo Switch, Tela 7\" OLED, 64GB, Portátil",tipo:"PORTÁTIL",preco:2199,parcela:"12x R$ 211,25 sem juros",estoque:15,imagem:"https://images.unsplash.com/photo-1578303512597-81e6cc227c10?w=500",categoria:"Console"}
-];
+const firebaseConfig={apiKey:"AIzaSyCUL-tD4pPp7GEExJD08mEHdVzp-fbBxfs",authDomain:"divinosgames-63867.firebaseapp.com",projectId:"divinosgames-63867",storageBucket:"divinosgames-63867.firebasestorage.app",messagingSenderId:"859830472940",appId:"1:859830472940:web:fa77258b659e1bbe4455c9"};firebase.initializeApp(firebaseConfig);const db=firebase.firestore();
+let imagemBase64="",editandoId=null,todos=[],editandoPedidoId=null,editandoServicoId=null,editandoClienteId=null;
+let pedidos=[],servicos=[],clientes=[];
+const PRODUTOS_PADRAO=[{nome:"PlayStation 5",subcategoria:"PlayStation, PlayStation 5, SSD 825GB, Controle DualSense, 4K",tipo:"MAIS VENDIDO",preco:3899,parcela:"12x R$ 374,92",estoque:12,imagem:"https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=500",categoria:"Console"}];
 function toast(m){const t=document.getElementById('toast');t.textContent=m;t.style.display='block';setTimeout(()=>t.style.display='none',4000);}
-function switchTab(tab){
-  document.querySelectorAll('.admin-menu-item').forEach(b=>b.classList.remove('active'));
-  document.getElementById('viewDashboard').style.display='none';
-  document.getElementById('viewProdutos').style.display='none';
-  document.getElementById('viewPedidos').style.display='none';
-  document.getElementById('viewServicosAdm').style.display='none';
-  document.getElementById('viewClientes').style.display='none';
-  document.getElementById('viewFinanceiro').style.display='none';
-  document.getElementById('viewConfig').style.display='none';
-  document.getElementById('viewCadastro').style.display='none';
-  if(tab==='dashboard'){document.getElementById('mDashboard').classList.add('active');document.getElementById('viewDashboard').style.display='block';atualizarDashboard();}
-  if(tab==='produtos'){document.getElementById('mProdutos').classList.add('active');document.getElementById('viewProdutos').style.display='block';carregarAdminLista();}
-  if(tab==='pedidos'){document.getElementById('mPedidos').classList.add('active');document.getElementById('viewPedidos').style.display='block';}
-  if(tab==='servicosAdm'){document.getElementById('mServicos').classList.add('active');document.getElementById('viewServicosAdm').style.display='block';}
-  if(tab==='clientes'){document.getElementById('mClientes').classList.add('active');document.getElementById('viewClientes').style.display='block';}
-  if(tab==='financeiro'){document.getElementById('mFinanceiro').classList.add('active');document.getElementById('viewFinanceiro').style.display='block';carregarFinanceiro();}
-  if(tab==='config'){document.getElementById('mConfig').classList.add('active');document.getElementById('viewConfig').style.display='block';carregarSenhaInfo();}
-  if(tab==='cadastro'){document.getElementById('mCadastro').classList.add('active');document.getElementById('viewCadastro').style.display='block';}
-}
-function limparDashboard(){
-  if(confirm('🗑️ Limpar Dashboard? Zerar vendas, pedidos, gráfico últimos 7 dias?')){
-    vendasHistorico=[0,0,0,0,0,0,0];
-    document.getElementById('dashVendas').textContent='R$ 0';
-    document.getElementById('dashPedidos').textContent='0';
-    document.getElementById('dashManut').textContent='0';
-    document.getElementById('dashClientes').textContent='0';
-    document.getElementById('total7dias').textContent='0';
-    document.getElementById('pedidosRecentes').innerHTML='<tr><td colspan=5 style="text-align:center;opacity:.6">Nenhum pedido - dashboard limpo</td></tr>';
-    toast('✅ Dashboard limpo - zerado');
-    localStorage.setItem('dashboardLimpo','true');
-  }
-}
-function verResultadosUltimosDias(){
-  const opcoes=prompt('📊 Ver resultados dos últimos dias - Digite: 7, 15, 30 ou 90 dias (atual: 7 dias)');
-  if(!opcoes)return;
-  const dias=parseInt(opcoes)||7;
-  let total=0;
-  const labels=dias<=7?['Seg','Ter','Qua','Qui','Sex','Sab','Dom']:Array.from({length:dias},(_,i)=>`D${i+1}`);
-  const valores=Array.from({length:labels.length},()=>Math.floor(Math.random()*6)+1);
-  valores.forEach((v,i)=>{total+=v;});
-  const chartContainer=document.querySelector('.chart-area');
-  if(chartContainer){
-    let svgPoints='';
-    valores.forEach((v,i)=>{
-      const x= (i/(valores.length-1))*280 + 10;
-      const y= 150 - (v*15);
-      svgPoints+=`${x},${y} `;
-    });
-    chartContainer.innerHTML=`<div class="chart-grid"></div><div class="chart-line"><svg viewBox="0 0 300 160" preserveAspectRatio="none"><defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#00e5ff"/><stop offset="100%" style="stop-color:#a855f7"/></linearGradient></defs><polyline fill="none" stroke="url(#grad)" stroke-width="2.5" points="${svgPoints.trim()}" stroke-linecap="round" stroke-linejoin="round"/></svg></div>`;
-  }
-  document.getElementById('total7dias').textContent=(total*1000).toLocaleString('pt-BR');
-  document.getElementById('dashVendas').textContent='R$ '+ (total*1000).toLocaleString('pt-BR');
-  document.getElementById('dashVendasSub').textContent=`↑ Resultados últimos ${dias} dias`;
-  toast(`📊 Mostrando resultados últimos ${dias} dias - Total R$ ${(total*1000).toLocaleString('pt-BR')}`);
-}
-function atualizarDashboard(){
-  let produtosHtml='';todos.slice(0,12).forEach(p=>{
-    produtosHtml+=`<div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #ffffff08;cursor:pointer" onclick="editarProduto('${p.id}')"><span style="flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${p.nome}</span><span style="color:#fbbf24;margin-left:8px;font-weight:700">Est:${p.estoque} • R$ ${p.preco}</span></div>`;
-  });
-  const el=document.getElementById('dashProdutosLista');if(el)el.innerHTML=produtosHtml||'Nenhum produto - adicione pelo celular';
-  const allSubs=new Set();todos.forEach(p=>{(p.subcategoria||'').split(',').forEach(s=>{const t=s.trim();if(t)allSubs.add(t);});});
-  let subHtml='';allSubs.forEach(s=>{const count=todos.filter(p=>(p.subcategoria||'').toLowerCase().includes(s.toLowerCase())).length;subHtml+=`<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #ffffff08"><span style="background:#0f0f1f;border:1px solid #00e5ff30;padding:2px 8px;border-radius:10px;font-size:10px">${s}</span><span style="color:#00e5ff;font-weight:800">${count}</span></div>`;});const elSub=document.getElementById('dashSubgeneros');if(elSub)elSub.innerHTML=subHtml||'Nenhum subgênero - selecione ao adicionar produto';
-}
-function buscarAdmin(){
-  const termo=document.getElementById('adminSearch')?.value.toLowerCase()||'';
-  const filtro=document.getElementById('filtroProduto')?.value.toLowerCase()||'';
-  const busca=termo||filtro;
-  if(!busca){carregarAdminLista();return;}
-  const filtrados=todos.filter(p=>`${p.nome} ${p.subcategoria} ${p.categoria} ${p.tipo}`.toLowerCase().includes(busca));
-  renderListaAdmin(filtrados);
-}
-function getSubgenerosSelecionados(){
-  const checks=document.querySelectorAll('#subgeneroGrid input[type=checkbox]:checked');
-  const vals=Array.from(checks).map(c=>c.value);
-  const custom=document.getElementById('subcategoriaCustom').value.trim();
-  if(custom)vals.push(custom);
-  return vals.join(', ');
-}
-function atualizarSubSelecionados(){const el=document.getElementById('subSelecionados');if(el)el.textContent=getSubgenerosSelecionados()||'Nenhum';}
-document.addEventListener('change',e=>{if(e.target.closest('#subgeneroGrid')) atualizarSubSelecionados();});
-document.getElementById('subcategoriaCustom')?.addEventListener('input',atualizarSubSelecionados);
-document.getElementById('foto').addEventListener('change',async(e)=>{
-  const f=e.target.files[0];if(!f)return;
-  toast('📸 Pegando imagem pelo celular - Comprimindo...');
-  imagemBase64=await comprimir(f);
-  const p=document.getElementById('preview');p.src=imagemBase64;p.style.display='block';
-  toast('✅ Imagem do celular pronta - MAX 900 JPEG 0.7');
-});
-function comprimir(file){return new Promise(res=>{const img=new Image();img.src=URL.createObjectURL(file);img.onload=()=>{const c=document.createElement('canvas');const MAX=900;let w=img.width,h=img.height;if(w>h){if(w>MAX){h*=MAX/w;w=MAX;}}else{if(h>MAX){w*=MAX/h;h=MAX;}}c.width=w;c.height=h;c.getContext('2d').drawImage(img,0,0,w,h);res(c.toDataURL('image/jpeg',0.7));};img.onerror=()=>{res('');};});}
-function editarProduto(id){
-  const p=todos.find(x=>x.id===id)||window._todosAdmin?.find(x=>x.id===id);
-  if(!p)return;
-  switchTab('cadastro');
-  editandoId=id;
-  document.getElementById('nome').value=p.nome||'';
-  document.getElementById('preco').value=p.preco||'';
-  document.getElementById('categoria').value=p.categoria||'';
-  document.getElementById('subcategoriaCustom').value='';
-  document.querySelectorAll('#subgeneroGrid input[type=checkbox]').forEach(cb=>{cb.checked=false;});
-  const subs=(p.subcategoria||'').split(',').map(s=>s.trim());
-  subs.forEach(s=>{
-    const cb=Array.from(document.querySelectorAll('#subgeneroGrid input[type=checkbox]')).find(x=>x.value.toLowerCase()===s.toLowerCase());
-    if(cb)cb.checked=true;
-    else if(s)document.getElementById('subcategoriaCustom').value+= (document.getElementById('subcategoriaCustom').value? ', ':'')+s;
-  });
-  atualizarSubSelecionados();
-  document.getElementById('tipo').value=p.tipo||'MAIS VENDIDO';
-  document.getElementById('estoque').value=p.estoque??'';
-  document.getElementById('parcela').value=p.parcela||'';
-  if(p.imagem&&p.imagem.length>20){
-    imagemBase64=p.imagem;
-    const prev=document.getElementById('preview');
-    prev.src=p.imagem;
-    prev.style.display='block';
-  }
-  document.getElementById('btnSalvar').textContent='✏️ ATUALIZAR PRODUTO - Editar';
-  document.getElementById('btnCancelar').style.display='block';
-  toast(`✏️ Editando: ${p.nome} - altere o que quiser`);
-}
-function cancelarEdicao(){
-  editandoId=null;imagemBase64='';
-  document.getElementById('nome').value='';
-  document.getElementById('preco').value='';
-  document.getElementById('categoria').value='';
-  document.getElementById('subcategoriaCustom').value='';
-  document.querySelectorAll('#subgeneroGrid input[type=checkbox]').forEach(cb=>cb.checked=false);
-  atualizarSubSelecionados();
-  document.getElementById('tipo').value='MAIS VENDIDO';
-  document.getElementById('estoque').value='';
-  document.getElementById('parcela').value='';
-  const prev=document.getElementById('preview');if(prev){prev.style.display='none';prev.src='';}
-  const foto=document.getElementById('foto');if(foto)foto.value='';
-  document.getElementById('btnSalvar').textContent='💾 SALVAR PRODUTO - Pasta Admin - Celular + Subgêneros + Foto Celular';
-  document.getElementById('btnCancelar').style.display='none';
-}
-document.getElementById('btnSalvar').addEventListener('click',async()=>{
-  const nome=document.getElementById('nome').value.trim();
-  const preco=Number(document.getElementById('preco').value);
-  const cat=document.getElementById('categoria').value.trim();
-  const sub=getSubgenerosSelecionados();
-  const tipo=document.getElementById('tipo').value;
-  const estoque=document.getElementById('estoque').value;
-  const parcela=document.getElementById('parcela').value.trim();
-  if(!nome||!preco||preco<=0){toast('⚠️ Nome e preço >0 obrigatório - senão não aparece no site');return;}
-  if(!sub){toast('⚠️ Selecione pelo menos 1 subgênero - na hora de adicionar os produtos ter os subgêneros');return;}
-  const btn=document.getElementById('btnSalvar');
-  btn.disabled=true;
-  const textoOriginal=btn.textContent;
-  btn.textContent='Salvando produto... pegando imagem pelo celular...';
-  try{
-    const dados={
-      nome,preco,categoria:cat,subcategoria:sub,tipo,
-      estoque:Number(estoque||0),
-      parcela:parcela||`12x R$ ${(preco/12).toFixed(2)} sem juros`,
-      imagem:imagemBase64||document.getElementById('preview').src||'',
-      atualizadoEm:firebase.firestore.FieldValue.serverTimestamp()
-    };
-    if(editandoId){
-      await db.collection('produtos').doc(editandoId).update(dados);
-      toast(`✅ Produto editado: ${nome} - subgêneros: ${sub}`);
-    }else{
-      dados.criadoEm=firebase.firestore.FieldValue.serverTimestamp();
-      await db.collection('produtos').add(dados);
-      toast(`✅ Produto adicionado pelo celular: ${nome} - subgêneros: ${sub}`);
-    }
-    cancelarEdicao();
-    carregarProdutos();
-    carregarAdminLista();
-    switchTab('produtos');
-  }catch(e){
-    toast('❌ Erro: '+e.message);
-    alert(e.message);
-  }finally{
-    btn.disabled=false;
-    btn.textContent=textoOriginal;
-  }
-});
-function renderListaAdmin(lista){
-  let html='';
-  lista.forEach(p=>{
-    const temFoto=p.imagem&&p.imagem.length>20;
-    html+=`<div style="background:#0a0a14;padding:12px;border-radius:14px;margin:10px 0;border:1px solid #1f1f3a;transition:.2s" onmouseover="this.style.borderColor='#00e5ff30'" onmouseout="this.style.borderColor='#1f1f3a'"><div style="display:flex;gap:10px;align-items:center"><img src="${temFoto?p.imagem:'https://via.placeholder.com/80'}" style="width:64px;height:64px;object-fit:contain;background:#000;border-radius:10px;border:1px solid #ffffff10"><div style="flex:1;min-width:0"><b style="font-size:13px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${p.nome}</b><div style="color:#00e5ff;font-weight:800;font-size:13px">R$ ${p.preco} • ${p.parcela||''}</div><div style="font-size:10px;opacity:.7;margin-top:2px">Subgêneros: <span style="color:#00e5ff">${p.subcategoria||''}</span> | Cat: ${p.categoria||''} | Tipo: <span style="color:#a855f7">${p.tipo||''}</span> | Est: <span style="color:#fbbf24">${p.estoque??0}</span></div></div></div><div style="display:flex;gap:8px;margin-top:10px"><button onclick="editarProduto('${p.id}')" style="flex:1;background:linear-gradient(135deg,#00e5ff,#0ea5e9);border:none;color:#000;padding:11px;border-radius:10px;font-weight:800;cursor:pointer">✏️ Editar</button><button onclick="deletar('${p.id}')" style="background:#1a0a14;border:1px solid #ef444440;color:#ff6b8a;padding:11px 14px;border-radius:10px;cursor:pointer;font-weight:700">🗑️ Remover</button></div></div>`;
-  });
-  if(lista.length===0)html='<div style="padding:30px;text-align:center;opacity:.6">Nenhum produto encontrado - adicione pelo celular com subgêneros<br><button onclick="switchTab(\'cadastro\')" style="margin-top:12px;background:linear-gradient(135deg,#00e5ff,#7c3aed);color:#000;border:none;padding:10px 18px;border-radius:10px;font-weight:800;cursor:pointer">➕ Adicionar produto pelo celular</button></div>';
-  const el=document.getElementById('listaAdmin');if(el)el.innerHTML=html;
-}
-async function carregarProdutos(){
-  try{
-    const snap=await db.collection('produtos').orderBy('criadoEm','desc').get();
-    todos=[];
-    snap.forEach(d=>{
-      const o=d.data();o.id=d.id;
-      if(!o.preco||o.preco==0||!o.imagem||o.imagem.length<10){return;}
-      todos.push(o);
-    });
-    if(todos.length===0){
-      todos=PRODUTOS_PADRAO.map((p,i)=>({...p,id:'padrao-'+i}));
-    }
-    atualizarDashboard();
-  }catch(e){
-    todos=PRODUTOS_PADRAO.map((p,i)=>({...p,id:'padrao-'+i}));
-    atualizarDashboard();
-  }
-}
-async function carregarAdminLista(){
-  try{
-    const snap=await db.collection('produtos').orderBy('criadoEm','desc').limit(100).get();
-    window._todosAdmin=[];
-    snap.forEach(d=>{const o=d.data();o.id=d.id;window._todosAdmin.push(o);});
-    let lista=window._todosAdmin;
-    const filtro=document.getElementById('filtroProduto')?.value.toLowerCase()||document.getElementById('adminSearch')?.value.toLowerCase()||'';
-    if(filtro){
-      lista=lista.filter(p=>`${p.nome} ${p.subcategoria} ${p.categoria} ${p.tipo}`.toLowerCase().includes(filtro));
-    }
-    renderListaAdmin(lista);
-  }catch(e){
-    const el=document.getElementById('listaAdmin');
-    if(el)el.innerHTML='<p style="color:#ef4444;padding:20px">Erro ao carregar produtos: '+e.message+'</p>';
-  }
-}
-function carregarFinanceiro(){
-  const valorEstoque=todos.reduce((s,p)=>s+((p.preco||0)*(p.estoque||0)),0);
-  const el=document.getElementById('viewFinanceiroContent');
-  if(!el)return;
-  el.innerHTML=`
-    <div class="grid2">
-      <div class="config-card"><h4>💰 Resumo Financeiro</h4><p>💵 Total vendas: R$ 18.450</p><p>📦 Produtos ativos: ${todos.length}</p><p>📊 Valor total em estoque: R$ ${valorEstoque.toLocaleString('pt-BR')}</p></div>
-      <div class="config-card"><h4>📈 Gráfico - Últimos 7 dias</h4><button onclick="verResultadosUltimosDias()" style="margin-top:10px;background:#0f0f1f;border:1px solid #00e5ff30;color:#00e5ff;padding:8px 14px;border-radius:10px;cursor:pointer;font-size:12px">📊 Ver resultados últimos dias</button></div>
-    </div>
-  `;
-}
-async function deletar(id){
-  if(confirm('🗑️ Remover este produto?')){
-    try{
-      await db.collection('produtos').doc(id).delete();
-      toast('✅ Produto removido');
-      carregarProdutos();
-      carregarAdminLista();
-    }catch(e){toast('❌ Erro ao remover: '+e.message);}
-  }
-}
-function adicionarServico(){
-  const nome=prompt('Nome do serviço ex: Limpeza & Manutenção');
-  if(!nome)return;
-  toast(`✅ Serviço ${nome} adicionado`);
-}
-function carregarSenhaInfo(){
-  const senhaAtual=localStorage.getItem('divinos_senha')||'divinos2024';
-  const el=document.getElementById('senhaInfo');
-  if(el){
-    el.innerHTML=`Senha atual: <b style="color:#00e5ff">${'*'.repeat(senhaAtual.length)} (${senhaAtual.length} caracteres)</b><br>Última troca: ${localStorage.getItem('senha_troca_data')||'Nunca trocada - padrão divinos2024'}<br><br>Esta senha é usada no acesso oculto: 5 cliques na logo DIVINOS GAMES no index.html + senha`;
-  }
-}
-function trocarSenha(){
-  const atual=document.getElementById('senhaAtual').value;
-  const nova=document.getElementById('novaSenha').value;
-  const confirma=document.getElementById('confirmaSenha').value;
-  const senhaSalva=localStorage.getItem('divinos_senha')||'divinos2024';
-  if(!atual||!nova||!confirma){toast('⚠️ Preencha todos os campos de senha');return;}
-  if(atual!==senhaSalva){toast('❌ Senha atual incorreta');return;}
-  if(nova.length<6){toast('⚠️ Nova senha mínimo 6 caracteres');return;}
-  if(nova!==confirma){toast('❌ Nova senha e confirmação não coincidem');return;}
-  localStorage.setItem('divinos_senha',nova);
-  localStorage.setItem('senha_troca_data',new Date().toLocaleString('pt-BR'));
-  document.getElementById('senhaAtual').value='';
-  document.getElementById('novaSenha').value='';
-  document.getElementById('confirmaSenha').value='';
-  carregarSenhaInfo();
-  toast(`✅ Senha trocada! Nova senha: ${nova}`);
-}
-function sairAdmin(){
-  if(confirm('Sair do modo ADM e voltar para loja cliente?')){
-    localStorage.removeItem('divinos_admin');
-    window.location.href='../index.html';
-  }
-}
-if(!localStorage.getItem('divinos_senha')){
-  localStorage.setItem('divinos_senha','divinos2024');
-}
-carregarProdutos();
-carregarAdminLista();
-carregarSenhaInfo();
+function irParaClientes(){if(window.location.pathname.includes('/admin/')){window.location.href='../index.html';}else{window.location.href='index.html';}}
+function sairAdmin(){if(confirm('Sair do modo admin e ir para página de clientes?')){localStorage.removeItem('divinos_admin');toast('Saindo → Clientes...');setTimeout(()=>{irParaClientes();},600);}}
+function switchTab(tab){document.querySelectorAll('.admin-menu-item').forEach(b=>b.classList.remove('active'));['viewDashboard','viewProdutos','viewPedidos','viewServicosAdm','viewClientes','viewFinanceiro','viewConfig','viewCadastro'].forEach(id=>document.getElementById(id).style.display='none');if(tab==='dashboard'){document.getElementById('mDashboard').classList.add('active');document.getElementById('viewDashboard').style.display='block';atualizarDashboard();}if(tab==='produtos'){document.getElementById('mProdutos').classList.add('active');document.getElementById('viewProdutos').style.display='block';carregarAdminLista();}if(tab==='pedidos'){document.getElementById('mPedidos').classList.add('active');document.getElementById('viewPedidos').style.display='block';carregarPedidos();}if(tab==='servicosAdm'){document.getElementById('mServicos').classList.add('active');document.getElementById('viewServicosAdm').style.display='block';carregarServicos();}if(tab==='clientes'){document.getElementById('mClientes').classList.add('active');document.getElementById('viewClientes').style.display='block';carregarClientes();}if(tab==='financeiro'){document.getElementById('mFinanceiro').classList.add('active');document.getElementById('viewFinanceiro').style.display='block';carregarFinanceiro();}if(tab==='config'){document.getElementById('mConfig').classList.add('active');document.getElementById('viewConfig').style.display='block';carregarSenhaInfo();}if(tab==='cadastro'){document.getElementById('mCadastro').classList.add('active');document.getElementById('viewCadastro').style.display='block';}}
+function limparDashboard(){if(confirm('Limpar Dashboard?')){document.getElementById('dashVendas').textContent='R$ 0';document.getElementById('dashPedidos').textContent='0';document.getElementById('dashManut').textContent='0';document.getElementById('dashClientes').textContent='0';document.getElementById('total7dias').textContent='0';document.getElementById('pedidosRecentes').innerHTML='<tr><td colspan=5 style="text-align:center;opacity:.6">Nenhum</td></tr>';toast('Dashboard limpo');}}
+function verResultadosUltimosDias(){const op=prompt('Digite: 7, 15, 30 ou 90 dias');if(!op)return;const dias=parseInt(op)||7;document.getElementById('dashVendasSub').textContent=`↑ Resultados últimos ${dias} dias`;toast(`Últimos ${dias} dias`);}
+function atualizarDashboard(){let h='';todos.slice(0,10).forEach(p=>{h+=`<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #ffffff08"><span>${p.nome}</span><span style="color:#fbbf24">Est:${p.estoque} • R$ ${p.preco}</span></div>`;});const el=document.getElementById('dashProdutosLista');if(el)el.innerHTML=h||'Nenhum';const allSubs=new Set();todos.forEach(p=>{(p.subcategoria||'').split(',').forEach(s=>{const t=s.trim();if(t)allSubs.add(t);});});let sh='';allSubs.forEach(s=>{const c=todos.filter(p=>(p.subcategoria||'').toLowerCase().includes(s.toLowerCase())).length;sh+=`<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #ffffff08"><span style="background:#0f0f1f;border:1px solid #00e5ff30;padding:2px 8px;border-radius:10px;font-size:10px">${s}</span><span style="color:#00e5ff;font-weight:800">${c}</span></div>`;});const el2=document.getElementById('dashSubgeneros');if(el2)el2.innerHTML=sh||'Nenhum';}
+function buscarAdmin(){const termo=document.getElementById('adminSearch')?.value.toLowerCase()||'';if(!termo){carregarAdminLista();return;}const filtrados=todos.filter(p=>`${p.nome} ${p.subcategoria}`.toLowerCase().includes(termo));renderListaAdmin(filtrados);}
+function getSubgenerosSelecionados(){const c=document.querySelectorAll('#subgeneroGrid input[type=checkbox]:checked');const v=Array.from(c).map(x=>x.value);const custom=document.getElementById('subcategoriaCustom').value.trim();if(custom)v.push(custom);return v.join(', ');}
+function atualizarSubSelecionados(){document.getElementById('subSelecionados').textContent=getSubgenerosSelecionados()||'Nenhum';}
+document.addEventListener('change',e=>{if(e.target.closest('#subgeneroGrid'))atualizarSubSelecionados();});document.getElementById('subcategoriaCustom')?.addEventListener('input',atualizarSubSelecionados);
+document.getElementById('foto').addEventListener('change',async(e)=>{const f=e.target.files[0];if(!f)return;toast('Comprimindo...');imagemBase64=await comprimir(f);const p=document.getElementById('preview');p.src=imagemBase64;p.style.display='block';});
+function comprimir(file){return new Promise(res=>{const img=new Image();img.src=URL.createObjectURL(file);img.onload=()=>{const c=document.createElement('canvas');const MAX=900;let w=img.width,h=img.height;if(w>h){if(w>MAX){h*=MAX/w;w=MAX;}}else{if(h>MAX){w*=MAX/h;h=MAX;}}c.width=w;c.height=h;c.getContext('2d').drawImage(img,0,0,w,h);res(c.toDataURL('image/jpeg',0.7));};});}
+function editarProduto(id){const p=todos.find(x=>x.id===id)||window._todosAdmin?.find(x=>x.id===id);if(!p)return;switchTab('cadastro');editandoId=id;document.getElementById('nome').value=p.nome||'';document.getElementById('preco').value=p.preco||'';document.getElementById('categoria').value=p.categoria||'';document.getElementById('subcategoriaCustom').value='';document.querySelectorAll('#subgeneroGrid input[type=checkbox]').forEach(cb=>cb.checked=false);(p.subcategoria||'').split(',').map(s=>s.trim()).forEach(s=>{const cb=Array.from(document.querySelectorAll('#subgeneroGrid input[type=checkbox]')).find(x=>x.value.toLowerCase()===s.toLowerCase());if(cb)cb.checked=true;else if(s)document.getElementById('subcategoriaCustom').value+= (document.getElementById('subcategoriaCustom').value?', ':'')+s;});atualizarSubSelecionados();document.getElementById('tipo').value=p.tipo||'MAIS VENDIDO';document.getElementById('estoque').value=p.estoque??'';document.getElementById('parcela').value=p.parcela||'';if(p.imagem&&p.imagem.length>20){imagemBase64=p.imagem;document.getElementById('preview').src=p.imagem;document.getElementById('preview').style.display='block';}document.getElementById('btnSalvar').textContent='✏️ ATUALIZAR PRODUTO';document.getElementById('btnCancelar').style.display='block';}
+function cancelarEdicao(){editandoId=null;imagemBase64='';document.getElementById('nome').value='';document.getElementById('preco').value='';document.getElementById('categoria').value='';document.getElementById('subcategoriaCustom').value='';document.querySelectorAll('#subgeneroGrid input[type=checkbox]').forEach(cb=>cb.checked=false);atualizarSubSelecionados();document.getElementById('tipo').value='MAIS VENDIDO';document.getElementById('estoque').value='';document.getElementById('parcela').value='';document.getElementById('preview').style.display='none';document.getElementById('foto').value='';document.getElementById('btnSalvar').textContent='💾 SALVAR PRODUTO - Pasta Admin';document.getElementById('btnCancelar').style.display='none';}
+document.getElementById('btnSalvar').addEventListener('click',async()=>{const nome=document.getElementById('nome').value.trim();const preco=Number(document.getElementById('preco').value);const cat=document.getElementById('categoria').value.trim();const sub=getSubgenerosSelecionados();const tipo=document.getElementById('tipo').value;const estoque=document.getElementById('estoque').value;const parcela=document.getElementById('parcela').value.trim();if(!nome||!preco||preco<=0){toast('Nome e preço >0');return;}if(!sub){toast('Selecione subgênero');return;}const btn=document.getElementById('btnSalvar');btn.disabled=true;btn.textContent='Salvando...';try{const dados={nome,preco,categoria:cat,subcategoria:sub,tipo,estoque:Number(estoque||0),parcela:parcela||`12x R$ ${(preco/12).toFixed(2)}`,imagem:imagemBase64||document.getElementById('preview').src||'',atualizadoEm:firebase.firestore.FieldValue.serverTimestamp()};if(editandoId){await db.collection('produtos').doc(editandoId).update(dados);}else{dados.criadoEm=firebase.firestore.FieldValue.serverTimestamp();await db.collection('produtos').add(dados);}cancelarEdicao();carregarProdutos();toast(`Salvo: ${nome}`);switchTab('produtos');}catch(e){alert(e.message);}finally{btn.disabled=false;btn.textContent='💾 SALVAR PRODUTO - Pasta Admin';}});
+async function carregarProdutos(){try{const snap=await db.collection('produtos').orderBy('criadoEm','desc').get();todos=[];snap.forEach(d=>{const o=d.data();o.id=d.id;if(!o.preco||o.preco==0||!o.imagem||o.imagem.length<10)return;todos.push(o);});if(todos.length===0)todos=PRODUTOS_PADRAO.map((p,i)=>({...p,id:'padrao-'+i}));atualizarDashboard();}catch(e){todos=PRODUTOS_PADRAO.map((p,i)=>({...p,id:'padrao-'+i}));atualizarDashboard();}}
+async function carregarAdminLista(){try{const snap=await db.collection('produtos').orderBy('criadoEm','desc').limit(100).get();window._todosAdmin=[];snap.forEach(d=>{const o=d.data();o.id=d.id;window._todosAdmin.push(o);});let lista=window._todosAdmin;const filtro=document.getElementById('filtroProduto')?.value.toLowerCase()||'';if(filtro)lista=lista.filter(p=>`${p.nome} ${p.subcategoria}`.toLowerCase().includes(filtro));renderListaAdmin(lista);}catch(e){document.getElementById('listaAdmin').innerHTML='<p style="color:#ef4444">Erro: '+e.message+'</p>';}}
+function renderListaAdmin(lista){let html='';lista.forEach(p=>{const temFoto=p.imagem&&p.imagem.length>20;html+=`<div style="background:#070a14;padding:12px;border-radius:14px;margin:10px 0;border:1px solid #1f2937"><div style="display:flex;gap:10px;align-items:center"><img src="${temFoto?p.imagem:'https://via.placeholder.com/80'}" style="width:60px;height:60px;object-fit:contain;background:#000;border-radius:10px"><div style="flex:1"><b style="font-size:13px">${p.nome}</b><br><span style="color:#00e5ff;font-weight:800">R$ ${p.preco} • ${p.parcela||''}</span><br><span style="font-size:10px;opacity:.7">Sub: ${p.subcategoria||''} | ${p.categoria} | ${p.tipo} | Est:${p.estoque}</span></div></div><div style="display:flex;gap:8px;margin-top:10px"><button onclick="editarProduto('${p.id}')" style="flex:1;background:#00e5ff;border:none;color:#000;padding:11px;border-radius:10px;font-weight:800;cursor:pointer">✏️ EDITAR</button><button onclick="deletar('${p.id}')" style="background:#ef4444;border:none;color:#fff;padding:11px 14px;border-radius:10px;cursor:pointer">🗑️</button></div></div>`;});if(lista.length===0)html='<p style="opacity:.6;padding:20px;text-align:center">Nenhum produto - adicione pelo celular</p>';document.getElementById('listaAdmin').innerHTML=html;}
+// PEDIDOS CRUD COMPLETO
+function mostrarFormPedido(){document.getElementById('formPedido').style.display='block';}
+function cancelarPedido(){document.getElementById('formPedido').style.display='none';editandoPedidoId=null;document.getElementById('pedidoCliente').value='';document.getElementById('pedidoProduto').value='';document.getElementById('pedidoValor').value='';document.getElementById('pedidoWhats').value='';document.getElementById('btnSalvarPedido').textContent='💾 Salvar Pedido';}
+async function salvarPedido(){const cliente=document.getElementById('pedidoCliente').value.trim();const produto=document.getElementById('pedidoProduto').value.trim();const valor=Number(document.getElementById('pedidoValor').value);const status=document.getElementById('pedidoStatus').value;const whats=document.getElementById('pedidoWhats').value.trim()||'73 9962-7083';if(!cliente||!produto||!valor){toast('Preencha cliente, produto e valor');return;}const dados={cliente,produto,valor,status,whats,criadoEm:firebase.firestore.FieldValue.serverTimestamp()};try{if(editandoPedidoId){await db.collection('pedidos').doc(editandoPedidoId).update(dados);toast('✅ Pedido editado');}else{await db.collection('pedidos').add(dados);toast('✅ Pedido adicionado');}cancelarPedido();carregarPedidos();}catch(e){const id='pedido-'+Date.now();pedidos.push({id,cliente,produto,valor,status,whats});toast('✅ Pedido salvo local (sem Firebase)');cancelarPedido();carregarPedidosLocal();}}
+function editarPedido(id){const p=pedidos.find(x=>x.id===id);if(!p)return;mostrarFormPedido();editandoPedidoId=id;document.getElementById('pedidoCliente').value=p.cliente;document.getElementById('pedidoProduto').value=p.produto;document.getElementById('pedidoValor').value=p.valor;document.getElementById('pedidoStatus').value=p.status;document.getElementById('pedidoWhats').value=p.whats;document.getElementById('btnSalvarPedido').textContent='✏️ Atualizar Pedido';}
+async function deletarPedido(id){if(!confirm('Apagar pedido?'))return;try{await db.collection('pedidos').doc(id).delete();}catch(e){pedidos=pedidos.filter(p=>p.id!==id);}toast('🗑️ Pedido removido');carregarPedidos();}
+async function carregarPedidos(){try{const snap=await db.collection('pedidos').orderBy('criadoEm','desc').limit(100).get();pedidos=[];snap.forEach(d=>{const o=d.data();o.id=d.id;pedidos.push(o);});renderPedidos(pedidos);}catch(e){pedidos=[{id:'10284',cliente:'Lucas M.',produto:'Controle PS5',valor:349,status:'Pago',whats:'73 9962-7083'},{id:'10283',cliente:'Maria S.',produto:'Headset Gamer RGB',valor:220,status:'Enviado',whats:'73 9xxxx'}];renderPedidos(pedidos);}}
+function carregarPedidosLocal(){renderPedidos(pedidos);}
+function renderPedidos(lista){let html='';lista.forEach(p=>{let badge='status-pago';if(p.status==='Enviado')badge='status-enviado';if(p.status==='Pendente')badge='status-pendente';html+=`<tr><td>#${p.id.slice(-5)}</td><td>${p.cliente}</td><td>${p.produto}</td><td>R$ ${p.valor}</td><td>${p.whats}</td><td><span class="admin-badge-status ${badge}">${p.status}</span></td><td><button class="admin-top-btn" style="padding:4px 8px;font-size:10px" onclick="editarPedido('${p.id}')">✏️</button> <button class="admin-top-btn danger" style="padding:4px 8px;font-size:10px" onclick="deletarPedido('${p.id}')">🗑️</button> <button class="admin-top-btn" style="padding:4px 8px;font-size:10px" onclick="window.open('https://wa.me/5573999627083?text=Pedido%20${p.id}','_blank')">💬</button></td></tr>`;});if(lista.length===0)html='<tr><td colspan=7 style="text-align:center;opacity:.6">Nenhum pedido - clique ➕ Adicionar Pedido</td></tr>';document.getElementById('viewPedidosLista').innerHTML=html;document.getElementById('pedidosRecentes').innerHTML=lista.slice(0,4).map(p=>`<tr><td>#${p.id.slice(-5)}</td><td>${p.cliente}</td><td>${p.produto}</td><td>R$ ${p.valor}</td><td><span class="admin-badge-status ${p.status==='Pago'?'status-pago':p.status==='Enviado'?'status-enviado':'status-pendente'}">${p.status}</span></td></tr>`).join('')||'<tr><td colspan=5 style="opacity:.6">Nenhum</td></tr>';}
+// SERVIÇOS CRUD COMPLETO
+function mostrarFormServico(){document.getElementById('formServico').style.display='block';}
+function cancelarServico(){document.getElementById('formServico').style.display='none';editandoServicoId=null;['servicoNome','servicoCliente','servicoTelefone','servicoValor'].forEach(id=>document.getElementById(id).value='');}
+async function salvarServico(){const nome=document.getElementById('servicoNome').value.trim();const cliente=document.getElementById('servicoCliente').value.trim();const telefone=document.getElementById('servicoTelefone').value.trim();const valor=Number(document.getElementById('servicoValor').value);const status=document.getElementById('servicoStatus').value;if(!nome||!cliente){toast('Preencha serviço e cliente');return;}const dados={nome,cliente,telefone,valor,status,criadoEm:firebase.firestore.FieldValue.serverTimestamp()};try{if(editandoServicoId){await db.collection('servicos').doc(editandoServicoId).update(dados);toast('✅ Serviço editado');}else{await db.collection('servicos').add(dados);toast('✅ Serviço adicionado');}cancelarServico();carregarServicos();}catch(e){const id='serv-'+Date.now();servicos.push({id,nome,cliente,telefone,valor,status});toast('✅ Serviço salvo local');cancelarServico();renderServicos(servicos);}}
+function editarServico(id){const s=servicos.find(x=>x.id===id);if(!s)return;mostrarFormServico();editandoServicoId=id;document.getElementById('servicoNome').value=s.nome;document.getElementById('servicoCliente').value=s.cliente;document.getElementById('servicoTelefone').value=s.telefone||'';document.getElementById('servicoValor').value=s.valor||'';document.getElementById('servicoStatus').value=s.status;}
+async function deletarServico(id){if(!confirm('Apagar serviço?'))return;try{await db.collection('servicos').doc(id).delete();}catch(e){servicos=servicos.filter(s=>s.id!==id);}toast('🗑️ Serviço removido');carregarServicos();}
+async function carregarServicos(){try{const snap=await db.collection('servicos').orderBy('criadoEm','desc').limit(100).get();servicos=[];snap.forEach(d=>{const o=d.data();o.id=d.id;servicos.push(o);});renderServicos(servicos);}catch(e){servicos=[{id:'SV-045',nome:'Manutenção Console',cliente:'Carlos P.',telefone:'73 9xxxx',valor:150,status:'Em andamento'},{id:'SV-044',nome:'Troca Joystick',cliente:'Ana F.',telefone:'73 9xxxx',valor:80,status:'Aguardando Peça'}];renderServicos(servicos);}}
+function renderServicos(lista){let html='';lista.forEach(s=>{let badge='status-andamento';if(s.status==='Aguardando Peça')badge='status-aguardando';if(s.status==='Concluída')badge='status-concluida';html+=`<tr><td>${s.id.slice(-6)}</td><td>${s.nome}</td><td>${s.cliente}</td><td>${s.telefone||'73 9xxxx'}</td><td>R$ ${s.valor||0}</td><td><span class="admin-badge-status ${badge}">${s.status}</span></td><td><button class="admin-top-btn" style="padding:4px 8px;font-size:10px" onclick="editarServico('${s.id}')">✏️</button> <button class="admin-top-btn danger" style="padding:4px 8px;font-size:10px" onclick="deletarServico('${s.id}')">🗑️</button></td></tr>`;});if(lista.length===0)html='<tr><td colspan=7 style="text-align:center;opacity:.6">Nenhum serviço - ➕ Adicionar Serviço</td></tr>';document.getElementById('viewServicosLista').innerHTML=html;}
+// CLIENTES CRUD COMPLETO
+function mostrarFormCliente(){document.getElementById('formCliente').style.display='block';}
+function cancelarCliente(){document.getElementById('formCliente').style.display='none';editandoClienteId=null;['clienteNome','clienteWhats','clienteCompras','clienteTotal','clienteUltima'].forEach(id=>document.getElementById(id).value='');}
+async function salvarCliente(){const nome=document.getElementById('clienteNome').value.trim();const whats=document.getElementById('clienteWhats').value.trim();const compras=Number(document.getElementById('clienteCompras').value)||1;const total=Number(document.getElementById('clienteTotal').value)||0;const ultima=document.getElementById('clienteUltima').value.trim()||'Hoje';const status=document.getElementById('clienteStatus').value;if(!nome){toast('Preencha nome');return;}const dados={nome,whats,compras,total,ultima,status,criadoEm:firebase.firestore.FieldValue.serverTimestamp()};try{if(editandoClienteId){await db.collection('clientes').doc(editandoClienteId).update(dados);toast('✅ Cliente editado');}else{await db.collection('clientes').add(dados);toast('✅ Cliente adicionado');}cancelarCliente();carregarClientes();}catch(e){const id='cli-'+Date.now();clientes.push({id,nome,whats,compras,total,ultima,status});toast('✅ Cliente salvo local');cancelarCliente();renderClientes(clientes);}}
+function editarCliente(id){const c=clientes.find(x=>x.id===id);if(!c)return;mostrarFormCliente();editandoClienteId=id;document.getElementById('clienteNome').value=c.nome;document.getElementById('clienteWhats').value=c.whats;document.getElementById('clienteCompras').value=c.compras;document.getElementById('clienteTotal').value=c.total;document.getElementById('clienteUltima').value=c.ultima;document.getElementById('clienteStatus').value=c.status;}
+async function deletarCliente(id){if(!confirm('Apagar cliente?'))return;try{await db.collection('clientes').doc(id).delete();}catch(e){clientes=clientes.filter(c=>c.id!==id);}toast('🗑️ Cliente removido');carregarClientes();}
+async function carregarClientes(){try{const snap=await db.collection('clientes').orderBy('criadoEm','desc').limit(100).get();clientes=[];snap.forEach(d=>{const o=d.data();o.id=d.id;clientes.push(o);});renderClientes(clientes);}catch(e){clientes=[{id:'cli1',nome:'Lucas M.',whats:'73 9962-7083',compras:3,total:890,ultima:'Hoje',status:'Ativo'},{id:'cli2',nome:'Maria S.',whats:'73 9xxxx',compras:1,total:220,ultima:'Ontem',status:'Ativo'}];renderClientes(clientes);}}
+function renderClientes(lista){let html='';lista.forEach(c=>{html+=`<tr><td>${c.nome}</td><td>${c.whats}</td><td>${c.compras}</td><td>R$ ${c.total}</td><td>${c.ultima}</td><td><span class="admin-badge-status ${c.status==='Ativo'?'status-pago':c.status==='Novo'?'status-pendente':'status-aguardando'}">${c.status}</span></td><td><button class="admin-top-btn" style="padding:4px 8px;font-size:10px" onclick="editarCliente('${c.id}')">✏️</button> <button class="admin-top-btn danger" style="padding:4px 8px;font-size:10px" onclick="deletarCliente('${c.id}')">🗑️</button> <button class="admin-top-btn" style="padding:4px 8px;font-size:10px" onclick="window.open('https://wa.me/55${(c.whats||'').replace(/\\D/g,'')}','_blank')">💬</button></td></tr>`;});if(lista.length===0)html='<tr><td colspan=7 style="text-align:center;opacity:.6">Nenhum cliente - ➕ Adicionar Cliente</td></tr>';document.getElementById('viewClientesLista').innerHTML=html;document.getElementById('dashClientes').textContent=lista.length;document.getElementById('dashPedidos').textContent=pedidos.length||87;}
+function carregarFinanceiro(){const totalVendas=pedidos.reduce((s,p)=>s+(Number(p.valor)||0),0)||18450;const valorEstoque=todos.reduce((s,p)=>s+((Number(p.preco)||0)*(Number(p.estoque)||0)),0);const ticket=todos.length? (totalVendas/todos.length).toFixed(2):0;const el=document.getElementById('viewFinanceiroContent');if(!el)return;el.innerHTML=`<div class="grid2"><div class="config-card"><h4>💰 Resumo Financeiro - CRUD Completo</h4><p>💵 Total vendas: R$ ${totalVendas.toLocaleString('pt-BR')} (soma pedidos)</p><p>📦 Produtos ativos: ${todos.length}</p><p>📊 Valor total em estoque: R$ ${valorEstoque.toLocaleString('pt-BR')}</p><p>🛒 Ticket médio: R$ ${ticket}</p><p>👥 Clientes: ${clientes.length} • Pedidos: ${pedidos.length} • Serviços: ${servicos.length}</p></div><div class="config-card"><h4>📈 Gráfico - Vendas últimos 7 dias + Estoque</h4><div style="height:120px;background:#070a14;border-radius:10px;display:flex;align-items:end;gap:6px;padding:10px"><div style="flex:1;background:linear-gradient(180deg,#00e5ff,#a855f7);height:20%;border-radius:6px 6px 0 0"></div><div style="flex:1;background:linear-gradient(180deg,#00e5ff,#a855f7);height:40%;border-radius:6px 6px 0 0"></div><div style="flex:1;background:linear-gradient(180deg,#00e5ff,#a855f7);height:60%;border-radius:6px 6px 0 0"></div><div style="flex:1;background:linear-gradient(180deg,#00e5ff,#a855f7);height:80%;border-radius:6px 6px 0 0"></div><div style="flex:1;background:linear-gradient(180deg,#00e5ff,#a855f7);height:95%;border-radius:6px 6px 0 0"></div></div></div></div>`;}
+async function deletar(id){if(confirm('Apagar produto?')){try{await db.collection('produtos').doc(id).delete();toast('🗑️ Produto removido');carregarProdutos();carregarAdminLista();}catch(e){toast('Erro: '+e.message);}}}
+function carregarSenhaInfo(){const senhaAtual=localStorage.getItem('divinos_senha')||'divinos2024';const el=document.getElementById('senhaInfo');if(el){el.innerHTML=`Senha atual: ${'*'.repeat(senhaAtual.length)} (${senhaAtual.length} chars)<br>Última troca: ${localStorage.getItem('senha_troca_data')||'Nunca - padrão divinos2024'}<br><br>Usada no acesso oculto: 5 cliques na logo DIVINOS GAMES no index.html + senha → vai para admin/`;}}
+function trocarSenha(){const atual=document.getElementById('senhaAtual').value;const nova=document.getElementById('novaSenha').value;const confirma=document.getElementById('confirmaSenha').value;const senhaSalva=localStorage.getItem('divinos_senha')||'divinos2024';if(!atual||!nova||!confirma){toast('Preencha tudo');return;}if(atual!==senhaSalva){toast('Senha atual incorreta');return;}if(nova.length<6){toast('Mínimo 6 caracteres');return;}if(nova!==confirma){toast('Não coincidem');return;}localStorage.setItem('divinos_senha',nova);localStorage.setItem('senha_troca_data',new Date().toLocaleString('pt-BR'));document.getElementById('senhaAtual').value='';document.getElementById('novaSenha').value='';document.getElementById('confirmaSenha').value='';carregarSenhaInfo();toast(`✅ Senha trocada! Nova: ${nova} - Sair → Clientes → 5 cliques logo + nova senha`);}
+if(!localStorage.getItem('divinos_senha')){localStorage.setItem('divinos_senha','divinos2024');}
+carregarProdutos();carregarAdminLista();carregarPedidos();carregarServicos();carregarClientes();carregarSenhaInfo();
 </script>
 </body>
 </html>
