@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DIVINOS GAMES - Cliente Final V5 - Preview + Hero BG</title>
+<title>DIVINOS GAMES - Cliente Final Completo V6</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -25,14 +25,12 @@ body{font-family:Inter;background:radial-gradient(900px at 0% 0%, rgba(0,229,255
 .hero-title{font-family:Orbitron;font-size:32px;font-weight:900;line-height:1.1;margin-bottom:8px}
 .hero-title span{color:#00e5ff}
 .hero-sub{font-size:13px;opacity:.8;margin-bottom:14px}
-.hero-btns{display:flex;gap:8px;flex-wrap:wrap}
 .catalogs{display:flex;gap:8px;overflow:auto;padding:10px 14px;scrollbar-width:none}
 .catalogs::-webkit-scrollbar{display:none}
 .catalog-btn{background:rgba(15,15,31,.9);border:1px solid #1f2937;color:#8b8ba7;padding:10px 14px;border-radius:12px;font-weight:800;font-size:11px;white-space:nowrap;cursor:pointer}
 .catalog-btn.active{background:linear-gradient(135deg,#00e5ff20,#7c3aed20);border-color:#00e5ff80;color:#00e5ff;box-shadow:0 0 12px #00e5ff30}
 .subcatalogs{display:none;gap:8px;overflow:auto;padding:0 14px 10px;scrollbar-width:none;flex-wrap:wrap}
 .subcatalogs.active{display:flex}
-.subcatalogs::-webkit-scrollbar{display:none}
 .sub-btn{background:#0f0f1f;border:1px solid #1f2937;color:#8b8ba7;padding:7px 12px;border-radius:20px;font-size:10px;font-weight:700;cursor:pointer;white-space:nowrap}
 .sub-btn.active{background:#00e5ff20;border-color:#00e5ff;color:#00e5ff}
 .two-squares{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px 14px}
@@ -44,15 +42,15 @@ body{font-family:Inter;background:radial-gradient(900px at 0% 0%, rgba(0,229,255
 .square-sub{font-size:9px;opacity:.7}
 .products{padding:10px 14px}
 .products-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-@media(min-width:900px){.products-grid{grid-template-columns:repeat(4,1fr)}.two-squares{grid-template-columns:1fr 1fr}.hero{height:400px}.hero-title{font-size:42px}}
+@media(min-width:900px){.products-grid{grid-template-columns:repeat(4,1fr)}.hero{height:400px}.hero-title{font-size:42px}}
 .product-card{background:linear-gradient(180deg, rgba(18,18,40,.9) 0%, rgba(10,10,20,.95) 100%);border:1px solid rgba(255,255,255,.08);border-radius:14px;overflow:hidden;position:relative;transition:.2s;cursor:pointer}
+.product-card.oferta-topo{border:2px solid #facc15;box-shadow:0 0 20px rgba(250,204,21,.35)}
 .product-card:hover{transform:translateY(-3px);border-color:#00e5ff40;box-shadow:0 8px 24px rgba(0,229,255,.15)}
 .product-img-wrap{position:relative;height:140px;background:#000;overflow:hidden}
 .product-img{width:100%;height:100%;object-fit:contain}
 .product-badge{position:absolute;top:8px;left:8px;padding:4px 8px;border-radius:20px;font-size:8px;font-weight:900;z-index:2}
 .badge-oferta-dia{background:linear-gradient(135deg,#facc15,#f59e0b);color:#000;animation:pulse 1.5s infinite;border:1px solid #facc15}
 .badge-mais-vendido{background:linear-gradient(135deg,#00e5ff,#7c3aed);color:#000}
-.badge-oferta{background:linear-gradient(135deg,#ef4444,#f97316);color:#fff}
 .product-info{padding:10px}
 .product-name{font-size:11px;font-weight:700;line-height:1.3;height:28px;overflow:hidden}
 .product-price{font-family:Orbitron;font-size:14px;font-weight:900;color:#00e5ff;margin-top:4px}
@@ -64,8 +62,6 @@ body{font-family:Inter;background:radial-gradient(900px at 0% 0%, rgba(0,229,255
 .btn-buy{background:linear-gradient(135deg,#00e5ff,#7c3aed);color:#000}
 .btn-details{background:#11112a;border:1px solid #1f2937;color:#fff}
 .footer{background:rgba(8,8,16,.9);border-top:1px solid rgba(0,229,255,.1);padding:20px 14px;margin-top:20px;text-align:center}
-.footer-title{font-family:Orbitron;font-weight:900;color:#00e5ff}
-.footer-sub{font-size:11px;opacity:.6;margin-top:4px}
 .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#00e5ff;color:#000;padding:10px 18px;border-radius:20px;font-weight:900;display:none;z-index:9999;font-size:12px}
 .cart-modal{position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;align-items:flex-end;justify-content:center;z-index:200}
 .cart-box{background:#121228;border:1px solid #00e5ff30;border-radius:16px 16px 0 0;max-width:500px;width:100%;max-height:80vh;overflow:auto;padding:16px}
@@ -73,107 +69,25 @@ body{font-family:Inter;background:radial-gradient(900px at 0% 0%, rgba(0,229,255
 </style>
 </head>
 <body>
-<div class="header">
-<div class="logo">🎮 DIVINOS <span>GAMES</span></div>
-<div class="search"><input id="searchInput" placeholder="Buscar PlayStation, PS5, Xbox, Ação, FPS..." oninput="filtrar()"><button class="btn btn-primary" onclick="filtrar()">🔍</button></div>
-<button class="btn-cart" onclick="abrirCarrinho()">🛒 Carrinho <span class="cart-count" id="cartCount">0</span></button>
-<button class="btn" style="background:#11112a;border:1px solid #1f2937;color:#fff" onclick="location.href='admin/index.html'">⚙️ Admin</button>
-</div>
+<div class="header"><div class="logo">🎮 DIVINOS <span>GAMES</span></div><div class="search"><input id="searchInput" placeholder="Buscar PlayStation, PS5, Xbox, Ação, FPS..." oninput="filtrar()"><button class="btn btn-primary" onclick="filtrar()">🔍</button></div><button class="btn-cart" onclick="abrirCarrinho()">🛒 Carrinho <span class="cart-count" id="cartCount">0</span></button><button class="btn" style="background:#11112a;border:1px solid #1f2937;color:#fff" onclick="location.href='admin/index.html'">⚙️ Admin</button></div>
 
-<div class="hero" id="hero">
-<div class="hero-bg" id="heroBg"></div>
-<div class="hero-content">
-<div class="hero-badge" id="heroBadge">🔥 OFERTA DO DIA - Amarelo piscando bem chamativo</div>
-<div class="hero-title">DIVINOS <span>GAMES</span><br>CONSOLES & JOGOS</div>
-<div class="hero-sub" id="heroSub">PlayStation 5 • Xbox Series X/S • Nintendo Switch • SSD 825GB • 4K 120FPS • Tela 7" OLED</div>
-<div class="hero-btns"><button class="btn btn-primary" onclick="scrollToProdutos()">🎮 Ver Produtos</button><button class="btn" style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff" onclick="abrirWhats()">💬 Whats 73 9962-7083</button></div>
-</div>
-</div>
+<div class="hero" id="hero"><div class="hero-bg" id="heroBg"></div><div class="hero-content"><div class="hero-badge" id="heroBadge">🔥 OFERTA DO DIA - Amarelo piscando bem chamativo</div><div class="hero-title">DIVINOS <span>GAMES</span><br>CONSOLES & JOGOS</div><div class="hero-sub" id="heroSub">PlayStation 5 • Xbox Series X/S • Nintendo Switch • SSD 825GB • 4K 120FPS • Tela 7" OLED</div><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-primary" onclick="scrollToProdutos()">🎮 Ver Produtos</button><button class="btn" style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff" onclick="abrirWhats()">💬 Whats 73 9962-7083</button></div></div></div>
 
-<div class="catalogs" id="catalogs">
-<button class="catalog-btn active" data-cat="todos" onclick="selecionarCatalogo('todos',this)">🎮 Todos</button>
-<button class="catalog-btn" data-cat="Console" onclick="selecionarCatalogo('Console',this)">💎 Consoles</button>
-<button class="catalog-btn" data-cat="Jogo" onclick="selecionarCatalogo('Jogo',this)">🎮 Jogos</button>
-<button class="catalog-btn" data-cat="Controle" onclick="selecionarCatalogo('Controle',this)">🎮 Controles</button>
-<button class="catalog-btn" data-cat="Acessório" onclick="selecionarCatalogo('Acessório',this)">🔌 Acessórios</button>
-</div>
+<div class="catalogs"><button class="catalog-btn active" onclick="selecionarCatalogo('todos',this)">🎮 Todos</button><button class="catalog-btn" onclick="selecionarCatalogo('Console',this)">💎 Consoles</button><button class="catalog-btn" onclick="selecionarCatalogo('Jogo',this)">🎮 Jogos</button><button class="catalog-btn" onclick="selecionarCatalogo('Controle',this)">🎮 Controles</button><button class="catalog-btn" onclick="selecionarCatalogo('Acessório',this)">🔌 Acessórios</button></div>
 
-<div class="subcatalogs" id="subConsoles">
-<button class="sub-btn" onclick="filtrarSub('PlayStation',this)">PlayStation</button>
-<button class="sub-btn" onclick="filtrarSub('PS5',this)">💎 PS5</button>
-<button class="sub-btn" onclick="filtrarSub('PS5 Pro',this)">PS5 Pro</button>
-<button class="sub-btn" onclick="filtrarSub('PS4',this)">PS4</button>
-<button class="sub-btn" onclick="filtrarSub('Xbox',this)">🟩 Xbox</button>
-<button class="sub-btn" onclick="filtrarSub('Xbox Series X/S',this)">Series X/S</button>
-<button class="sub-btn" onclick="filtrarSub('Nintendo Switch',this)">Switch</button>
-<button class="sub-btn" onclick="filtrarSub('SSD 825GB',this)">SSD 825GB</button>
-<button class="sub-btn" onclick="filtrarSub('SSD 1TB',this)">SSD 1TB</button>
-<button class="sub-btn" onclick="filtrarSub('4K',this)">4K</button>
-<button class="sub-btn" onclick="filtrarSub('4K 120FPS',this)">4K 120FPS</button>
-<button class="sub-btn" onclick="filtrarSub('Tela 7 OLED',this)">Tela 7" OLED</button>
-</div>
+<div class="subcatalogs" id="subConsoles"><button class="sub-btn" onclick="filtrarSub('PlayStation',this)">PlayStation</button><button class="sub-btn" onclick="filtrarSub('PS5',this)">💎 PS5</button><button class="sub-btn" onclick="filtrarSub('PS5 Pro',this)">PS5 Pro</button><button class="sub-btn" onclick="filtrarSub('PS4',this)">PS4</button><button class="sub-btn" onclick="filtrarSub('Xbox',this)">🟩 Xbox</button><button class="sub-btn" onclick="filtrarSub('Xbox Series X/S',this)">Series X/S</button><button class="sub-btn" onclick="filtrarSub('Nintendo Switch',this)">Switch</button><button class="sub-btn" onclick="filtrarSub('SSD 825GB',this)">SSD 825GB</button><button class="sub-btn" onclick="filtrarSub('SSD 1TB',this)">SSD 1TB</button><button class="sub-btn" onclick="filtrarSub('4K',this)">4K</button><button class="sub-btn" onclick="filtrarSub('4K 120FPS',this)">4K 120FPS</button><button class="sub-btn" onclick="filtrarSub('Tela 7 OLED',this)">Tela 7" OLED</button></div>
+<div class="subcatalogs" id="subJogos"><button class="sub-btn" onclick="filtrarSub('Ação',this)">🎯 Ação</button><button class="sub-btn" onclick="filtrarSub('FPS',this)">🔫 FPS</button><button class="sub-btn" onclick="filtrarSub('TPS',this)">TPS</button><button class="sub-btn" onclick="filtrarSub('Aventura',this)">Aventura</button><button class="sub-btn" onclick="filtrarSub('RPG',this)">⚔️ RPG</button><button class="sub-btn" onclick="filtrarSub('Corrida',this)">🏎️ Corrida</button><button class="sub-btn" onclick="filtrarSub('Esportes',this)">⚽ Esportes</button><button class="sub-btn" onclick="filtrarSub('Luta',this)">🥊 Luta</button><button class="sub-btn" onclick="filtrarSub('Terror',this)">👻 Terror</button><button class="sub-btn" onclick="filtrarSub('Mundo Aberto',this)">🌍 Mundo Aberto</button><button class="sub-btn" onclick="filtrarSub('Battle Royale',this)">Battle Royale</button><button class="sub-btn" onclick="filtrarSub('Sobrevivência',this)">Sobrevivência</button></div>
 
-<div class="subcatalogs" id="subJogos">
-<button class="sub-btn" onclick="filtrarSub('Ação',this)">🎯 Ação</button>
-<button class="sub-btn" onclick="filtrarSub('FPS',this)">🔫 FPS</button>
-<button class="sub-btn" onclick="filtrarSub('TPS',this)">TPS</button>
-<button class="sub-btn" onclick="filtrarSub('Aventura',this)">Aventura</button>
-<button class="sub-btn" onclick="filtrarSub('RPG',this)">⚔️ RPG</button>
-<button class="sub-btn" onclick="filtrarSub('Corrida',this)">🏎️ Corrida</button>
-<button class="sub-btn" onclick="filtrarSub('Esportes',this)">⚽ Esportes</button>
-<button class="sub-btn" onclick="filtrarSub('Luta',this)">🥊 Luta</button>
-<button class="sub-btn" onclick="filtrarSub('Terror',this)">👻 Terror</button>
-<button class="sub-btn" onclick="filtrarSub('Mundo Aberto',this)">🌍 Mundo Aberto</button>
-<button class="sub-btn" onclick="filtrarSub('Battle Royale',this)">Battle Royale</button>
-<button class="sub-btn" onclick="filtrarSub('Sobrevivência',this)">Sobrevivência</button>
-</div>
+<div class="two-squares"><div class="square" onclick="filtrarSub('PS5',null)"><div class="square-bg" id="squarePS5Bg" style="background:linear-gradient(135deg,#0a0f24 0%, #1a1a3a 100%), url('https://images.unsplash.com/photo-1607853202273-797f1c22a38e?w=400&h=300&fit=crop') center/cover"></div><div class="square-overlay"></div><div class="square-content"><div class="square-title">💎 PLAYSTATION 5</div><div class="square-sub">SSD 825GB • 4K • DualSense</div></div></div><div class="square" onclick="filtrarSub('Xbox',null)"><div class="square-bg" id="squareXBOXBg" style="background:linear-gradient(135deg,#0a1f0a 0%, #1a3a1a 100%), url('https://images.unsplash.com/photo-1622297845775-5ff3fef71d13?w=400&h=300&fit=crop') center/cover"></div><div class="square-overlay"></div><div class="square-content"><div class="square-title">🟩 XBOX SERIES X/S</div><div class="square-sub">SSD 1TB • 4K 120FPS</div></div></div></div>
 
-<div class="two-squares">
-<div class="square" onclick="filtrarSub('PS5',null)" id="squarePS5">
-<div class="square-bg" id="squarePS5Bg" style="background:linear-gradient(135deg,#0a0f24 0%, #1a1a3a 100%), url('https://images.unsplash.com/photo-1607853202273-797f1c22a38e?w=400&h=300&fit=crop') center/cover"></div>
-<div class="square-overlay"></div>
-<div class="square-content"><div class="square-title">💎 PLAYSTATION 5</div><div class="square-sub">SSD 825GB • 4K • DualSense</div></div>
-</div>
-<div class="square" onclick="filtrarSub('Xbox',null)" id="squareXBOX">
-<div class="square-bg" id="squareXBOXBg" style="background:linear-gradient(135deg,#0a1f0a 0%, #1a3a1a 100%), url('https://images.unsplash.com/photo-1622297845775-5ff3fef71d13?w=400&h=300&fit=crop') center/cover"></div>
-<div class="square-overlay"></div>
-<div class="square-content"><div class="square-title">🟩 XBOX SERIES X/S</div><div class="square-sub">SSD 1TB • 4K 120FPS</div></div>
-</div>
-</div>
+<div class="products" id="produtosSection"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap;gap:6px"><div style="font-family:Orbitron;font-weight:900;font-size:14px">🎮 Produtos - <span id="prodCount">0</span> - 3 Ofertas topo primeiro</div><div style="font-size:10px;opacity:.6">Preview 👁️ - 2 colunas celular / 4 PC</div></div><div class="products-grid" id="productsGrid"></div></div>
 
-<div class="products" id="produtosSection">
-<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap;gap:6px"><div style="font-family:Orbitron;font-weight:900;font-size:14px">🎮 Produtos - <span id="prodCount">0</span> - Clique para pré-visualização</div><div style="font-size:10px;opacity:.6">2 colunas celular • 4 colunas PC • Preview 👁️</div></div>
-<div class="products-grid" id="productsGrid"></div>
-</div>
-
-<div class="footer" id="footer">
-<div class="footer-title" id="footerNome">DIVINOS GAMES</div>
-<div class="footer-sub" id="footerSub">Teixeira de Freitas - BA • Whats <span id="footerWhats">73 9962-7083</span> • 2024 • Preview + Hero BG</div>
-</div>
+<div class="footer"><div style="font-family:Orbitron;font-weight:900;color:#00e5ff" id="footerNome">DIVINOS GAMES</div><div style="font-size:11px;opacity:.6;margin-top:4px">Teixeira de Freitas - BA • Whats <span id="footerWhats">73 9962-7083</span> • 3 Ofertas no topo + Preview + Hero BG</div></div>
 
 <div class="toast" id="toast"></div>
-
 <div class="cart-modal" id="cartModal"><div class="cart-box"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><div style="font-family:Orbitron;font-weight:900">🛒 Carrinho</div><button class="btn" style="background:#1a0a14;border:1px solid #ef444440;color:#ff6b8a" onclick="fecharCarrinho()">❌</button></div><div id="cartItems"></div><div style="margin-top:12px;display:flex;justify-content:space-between;font-weight:900"><div>Total:</div><div id="cartTotal" style="color:#00e5ff">R$ 0,00</div></div><button class="btn btn-primary" style="width:100%;margin-top:12px;padding:12px" onclick="finalizarWhats()">💬 Finalizar no Whats 73 9962-7083</button></div></div>
 
-<!-- PREVIEW MODAL CLIENTE - Pré-visualização de cada produto que clica -->
-<div class="preview-modal-client" id="previewModalClient">
-<div style="background:linear-gradient(180deg, rgba(18,18,40,.95) 0%, rgba(10,10,20,.98) 100%);border:1px solid #00e5ff60;border-radius:16px;max-width:420px;width:100%;overflow:hidden;position:relative">
-<button onclick="fecharPreviewClient()" style="position:absolute;top:10px;right:10px;background:#1a0a14;border:1px solid #ef444440;color:#ff6b8a;width:32px;height:32px;border-radius:50%;cursor:pointer;z-index:10;font-weight:900">✕</button>
-<img id="previewClientImg" style="width:100%;height:280px;object-fit:contain;background:#000">
-<div style="padding:14px">
-<div id="previewClientBadge"></div>
-<div id="previewClientNome" style="font-family:Orbitron;font-weight:900;font-size:14px;margin-top:8px"></div>
-<div id="previewClientSub" style="font-size:10px;color:#8b8ba7;margin-top:6px;display:flex;gap:4px;flex-wrap:wrap"></div>
-<div id="previewClientPreco" style="font-family:Orbitron;font-size:18px;font-weight:900;color:#00e5ff;margin-top:8px"></div>
-<div id="previewClientParcela" style="font-size:10px;opacity:.6;margin-top:2px"></div>
-<div id="previewClientDesc" style="font-size:11px;opacity:.8;margin-top:10px;background:#070a14;border:1px solid #1f2937;border-radius:8px;padding:8px">📷 Pré-visualização - Cada produto que clica - Foto grande + Detalhes + Comprar + Zap</div>
-<div style="display:flex;gap:8px;margin-top:12px">
-<button class="btn-small btn-buy" style="flex:1;padding:12px" onclick="comprarDoPreview()">🛒 Comprar - R$ <span id="previewClientPrecoBtn"></span></button>
-<button class="btn-small btn-details" style="flex:1;padding:12px;background:#11112a;border:1px solid #00e5ff30;color:#fff" onclick="zapDoPreview()">💬 Zap 73 9962-7083</button>
-</div>
-</div>
-</div>
-</div>
+<div class="preview-modal-client" id="previewModalClient"><div style="background:linear-gradient(180deg, rgba(18,18,40,.95) 0%, rgba(10,10,20,.98) 100%);border:1px solid #00e5ff60;border-radius:16px;max-width:420px;width:100%;overflow:hidden;position:relative"><button onclick="fecharPreviewClient()" style="position:absolute;top:10px;right:10px;background:#1a0a14;border:1px solid #ef444440;color:#ff6b8a;width:32px;height:32px;border-radius:50%;cursor:pointer;z-index:10;font-weight:900">✕</button><img id="previewClientImg" style="width:100%;height:280px;object-fit:contain;background:#000"><div style="padding:14px"><div id="previewClientBadge"></div><div id="previewClientNome" style="font-family:Orbitron;font-weight:900;font-size:14px;margin-top:8px"></div><div id="previewClientSub" style="font-size:10px;color:#8b8ba7;margin-top:6px;display:flex;gap:4px;flex-wrap:wrap"></div><div id="previewClientPreco" style="font-family:Orbitron;font-size:18px;font-weight:900;color:#00e5ff;margin-top:8px"></div><div id="previewClientParcela" style="font-size:10px;opacity:.6;margin-top:2px"></div><div style="display:flex;gap:8px;margin-top:12px"><button class="btn-small btn-buy" style="flex:1;padding:12px" onclick="comprarDoPreview()">🛒 Comprar - R$ <span id="previewClientPrecoBtn"></span></button><button class="btn-small btn-details" style="flex:1;padding:12px;background:#11112a;border:1px solid #00e5ff30;color:#fff" onclick="zapDoPreview()">💬 Zap</button></div></div></div></div>
 
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script><script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
 <script>
@@ -182,82 +96,43 @@ let produtos=[],carrinho=JSON.parse(localStorage.getItem('divinos_cart')||'[]'),
 function toast(m){const t=document.getElementById('toast');t.textContent=m;t.style.display='block';setTimeout(()=>t.style.display='none',3000);}
 function scrollToProdutos(){document.getElementById('produtosSection').scrollIntoView({behavior:'smooth'});}
 function abrirWhats(){window.open('https://wa.me/557399627083?text=Olá, vim pelo site DIVINOS GAMES','_blank');}
-function selecionarCatalogo(cat,el){
-  document.querySelectorAll('.catalog-btn').forEach(b=>b.classList.remove('active'));
-  if(el) el.classList.add('active');
-  filtroCat=cat;filtroSub=null;
-  document.querySelectorAll('.sub-btn').forEach(b=>b.classList.remove('active'));
-  document.querySelectorAll('.subcatalogs').forEach(s=>s.classList.remove('active'));
-  if(cat==='Console'){document.getElementById('subConsoles').classList.add('active');}
-  else if(cat==='Jogo'){document.getElementById('subJogos').classList.add('active');}
-  renderProdutos();
-}
-function filtrarSub(sub,el){
-  if(el){
-    const active=el.classList.contains('active');
-    document.querySelectorAll('.sub-btn').forEach(b=>b.classList.remove('active'));
-    if(!active){el.classList.add('active');filtroSub=sub;}else{filtroSub=null;}
-  }else{filtroSub=sub;}
-  renderProdutos();
-  scrollToProdutos();
-}
+function selecionarCatalogo(cat,el){document.querySelectorAll('.catalog-btn').forEach(b=>b.classList.remove('active'));if(el)el.classList.add('active');filtroCat=cat;filtroSub=null;document.querySelectorAll('.sub-btn').forEach(b=>b.classList.remove('active'));document.querySelectorAll('.subcatalogs').forEach(s=>s.classList.remove('active'));if(cat==='Console'){document.getElementById('subConsoles').classList.add('active');}else if(cat==='Jogo'){document.getElementById('subJogos').classList.add('active');}renderProdutos();}
+function filtrarSub(sub,el){if(el){const active=el.classList.contains('active');document.querySelectorAll('.sub-btn').forEach(b=>b.classList.remove('active'));if(!active){el.classList.add('active');filtroSub=sub;}else{filtroSub=null;}}else{filtroSub=sub;}renderProdutos();scrollToProdutos();}
 function filtrar(){renderProdutos();}
 function renderProdutos(){
   const grid=document.getElementById('productsGrid');
   const busca=document.getElementById('searchInput').value.toLowerCase();
-  let lista=produtos.filter(p=>{
-    let ok=true;
-    if(filtroCat!=='todos'){ok=p.categoria===filtroCat;}
-    if(filtroSub){ok=ok && ((p.subgeneros||[]).includes(filtroSub) || (p.nome||'').toLowerCase().includes(filtroSub.toLowerCase()));}
-    if(busca){ok=ok && (p.nome.toLowerCase().includes(busca) || (p.subgeneros||[]).join(' ').toLowerCase().includes(busca) || p.categoria.toLowerCase().includes(busca));}
-    return ok;
-  });
+  let listaFiltrada=produtos.filter(p=>{let ok=true;if(filtroCat!=='todos'){ok=p.categoria===filtroCat;}if(filtroSub){ok=ok && ((p.subgeneros||[]).includes(filtroSub) || (p.nome||'').toLowerCase().includes(filtroSub.toLowerCase()));}if(busca){ok=ok && (p.nome.toLowerCase().includes(busca) || (p.subgeneros||[]).join(' ').toLowerCase().includes(busca) || p.categoria.toLowerCase().includes(busca));}return ok;});
+  const ofertas=listaFiltrada.filter(p=>p.emOferta || (p.tipo && p.tipo.includes('OFERTA'))).slice(0,3);
+  const outros=listaFiltrada.filter(p=>!ofertas.includes(p));
   let html='';
-  lista.forEach(p=>{
-    const isOfertaDia=p.tipo && p.tipo.includes('OFERTA DO DIA');
+  if(ofertas.length>0 && filtroCat==='todos' && !busca && !filtroSub){html+=`<div style="grid-column:1/-1;background:linear-gradient(90deg, rgba(250,204,21,.15), rgba(245,158,11,.08));border:1px solid #facc15a0;border-radius:14px;padding:12px;margin-bottom:4px"><div style="font-family:Orbitron;font-weight:900;color:#facc15;font-size:13px;display:flex;align-items:center;gap:8px">🔥 OFERTAS - Os 3 primeiros em destaque na tela inicial <span style="background:#facc15;color:#000;padding:3px 8px;border-radius:20px;font-size:9px;animation:pulse 1.5s infinite">Amarelo piscando</span></div><div style="font-size:10px;opacity:.7;margin-top:4px">Produtos marcados como OFERTA no cadastro aparecem aqui primeiro</div></div>`;}
+  const renderCard=(p,isTopOferta=false)=>{
+    const isOfertaDia=p.tipo && p.tipo.includes('OFERTA');
     const isMaisVendido=p.tipo && p.tipo.includes('MAIS VENDIDO');
-    const isOferta=p.tipo && p.tipo.includes('OFERTA');
-    let badge='';
-    if(isOfertaDia) badge='<div class="product-badge badge-oferta-dia">🔥 OFERTA DO DIA</div>';
-    else if(isMaisVendido) badge='<div class="product-badge badge-mais-vendido">⭐ MAIS VENDIDO</div>';
-    else if(isOferta) badge='<div class="product-badge badge-oferta">OFERTA</div>';
+    let badge='';if(isOfertaDia || p.emOferta) badge='<div class="product-badge badge-oferta-dia">🔥 OFERTA</div>';else if(isMaisVendido) badge='<div class="product-badge badge-mais-vendido">⭐ MAIS VENDIDO</div>';
     const subs=(p.subgeneros||[]).slice(0,3).map(s=>`<span class="sub-tag">${s}</span>`).join('');
-    html+=`<div class="product-card"><div class="product-img-wrap" onclick="abrirPreviewClient('${p.id}')">${badge}<img src="${p.imagem||'https://via.placeholder.com/200x140/0a0f24/00e5ff?text=DIVINOS+GAMES'}" class="product-img" onerror="this.src='https://via.placeholder.com/200x140/0a0f24/00e5ff?text=DIVINOS'"></div><div class="product-info" onclick="abrirPreviewClient('${p.id}')"><div class="product-name">${p.nome||''}</div><div class="product-price">R$ ${p.preco||0}</div><div class="product-parcela">${p.parcela||`12x R$ ${((p.preco||0)/12).toFixed(2)}`}</div><div class="product-sub">${subs}</div></div><div class="product-actions"><button class="btn-small btn-buy" onclick="event.stopPropagation();addCarrinho('${p.id}')">🛒 Comprar</button><button class="btn-small btn-details" onclick="event.stopPropagation();abrirPreviewClient('${p.id}')">👁️ Ver</button></div></div>`;
-  });
-  grid.innerHTML=html||'<div style="grid-column:1/-1;text-align:center;opacity:.5;padding:40px">Nenhum produto encontrado - Clique para pré-visualização 👁️ - Hero BG de volta</div>';
-  document.getElementById('prodCount').textContent=lista.length;
+    const extraClass=isTopOferta?' oferta-topo':'';
+    return `<div class="product-card${extraClass}"><div class="product-img-wrap" onclick="abrirPreviewClient('${p.id}')">${badge}<img src="${p.imagem||'https://via.placeholder.com/200x140/0a0f24/00e5ff?text=DIVINOS+GAMES'}" class="product-img" onerror="this.src='https://via.placeholder.com/200x140/0a0f24/00e5ff?text=DIVINOS'"></div><div class="product-info" onclick="abrirPreviewClient('${p.id}')"><div class="product-name">${p.nome||''}</div><div class="product-price">R$ ${p.preco||0}</div><div class="product-parcela">${p.parcela||`12x R$ ${((p.preco||0)/12).toFixed(2)}`}</div><div class="product-sub">${subs}</div></div><div class="product-actions"><button class="btn-small btn-buy" onclick="event.stopPropagation();addCarrinho('${p.id}')">🛒 Comprar</button><button class="btn-small btn-details" onclick="event.stopPropagation();abrirPreviewClient('${p.id}')">👁️ Ver</button></div></div>`;
+  };
+  ofertas.forEach(p=>{html+=renderCard(p,true);});
+  if(ofertas.length>0 && outros.length>0 && filtroCat==='todos' && !busca && !filtroSub){html+=`<div style="grid-column:1/-1;background:rgba(10,10,24,.6);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:10px;margin-top:8px"><div style="font-family:Orbitron;font-weight:800;font-size:11px;opacity:.8">🎮 Outros produtos abaixo</div></div>`;}
+  outros.forEach(p=>{html+=renderCard(p,false);});
+  grid.innerHTML=html||'<div style="grid-column:1/-1;text-align:center;opacity:.5;padding:40px">Nenhum produto - Cadastre 3 em oferta para aparecer no topo 🔥</div>';
+  document.getElementById('prodCount').textContent=listaFiltrada.length+(ofertas.length?` (${ofertas.length} em oferta no topo)`:'');
 }
-function abrirPreviewClient(id){
-  const p=produtos.find(x=>x.id===id);if(!p)return;
-  produtoPreviewAtual=p;
-  const modal=document.getElementById('previewModalClient');
-  document.getElementById('previewClientImg').src=p.imagem||'https://via.placeholder.com/400x280/0a0f24/00e5ff?text=DIVINOS+GAMES';
-  document.getElementById('previewClientNome').textContent=p.nome||'';
-  document.getElementById('previewClientPreco').textContent='R$ '+(p.preco||0);
-  const btnPreco=document.getElementById('previewClientPrecoBtn');if(btnPreco)btnPreco.textContent=p.preco||0;
-  document.getElementById('previewClientParcela').textContent=p.parcela||`12x R$ ${((p.preco||0)/12).toFixed(2)}`;
-  const subs=(p.subgeneros||[]).map(s=>`<span style="background:#0f0f1f;border:1px solid #1f2937;padding:3px 8px;border-radius:12px;font-size:9px">${s}</span>`).join('');
-  document.getElementById('previewClientSub').innerHTML=subs||`<span style="opacity:.5">Categoria: ${p.categoria||''}</span>`;
-  const isOfertaDia=p.tipo && p.tipo.includes('OFERTA DO DIA');
-  const isMaisVendido=p.tipo && p.tipo.includes('MAIS VENDIDO');
-  const badgeEl=document.getElementById('previewClientBadge');
-  if(isOfertaDia) badgeEl.innerHTML='<div style="display:inline-flex;background:linear-gradient(135deg,#facc15,#f59e0b);color:#000;padding:5px 10px;border-radius:20px;font-weight:900;font-size:10px;animation:pulse 1.5s infinite">🔥 OFERTA DO DIA - Amarelo piscando bem chamativo</div>';
-  else if(isMaisVendido) badgeEl.innerHTML='<div style="display:inline-flex;background:linear-gradient(135deg,#00e5ff,#7c3aed);color:#000;padding:5px 10px;border-radius:20px;font-weight:900;font-size:10px">⭐ MAIS VENDIDO</div>';
-  else badgeEl.innerHTML='';
-  modal.style.display='flex';
-}
+function abrirPreviewClient(id){const p=produtos.find(x=>x.id===id);if(!p)return;produtoPreviewAtual=p;document.getElementById('previewClientImg').src=p.imagem||'https://via.placeholder.com/400x280/0a0f24/00e5ff?text=DIVINOS+GAMES';document.getElementById('previewClientNome').textContent=p.nome||'';document.getElementById('previewClientPreco').textContent='R$ '+(p.preco||0);const bp=document.getElementById('previewClientPrecoBtn');if(bp)bp.textContent=p.preco||0;document.getElementById('previewClientParcela').textContent=p.parcela||`12x R$ ${((p.preco||0)/12).toFixed(2)}`;const subs=(p.subgeneros||[]).map(s=>`<span style="background:#0f0f1f;border:1px solid #1f2937;padding:3px 8px;border-radius:12px;font-size:9px">${s}</span>`).join('');document.getElementById('previewClientSub').innerHTML=subs||`<span style="opacity:.5">Categoria: ${p.categoria||''}</span>`;const badgeEl=document.getElementById('previewClientBadge');if(p.emOferta || (p.tipo && p.tipo.includes('OFERTA'))) badgeEl.innerHTML='<div style="display:inline-flex;background:linear-gradient(135deg,#facc15,#f59e0b);color:#000;padding:5px 10px;border-radius:20px;font-weight:900;font-size:10px;animation:pulse 1.5s infinite">🔥 OFERTA DO DIA - Amarelo piscando - Topo da tela inicial</div>';else badgeEl.innerHTML='';document.getElementById('previewModalClient').style.display='flex';}
 function fecharPreviewClient(){document.getElementById('previewModalClient').style.display='none';produtoPreviewAtual=null;}
 function comprarDoPreview(){if(!produtoPreviewAtual)return;addCarrinho(produtoPreviewAtual.id);fecharPreviewClient();abrirCarrinho();}
-function zapDoPreview(){if(!produtoPreviewAtual)return;const p=produtoPreviewAtual;const msg=`Olá, quero ${p.nome} - R$ ${p.preco} - ${(p.subgeneros||[]).join(', ')} - Vi na pré-visualização 👁️ do site DIVINOS GAMES`;window.open('https://wa.me/557399627083?text='+encodeURIComponent(msg),'_blank');}
+function zapDoPreview(){if(!produtoPreviewAtual)return;const p=produtoPreviewAtual;const msg=`Olá, quero ${p.nome} - R$ ${p.preco} - ${(p.subgeneros||[]).join(', ')} - Vi na pré-visualização 👁️ do site DIVINOS GAMES - Oferta topo`;window.open('https://wa.me/557399627083?text='+encodeURIComponent(msg),'_blank');}
 function addCarrinho(id){const p=produtos.find(x=>x.id===id);if(!p)return;const exist=carrinho.find(x=>x.id===id);if(exist) exist.qtd++; else carrinho.push({...p,qtd:1});localStorage.setItem('divinos_cart',JSON.stringify(carrinho));atualizarCarrinho();toast('✅ Adicionado: '+p.nome);}
 function atualizarCarrinho(){const total=carrinho.reduce((s,i)=>s+(i.preco*i.qtd),0);const qtd=carrinho.reduce((s,i)=>s+i.qtd,0);document.getElementById('cartCount').textContent=qtd;document.getElementById('cartTotal').textContent='R$ '+total.toFixed(2);let html='';carrinho.forEach(item=>{html+=`<div style="display:flex;gap:8px;padding:8px 0;border-bottom:1px solid #ffffff0f;align-items:center"><img src="${item.imagem||''}" style="width:40px;height:40px;object-fit:cover;border-radius:8px;background:#000"><div style="flex:1"><div style="font-size:11px;font-weight:700">${item.nome}</div><div style="font-size:10px;color:#00e5ff">R$ ${item.preco} x ${item.qtd}</div></div><button class="btn" style="background:#1a0a14;border:1px solid #ef444440;color:#ff6b8a;padding:4px 8px" onclick="removerCarrinho('${item.id}')">🗑️</button></div>`;});document.getElementById('cartItems').innerHTML=html||'<div style="text-align:center;opacity:.5;padding:20px">Carrinho vazio</div>';}
 function removerCarrinho(id){carrinho=carrinho.filter(x=>x.id!==id);localStorage.setItem('divinos_cart',JSON.stringify(carrinho));atualizarCarrinho();}
 function abrirCarrinho(){document.getElementById('cartModal').style.display='flex';atualizarCarrinho();}
 function fecharCarrinho(){document.getElementById('cartModal').style.display='none';}
-function finalizarWhats(){if(carrinho.length===0){toast('Carrinho vazio');return;}let msg='Olá DIVINOS GAMES, quero comprar:\n\n';carrinho.forEach(i=>{msg+=`• ${i.nome} - R$ ${i.preco} x ${i.qtd} = R$ ${(i.preco*i.qtd).toFixed(2)}\n`;});const total=carrinho.reduce((s,i)=>s+(i.preco*i.qtd),0);msg+=`\nTotal: R$ ${total.toFixed(2)}\n\nVim pelo site com pré-visualização 👁️ e hero BG de volta`;window.open('https://wa.me/557399627083?text='+encodeURIComponent(msg),'_blank');}
-function abrirWhatsProd(id){const p=produtos.find(x=>x.id===id);if(!p)return;const msg=`Olá, quero ${p.nome} - R$ ${p.preco} - ${(p.subgeneros||[]).join(', ')} - Vi no site DIVINOS GAMES`;window.open('https://wa.me/557399627083?text='+encodeURIComponent(msg),'_blank');}
-async function carregarProdutos(){try{const snap=await db.collection('produtos').orderBy('criadoEm','desc').get().catch(async()=>await db.collection('produtos').get());produtos=[];snap.forEach(d=>{produtos.push({id:d.id,...d.data()});});try{const localList=JSON.parse(localStorage.getItem('divinos_produtos_local')||'[]');produtos=[...produtos,...localList];}catch(e){}renderProdutos();}catch(e){console.error(e);document.getElementById('productsGrid').innerHTML='<div style="grid-column:1/-1;text-align:center;opacity:.5;padding:40px">Erro Firebase, mas preview 👁️ e hero BG de volta - Fundo moderno</div>';}}
-async function carregarConfig(){try{const doc=await db.collection('config').doc('geral').get();if(doc.exists){const cfg=doc.data();const heroBg=document.getElementById('heroBg');if(cfg.heroBg && heroBg){heroBg.style.background=`linear-gradient(90deg, rgba(0,0,0,.85) 0%, rgba(0,0,0,.4) 50%, rgba(0,0,0,.2) 100%), url('${cfg.heroBg}') center/cover no-repeat`;}if(cfg.imgPS5){const ps5Bg=document.getElementById('squarePS5Bg');if(ps5Bg) ps5Bg.style.background=`url('${cfg.imgPS5}') center/cover`;}if(cfg.imgXBOX){const xboxBg=document.getElementById('squareXBOXBg');if(xboxBg) xboxBg.style.background=`url('${cfg.imgXBOX}') center/cover`;}if(cfg.footerNome){document.getElementById('footerNome').textContent=cfg.footerNome;}if(cfg.footerWhats){document.getElementById('footerWhats').textContent=cfg.footerWhats;}if(cfg.ofertaDiaId){const prod=produtos.find(p=>p.id===cfg.ofertaDiaId);if(prod){document.getElementById('heroBadge').textContent='🔥 OFERTA DO DIA: '+prod.nome+' - R$ '+prod.preco+' - Amarelo piscando';document.getElementById('heroSub').textContent=prod.nome+' - '+(prod.subgeneros||[]).join(' • ')+' • OFERTA DO DIA';}}}}catch(e){console.log('Config não carregada',e);}}
+function finalizarWhats(){if(carrinho.length===0){toast('Carrinho vazio');return;}let msg='Olá DIVINOS GAMES, quero comprar:\n\n';carrinho.forEach(i=>{msg+=`• ${i.nome} - R$ ${i.preco} x ${i.qtd} = R$ ${(i.preco*i.qtd).toFixed(2)}\n`;});const total=carrinho.reduce((s,i)=>s+(i.preco*i.qtd),0);msg+=`\nTotal: R$ ${total.toFixed(2)}\n\nVim pelo site com 3 ofertas no topo`;window.open('https://wa.me/557399627083?text='+encodeURIComponent(msg),'_blank');}
+async function carregarProdutos(){try{const snap=await db.collection('produtos').orderBy('criadoEm','desc').get().catch(async()=>await db.collection('produtos').get());produtos=[];snap.forEach(d=>{produtos.push({id:d.id,...d.data()});});try{const localList=JSON.parse(localStorage.getItem('divinos_produtos_local')||'[]');produtos=[...produtos,...localList];}catch(e){}renderProdutos();}catch(e){console.error(e);document.getElementById('productsGrid').innerHTML='<div style="grid-column:1/-1;text-align:center;opacity:.5;padding:40px">Erro Firebase, mas 3 ofertas topo + preview + hero BG ok</div>';}}
+async function carregarConfig(){try{const doc=await db.collection('config').doc('geral').get();if(doc.exists){const cfg=doc.data();const heroBg=document.getElementById('heroBg');if(cfg.heroBg && heroBg){heroBg.style.background=`linear-gradient(90deg, rgba(0,0,0,.85) 0%, rgba(0,0,0,.4) 50%, rgba(0,0,0,.2) 100%), url('${cfg.heroBg}') center/cover no-repeat`;}if(cfg.imgPS5){const ps5Bg=document.getElementById('squarePS5Bg');if(ps5Bg) ps5Bg.style.background=`url('${cfg.imgPS5}') center/cover`;}if(cfg.imgXBOX){const xboxBg=document.getElementById('squareXBOXBg');if(xboxBg) xboxBg.style.background=`url('${cfg.imgXBOX}') center/cover`;}if(cfg.footerNome){document.getElementById('footerNome').textContent=cfg.footerNome;}if(cfg.footerWhats){document.getElementById('footerWhats').textContent=cfg.footerWhats;}if(cfg.ofertaDiaId){const prod=produtos.find(p=>p.id===cfg.ofertaDiaId);if(prod){document.getElementById('heroBadge').textContent='🔥 OFERTA DO DIA: '+prod.nome+' - R$ '+prod.preco;}}}}catch(e){}}
 document.getElementById('previewModalClient')?.addEventListener('click',function(e){if(e.target===this) fecharPreviewClient();});
 document.getElementById('cartModal')?.addEventListener('click',function(e){if(e.target===this) fecharCarrinho();});
 carregarProdutos().then(()=>{carregarConfig();});
