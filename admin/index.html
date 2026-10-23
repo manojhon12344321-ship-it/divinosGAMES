@@ -3,95 +3,196 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DIVINOS GAMES - Admin Teste Cadastrar</title>
+<title>DIVINOS GAMES - Admin Completo Final Corrigido - Não Fica Mais Preto</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial;background:#0a0f24;color:#fff;padding:20px}
-.menu{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap}
-.menu button{padding:12px 18px;border-radius:10px;border:1px solid #00e5ff;color:#00e5ff;background:#11112a;font-weight:800;cursor:pointer}
-.menu button.active{background:#00e5ff;color:#000}
-.card{background:#121228;border:1px solid #1f1f3a;border-radius:14px;padding:16px;margin-bottom:12px}
-.input{width:100%;padding:12px;border-radius:10px;border:1px solid #1f2937;background:#0f0f1f;color:#fff;margin-top:6px}
-.label{font-size:10px;font-weight:800;color:#8b8ba7;margin-top:12px;display:block}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-#viewCadastro{display:block}
-#viewDashboard{display:none}
+body{font-family:Inter;background:radial-gradient(900px at 0% 0%, rgba(0,229,255,.18) 0%, transparent 55%), radial-gradient(800px at 100% 0%, rgba(168,85,247,.22) 0%, transparent 50%), linear-gradient(180deg, #0a0f24 0%, #080810 100%);background-attachment:fixed;color:#fff;min-height:100vh}
+.admin-layout{display:flex;min-height:100vh}
+.admin-sidebar{width:270px;background:rgba(8,8,16,.9);backdrop-filter:blur(14px);border-right:1px solid rgba(0,229,255,.15);padding:14px 10px;position:sticky;top:0;height:100vh;overflow:auto}
+.admin-sidebar-header{text-align:center;padding:12px 8px;margin-bottom:12px;border-bottom:1px solid #ffffff0f}
+.admin-sidebar-logo{width:60px;height:60px;margin:0 auto 6px;background:linear-gradient(135deg,#1a1a3a,#2a1a4a);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:30px;border:1px solid #00e5ff40}
+.admin-sidebar-title{font-family:Orbitron;font-weight:900;font-size:15px;color:#00e5ff}
+.admin-menu{display:flex;flex-direction:column;gap:6px}
+.admin-menu-item{padding:11px 12px;border-radius:10px;display:flex;align-items:center;gap:10px;cursor:pointer;border:1px solid transparent;color:#8b8ba7;font-size:12px;font-weight:700}
+.admin-menu-item.active{background:linear-gradient(90deg,rgba(0,229,255,.18),rgba(0,229,255,.06));border:1px solid #00e5ff80;color:#00e5ff;box-shadow:0 0 12px #00e5ff30}
+.admin-main{flex:1;padding:14px 16px;min-height:100vh}
+.admin-topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;flex-wrap:wrap;gap:10px;background:rgba(10,10,24,.7);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:10px 14px}
+.admin-topbar-title{font-family:Orbitron;font-size:18px;font-weight:900;color:#00e5ff}
+.admin-top-btn{background:#11112a;border:1px solid #00e5ff30;color:#fff;padding:8px 12px;border-radius:10px;font-size:11px;font-weight:700;cursor:pointer}
+.admin-top-btn.primary{background:linear-gradient(135deg,#00e5ff,#7c3aed);color:#000;border:none;font-weight:900}
+.admin-top-btn.danger{background:#1a0a14;border-color:#ef444440;color:#ff6b8a}
+.admin-chart-card{background:linear-gradient(180deg, rgba(18,18,40,.9) 0%, rgba(10,10,20,.95) 100%);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:16px;margin-bottom:12px}
+.admin-chart-title{font-family:Orbitron;font-size:13px;font-weight:800;margin-bottom:12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pro-card{background:#070a14;border:1px solid #1f2937;border-radius:14px;padding:14px;margin:12px 0}
+.pro-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pro-field{display:flex;flex-direction:column;gap:5px}
+.pro-label{font-size:10px;font-weight:800;color:#8b8ba7;text-transform:uppercase}
+.pro-input,.pro-select{width:100%;padding:11px 12px;border-radius:10px;border:1px solid #1f2937;background:#0f0f1f;color:#fff;outline:none;font-size:12px}
+.foto-thumb{width:56px;height:56px;border-radius:10px;object-fit:cover;background:#000;border:1px solid #1f2937;cursor:pointer}
+.admin-table{width:100%;border-collapse:collapse;font-size:11px}
+.admin-table th{text-align:left;padding:8px 6px;opacity:.6;font-size:9px;text-transform:uppercase;border-bottom:1px solid #ffffff0f;color:#8b8ba7}
+.admin-table td{padding:8px 6px;border-bottom:1px solid #ffffff06}
+.stat-val{font-family:Orbitron;font-size:20px;font-weight:900}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#00e5ff;color:#000;padding:10px 18px;border-radius:20px;font-weight:900;display:none;z-index:9999;font-size:12px}
+.preview-modal{position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;z-index:999;padding:14px}
+.preview-box{background:#121228;border:1px solid #00e5ff60;border-radius:16px;max-width:420px;width:100%;overflow:hidden;position:relative}
+.preview-img{width:100%;height:260px;object-fit:contain;background:#000}
+.preview-content{padding:14px}
+.preview-close{position:absolute;top:10px;right:10px;background:#1a0a14;border:1px solid #ef444440;color:#ff6b8a;width:32px;height:32px;border-radius:50%;cursor:pointer}
+.admin-badge-status{padding:3px 8px;border-radius:20px;font-size:9px;font-weight:800;border:1px solid}
+.status-pago{background:#0a1a14;border-color:#22c55e40;color:#22c55e}
+.status-enviado{background:#0f172a;border-color:#00e5ff40;color:#00e5ff}
+.status-pendente{background:#1a1a0a;border-color:#eab30840;color:#eab308}
 </style>
 </head>
 <body>
-<h2 style="color:#00e5ff;font-family:Orbitron">DIVINOS GAMES - TESTE CADASTRAR</h2>
-<p style="font-size:11px;opacity:.6;margin-top:4px">Se esse abrir, o problema era o código antigo com função duplicada. Depois coloco o resto.</p>
-
-<div class="menu">
-<button class="active" onclick="showTab('dashboard',this)">📊 Dashboard</button>
-<button onclick="showTab('cadastro',this)">➕ Cadastrar Produto</button>
-<button onclick="location.href='../index.html'">🏠 Loja Cliente</button>
-</div>
-
-<div id="viewDashboard" class="card">
-<h3>Dashboard Geral - Tempo Real Moderno</h3>
-<p style="margin-top:10px">Total Vendas: <b id="dashVendas" style="color:#00e5ff">R$ 0,00</b></p>
-<p>Se você está vendo isso, o Dashboard abriu.</p>
-<button onclick="showTab('cadastro',null)" style="margin-top:12px;padding:12px;background:linear-gradient(135deg,#00e5ff,#7c3aed);border:none;border-radius:10px;font-weight:900;cursor:pointer">➕ Ir para Cadastrar Produto</button>
-</div>
-
-<div id="viewCadastro" class="card">
-<h3>➕ Cadastrar Produto - CORRIGIDO - NÃO FICA MAIS PRETO</h3>
-<div class="grid" style="margin-top:12px">
-<div><label class="label">Nome Produto *</label><input id="nome" class="input" placeholder="Ex: Controle PS4"></div>
-<div><label class="label">Preço R$ *</label><input id="preco" type="number" class="input" placeholder="300"></div>
-<div><label class="label">Categoria *</label><select id="categoria" class="input"><option value="">Selecione</option><option>Console</option><option>Jogo</option><option>Acessório</option><option>Controle</option></select></div>
-<div><label class="label">Tipo / Selo</label><select id="tipo" class="input"><option>MAIS VENDIDO</option><option>OFERTA</option><option>OFERTA DO DIA</option></select></div>
-</div>
-
-<div style="margin-top:14px;background:#070a14;border:1px solid #a855f740;border-radius:10px;padding:12px">
-<div style="font-size:11px;font-weight:800;color:#a855f7">Subgêneros</div>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px">
-<label style="background:#0f0f1f;padding:8px;border-radius:8px;font-size:11px"><input type="checkbox" value="PlayStation"> PlayStation</label>
-<label style="background:#0f0f1f;padding:8px;border-radius:8px;font-size:11px"><input type="checkbox" value="PS5"> PS5</label>
-<label style="background:#0f0f1f;padding:8px;border-radius:8px;font-size:11px"><input type="checkbox" value="Xbox"> Xbox</label>
-<label style="background:#0f0f1f;padding:8px;border-radius:8px;font-size:11px"><input type="checkbox" value="Ação"> Ação</label>
-<label style="background:#0f0f1f;padding:8px;border-radius:8px;font-size:11px"><input type="checkbox" value="FPS"> FPS</label>
-<label style="background:#0f0f1f;padding:8px;border-radius:8px;font-size:11px"><input type="checkbox" value="RPG"> RPG</label>
+<div class="admin-layout">
+<div class="admin-sidebar">
+<div class="admin-sidebar-header"><div class="admin-sidebar-logo">🎮</div><div class="admin-sidebar-title">DIVINOS GAMES</div><div style="font-size:11px;color:#a855f7;font-family:Orbitron">Completo Final - Não fica mais preto</div></div>
+<div class="admin-menu">
+<div class="admin-menu-item active" onclick="showTab('dashboard',this)">📊 Dashboard Geral</div>
+<div class="admin-menu-item" onclick="showTab('produtos',this)">📦 Todos Produtos</div>
+<div class="admin-menu-item" onclick="showTab('consoles',this)">💎 Consoles</div>
+<div class="admin-menu-item" onclick="showTab('jogos',this)">🎮 Jogos</div>
+<div class="admin-menu-item" onclick="showTab('pedidos',this)">📋 Pedidos</div>
+<div class="admin-menu-item" onclick="showTab('servicosAdm',this)">🔧 Serviços</div>
+<div class="admin-menu-item" onclick="showTab('clientes',this)">👥 Clientes</div>
+<div class="admin-menu-item" onclick="showTab('financeiro',this)">💲 Financeiro</div>
+<div class="admin-menu-item" onclick="showTab('config',this)">⚙️ Configurações</div>
+<div class="admin-menu-item" onclick="showTab('cadastro',this)" style="border:1px dashed #00e5ff60">➕ Cadastrar Produto</div>
 </div>
 </div>
+<div class="admin-main">
+<div class="admin-topbar"><div class="admin-topbar-title">DIVINOS GAMES - Completo Final</div><div style="display:flex;gap:6px"><button class="admin-top-btn" onclick="location.href='../index.html'">🏠 Loja Cliente - Fundo Moderno</button></div></div>
 
-<div style="margin-top:14px;background:#070a14;border:1px dashed #00e5ff40;border-radius:10px;padding:12px;text-align:center">
-<div style="font-size:24px">📷</div>
-<div style="font-size:11px;font-weight:800">Imagem pelo celular</div>
-<input id="foto" type="file" accept="image/*" style="margin-top:8px;width:100%;background:#0f0f1f;border:1px solid #1f2937;padding:8px;border-radius:8px;color:#fff">
-<img id="preview" style="width:100%;height:160px;object-fit:contain;background:#000;border-radius:8px;margin-top:8px;display:none">
+<div id="viewDashboard">
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px">
+<div class="admin-chart-card"><div style="opacity:.6;font-size:9px">TOTAL VENDAS - TEMPO REAL</div><div class="stat-val" id="dashVendas" style="color:#00e5ff">R$ 0,00</div><div id="dashVendasSub" style="font-size:10px;color:#22c55e">0 pedidos</div></div>
+<div class="admin-chart-card"><div style="opacity:.6;font-size:9px">PEDIDOS</div><div class="stat-val" id="dashPedidos" style="color:#a855f7">0</div></div>
+<div class="admin-chart-card"><div style="opacity:.6;font-size:9px">CONSOLES</div><div class="stat-val" id="dashConsoles" style="color:#00e5ff">0</div></div>
+<div class="admin-chart-card"><div style="opacity:.6;font-size:9px">JOGOS</div><div class="stat-val" id="dashJogos" style="color:#ef4444">0</div></div>
+</div>
+<div style="display:flex;gap:8px;margin:10px 0;flex-wrap:wrap"><button class="admin-top-btn danger" onclick="limparTudo()">🗑️ Limpar TUDO - Zerar R$ 0</button><button class="admin-top-btn" onclick="carregarTudo()">🔄 Recalcular Tempo Real</button><span id="statusTempoReal" style="background:#0a1a14;border:1px solid #22c55e40;color:#22c55e;padding:7px 10px;border-radius:10px;font-size:10px">● Tempo real ativo - Fundo moderno</span></div>
+<div class="admin-chart-card"><h3 style="font-size:11px;font-family:Orbitron">📋 Pedidos Recentes</h3><table class="admin-table"><thead><tr><th>ID</th><th>CLIENTE</th><th>PRODUTO</th><th>VALOR</th><th>STATUS</th></tr></thead><tbody id="pedidosRecentes"><tr><td colspan=5 style="text-align:center;opacity:.5;padding:20px">Carregando...</td></tr></tbody></table></div>
 </div>
 
-<button onclick="salvarTeste()" style="width:100%;margin-top:14px;padding:14px;background:linear-gradient(135deg,#00e5ff,#7c3aed);border:none;border-radius:10px;font-weight:900;cursor:pointer;font-size:14px">💾 SALVAR PRODUTO - Teste</button>
-<div id="msg" style="margin-top:10px;font-size:12px;color:#22c55e"></div>
+<div id="viewProdutos" style="display:none"><div class="admin-chart-card"><div class="admin-chart-title">📦 Todos Produtos com Foto 56x56 + 👁️ Preview <span id="totalProdutos">0 produtos</span><button onclick="showTab('cadastro',null)" class="admin-top-btn primary" style="margin-left:auto">➕ Cadastrar</button></div><input id="buscaProduto" placeholder="Buscar por nome ou subgênero..." style="width:100%;background:#0f0f1f;border:1px solid #1f2937;padding:10px;border-radius:8px;color:#fff;margin-bottom:10px" oninput="buscarProduto()"><table class="admin-table"><thead><tr><th>FOTO</th><th>Produto</th><th>Preço</th><th>Tipo</th><th>Subgênero</th><th>Estoque</th><th>Ação</th></tr></thead><tbody id="listaProdutos"></tbody></table></div></div>
+<div id="viewConsoles" style="display:none"><div class="admin-chart-card"><div class="admin-chart-title">💎 Consoles - PlayStation Xbox etc</div><table class="admin-table"><thead><tr><th>FOTO</th><th>Produto</th><th>Subgênero</th><th>Preço</th><th>Estoque</th><th>Ação</th></tr></thead><tbody id="listaConsoles"></tbody></table></div></div>
+<div id="viewJogos" style="display:none"><div class="admin-chart-card"><div class="admin-chart-title">🎮 Jogos - Ação FPS RPG etc</div><table class="admin-table"><thead><tr><th>FOTO</th><th>Jogo</th><th>Gênero</th><th>Preço</th><th>Estoque</th><th>Ação</th></tr></thead><tbody id="listaJogos"></tbody></table></div></div>
+<div id="viewPedidos" style="display:none"><div class="admin-chart-card"><div class="admin-chart-title">📋 Pedidos - Adicionar Editar Remover <button onclick="mostrarFormPedido()" class="admin-top-btn primary" style="margin-left:auto">➕ Adicionar Pedido</button></div><div id="formPedido" class="pro-card"><div class="pro-grid"><div class="pro-field"><div class="pro-label">Cliente *</div><input id="pedidoCliente" class="pro-input"></div><div class="pro-field"><div class="pro-label">Produto *</div><input id="pedidoProduto" class="pro-input"></div><div class="pro-field"><div class="pro-label">Valor R$ *</div><input id="pedidoValor" type="number" class="pro-input"></div><div class="pro-field"><div class="pro-label">Whats</div><input id="pedidoWhats" class="pro-input"></div><div class="pro-field"><div class="pro-label">Status</div><select id="pedidoStatus" class="pro-select"><option>Pago - Verde</option><option>Enviado - Azul</option><option>Pendente - Amarelo</option></select></div><div class="pro-field" style="display:flex;align-items:end;gap:6px"><button class="admin-top-btn primary" onclick="salvarPedido()" style="flex:1">💾 Salvar</button><button class="admin-top-btn danger" onclick="cancelarPedido()">❌</button></div></div></div><table class="admin-table"><thead><tr><th>ID</th><th>CLIENTE</th><th>PRODUTO</th><th>VALOR</th><th>WHATS</th><th>STATUS</th><th>AÇÃO</th></tr></thead><tbody id="viewPedidosLista"></tbody></table></div></div>
+<div id="viewServicosAdm" style="display:none"><div class="admin-chart-card"><div class="admin-chart-title">🔧 Serviços - Com Zap quando pronto <button onclick="mostrarFormServico()" class="admin-top-btn primary" style="margin-left:auto">➕ Adicionar Serviço</button></div><div id="formServico" class="pro-card"><div class="pro-grid"><div class="pro-field"><div class="pro-label">Serviço *</div><input id="servicoNome" class="pro-input"></div><div class="pro-field"><div class="pro-label">Cliente *</div><input id="servicoCliente" class="pro-input"></div><div class="pro-field"><div class="pro-label">Telefone Zap</div><input id="servicoTelefone" class="pro-input" placeholder="73 9962-7083"></div><div class="pro-field"><div class="pro-label">Valor</div><input id="servicoValor" type="number" class="pro-input"></div><div class="pro-field"><div class="pro-label">Status</div><select id="servicoStatus" class="pro-select"><option>Em andamento - Azul</option><option>Aguardando Peça - Amarelo</option><option>Concluída - Verde</option></select></div><div class="pro-field" style="display:flex;align-items:end;gap:6px"><button class="admin-top-btn primary" style="flex:1;background:linear-gradient(135deg,#22c55e,#16a34a)" onclick="salvarServico()">💾 Salvar</button><button class="admin-top-btn danger" onclick="cancelarServico()">❌</button></div></div></div><table class="admin-table"><thead><tr><th>ID</th><th>SERVIÇO</th><th>CLIENTE</th><th>VALOR</th><th>STATUS</th><th>AÇÃO</th></tr></thead><tbody id="viewServicosLista"></tbody></table></div></div>
+<div id="viewClientes" style="display:none"><div class="admin-chart-card"><div class="admin-chart-title">👥 Clientes</div><table class="admin-table"><thead><tr><th>Nome</th><th>Whats</th><th>Total</th><th>Ação</th></tr></thead><tbody id="listaClientes"></tbody></table></div></div>
+<div id="viewFinanceiro" style="display:none"><div class="admin-chart-card"><div class="admin-chart-title">💲 Financeiro - Soma Tempo Real</div><div id="financeiroDetalhe"></div></div></div>
+<div id="viewConfig" style="display:none"><div class="admin-chart-card"><div class="admin-chart-title">⚙️ Config - Ofertas + Rodapé + 2 Quadrados PS5 XBOX pelo celular</div><div class="pro-card"><div class="pro-grid"><div class="pro-field"><div class="pro-label">Oferta do Dia ID - Amarelo piscando bem chamativo</div><input id="ofertaDiaId" class="pro-input"></div><div class="pro-field"><div class="pro-label">Mais Vendido ID</div><input id="maisVendidoId" class="pro-input"></div></div><button class="admin-top-btn primary" style="margin-top:10px" onclick="salvarOfertas()">💾 Salvar Ofertas - Bem chamativo</button></div><div class="pro-card"><div class="pro-grid"><div class="pro-field"><div class="pro-label">Nome Loja</div><input id="footerNome" class="pro-input"></div><div class="pro-field"><div class="pro-label">Ano</div><input id="footerAno" class="pro-input"></div><div class="pro-field"><div class="pro-label">Cidade</div><input id="footerCidade" class="pro-input"></div><div class="pro-field"><div class="pro-label">Whats</div><input id="footerWhats" class="pro-input"></div><div class="pro-field"><div class="pro-label">Insta @</div><input id="footerInsta" class="pro-input"></div><div class="pro-field"><div class="pro-label">Texto Custom</div><input id="footerCustom" class="pro-input"></div></div><div style="display:flex;gap:6px;margin-top:10px"><button onclick="salvarRodape()" class="admin-top-btn primary" style="flex:1">💾 Salvar Rodapé - Cliente atualiza na hora</button><button onclick="previewRodape()" class="admin-top-btn">👁️ Prévia</button></div><div id="previewRodapeBox" style="margin-top:10px;background:#05070f;border:1px dashed #00e5ff40;border-radius:10px;padding:10px;font-size:10px;display:none"></div></div><div style="margin-top:14px;background:#070a14;border:1px solid #00e5ff40;border-radius:14px;padding:14px"><div style="font-family:Orbitron;font-size:11px;font-weight:900;color:#00e5ff;margin-bottom:12px">🔑 Senha + 2 Quadrados PS5 XBOX pelo celular - Fundo moderno</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><div class="pro-field"><div class="pro-label">Nova Senha Admin</div><input id="novaSenha" type="password" class="pro-input" placeholder="divinos2024"></div><div class="pro-field"><div class="pro-label">💎 PS5 Quadrado - Pelo celular</div><input id="filePS5" type="file" accept="image/*" style="width:100%;background:#0a0a18;border:1px solid #1f2937;padding:8px;border-radius:8px;color:#fff;font-size:10px"><img id="previewPS5" style="width:100%;height:120px;object-fit:contain;background:#000;border-radius:8px;margin-top:8px;display:none"><input id="imgPS5Url" class="pro-input" placeholder="Ou URL" style="margin-top:6px"></div><div class="pro-field"><div class="pro-label">🟩 XBOX Quadrado - Pelo celular</div><input id="fileXBOX" type="file" accept="image/*" style="width:100%;background:#0a0a18;border:1px solid #1f2937;padding:8px;border-radius:8px;color:#fff;font-size:10px"><img id="previewXBOX" style="width:100%;height:120px;object-fit:contain;background:#000;border-radius:8px;margin-top:8px;display:none"><input id="imgXBOXUrl" class="pro-input" placeholder="Ou URL" style="margin-top:6px"></div></div><div style="display:flex;gap:8px;margin-top:12px"><button class="admin-top-btn primary" style="flex:1;padding:12px" onclick="salvarConfigGeral()">💾 Salvar 2 Quadrados + Senha - Pelo celular - Cliente atualiza na hora</button></div></div></div>
+
+<div id="viewCadastro" style="display:none">
+<div style="display:grid;grid-template-columns:1.1fr .9fr;gap:12px">
+<div class="admin-chart-card">
+<div class="admin-chart-title">➕ Cadastrar Produto - CORRIGIDO - NÃO FICA MAIS PRETO - Igual da sua foto que abriu</div>
+<div style="background:#070a14;border:1px solid #1f2937;border-radius:10px;padding:12px;margin-bottom:10px">
+<div class="pro-grid">
+<div class="pro-field"><div class="pro-label">📝 Nome Produto * - Ex: Controle PS4</div><input id="nome" class="pro-input" placeholder="Controle PS4 - como da sua foto"></div>
+<div class="pro-field"><div class="pro-label">💰 Preço R$ *</div><input id="preco" type="number" class="pro-input" placeholder="300"></div>
+<div class="pro-field"><div class="pro-label">📂 Categoria * - DEFINE SUBGÊNEROS</div><select id="categoria" class="pro-select"><option value="">Selecione</option><option>Console</option><option>Jogo</option><option>Acessório</option><option>Controle</option></select><div style="font-size:9px;color:#6b7280;margin-top:2px">Jogo = Ação FPS etc | Console = PlayStation Xbox etc</div></div>
+<div class="pro-field"><div class="pro-label">🏷️ Tipo / Selo</div><select id="tipo" class="pro-select"><option value="MAIS VENDIDO">⭐ MAIS VENDIDO</option><option value="OFERTA">🔥 OFERTA - Vermelho</option><option value="OFERTA DO DIA">💥 OFERTA DO DIA - Amarelo neon piscando bem chamativo</option><option value="NORMAL">NORMAL</option></select></div>
+</div>
+</div>
+<div style="background:#070a14;border:1px solid #a855f740;border-radius:10px;padding:12px;margin-bottom:10px">
+<div style="font-family:Orbitron;font-size:11px;font-weight:800;color:#a855f7;margin-bottom:8px">🎮 Subgêneros - Cada produto com seu subgênero <span id="subSelecionados" style="background:#11112a;border:1px solid #a855f740;color:#a855f7;padding:3px 8px;border-radius:20px;font-size:9px">Selecione categoria</span></div>
+<div id="subgeneroGridJogos" style="display:none;grid-template-columns:1fr 1fr;gap:6px">
+<label style="background:#0f0f1f;border:1px solid #ef444440;padding:8px;border-radius:8px;display:flex;align-items:center;gap:6px;cursor:pointer;font-size:11px"><input type="checkbox" value="Ação"> 🎯 Ação</label>
+<label style="background:#0f0f1f;border:1px solid #ef444440;padding:8px;border-radius:8px;display:flex;align-items:center;gap:6px;cursor:pointer;font-size:11px"><input type="checkbox" value="FPS"> 🔫 FPS</label>
+<label style="background:#0f0f1f;border:1px solid #ef444440;padding:8px;border-radius:8px;display:flex;align-items:center;gap:6px;cursor:pointer;font-size:11px"><input type="checkbox" value="RPG"> ⚔️ RPG</label>
+<label style="background:#0f0f1f;border:1px solid #ef444440;padding:8px;border-radius:8px;display:flex;align-items:center;gap:6px;cursor:pointer;font-size:11px"><input type="checkbox" value="Esportes"> ⚽ Esportes</label>
+<label style="background:#0f0f1f;border:1px solid #ef444440;padding:8px;border-radius:8px;display:flex;align-items:center;gap:6px;cursor:pointer;font-size:11px"><input type="checkbox" value="Mundo Aberto"> 🌍 Mundo Aberto</label>
+<label style="background:#0f0f1f;border:1px solid #ef444440;padding:8px;border-radius:8px;display:flex;align-items:center;gap:6px;cursor:pointer;font-size:11px"><input type="checkbox" value="Terror"> 👻 Terror</label>
+</div>
+<div id="subgeneroGridConsole" style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+<label style="background:#0f0f1f;border:1px solid #1f2937;padding:8px;border-radius:8px;display:flex;align-items:center;gap:6px;cursor:pointer;font-size:11px"><input type="checkbox" value="PlayStation"> 🎮 PlayStation</label>
+<label style="background:#0f0f1f;border:1px solid #1f2937;padding:8px;border-radius:8px;display:flex;align-items:center;gap:6px;cursor:pointer;font-size:11px"><input type="checkbox" value="PlayStation 5"> 💎 PS5</label>
+<label style="background:#0f0f1f;border:1px solid #1f2937;padding:8px;border-radius:8px;display:flex;align-items:center;gap:6px;cursor:pointer;font-size:11px"><input type="checkbox" value="PlayStation 4"> 🎮 PS4</label>
+<label style="background:#0f0f1f;border:1px solid #1f2937;padding:8px;border-radius:8px;display:flex;align-items:center;gap:6px;cursor:pointer;font-size:11px"><input type="checkbox" value="Xbox"> 🟩 Xbox</label>
+<label style="background:#0f0f1f;border:1px solid #1f2937;padding:8px;border-radius:8px;display:flex;align-items:center;gap:6px;cursor:pointer;font-size:11px"><input type="checkbox" value="Controle"> 🕹️ Controle</label>
+<label style="background:#0f0f1f;border:1px solid #1f2937;padding:8px;border-radius:8px;display:flex;align-items:center;gap:6px;cursor:pointer;font-size:11px"><input type="checkbox" value="SSD"> 💾 SSD</label>
+<label style="background:#0f0f1f;border:1px solid #1f2937;padding:8px;border-radius:8px;display:flex;align-items:center;gap:6px;cursor:pointer;font-size:11px"><input type="checkbox" value="4K"> 📺 4K</label>
+</div>
+<input id="subcategoriaCustom" class="pro-input" placeholder="Custom: God of War Edition, 2TB, 64GB" style="margin-top:8px">
+</div>
+<div style="background:#070a14;border:1px solid #1f2937;border-radius:10px;padding:12px">
+<div class="pro-grid"><div class="pro-field"><div class="pro-label">📦 Estoque (só ADM vê)</div><input id="estoque" type="number" class="pro-input" placeholder="10"><div style="font-size:9px;color:#6b7280">Zero = fora da loja</div></div><div class="pro-field"><div class="pro-label">💳 Parcelas</div><input id="parcela" class="pro-input" placeholder="12x R$ 25,00"></div></div>
+</div>
+</div>
+<div class="admin-chart-card">
+<div style="font-family:Orbitron;font-size:11px;font-weight:800;color:#00e5ff;margin-bottom:8px">📸 Imagens - Pelo celular + Pré-visualização + Fundo Moderno</div>
+<div style="background:#070a14;border:1px dashed #00e5ff40;border-radius:10px;padding:12px;text-align:center"><div style="font-size:24px">📷</div><div style="font-size:11px;font-weight:800;margin-top:4px">Arraste e solte imagens aqui - ou clique para abrir câmera/galeria</div><input id="foto" type="file" accept="image/*" style="margin-top:8px;width:100%;background:#0f0f1f;border:1px solid #1f2937;padding:8px;border-radius:8px;color:#fff;font-size:11px"><img id="preview" style="width:100%;height:160px;object-fit:contain;background:#000;border-radius:8px;margin-top:8px;display:none;border:1px solid #1f2937"><div id="fotoStatus" style="font-size:9px;color:#22c55e;margin-top:4px;display:none">✅ Imagem carregada e comprimida MAX 900</div></div>
+<div style="margin-top:12px"><button class="admin-top-btn primary" id="btnSalvar" onclick="salvarProduto()" style="width:100%;padding:12px">💾 SALVAR PRODUTO - Com subgênero específico + foto + Fundo moderno - Não fica mais preto</button><button id="btnCancelar" onclick="cancelarEdicao()" style="display:none;margin-top:8px;width:100%;padding:10px;border-radius:8px;background:#1a0a14;border:1px solid #ef444440;color:#ff6b8a;font-weight:700;cursor:pointer">❌ Cancelar edição</button></div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
+<div id="previewModal" class="preview-modal" onclick="if(event.target.id==='previewModal') fecharPreview()"><div class="preview-box"><button class="preview-close" onclick="fecharPreview()">✕</button><img id="previewModalImg" class="preview-img" src=""><div class="preview-content"><div id="previewModalNome" style="font-family:Orbitron;font-weight:900;font-size:16px;color:#fff">Nome</div><div id="previewModalSubs" style="display:flex;gap:4px;flex-wrap:wrap;margin:8px 0"></div><div id="previewModalPreco" style="font-family:Orbitron;font-size:22px;font-weight:900;color:#00e5ff">R$ 0,00</div></div></div></div>
+
+<div class="toast" id="toast"></div>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script><script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
 <script>
-function showTab(tab, el){
-  document.querySelectorAll('.menu button').forEach(b=>b.classList.remove('active'));
-  if(el) el.classList.add('active');
-  document.getElementById('viewDashboard').style.display = tab==='dashboard' ? 'block' : 'none';
-  document.getElementById('viewCadastro').style.display = tab==='cadastro' ? 'block' : 'none';
+const firebaseConfig={apiKey:"AIzaSyCUL-tD4pPp7GEExJD08mEHdVzp-fbBxfs",authDomain:"divinosgames-63867.firebaseapp.com",projectId:"divinosgames-63867",storageBucket:"divinosgames-63867.firebasestorage.app",messagingSenderId:"859830472940",appId:"1:859830472940:web:fa77258b659e1bbe4455c9"};firebase.initializeApp(firebaseConfig);const db=firebase.firestore();
+let produtos=[],pedidos=[],servicos=[],editandoProdutoId=null,editandoPedidoId=null,editandoServicoId=null;
+function toastM(m){const t=document.getElementById('toast');t.textContent=m;t.style.display='block';setTimeout(()=>t.style.display='none',3500);}
+function formatBRL(v){return v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});}
+function showTab(t,el){
+  document.querySelectorAll('.admin-menu-item').forEach(b=>b.classList.remove('active'));
+  const map={dashboard:'viewDashboard',produtos:'viewProdutos',consoles:'viewConsoles',jogos:'viewJogos',pedidos:'viewPedidos',servicosAdm:'viewServicosAdm',clientes:'viewClientes',financeiro:'viewFinanceiro',config:'viewConfig',cadastro:'viewCadastro'};
+  Object.keys(map).forEach(k=>{const e=document.getElementById(map[k]);if(e)e.style.display=(k===t?'block':'none');});
+  if(el)el.classList.add('active');
 }
-document.getElementById('foto')?.addEventListener('change', function(e){
-  const file=e.target.files[0]; if(!file) return;
-  const reader=new FileReader();
-  reader.onload=function(ev){
-    const pv=document.getElementById('preview');
-    pv.src=ev.target.result;
-    pv.style.display='block';
-  };
-  reader.readAsDataURL(file);
-});
-function salvarTeste(){
-  const nome=document.getElementById('nome').value;
-  const preco=document.getElementById('preco').value;
-  if(!nome||!preco){ document.getElementById('msg').textContent='Preencha nome e preço'; return; }
-  document.getElementById('msg').textContent='✅ TESTE OK! Produto '+nome+' R$ '+preco+' - Cadastrar abriu! Agora posso mandar o completo com Firebase.';
-}
-// Mostra cadastro por padrão para provar que não fica preto
-showTab('cadastro', document.querySelectorAll('.menu button')[1]);
+document.getElementById('categoria')?.addEventListener('change',function(){const cat=(this.value||'').toLowerCase();const gj=document.getElementById('subgeneroGridJogos');const gc=document.getElementById('subgeneroGridConsole');const lb=document.getElementById('subSelecionados');if(cat.includes('jogo')){gj.style.display='grid';gc.style.display='none';if(lb)lb.textContent='Modo JOGO: Ação, FPS, RPG etc';}else{gj.style.display='none';gc.style.display='grid';if(lb)lb.textContent='Modo CONSOLE: PlayStation, Xbox etc';}});
+function getSubs(){const cat=(document.getElementById('categoria').value||'').toLowerCase();const gridId=cat.includes('jogo')?'#subgeneroGridJogos':'#subgeneroGridConsole';const checks=document.querySelectorAll(gridId+' input[type=checkbox]:checked');let lista=Array.from(checks).map(c=>c.value);const custom=document.getElementById('subcategoriaCustom').value.trim();if(custom){custom.split(',').forEach(v=>{const t=v.trim();if(t&&!lista.includes(t))lista.push(t);});}return lista;}
+async function salvarProduto(){const nome=document.getElementById('nome').value.trim();const preco=Number(document.getElementById('preco').value);const categoria=document.getElementById('categoria').value;const tipo=document.getElementById('tipo').value;const estoque=Number(document.getElementById('estoque').value)||0;const parcela=document.getElementById('parcela').value.trim()||`12x R$ ${(preco/12).toFixed(2)}`;const subgeneros=getSubs();if(!nome||!preco||!categoria){toastM('Preencha Nome, Preço e Categoria *');return;}const imgEl=document.getElementById('preview');const imagem=imgEl && imgEl.src ? imgEl.src : '';const dados={nome,preco,categoria,tipo,estoque,parcela,subgeneros,subgeneroPrincipal:subgeneros[0]||categoria,imagem,atualizadoEm:firebase.firestore.FieldValue.serverTimestamp()};try{if(editandoProdutoId){await db.collection('produtos').doc(editandoProdutoId).update(dados);toastM(`✅ ${nome} editado`);}else{dados.criadoEm=firebase.firestore.FieldValue.serverTimestamp();await db.collection('produtos').add(dados);toastM(`✅ ${nome} salvo - Não ficou preto!`);}cancelarEdicao();carregarProdutos();}catch(e){toastM('Erro: '+e.message);}}
+function cancelarEdicao(){editandoProdutoId=null;['nome','preco','estoque','parcela','subcategoriaCustom'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});document.getElementById('categoria').value='';document.getElementById('tipo').value='MAIS VENDIDO';document.querySelectorAll('#subgeneroGridJogos input, #subgeneroGridConsole input').forEach(c=>c.checked=false);const pv=document.getElementById('preview');if(pv){pv.style.display='none';pv.src='';}const b=document.getElementById('btnSalvar');if(b)b.textContent='💾 SALVAR PRODUTO - Não fica mais preto';const bc=document.getElementById('btnCancelar');if(bc)bc.style.display='none';}
+function editarProduto(id){const p=produtos.find(x=>x.id===id);if(!p)return;showTab('cadastro',null);setTimeout(()=>{editandoProdutoId=id;document.getElementById('nome').value=p.nome;document.getElementById('preco').value=p.preco;document.getElementById('categoria').value=p.categoria||'';document.getElementById('categoria').dispatchEvent(new Event('change'));document.getElementById('tipo').value=p.tipo||'MAIS VENDIDO';document.getElementById('estoque').value=p.estoque||0;document.getElementById('parcela').value=p.parcela||'';if(p.imagem){const pv=document.getElementById('preview');pv.src=p.imagem;pv.style.display='block';}const b=document.getElementById('btnSalvar');if(b)b.textContent='✏️ Atualizar Produto';const bc=document.getElementById('btnCancelar');if(bc)bc.style.display='block';},400);}
+async function deletarProduto(id){if(!confirm('Apagar produto?'))return;await db.collection('produtos').doc(id).delete();toastM('🗑️ Removido');carregarProdutos();}
+async function carregarProdutos(){try{const snap=await db.collection('produtos').orderBy('criadoEm','desc').limit(200).get();produtos=[];snap.forEach(d=>{produtos.push({id:d.id,...d.data()});});}catch(e){const snap2=await db.collection('produtos').get();produtos=[];snap2.forEach(d=>{produtos.push({id:d.id,...d.data()});});}renderProdutos();renderConsoles();renderJogos();atualizarDash();}
+function renderProdutos(){let html='';produtos.forEach(p=>{const foto=p.imagem?`<img src="${p.imagem}" class="foto-thumb" onclick="previewProduto('${p.id}')">`:`<div style="width:56px;height:56px;background:#0f0f1f;border:1px dashed #1f2937;border-radius:10px;display:flex;align-items:center;justify-content:center">📷</div>`;const subs=(p.subgeneros||[]).slice(0,3).map(s=>`<span style="background:#0f0f1f;border:1px solid #00e5ff30;color:#00e5ff;font-size:8px;padding:2px 6px;border-radius:10px">${s}</span>`).join('');html+=`<tr><td>${foto}</td><td><b>${p.nome}</b></td><td>R$ ${p.preco}</td><td>${p.tipo}</td><td>${subs}</td><td>${p.estoque||0}</td><td><button class="admin-top-btn" onclick="previewProduto('${p.id}')">👁️</button> <button class="admin-top-btn" onclick="editarProduto('${p.id}')">✏️</button> <button class="admin-top-btn danger" onclick="deletarProduto('${p.id}')">🗑️</button></td></tr>`;});document.getElementById('listaProdutos').innerHTML=html||'<tr><td colspan=7 style="text-align:center;opacity:.5">Nenhum produto</td></tr>';const tp=document.getElementById('totalProdutos');if(tp)tp.textContent=`${produtos.length} produtos`;}
+function renderConsoles(){const consoles=produtos.filter(p=>{const cat=(p.categoria||'').toLowerCase();return cat.includes('console')||cat.includes('controle')||(p.subgeneros||[]).join(' ').toLowerCase().includes('playstation')||(p.subgeneros||[]).join(' ').toLowerCase().includes('xbox');});let html='';consoles.forEach(p=>{const foto=p.imagem?`<img src="${p.imagem}" class="foto-thumb">`:`<div style="width:56px;height:56px;background:#0f0f1f;border:1px dashed #1f2937;border-radius:10px;display:flex;align-items:center;justify-content:center">📷</div>`;const subs=(p.subgeneros||[]).map(s=>`<span style="background:#0f172a;border:1px solid #00e5ff30;color:#00e5ff;font-size:8px;padding:2px 6px;border-radius:10px">${s}</span>`).join(' ');html+=`<tr><td>${foto}</td><td>${p.nome}</td><td>${subs}</td><td>R$ ${p.preco}</td><td>${p.estoque||0}</td><td><button class="admin-top-btn" onclick="editarProduto('${p.id}')">✏️</button> <button class="admin-top-btn danger" onclick="deletarProduto('${p.id}')">🗑️</button></td></tr>`;});document.getElementById('listaConsoles').innerHTML=html||'<tr><td colspan=6 style="text-align:center;opacity:.5">Nenhum console</td></tr>';}
+function renderJogos(){const jogos=produtos.filter(p=>(p.categoria||'').toLowerCase().includes('jogo'));let html='';jogos.forEach(p=>{const foto=p.imagem?`<img src="${p.imagem}" class="foto-thumb">`:`<div style="width:56px;height:56px;background:#0f0f1f;border:1px dashed #ef444440;border-radius:10px;display:flex;align-items:center;justify-content:center">🎮</div>`;const subs=(p.subgeneros||[]).map(s=>`<span style="background:#0f0f1f;border:1px solid #ef444440;color:#ff6b8a;font-size:8px;padding:2px 6px;border-radius:10px">${s}</span>`).join(' ');html+=`<tr><td>${foto}</td><td>${p.nome}</td><td>${subs}</td><td>R$ ${p.preco}</td><td>${p.estoque||0}</td><td><button class="admin-top-btn" onclick="editarProduto('${p.id}')">✏️</button> <button class="admin-top-btn danger" onclick="deletarProduto('${p.id}')">🗑️</button></td></tr>`;});document.getElementById('listaJogos').innerHTML=html||'<tr><td colspan=6 style="text-align:center;opacity:.5">Nenhum jogo</td></tr>';}
+function buscarProduto(){const termo=document.getElementById('buscaProduto').value.toLowerCase();const filtrados=produtos.filter(p=>`${p.nome} ${p.categoria} ${(p.subgeneros||[]).join(' ')}`.toLowerCase().includes(termo));let html='';filtrados.forEach(p=>{const foto=p.imagem?`<img src="${p.imagem}" class="foto-thumb">`:`<div style="width:56px;height:56px;background:#0f0f1f;border:1px dashed #1f2937;border-radius:10px;display:flex;align-items:center;justify-content:center">📷</div>`;html+=`<tr><td>${foto}</td><td>${p.nome}</td><td>R$ ${p.preco}</td><td>${p.tipo}</td><td>${(p.subgeneros||[]).join(', ')}</td><td>${p.estoque||0}</td><td><button class="admin-top-btn" onclick="editarProduto('${p.id}')">✏️</button> <button class="admin-top-btn danger" onclick="deletarProduto('${p.id}')">🗑️</button></td></tr>`;});document.getElementById('listaProdutos').innerHTML=html;}
+function mostrarFormPedido(){document.getElementById('formPedido').style.display='block';}
+function cancelarPedido(){editandoPedidoId=null;['pedidoCliente','pedidoProduto','pedidoValor','pedidoWhats'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});}
+async function salvarPedido(){const cliente=document.getElementById('pedidoCliente').value.trim();const produto=document.getElementById('pedidoProduto').value.trim();const valor=Number(document.getElementById('pedidoValor').value);const status=document.getElementById('pedidoStatus').value.split(' - ')[0];const whats=document.getElementById('pedidoWhats').value.trim()||'73 9962-7083';if(!cliente||!produto||!valor){toastM('Preencha *');return;}const dados={cliente,produto,valor,status,whats,criadoEm:firebase.firestore.FieldValue.serverTimestamp()};if(editandoPedidoId){await db.collection('pedidos').doc(editandoPedidoId).update(dados);}else{await db.collection('pedidos').add(dados);}toastM(`✅ Pedido ${formatBRL(valor)}`);cancelarPedido();}
+function editarPedido(id){const p=pedidos.find(x=>x.id===id);if(!p)return;mostrarFormPedido();editandoPedidoId=id;document.getElementById('pedidoCliente').value=p.cliente;document.getElementById('pedidoProduto').value=p.produto;document.getElementById('pedidoValor').value=p.valor;document.getElementById('pedidoWhats').value=p.whats||'';}
+async function deletarPedido(id){if(!confirm('Apagar pedido?'))return;await db.collection('pedidos').doc(id).delete();toastM('🗑️ Removido');}
+async function carregarPedidos(){db.collection('pedidos').orderBy('criadoEm','desc').limit(100).onSnapshot(snap=>{pedidos=[];snap.forEach(d=>{pedidos.push({id:d.id,...d.data()});});renderPedidos(pedidos);atualizarDash();});}
+function renderPedidos(lista){let html='';lista.forEach(p=>{let badge='status-pago';if(p.status==='Enviado')badge='status-enviado';if(p.status==='Pendente')badge='status-pendente';html+=`<tr><td>#${p.id.slice(-5)}</td><td><b>${p.cliente}</b></td><td>${p.produto}</td><td style="color:#22c55e;font-weight:800">${formatBRL(Number(p.valor)||0)}</td><td>${p.whats||''}</td><td><span class="admin-badge-status ${badge}">${p.status}</span></td><td><button class="admin-top-btn" onclick="editarPedido('${p.id}')">✏️</button> <button class="admin-top-btn danger" onclick="deletarPedido('${p.id}')">🗑️</button></td></tr>`;});document.getElementById('viewPedidosLista').innerHTML=html;}
+function mostrarFormServico(){document.getElementById('formServico').style.display='block';}
+function cancelarServico(){editandoServicoId=null;['servicoNome','servicoCliente','servicoTelefone','servicoValor'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});}
+async function salvarServico(){const nome=document.getElementById('servicoNome').value.trim();const cliente=document.getElementById('servicoCliente').value.trim();const telefone=document.getElementById('servicoTelefone').value.trim();const valor=Number(document.getElementById('servicoValor').value);const status=document.getElementById('servicoStatus').value.split(' - ')[0];if(!nome||!cliente){toastM('Preencha *');return;}const dados={nome,cliente,telefone,valor,status,criadoEm:firebase.firestore.FieldValue.serverTimestamp()};if(editandoServicoId){await db.collection('servicos').doc(editandoServicoId).update(dados);}else{await db.collection('servicos').add(dados);}toastM('✅ Serviço salvo');cancelarServico();}
+function editarServico(id){const s=servicos.find(x=>x.id===id);if(!s)return;mostrarFormServico();editandoServicoId=id;document.getElementById('servicoNome').value=s.nome;document.getElementById('servicoCliente').value=s.cliente;document.getElementById('servicoTelefone').value=s.telefone||'';document.getElementById('servicoValor').value=s.valor||'';}
+async function deletarServico(id){if(!confirm('Apagar?'))return;await db.collection('servicos').doc(id).delete();toastM('🗑️ Removido');}
+async function carregarServicos(){db.collection('servicos').orderBy('criadoEm','desc').limit(100).onSnapshot(snap=>{servicos=[];snap.forEach(d=>{servicos.push({id:d.id,...d.data()});});renderServicos(servicos);atualizarDash();});}
+function renderServicos(lista){let html='';lista.forEach(s=>{const telRaw=(s.telefone||'').replace(/\D/g,'');const telZap=telRaw?`55${telRaw.slice(-11)}`:'';const isPronto=(s.status||'').toLowerCase().includes('concluída')||(s.status||'').toLowerCase().includes('concluida');let badgeClass='status-pago';if((s.status||'').includes('Aguardando'))badgeClass='status-pendente';if((s.status||'').includes('Em andamento'))badgeClass='status-enviado';html+=`<tr style="${isPronto?'background:rgba(34,197,94,.08)':''}"><td>#${s.id.slice(-5)}</td><td><b>${s.nome}</b></td><td>${s.cliente}<div style="font-size:9px;opacity:.5">${s.telefone||''}</div></td><td>R$ ${s.valor||0}</td><td><span class="admin-badge-status ${badgeClass}">${s.status}</span></td><td style="display:flex;gap:4px;flex-wrap:wrap"><button class="admin-top-btn" onclick="editarServico('${s.id}')">✏️</button>${telZap?`<button class="admin-top-btn" style="background:#0a1a14;border:1px solid #22c55e60;color:#22c55e" onclick="chamarZapServico('${s.id}')">💬 Zap</button>`:''}${isPronto?`<button class="admin-top-btn primary" style="background:linear-gradient(135deg,#22c55e,#16a34a);color:#000" onclick="chamarZapPronto('${s.id}')">🟢 Pronto</button>`:''}<button class="admin-top-btn danger" onclick="deletarServico('${s.id}')">🗑️</button></td></tr>`;});document.getElementById('viewServicosLista').innerHTML=html||'<tr><td colspan=6 style="text-align:center;opacity:.5">Nenhum serviço</td></tr>';}
+function chamarZapServico(id){const s=servicos.find(x=>x.id===id);if(!s||!s.telefone){toastM('Sem telefone');return;}const tel=s.telefone.replace(/\D/g,'');const zapTel=`55${tel.slice(-11)}`;const msg=`Olá ${s.cliente}! Aqui é da DIVINOS GAMES 🎮%0ASobre seu serviço: *${s.nome}*%0AStatus: ${s.status}%0AValor: R$ ${s.valor||0}`;window.open(`https://wa.me/${zapTel}?text=${msg}`, '_blank');}
+function chamarZapPronto(id){const s=servicos.find(x=>x.id===id);if(!s||!s.telefone){toastM('Sem telefone');return;}const tel=s.telefone.replace(/\D/g,'');const zapTel=`55${tel.slice(-11)}`;const msg=`🎮 *DIVINOS GAMES - SERVIÇO PRONTO!* ✅%0A${s.cliente}, seu *${s.nome}* está *PRONTO* para retirada!%0AValor: R$ ${s.valor||0}%0A📍 Teixeira de Freitas - BA%0A📱 73 9962-7083`;window.open(`https://wa.me/${zapTel}?text=${msg}`, '_blank');}
+function atualizarDash(){const totalVendas=pedidos.reduce((s,p)=>s+(Number(p.valor)||0),0);const qtdPedidos=pedidos.length;const consoles=produtos.filter(p=>{const cat=(p.categoria||'').toLowerCase();return cat.includes('console')||cat.includes('controle')||(p.subgeneros||[]).join(' ').toLowerCase().includes('playstation')||(p.subgeneros||[]).join(' ').toLowerCase().includes('xbox');}).length;const jogos=produtos.filter(p=>(p.categoria||'').toLowerCase().includes('jogo')).length;document.getElementById('dashVendas').textContent=formatBRL(totalVendas);document.getElementById('dashVendasSub').textContent=`${qtdPedidos} pedidos • soma automática`;document.getElementById('dashPedidos').textContent=qtdPedidos;document.getElementById('dashConsoles').textContent=consoles;document.getElementById('dashJogos').textContent=jogos;let html='';pedidos.slice(0,8).forEach(p=>{html+=`<tr><td>#${(p.id||'').slice(-5)}</td><td>${p.cliente}</td><td>${p.produto}</td><td style="color:#22c55e;font-weight:800">${formatBRL(Number(p.valor)||0)}</td><td>${p.status}</td></tr>`;});document.getElementById('pedidosRecentes').innerHTML=html||'<tr><td colspan=5 style="text-align:center;opacity:.5;padding:16px">Nenhum pedido - Dashboard zerado R$ 0</td></tr>';const elF=document.getElementById('financeiroDetalhe');if(elF)elF.innerHTML=`<div style="font-size:12px">Total vendas tempo real: <b style="color:#00e5ff">${formatBRL(totalVendas)}</b><br>Pedidos: ${qtdPedidos}</div>`;}
+async function limparTudo(){if(!confirm('⚠️ Limpar TUDO? Zerar R$ 0?'))return;if(!confirm('Confirma mesmo?'))return;try{const cols=['pedidos','servicos'];for(const col of cols){const snap=await db.collection(col).limit(100).get();const batch=db.batch();snap.forEach(doc=>{batch.delete(doc.ref);});if(!snap.empty)await batch.commit();}}catch(e){}pedidos=[];servicos=[];atualizarDash();toastM('✅ Tudo limpo! Dashboard zerado R$ 0');}
+function montarTextoRodape(){const n=document.getElementById('footerNome').value.trim()||'DIVINOS GAMES';const a=document.getElementById('footerAno').value.trim()||'2024';const c=document.getElementById('footerCidade').value.trim()||'Teixeira de Freitas - BA';const w=document.getElementById('footerWhats').value.trim()||'73 9962-7083';const i=document.getElementById('footerInsta').value.trim()||'@divinosgames';return `${n} © ${a} • ${c} • WhatsApp ${w} • ${i}`;}
+function previewRodape(){const t=montarTextoRodape();const b=document.getElementById('previewRodapeBox');if(b){b.style.display='block';b.innerHTML=`<b style="color:#00e5ff">Prévia rodapé cliente:</b><br><br>${t}`;}}
+async function salvarRodape(){const dados={nome:document.getElementById('footerNome').value.trim(),ano:document.getElementById('footerAno').value.trim(),cidade:document.getElementById('footerCidade').value.trim(),whats:document.getElementById('footerWhats').value.trim(),insta:document.getElementById('footerInsta').value.trim(),custom:document.getElementById('footerCustom').value.trim(),textoCompleto:montarTextoRodape()};localStorage.setItem('divinos_rodape_texto',dados.textoCompleto);try{await db.collection('config').doc('rodape').set({...dados,atualizado:firebase.firestore.FieldValue.serverTimestamp()},{merge:true});}catch(e){}toastM('✅ Rodapé salvo!');previewRodape();}
+async function salvarOfertas(){const ofertaDia=document.getElementById('ofertaDiaId').value.trim();const maisVendido=document.getElementById('maisVendidoId').value.trim();try{await db.collection('config').doc('ofertas').set({ofertaDiaId:ofertaDia,maisVendidoId:maisVendido,atualizado:firebase.firestore.FieldValue.serverTimestamp()},{merge:true});toastM('✅ Ofertas salvas - bem chamativo');}catch(e){toastM('Erro');}}
+async function salvarConfigGeral(){const senha=document.getElementById('novaSenha').value.trim();let ps5Img=document.getElementById('previewPS5').src||'';let xboxImg=document.getElementById('previewXBOX').src||'';const ps5Url=document.getElementById('imgPS5Url').value.trim();const xboxUrl=document.getElementById('imgXBOXUrl').value.trim();if(ps5Url)ps5Img=ps5Url;if(xboxUrl)xboxImg=xboxUrl;try{await db.collection('config').doc('geral').set({senhaAdmin:senha||null,imgPS5:ps5Img||null,imgXBOX:xboxImg||null,atualizado:firebase.firestore.FieldValue.serverTimestamp()},{merge:true});if(ps5Img)localStorage.setItem('divinos_img_ps5',ps5Img);if(xboxImg)localStorage.setItem('divinos_img_xbox',xboxImg);toastM('✅ Config salva! 2 quadrados PS5 XBOX pelo celular');}catch(e){toastM('Erro: '+e.message);}}
+function setupCamera(inputId,previewId){const input=document.getElementById(inputId);if(!input)return;input.addEventListener('change',function(e){const file=e.target.files[0];if(!file)return;const reader=new FileReader();reader.onload=function(ev){const img=new Image();img.onload=function(){const canvas=document.createElement('canvas');const MAX=900;let w=img.width,h=img.height;if(w>MAX||h>MAX){if(w>h){h*=MAX/w;w=MAX;}else{w*=MAX/h;h=MAX;}}canvas.width=w;canvas.height=h;const ctx=canvas.getContext('2d');ctx.drawImage(img,0,0,w,h);const compressed=canvas.toDataURL('image/jpeg',0.7);const pv=document.getElementById(previewId);if(pv){pv.src=compressed;pv.style.display='block';}};img.src=ev.target.result;};reader.readAsDataURL(file);});}
+function carregarTudo(){db.collection('pedidos').orderBy('criadoEm','desc').limit(100).onSnapshot(snap=>{pedidos=[];snap.forEach(d=>{pedidos.push({id:d.id,...d.data()});});renderPedidos(pedidos);atualizarDash();});db.collection('servicos').orderBy('criadoEm','desc').limit(100).onSnapshot(snap=>{servicos=[];snap.forEach(d=>{servicos.push({id:d.id,...d.data()});});renderServicos(servicos);atualizarDash();});db.collection('produtos').onSnapshot(snap=>{produtos=[];snap.forEach(d=>{produtos.push({id:d.id,...d.data()});});renderProdutos();renderConsoles();renderJogos();atualizarDash();});}
+function carregarClientes(){db.collection('clientes').onSnapshot(snap=>{let html='';snap.forEach(d=>{const c=d.data();html+=`<tr><td>${c.nome||'-'}</td><td>${c.whats||''}</td><td>${formatBRL(c.totalGasto||0)}</td><td><button class="admin-top-btn danger" onclick="deletarCliente('${d.id}')">🗑️</button></td></tr>`;});document.getElementById('listaClientes').innerHTML=html||'<tr><td colspan=4 style="text-align:center;opacity:.5">Nenhum cliente</td></tr>';}
+async function deletarCliente(id){await db.collection('clientes').doc(id).delete();toastM('🗑️ Cliente removido');}
+function previewProduto(id){const p=produtos.find(x=>x.id===id);if(!p)return;document.getElementById('previewModalImg').src=p.imagem||'';document.getElementById('previewModalNome').textContent=p.nome;document.getElementById('previewModalPreco').textContent=formatBRL(Number(p.preco)||0);document.getElementById('previewModalSubs').innerHTML=(p.subgeneros||[]).map(s=>`<span style="background:#0f0f1f;border:1px solid #00e5ff30;color:#00e5ff;font-size:10px;padding:3px 8px;border-radius:12px">${s}</span>`).join('');document.getElementById('previewModal').style.display='flex';}
+function fecharPreview(){document.getElementById('previewModal').style.display='none';}
+document.getElementById('foto')?.addEventListener('change',function(e){const file=e.target.files[0];if(!file)return;const reader=new FileReader();reader.onload=function(ev){const img=new Image();img.onload=function(){const canvas=document.createElement('canvas');const MAX=900;let w=img.width,h=img.height;if(w>MAX||h>MAX){if(w>h){h*=MAX/w;w=MAX;}else{w*=MAX/h;h=MAX;}}canvas.width=w;canvas.height=h;const ctx=canvas.getContext('2d');ctx.drawImage(img,0,0,w,h);const compressed=canvas.toDataURL('image/jpeg',0.7);const pv=document.getElementById('preview');if(pv){pv.src=compressed;pv.style.display='block';}document.getElementById('fotoStatus').style.display='block';};img.src=ev.target.result;};reader.readAsDataURL(file);});
+setTimeout(()=>{setupCamera('filePS5','previewPS5');setupCamera('fileXBOX','previewXBOX');},600);
+carregarTudo();
+carregarPedidos();
+carregarServicos();
 </script>
 </body>
 </html>
