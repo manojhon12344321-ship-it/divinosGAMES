@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DIVINOS GAMES - Seu Setup Gamer Completo em um Só Lugar</title>
+<title>DIVINOS GAMES - Seu Setup Gamer Completo - hero-bg.jpg - Cliente 100%</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -20,24 +20,25 @@ nav a.active{color:#00e5ff;border-bottom:2px solid #00e5ff;padding-bottom:4px;te
 .hicon{width:36px;height:36px;border-radius:10px;background:#0f0f1f;border:1px solid #1f1f3a;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;position:relative}
 .cart-badge{position:absolute;top:-6px;right:-6px;background:#a855f7;color:#fff;font-size:10px;min-width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900}
 .hero{position:relative;max-width:100%;margin:0 auto;padding:0;display:grid;grid-template-columns:1.15fr .85fr;gap:0;align-items:stretch;min-height:420px;background:#05070f;overflow:hidden;border-bottom:1px solid #1a1a3a}
-.hero-bg{position:absolute;inset:0;background:radial-gradient(800px at 70% 20%,#1a1040 0%,#0f0a2a 25%,#05070f 70%),linear-gradient(90deg,rgba(0,229,255,.06) 0%,rgba(156,39,255,.08) 100%);z-index:1}
-.hero-left{position:relative;z-index:2;padding:40px 32px;display:flex;flex-direction:column;justify-content:center}
-.hero-left h6{display:inline-block;background:rgba(0,229,255,.12);border:1px solid rgba(0,229,255,.4);color:#00e5ff;padding:5px 12px;border-radius:6px;font-size:11px;letter-spacing:1px;font-family:'Orbitron';margin-bottom:14px;font-weight:700}
-.hero-left h1{font-family:'Orbitron';font-size:38px;line-height:1.05;font-weight:900;color:#fff}
+.hero-bg{position:absolute;inset:0;background-image:url('hero-bg.jpg');background-size:cover;background-position:center right;background-repeat:no-repeat;z-index:1}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,7,15,.95) 0%,rgba(5,7,15,.85) 35%,rgba(5,7,15,.4) 70%,rgba(5,7,15,.2) 100%),radial-gradient(800px at 70% 20%,rgba(26,16,64,.3) 0%,transparent 70%);z-index:2}
+.hero-left{position:relative;z-index:3;padding:40px 32px;display:flex;flex-direction:column;justify-content:center}
+.hero-left h6{display:inline-block;background:rgba(0,229,255,.12);border:1px solid rgba(0,229,255,.4);color:#00e5ff;padding:5px 12px;border-radius:6px;font-size:11px;letter-spacing:1px;font-family:'Orbitron';margin-bottom:14px;font-weight:700;box-shadow:0 0 10px #00e5ff30}
+.hero-left h1{font-family:'Orbitron';font-size:38px;line-height:1.05;font-weight:900;color:#fff;text-shadow:0 0 20px rgba(0,0,0,.8)}
 .hero-left h1 .line2{display:block}
-.hero-left p{font-size:13px;opacity:.75;margin-top:14px;line-height:1.5;max-width:460px;color:#cbd5e1}
+.hero-left p{font-size:13px;opacity:.85;margin-top:14px;line-height:1.5;max-width:460px;color:#cbd5e1;text-shadow:0 1px 4px rgba(0,0,0,.8)}
 .hero-btns{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap}
 .btn-primary{background:linear-gradient(135deg,#0ea5e9,#7c3aed);border:1px solid #00e5ff60;color:#fff;padding:11px 20px;border-radius:10px;font-weight:800;font-size:13px;cursor:pointer;box-shadow:0 0 20px #00e5ff30}
-.btn-secondary{background:rgba(15,15,31,.8);border:1px solid #a855f760;color:#fff;padding:11px 20px;border-radius:10px;font-weight:700;font-size:13px;cursor:pointer;display:flex;align-items:center;gap:8px}
+.btn-secondary{background:rgba(15,15,31,.8);border:1px solid #a855f760;color:#fff;padding:11px 20px;border-radius:10px;font-weight:700;font-size:13px;cursor:pointer;display:flex;align-items:center;gap:8px;backdrop-filter:blur(6px)}
 .hero-checks{display:flex;gap:18px;margin-top:20px;flex-wrap:wrap}
-.hero-checks span{font-size:11px;opacity:.8;display:flex;align-items:center;gap:6px;color:#94a3b8}
+.hero-checks span{font-size:11px;opacity:.9;display:flex;align-items:center;gap:6px;color:#94a3b8;text-shadow:0 1px 2px #000}
 .hero-checks i{width:16px;height:16px;background:#0f172a;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:10px;color:#00e5ff;border:1px solid #00e5ff40}
-.hero-right{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;padding:20px;background:radial-gradient(500px at 60% 40%,rgba(156,39,255,.25),transparent 70%)}
-.hero-consoles{display:flex;align-items:end;gap:16px;filter:drop-shadow(0 0 30px rgba(0,229,255,.3)) drop-shadow(0 20px 40px #0009)}
-.console{border-radius:14px;display:flex;align-items:center;justify-content:center;font-weight:900;position:relative;overflow:hidden}
-.console-ps5{width:220px;height:340px;background:linear-gradient(180deg,#f8fafc 0%,#e2e8f0 50%,#cbd5e1 100%);color:#0f172a;box-shadow:0 0 40px rgba(255,255,255,.2),0 20px 50px #000a;border:1px solid #fff8}
+.hero-right{position:relative;z-index:3;display:flex;align-items:center;justify-content:center;padding:20px}
+.hero-consoles{display:flex;align-items:end;gap:16px;filter:drop-shadow(0 0 30px rgba(0,229,255,.4)) drop-shadow(0 20px 40px #000)}
+.console{border-radius:14px;display:flex;align-items:center;justify-content:center;font-weight:900;position:relative;overflow:hidden;backdrop-filter:blur(2px)}
+.console-ps5{width:220px;height:340px;background:linear-gradient(180deg,rgba(248,250,252,.95) 0%,rgba(226,232,240,.9) 50%,rgba(203,213,225,.9) 100%);color:#0f172a;box-shadow:0 0 40px rgba(255,255,255,.3),0 20px 50px #000a;border:1px solid #fff8}
 .console-ps5::before{content:'PS5';font-size:32px;font-family:Orbitron;letter-spacing:2px}
-.console-xbox{width:200px;height:300px;background:linear-gradient(180deg,#0a0a0a 0%,#000 100%);border:1px solid #22ff88a0;color:#22ff88;box-shadow:0 0 40px rgba(34,255,136,.3),0 20px 50px #000a}
+.console-xbox{width:200px;height:300px;background:linear-gradient(180deg,rgba(10,10,10,.9) 0%,rgba(0,0,0,.9) 100%);border:1px solid #22ff88a0;color:#22ff88;box-shadow:0 0 40px rgba(34,255,136,.3),0 20px 50px #000a}
 .console-xbox::before{content:'XBOX';font-size:26px;font-family:Orbitron;letter-spacing:3px}
 .catalog{max-width:1300px;margin:0 auto;padding:24px}
 .section-consoles-title{text-align:center;margin-bottom:20px}
@@ -114,7 +115,7 @@ footer{background:#05070f;border-top:1px solid #1a1a3a;padding:18px 24px;text-al
 <a class="active" onclick="window.scrollTo({top:0,behavior:'smooth'})">INICIO</a>
 <a onclick="document.getElementById('catalogo').scrollIntoView({behavior:'smooth'})">CATALOGO</a>
 <a onclick="document.getElementById('servicos').scrollIntoView({behavior:'smooth'})">SERVICOS</a>
-<a onclick="toast('Suporte: WhatsApp 73 9962-7083')">SUPORTE</a>
+<a onclick="toast('Suporte: WhatsApp 73 9962-7083 - Teixeira de Freitas BA')">SUPORTE</a>
 <a onclick="window.open('https://wa.me/5573999627083','_blank')">CONTATO</a>
 </nav>
 <div class="header-icons">
@@ -129,7 +130,7 @@ footer{background:#05070f;border-top:1px solid #1a1a3a;padding:18px 24px;text-al
 <div class="hero-left">
 <h6>NOVO • 2024</h6>
 <h1>Seu Setup Gamer Completo <span class="line2">em um Só Lugar</span></h1>
-<p>Consoles, acessórios e manutenção especializada para elevar seu jogo. Produtos originais com garantia e suporte técnico 24/7.</p>
+<p>Consoles, acessórios e manutenção especializada para elevar seu jogo. Produtos originais com garantia e suporte técnico 24/7. Teixeira de Freitas - BA • WhatsApp 73 9962-7083</p>
 <div class="hero-btns">
 <button class="btn-primary" onclick="document.getElementById('catalogo').scrollIntoView({behavior:'smooth'})">Explorar Catálogo ↗</button>
 <button class="btn-secondary" onclick="window.open('https://wa.me/5573999627083?text=Quero%20agendar%20manutenção','_blank')">🔧 Agendar Manutenção</button>
@@ -151,7 +152,7 @@ footer{background:#05070f;border-top:1px solid #1a1a3a;padding:18px 24px;text-al
 <div class="catalog">
 <div class="section-consoles-title">
 <h2>Consoles mais vendidos</h2>
-<p>Os mais procurados pelos gamers</p>
+<p>Os mais procurados pelos gamers - Top 3 - Lógica: OFERTA DO DIA > OFERTA > MAIS VENDIDO > PORTÁTIL</p>
 </div>
 <div class="grid3" id="gridOfertasTopo"></div>
 
@@ -164,7 +165,7 @@ footer{background:#05070f;border-top:1px solid #1a1a3a;padding:18px 24px;text-al
 <button onclick="filtrarTipo('OFERTA')" id="fOferta">🔥 OFERTAS</button>
 </div>
 <div class="busca-wrap">
-<input id="busca" class="busca" placeholder="Buscar: playstation, xbox, SSD, DualSense, 4K, OLED..." oninput="filtrar()">
+<input id="busca" class="busca" placeholder="Buscar: playstation, xbox, SSD, DualSense, 4K, OLED, subgênero..." oninput="filtrar()">
 </div>
 <div class="busca-info" id="buscaInfo"></div>
 <div class="filtros" id="filtrosSubgenero" style="padding-top:0"></div>
@@ -177,12 +178,12 @@ footer{background:#05070f;border-top:1px solid #1a1a3a;padding:18px 24px;text-al
 <div id="servicos" style="margin-top:40px">
 <div class="servicos-title">
 <h2>Serviços populares</h2>
-<p>Suporte técnico e manutenção para seu setup</p>
+<p>Suporte técnico e manutenção para seu setup - Sem avaliações Google</p>
 </div>
 <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
-<div class="service-card"><div class="service-icon">🔧</div><div><h4>Limpeza & Manutenção</h4><p>Limpeza interna completa e troca de pasta térmica com garantia</p><small>a partir de R$ 120</small></div></div>
-<div class="service-card"><div class="service-icon purple">💾</div><div><h4>Troca de HD/SSD</h4><p>Upgrade de armazenamento rápido e seguro, instalação de jogos</p><small class="purple">a partir de R$ 180</small></div></div>
-<div class="service-card"><div class="service-icon purple">🎮</div><div><h4>Controle - Reparo</h4><p>Reparo de analógico, drift, botões e troca de carcaça com garantia</p><small class="purple">a partir de R$ 90</small></div></div>
+<div class="service-card"><div class="service-icon">🔧</div><div><h4>Limpeza & Manutenção</h4><p>Limpeza interna completa e troca de pasta térmica com garantia 90 dias</p><small>a partir de R$ 120 • Teixeira de Freitas BA</small></div></div>
+<div class="service-card"><div class="service-icon purple">💾</div><div><h4>Troca de HD/SSD</h4><p>Upgrade de armazenamento rápido e seguro, instalação de jogos</p><small class="purple">a partir de R$ 180 • Frete Grátis</small></div></div>
+<div class="service-card"><div class="service-icon purple">🎮</div><div><h4>Controle - Reparo</h4><p>Reparo de analógico, drift, botões e troca de carcaça com garantia</p><small class="purple">a partir de R$ 90 • 73 9962-7083</small></div></div>
 </div>
 </div>
 </div>
@@ -192,7 +193,7 @@ footer{background:#05070f;border-top:1px solid #1a1a3a;padding:18px 24px;text-al
 <div class="modal" id="modalPrevia" onclick="if(event.target===this)fecharPrevia()">
 <div class="modal-box">
 <div class="modal-header">
-<div style="display:flex;align-items:center;gap:10px"><div class="logo-icon" style="width:28px;height:28px;font-size:14px">🎮</div><div style="font-family:Orbitron;font-weight:800;font-size:13px">Pré-visualização • DIVINOS GAMES</div></div>
+<div style="display:flex;align-items:center;gap:10px"><div class="logo-icon" style="width:28px;height:28px;font-size:14px">🎮</div><div style="font-family:Orbitron;font-weight:800;font-size:13px">Pré-visualização • DIVINOS GAMES • Cliente</div></div>
 <button class="modal-close" onclick="fecharPrevia()">✕</button>
 </div>
 <div class="modal-body" id="modalBody"></div>
@@ -201,7 +202,7 @@ footer{background:#05070f;border-top:1px solid #1a1a3a;padding:18px 24px;text-al
 
 <div class="carrinho-panel" id="carrinhoPanel">
 <div class="carrinho-header">
-<div style="font-family:Orbitron;font-weight:800;font-size:14px">🛒 Carrinho • <span id="carrinhoCount">3</span> itens</div>
+<div style="font-family:Orbitron;font-weight:800;font-size:14px">🛒 Carrinho • <span id="carrinhoCount">3</span> itens • Cliente</div>
 <button class="modal-close" onclick="fecharCarrinho()">✕</button>
 </div>
 <div id="carrinhoItens"></div>
@@ -213,13 +214,13 @@ footer{background:#05070f;border-top:1px solid #1a1a3a;padding:18px 24px;text-al
 </div>
 </div>
 
-<a class="whatsapp-float" href="https://wa.me/5573999627083?text=Ol%C3%A1%20Divinos%20Games!%20Vim%20pelo%20site" target="_blank">
+<a class="whatsapp-float" href="https://wa.me/5573999627083?text=Ol%C3%A1%20Divinos%20Games!%20Vim%20pelo%20site%20cliente" target="_blank">
 <div class="icon">💬</div>
-<div><div>Fale conosco no WhatsApp</div><div style="font-size:10px;opacity:.7">Online agora • Resposta rápida</div></div>
+<div><div>Fale conosco no WhatsApp</div><div style="font-size:10px;opacity:.7">Online agora • 73 9962-7083 • Resposta rápida</div></div>
 </a>
 
 <footer>
-<span>DIVINOS GAMES © 2024 • Todos os direitos reservados • Política de Privacidade | Termos de Uso</span>
+<span>DIVINOS GAMES © 2024 • Teixeira de Freitas - BA • WhatsApp 73 9962-7083 • @divinosgames • Todos os direitos reservados • Política de Privacidade | Termos de Uso</span>
 <span style="display:flex;gap:12px;align-items:center"><span>🛡️ Pagamento Seguro</span><span>📦 Compra Protegida</span><span>✅ Garantia Oficial</span></span>
 </footer>
 
@@ -238,23 +239,23 @@ const PRODUTOS_FOTO=[
 ];
 function toast(m){const t=document.getElementById('toast');t.textContent=m;t.style.display='block';setTimeout(()=>t.style.display='none',4000);}
 function gerarFiltrosSubgenero(){const allSubs=new Set();todos.forEach(p=>{(p.subcategoria||'').split(',').forEach(s=>{const t=s.trim();if(t)allSubs.add(t);});});PRODUTOS_FOTO.forEach(p=>{(p.subcategoria||'').split(',').forEach(s=>{const t=s.trim();if(t)allSubs.add(t);});});const container=document.getElementById('filtrosSubgenero');if(!container)return;let html='';allSubs.forEach(sub=>{html+=`<button onclick="filtrarSub('${sub}')" id="f-${sub.replace(/\s+/g,'')}">${sub}</button>`;});container.innerHTML=html;}
-function filtrarCat(cat){filtroCatAtual=cat;filtroTipo="";filtroSub="";document.querySelectorAll('.filtros button').forEach(b=>b.classList.remove('active'));if(cat==='')document.getElementById('fTodos').classList.add('active');if(cat==='Console')document.getElementById('fConsole').classList.add('active');filtrar();}
+function filtrarCat(cat){filtroCatAtual=cat;filtroTipo="";filtroSub="";document.querySelectorAll('.filtros button').forEach(b=>b.classList.remove('active'));if(cat==='')document.getElementById('fTodos').classList.add('active');if(cat==='Console')document.getElementById('fConsole').classList.add('active');if(cat==='Jogo')document.getElementById('fJogo').classList.add('active');if(cat==='Controle')document.getElementById('fControle').classList.add('active');if(cat==='Acessório')document.getElementById('fAcess').classList.add('active');filtrar();}
 function filtrarTipo(tipo){filtroTipo=tipo;filtroCatAtual="";filtroSub="";document.querySelectorAll('.filtros button').forEach(b=>b.classList.remove('active'));document.getElementById('fOferta')?.classList.add('active');filtrar();}
-function filtrarSub(sub){filtroSub=sub;filtroCatAtual="";filtroTipo="";document.querySelectorAll('#filtrosSubgenero button').forEach(b=>b.classList.remove('active'));const btn=document.getElementById('f-'+sub.replace(/\s+/g,''));if(btn)btn.classList.add('active');filtrar();toast(`Subgênero: ${sub}`);}
-function filtrar(){buscaAtual=document.getElementById('busca')?.value.toLowerCase().trim()||'';let lista=todos;if(filtroCatAtual)lista=lista.filter(p=>(p.categoria||'').toLowerCase().includes(filtroCatAtual.toLowerCase()));if(filtroTipo)lista=lista.filter(p=>(p.tipo||'').includes('OFERTA'));if(filtroSub)lista=lista.filter(p=>`${p.nome} ${p.subcategoria} ${p.categoria} ${p.tipo}`.toLowerCase().includes(filtroSub.toLowerCase()));if(buscaAtual)lista=lista.filter(p=>`${p.nome||''} ${p.subcategoria||''} ${p.categoria||''} ${p.tipo||''}`.toLowerCase().includes(buscaAtual));renderTodos(lista);const info=document.getElementById('buscaInfo');if(info){if(buscaAtual||filtroCatAtual||filtroTipo||filtroSub){let txt='';if(buscaAtual)txt+=`Busca "${buscaAtual}" • `;if(filtroSub)txt+=`Subgênero ${filtroSub} • `;txt+=`${lista.length} encontrados - clique para pré-visualização`;info.textContent=txt;}else{info.textContent='Dica: Clique no card para pré-visualização • Consoles mais vendidos acima';}}}
-function abrirPrevia(id){const p=todos.find(x=>x.id===id)||PRODUTOS_FOTO.find(x=>x.id===id);if(!p)return;const zap='5573999627083';const precoFormat=Number(p.preco||0).toLocaleString('pt-BR');const temFoto=p.imagem&&p.imagem.length>10;let tagClass='tag-vendido',tagText=p.tipo||'MAIS VENDIDO';if((p.tipo||'').includes('OFERTA')){tagClass='tag-oferta';tagText='OFERTA';}else if((p.tipo||'').includes('PORTÁTIL')){tagClass='tag-portatil';tagText='PORTÁTIL';}let priceClass='';if(tagClass==='tag-oferta')priceClass='purple';const subs=(p.subcategoria||'').split(',').map(s=>s.trim()).filter(Boolean);const subBadges=subs.map(s=>`<span style="background:#0f0f1f;border:1px solid #00e5ff40;color:#00e5ff;padding:4px 10px;border-radius:12px;font-size:11px;margin:2px;display:inline-block">${s}</span>`).join('');const msg=`Olá Divinos Games! Quero ${p.nome} R$ ${p.preco} - ${p.parcela||''}`;const modalBody=document.getElementById('modalBody');modalBody.innerHTML=`<div style="position:relative"><div class="tag ${tagClass}" style="position:absolute;top:12px;left:12px;z-index:2">${tagText}</div><img class="modal-img" src="${temFoto?p.imagem:'https://via.placeholder.com/500'}" alt="${p.nome}"></div><div class="modal-title">${p.nome}</div><div style="display:flex;flex-wrap:wrap;gap:6px;margin:8px 0">${subBadges}</div><div class="modal-price ${priceClass}">R$ ${precoFormat}</div><div style="font-size:12px;opacity:.6;margin-bottom:12px">${p.parcela||'12x sem juros'} • Frete Grátis p/ todo Brasil • Garantia 90 dias • Parcelamento em até 12x</div><div class="modal-specs"><div><span>📦 Categoria</span><span style="color:#00e5ff;font-weight:700">${p.categoria||''}</span></div><div><span>🏷️ Subgênero</span><span style="color:#00e5ff;font-weight:600">${p.subcategoria||''}</span></div><div><span>🔥 Tipo</span><span>${p.tipo||''}</span></div><div><span>📍 Local</span><span>Teixeira de Freitas - BA</span></div><div><span>🛡️ Garantia</span><span>90 dias</span></div></div><div class="modal-actions"><button class="modal-btn modal-btn-fechar" onclick="fecharPrevia()">Fechar prévia</button><button class="modal-btn modal-btn-zap" onclick="adicionarCarrinho('${p.id}');fecharPrevia();abrirCarrinho()">🛒 Adicionar ao carrinho</button></div><button class="modal-btn modal-btn-zap" style="width:100%;margin-top:10px;background:#0f0f1f;border:1px solid #00e5ff40;color:#00e5ff" onclick="window.open('https://wa.me/${zap}?text=${encodeURIComponent(msg)}','_blank')">💬 Comprar no WhatsApp</button>`;document.getElementById('modalPrevia').classList.add('open');}
+function filtrarSub(sub){filtroSub=sub;filtroCatAtual="";filtroTipo="";document.querySelectorAll('#filtrosSubgenero button').forEach(b=>b.classList.remove('active'));const btn=document.getElementById('f-'+sub.replace(/\s+/g,''));if(btn)btn.classList.add('active');filtrar();toast(`Subgênero: ${sub} - filtrado`);}
+function filtrar(){buscaAtual=document.getElementById('busca')?.value.toLowerCase().trim()||'';let lista=todos;if(filtroCatAtual)lista=lista.filter(p=>(p.categoria||'').toLowerCase().includes(filtroCatAtual.toLowerCase()));if(filtroTipo)lista=lista.filter(p=>(p.tipo||'').includes('OFERTA'));if(filtroSub)lista=lista.filter(p=>`${p.nome} ${p.subcategoria} ${p.categoria} ${p.tipo}`.toLowerCase().includes(filtroSub.toLowerCase()));if(buscaAtual)lista=lista.filter(p=>`${p.nome||''} ${p.subcategoria||''} ${p.categoria||''} ${p.tipo||''}`.toLowerCase().includes(buscaAtual));renderTodos(lista);const info=document.getElementById('buscaInfo');if(info){if(buscaAtual||filtroCatAtual||filtroTipo||filtroSub){let txt='';if(buscaAtual)txt+=`Busca "${buscaAtual}" • `;if(filtroSub)txt+=`Subgênero ${filtroSub} • `;if(filtroCatAtual)txt+=`Categoria ${filtroCatAtual} • `;txt+=`${lista.length} encontrados - clique para pré-visualização • Estoque só ADM vê`;info.textContent=txt;}else{info.textContent='Dica: Clique no card para pré-visualização • Consoles mais vendidos acima • Frete Grátis • 73 9962-7083';}}}
+function abrirPrevia(id){const p=todos.find(x=>x.id===id)||PRODUTOS_FOTO.find(x=>x.id===id);if(!p)return;const zap='5573999627083';const precoFormat=Number(p.preco||0).toLocaleString('pt-BR');const temFoto=p.imagem&&p.imagem.length>10;let tagClass='tag-vendido',tagText=p.tipo||'MAIS VENDIDO';if((p.tipo||'').includes('OFERTA')){tagClass='tag-oferta';tagText='OFERTA';}else if((p.tipo||'').includes('PORTÁTIL')){tagClass='tag-portatil';tagText='PORTÁTIL';}if((p.tipo||'').includes('OFERTA DO DIA')){tagClass='tag-oferta';tagText='OFERTA DO DIA';}let priceClass='';if(tagClass==='tag-oferta')priceClass='purple';const subs=(p.subcategoria||'').split(',').map(s=>s.trim()).filter(Boolean);const subBadges=subs.map(s=>`<span style="background:#0f0f1f;border:1px solid #00e5ff40;color:#00e5ff;padding:4px 10px;border-radius:12px;font-size:11px;margin:2px;display:inline-block">${s}</span>`).join('');const msg=`Olá Divinos Games! Quero ${p.nome} R$ ${p.preco} - ${p.parcela||''} - Subgêneros: ${p.subcategoria||''}`;const modalBody=document.getElementById('modalBody');modalBody.innerHTML=`<div style="position:relative"><div class="tag ${tagClass}" style="position:absolute;top:12px;left:12px;z-index:2">${tagText}</div><img class="modal-img" src="${temFoto?p.imagem:'https://via.placeholder.com/500'}" alt="${p.nome}"></div><div class="modal-title">${p.nome}</div><div style="display:flex;flex-wrap:wrap;gap:6px;margin:8px 0">${subBadges}</div><div class="modal-price ${priceClass}">R$ ${precoFormat}</div><div style="font-size:12px;opacity:.6;margin-bottom:12px">${p.parcela||'12x sem juros'} • Frete Grátis p/ todo Brasil • Garantia 90 dias • Parcelamento em até 12x • Teixeira de Freitas - BA</div><div class="modal-specs"><div><span>📦 Categoria</span><span style="color:#00e5ff;font-weight:700">${p.categoria||''}</span></div><div><span>🏷️ Subgênero</span><span style="color:#00e5ff;font-weight:600">${p.subcategoria||''}</span></div><div><span>🔥 Tipo</span><span>${p.tipo||''}</span></div><div><span>📍 Local</span><span>Teixeira de Freitas - BA</span></div><div><span>🛡️ Garantia</span><span>90 dias • Pagamento Seguro</span></div><div><span>📞 WhatsApp</span><span>73 9962-7083</span></div></div><div class="modal-actions"><button class="modal-btn modal-btn-fechar" onclick="fecharPrevia()">Fechar prévia</button><button class="modal-btn modal-btn-zap" onclick="adicionarCarrinho('${p.id}');fecharPrevia();abrirCarrinho()">🛒 Adicionar ao carrinho</button></div><button class="modal-btn modal-btn-zap" style="width:100%;margin-top:10px;background:#0f0f1f;border:1px solid #00e5ff40;color:#00e5ff" onclick="window.open('https://wa.me/${zap}?text=${encodeURIComponent(msg)}','_blank')">💬 Comprar no WhatsApp • 73 9962-7083</button>`;document.getElementById('modalPrevia').classList.add('open');}
 function fecharPrevia(){document.getElementById('modalPrevia')?.classList.remove('open');}
-function cardHTML(p){const precoFormat=Number(p.preco||0).toLocaleString('pt-BR');const temFoto=p.imagem&&p.imagem.length>10;let tagClass='tag-vendido',tagText=p.tipo||'MAIS VENDIDO';if((p.tipo||'').includes('OFERTA')){tagClass='tag-oferta';tagText='OFERTA';}else if((p.tipo||'').includes('PORTÁTIL')){tagClass='tag-portatil';tagText='PORTÁTIL';}let priceClass='';if(tagClass==='tag-oferta')priceClass='purple';let specTexto='';if(p.nome.includes('PlayStation 5'))specTexto='SSD 825GB • Controle DualSense';else if(p.nome.includes('Xbox'))specTexto='SSD 1TB • 4K 120FPS';else if(p.nome.includes('Nintendo'))specTexto='Tela 7" OLED • 64GB';else specTexto=(p.subcategoria||'').split(',').slice(0,2).join(' • ');return `<div class="card-gamer" onclick="abrirPrevia('${p.id}')"><div class="tag ${tagClass}">${tagText}</div><img src="${temFoto?p.imagem:'https://via.placeholder.com/300'}" loading="lazy" alt="${p.nome}"><h3>${p.nome}</h3><div class="spec">${specTexto}</div><div class="price ${priceClass}">R$ ${precoFormat}</div><div class="install">${p.parcela||'12x sem juros'}</div><button class="btn-comprar-full" onclick="event.stopPropagation();adicionarCarrinho('${p.id}')">Comprar agora</button></div>`;}
-function renderTodos(lista){const el=document.getElementById('gridTodos');if(!el)return;el.innerHTML=lista.length?lista.map(cardHTML).join(''):'<p style="opacity:.6;text-align:center;padding:30px">Nenhum produto no catálogo</p>';const c=document.getElementById('count');if(c)c.textContent='('+lista.length+')';}
+function cardHTML(p){const precoFormat=Number(p.preco||0).toLocaleString('pt-BR');const temFoto=p.imagem&&p.imagem.length>10;let tagClass='tag-vendido',tagText=p.tipo||'MAIS VENDIDO';if((p.tipo||'').includes('OFERTA')){tagClass='tag-oferta';tagText='OFERTA';}else if((p.tipo||'').includes('PORTÁTIL')){tagClass='tag-portatil';tagText='PORTÁTIL';}if((p.tipo||'').includes('OFERTA DO DIA')){tagClass='tag-oferta';tagText='OFERTA DO DIA';}let priceClass='';if(tagClass==='tag-oferta')priceClass='purple';let specTexto='';if(p.nome.includes('PlayStation 5'))specTexto='SSD 825GB • Controle DualSense';else if(p.nome.includes('Xbox'))specTexto='SSD 1TB • 4K 120FPS';else if(p.nome.includes('Nintendo'))specTexto='Tela 7" OLED • 64GB';else specTexto=(p.subcategoria||'').split(',').slice(0,2).join(' • ');return `<div class="card-gamer" onclick="abrirPrevia('${p.id}')"><div class="tag ${tagClass}">${tagText}</div><img src="${temFoto?p.imagem:'https://via.placeholder.com/300'}" loading="lazy" alt="${p.nome}"><h3>${p.nome}</h3><div class="spec">${specTexto}</div><div class="price ${priceClass}">R$ ${precoFormat}</div><div class="install">${p.parcela||'12x sem juros'}</div><button class="btn-comprar-full" onclick="event.stopPropagation();adicionarCarrinho('${p.id}')">Comprar agora</button></div>`;}
+function renderTodos(lista){const el=document.getElementById('gridTodos');if(!el)return;el.innerHTML=lista.length?lista.map(cardHTML).join(''):'<p style="opacity:.6;text-align:center;padding:30px">Nenhum produto no catálogo - adicione pelo admin</p>';const c=document.getElementById('count');if(c)c.textContent='('+lista.length+')';}
 function renderTopo3(destaques){const el=document.getElementById('gridOfertasTopo');if(!el)return;let lista=destaques.slice(0,3);if(lista.length<3)lista=PRODUTOS_FOTO.slice(0,3);el.innerHTML=lista.map(cardHTML).join('');}
 async function carregarProdutos(){try{const snap=await db.collection('produtos').orderBy('criadoEm','desc').get();todos=[];let destaques=[];snap.forEach(d=>{const o=d.data();o.id=d.id;if(!o.preco||o.preco==0||!o.imagem||o.imagem.length<10){return;}todos.push(o);});const ofertaDia=todos.filter(p=>p.tipo==='OFERTA DO DIA');const ofertas=todos.filter(p=>p.tipo==='OFERTA');const maisVendidos=todos.filter(p=>p.tipo==='MAIS VENDIDO');const portateis=todos.filter(p=>p.tipo==='PORTÁTIL');const outros=todos.filter(p=>!['OFERTA DO DIA','OFERTA','MAIS VENDIDO','PORTÁTIL'].includes(p.tipo));destaques=[...ofertaDia,...ofertas,...maisVendidos,...portateis,...outros];if(todos.length===0){todos=PRODUTOS_FOTO; destaques=PRODUTOS_FOTO;}if(destaques.length===0)destaques=todos;renderTopo3(destaques);gerarFiltrosSubgenero();filtrar();}catch(e){todos=PRODUTOS_FOTO;renderTopo3(PRODUTOS_FOTO);gerarFiltrosSubgenero();filtrar();}}
 function abrirCarrinho(){document.getElementById('carrinhoPanel').classList.add('open');atualizarCarrinhoUI();}
 function fecharCarrinho(){document.getElementById('carrinhoPanel').classList.remove('open');}
 function adicionarCarrinho(id){const p=todos.find(x=>x.id===id)||PRODUTOS_FOTO.find(x=>x.id===id);if(!p)return;if(!carrinho.find(c=>c.id===p.id)){carrinho.push({id:p.id,nome:p.nome,spec:(p.subcategoria||'').split(',').slice(0,2).join(' • '),preco:p.preco,imagem:p.imagem});toast(`🛒 ${p.nome} adicionado ao carrinho`);atualizarCarrinhoUI();}else{toast('Já está no carrinho');abrirCarrinho();}}
 function removerCarrinho(i){carrinho.splice(i,1);atualizarCarrinhoUI();toast('Removido do carrinho');}
-function atualizarCarrinhoUI(){const badge=document.getElementById('cartBadge');if(badge)badge.textContent=carrinho.length;const countEl=document.getElementById('carrinhoCount');if(countEl)countEl.textContent=carrinho.length;const cont=document.getElementById('carrinhoItens');if(!cont)return;if(carrinho.length===0){cont.innerHTML='<div style="padding:40px;text-align:center;opacity:.6">Carrinho vazio</div>';document.getElementById('carrinhoSubtotal').textContent='R$ 0';return;}let html='';let total=0;carrinho.forEach((item,i)=>{total+=Number(item.preco||0);html+=`<div class="carrinho-item"><img src="${item.imagem}"><div style="flex:1"><div style="font-size:13px;font-weight:700">${item.nome}</div><div style="font-size:11px;opacity:.6">${item.spec||''}</div><div style="font-size:14px;font-weight:900;color:#00e5ff;margin-top:4px">R$ ${Number(item.preco).toLocaleString('pt-BR')}</div></div><button onclick="removerCarrinho(${i})" style="background:none;border:none;color:#ef4444;cursor:pointer">🗑️</button></div>`;});cont.innerHTML=html;document.getElementById('carrinhoSubtotal').textContent='R$ '+total.toLocaleString('pt-BR');}
-function finalizarCompra(){if(carrinho.length===0){toast('Carrinho vazio');return;}const zap='5573999627083';let msg='Olá Divinos Games! Quero comprar:%0A';let total=0;carrinho.forEach(c=>{msg+=`• ${c.nome} - R$ ${c.preco}%0A`;total+=Number(c.preco);});msg+=`%0ATotal: R$ ${total}%0A%0AVim pelo site - catálogo completo`;window.open(`https://wa.me/${zap}?text=${msg}`,'_blank');}
-document.getElementById('logoClick')?.addEventListener('click',()=>{const agora=Date.now();if(agora-tempoClick>3000){clicksLogo=0;}tempoClick=agora;clicksLogo++;if(clicksLogo>=5){clicksLogo=0;const s=prompt('🔒 Área restrita só ADM\nDigite a senha:');if(s==='divinos2024'){localStorage.setItem('divinos_admin','true');toast('✅ ADMIN ON - Indo para admin.html...');setTimeout(()=>{window.location.href='admin.html';},800);}else if(s){toast('❌ Senha incorreta');}}});
+function atualizarCarrinhoUI(){const badge=document.getElementById('cartBadge');if(badge)badge.textContent=carrinho.length;const countEl=document.getElementById('carrinhoCount');if(countEl)countEl.textContent=carrinho.length;const cont=document.getElementById('carrinhoItens');if(!cont)return;if(carrinho.length===0){cont.innerHTML='<div style="padding:40px;text-align:center;opacity:.6">Carrinho vazio<br><button onclick="document.getElementById(\'catalogo\').scrollIntoView({behavior:\'smooth\'})" style="margin-top:12px;background:#00e5ff;border:none;color:#000;padding:8px 14px;border-radius:10px;font-weight:800;cursor:pointer">Ver catálogo</button></div>';document.getElementById('carrinhoSubtotal').textContent='R$ 0';return;}let html='';let total=0;carrinho.forEach((item,i)=>{total+=Number(item.preco||0);html+=`<div class="carrinho-item"><img src="${item.imagem}"><div style="flex:1"><div style="font-size:13px;font-weight:700">${item.nome}</div><div style="font-size:11px;opacity:.6">${item.spec||''}</div><div style="font-size:14px;font-weight:900;color:#00e5ff;margin-top:4px">R$ ${Number(item.preco).toLocaleString('pt-BR')}</div></div><button onclick="removerCarrinho(${i})" style="background:none;border:none;color:#ef4444;cursor:pointer">🗑️</button></div>`;});cont.innerHTML=html;document.getElementById('carrinhoSubtotal').textContent='R$ '+total.toLocaleString('pt-BR');}
+function finalizarCompra(){if(carrinho.length===0){toast('Carrinho vazio');return;}const zap='5573999627083';let msg='Olá Divinos Games! Quero comprar:%0A';let total=0;carrinho.forEach(c=>{msg+=`• ${c.nome} - R$ ${c.preco}%0A`;total+=Number(c.preco);});msg+=`%0ATotal: R$ ${total}%0A%0AVim pelo site cliente - catálogo completo - Teixeira de Freitas BA`;window.open(`https://wa.me/${zap}?text=${msg}`,'_blank');}
+document.getElementById('logoClick')?.addEventListener('click',()=>{const agora=Date.now();if(agora-tempoClick>3000){clicksLogo=0;}tempoClick=agora;clicksLogo++;if(clicksLogo>=5){clicksLogo=0;const senhaSalva=localStorage.getItem('divinos_senha')||'divinos2024';const s=prompt('🔒 Área restrita só ADM\nDigite a senha:');if(s===senhaSalva){localStorage.setItem('divinos_admin','true');toast('✅ ADMIN ON - Indo para admin/index.html...');setTimeout(()=>{if(window.location.pathname.includes('/admin/')){window.location.href='index.html';}else if(window.location.href.includes('admin.html')){window.location.href='admin.html';}else{window.location.href='admin/index.html';}},800);}else if(s){toast('❌ Senha incorreta');}}});
 carregarProdutos();
 atualizarCarrinhoUI();
 </script>
