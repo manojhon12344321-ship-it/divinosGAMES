@@ -3,197 +3,175 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ADMIN - DIVINOS GAMES</title>
+<title>ADMIN V11.2 FINAL - DIVINOS GAMES COMPLETO</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Inter;background:#080810;color:#fff;padding:14px}
-.header-admin{display:flex;justify-content:space-between;align-items:center;background:rgba(18,18,40,.95);border:1px solid #00e5ff30;padding:12px 14px;border-radius:12px;margin-bottom:14px}
-.header-admin h1{font-family:Orbitron;font-size:14px;color:#00e5ff}
-.btn{padding:10px 14px;border-radius:10px;border:none;font-weight:800;cursor:pointer;font-size:12px}
-.btn-primary{background:linear-gradient(135deg,#00e5ff,#7c3aed);color:#000}
-.btn-danger{background:#1a0a14;border:1px solid #ef444440;color:#ff6b8a}
-.card{background:linear-gradient(180deg, rgba(18,18,40,.9) 0%, rgba(10,10,20,.95) 100%);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:14px;margin-bottom:14px}
-.label{font-size:11px;font-weight:800;color:#8b8ba7;margin:10px 0 4px 2px;text-transform:uppercase;letter-spacing:.5px}
-.pro-input,.pro-select{width:100%;background:#0f0f1f;border:1px solid #1f2937;padding:12px;border-radius:10px;color:#fff;outline:none;margin-bottom:8px}
-.pro-input:focus,.pro-select:focus{border-color:#00e5ff}
+body{font-family:Inter;background:#080810;color:#fff;padding:12px}
+.header-admin{display:flex;justify-content:space-between;align-items:center;background:linear-gradient(90deg, rgba(18,18,40,.95), rgba(25,20,50,.95));border:1px solid #00e5ff40;padding:12px 14px;border-radius:14px;margin-bottom:12px;flex-wrap:wrap;gap:10px}
+.card{background:linear-gradient(180deg, rgba(18,18,40,.95) 0%, rgba(10,10,20,.98) 100%);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:14px;margin-bottom:12px}
+.label{font-size:10px;font-weight:800;color:#00e5ff;margin:12px 0 4px 2px;text-transform:uppercase;letter-spacing:1px}
+.pro-input,.pro-select,textarea{width:100%;background:#0f0f1f;border:1px solid #1f2937;padding:12px;border-radius:10px;color:#fff;outline:none;margin-bottom:4px;font-family:Inter;font-size:13px}
+.pro-input:focus,.pro-select:focus,textarea:focus{border-color:#00e5ff;box-shadow:0 0 0 2px rgba(0,229,255,.15)}
+textarea{resize:vertical;min-height:70px}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.preview-img{width:100%;height:200px;object-fit:contain;background:#000;border-radius:10px;border:1px solid #1f2937;margin-top:8px;display:none}
-.lista{display:grid;gap:10px;margin-top:14px}
-.prod-item{background:#121228;border:1px solid #ffffff0f;border-radius:12px;padding:10px;display:flex;gap:10px;align-items:center}
-.prod-item img{width:60px;height:60px;object-fit:contain;background:#000;border-radius:8px}
-.login-box{max-width:400px;margin:80px auto;background:#121228;border:1px solid #00e5ff30;border-radius:16px;padding:20px;text-align:center}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+@media(max-width:650px){.grid2,.grid3{grid-template-columns:1fr}}
+.btn{padding:10px 14px;border-radius:10px;border:none;font-weight:800;cursor:pointer;font-size:11px;transition:.2s}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:linear-gradient(135deg,#00e5ff,#7c3aed);color:#000;box-shadow:0 4px 14px rgba(0,229,255,.3)}
+.btn-green{background:linear-gradient(135deg,#22c55e,#16a34a);color:#000}
+.btn-yellow{background:linear-gradient(135deg,#facc15,#f59e0b);color:#000}
+.btn-danger{background:#1a0a14;border:1px solid #ef444480;color:#ff6b8a}
+.btn-dark{background:#11112a;border:1px solid #1f2937;color:#fff}
+.preview-img{width:100%;max-height:240px;object-fit:contain;background:#000;border-radius:10px;border:1px solid #1f2937;margin-top:8px;display:none}
+.checkbox-card{display:flex;align-items:center;gap:10px;background:rgba(0,229,255,.08);border:1px solid rgba(0,229,255,.2);padding:10px 12px;border-radius:10px;margin-top:8px;cursor:pointer;transition:.2s}
+.checkbox-card.active{background:linear-gradient(135deg, rgba(250,204,21,.18), rgba(245,158,11,.12));border-color:#facc15;color:#facc15}
+.prod-item{background:#121228;border:1px solid #ffffff0f;border-radius:12px;padding:10px;display:flex;gap:10px;align-items:center;transition:.2s}
+.prod-item:hover{border-color:#00e5ff40}
+.login-box{max-width:420px;margin:60px auto;background:#121228;border:1px solid #00e5ff30;border-radius:16px;padding:20px;text-align:center}
+.badge{padding:3px 8px;border-radius:20px;font-size:8px;font-weight:900;display:inline-flex}
+.badge-oferta{background:linear-gradient(135deg,#facc15,#f59e0b);color:#000}
+.badge-manut{background:linear-gradient(135deg,#22c55e,#16a34a);color:#000}
+.tabs{display:flex;gap:8px;margin-bottom:12px;overflow:auto}
+.tab-btn{padding:10px 16px;border-radius:20px;border:1px solid rgba(255,255,255,.1);background:#11112a;color:#8b8ba7;font-weight:800;font-size:11px;cursor:pointer;white-space:nowrap}
+.tab-btn.active{background:linear-gradient(135deg, rgba(0,229,255,.15), rgba(124,58,237,.15));border-color:#00e5ff;color:#00e5ff}
 </style>
 </head>
 <body>
-
 <div id="loginScreen" class="login-box">
-  <div style="font-family:Orbitron;font-weight:900;color:#00e5ff;font-size:18px;margin-bottom:14px">🎮 ADMIN DIVINOS GAMES</div>
-  <input id="loginUser" class="pro-input" placeholder="divinos">
-  <input id="loginPass" class="pro-input" type="password" placeholder="••••••">
-  <button class="btn btn-primary" style="width:100%;margin-top:12px;padding:12px" onclick="fazerLogin()">🔓 Entrar</button>
-  <div style="font-size:10px;opacity:.4;margin-top:12px">divinos / divinos2024</div>
+  <div style="font-family:Orbitron;font-weight:900;color:#00e5ff;font-size:20px">🎮 DIVINOS GAMES</div>
+  <div style="font-size:10px;opacity:.5;margin-bottom:14px;letter-spacing:2px">ADMIN V11.2 COMPLETO FINAL</div>
+  <input id="loginUser" class="pro-input" placeholder="Usuário: divinos"><input id="loginPass" class="pro-input" type="password" placeholder="Senha: divinos2024">
+  <button class="btn btn-primary" style="width:100%;margin-top:12px;padding:14px" onclick="fazerLogin()">🔓 Entrar no Admin</button>
 </div>
-
 <div id="adminScreen" style="display:none">
   <div class="header-admin">
-    <h1>🎮 DIVINOS GAMES - ADMIN</h1>
-    <div style="display:flex;gap:8px">
-      <button class="btn" style="background:#11112a;border:1px solid #1f2937;color:#fff" onclick="location.href='../index.html'">🏠 Ver Site</button>
-      <button class="btn btn-danger" onclick="sair()">Sair</button>
+    <div><div style="font-family:Orbitron;font-weight:900;color:#00e5ff;font-size:14px">🎮 ADMIN V11.2 - COMPLETO FINAL</div><div style="font-size:10px;opacity:.6">Tudo que você pediu + Parcelas no cartão + Manutenção</div></div>
+    <div style="display:flex;gap:8px"><button class="btn btn-dark" onclick="location.href='../index.html'">🏠 Site</button><button class="btn btn-danger" onclick="sair()">Sair</button></div>
+  </div>
+  <div class="tabs">
+    <button class="tab-btn active" onclick="trocarAba('produto',this)">📦 Produtos</button>
+    <button class="tab-btn" onclick="trocarAba('config',this)">⚙️ Config Geral</button>
+    <button class="tab-btn" onclick="trocarAba('dash',this)">📊 Dashboard</button>
+  </div>
+
+  <div id="aba-produto">
+    <div class="card" style="border:1px solid rgba(0,229,255,.3)">
+      <div style="font-family:Orbitron;font-weight:900;font-size:13px;display:flex;justify-content:space-between"><span>➕ Cadastrar / Editar Produto Completo</span><span id="editandoBadge" style="display:none;background:#facc15;color:#000;padding:4px 10px;border-radius:10px;font-size:9px">EDITANDO</span></div>
+
+      <div class="label">Nome do Produto *</div>
+      <input id="nome" class="pro-input" placeholder="Ex: PS5 Slim 1TB ou Limpeza Completa PS5 + Troca Pasta Térmica">
+
+      <div class="grid2">
+        <div><div class="label">Categoria *</div><select id="categoria" class="pro-select"><option value="">Selecione</option><option>Console</option><option>Jogo</option><option>Acessório</option><option>Controle</option><option>Manutenção</option></select></div>
+        <div><div class="label">Tipo / Destaque</div><select id="tipo" class="pro-select"><option value="">Normal</option><option>OFERTA DO DIA</option><option>Destaque</option><option>Lançamento</option><option>Mais Vendido</option></select></div>
+      </div>
+
+      <div class="grid3">
+        <div><div class="label">Preço Atual R$ *</div><input id="preco" class="pro-input" type="number" placeholder="3500" oninput="calcularParcelas()"></div>
+        <div><div class="label">Preço Original De (riscado)</div><input id="precoOriginal" class="pro-input" type="number" placeholder="4000"></div>
+        <div><div class="label">Parcelas no Cartão *</div><select id="parcelasQtd" class="pro-select" onchange="calcularParcelas()"><option value="1">1x à vista</option><option value="2">2x</option><option value="3">3x</option><option value="4">4x</option><option value="5">5x</option><option value="6">6x</option><option value="8">8x</option><option value="10">10x</option><option value="12" selected>12x sem juros</option></select></div>
+      </div>
+
+      <div class="grid2">
+        <div><div class="label">Valor da Parcela (calcula automático)</div><input id="parcela" class="pro-input" placeholder="12x R$ 291,66 sem juros"></div>
+        <div><label class="checkbox-card active" id="cardSemJuros" style="margin-top:22px" onclick="toggleSemJuros()"><input type="checkbox" id="semJuros" checked style="width:18px;height:18px"><div><div style="font-weight:900;font-size:11px">💳 Sem Juros</div><div style="font-size:9px;opacity:.7">Ativa texto sem juros no site</div></div></label></div>
+      </div>
+
+      <div class="label">Subgêneros / Tags (vírgula) - Filtram no site</div>
+      <input id="subgeneros" class="pro-input" placeholder="Ex: PS5, PS5 Pro, SSD 825GB, 4K, PlayStation / Limpeza, Pasta Térmica, HDMI">
+
+      <div class="label">Descrição Detalhada do Produto / Serviço</div>
+      <textarea id="descricao" placeholder="Ex: PS5 Slim lacrado 1TB + 2 controles + 1 ano garantia Divinos Games. Ou: Limpeza completa PS5 + troca pasta térmica Grizzly Kryonaut + 90 dias garantia..."></textarea>
+
+      <div class="label">Imagem - Upload da Galeria ou Link</div>
+      <input id="imagemFile" class="pro-input" type="file" accept="image/*" onchange="previewImagem(this)">
+      <input id="imagem" class="pro-input" placeholder="Link https:// ou base64" oninput="mostrarPreviewLink()">
+      <img id="preview" class="preview-img">
+
+      <div class="grid2" style="margin-top:10px">
+        <label class="checkbox-card" id="cardOferta" onclick="toggleOferta()"><input type="checkbox" id="emOferta" style="width:18px;height:18px"><div><div style="font-weight:900;font-size:11px">🔥 OFERTA DO DIA - Amarelo Exclusivo</div><div style="font-size:9px;opacity:.7">Só quem tem isso fica amarelo no site</div></div></label>
+        <label class="checkbox-card" id="cardManut" style="border-color:rgba(34,197,94,.25)"><div style="font-size:20px">🔧</div><div><div style="font-weight:900;font-size:11px">Modo Manutenção</div><div style="font-size:9px;opacity:.7">Auto quando categoria = Manutenção: botão vira Agendar verde</div></div></label>
+      </div>
+
+      <div style="display:flex;gap:8px;margin-top:14px"><button class="btn btn-primary" style="flex:2;padding:14px;font-size:13px" onclick="salvarProduto()">💾 SALVAR PRODUTO COMPLETO</button><button class="btn btn-dark" style="flex:1" onclick="limparForm()">🧹 Limpar</button></div>
+      <input type="hidden" id="editId">
+    </div>
+
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px"><div style="font-family:Orbitron;font-weight:900;font-size:12px">📦 Lista (<span id="count">0</span>)</div><div style="display:flex;gap:6px"><input id="buscaAdmin" class="pro-input" style="width:160px;padding:8px" placeholder="Buscar..." oninput="carregarProdutos()"><button class="btn btn-dark" style="padding:8px 10px" onclick="carregarProdutos()">🔄</button></div></div>
+      <div class="lista" id="listaProdutos" style="margin-top:10px"></div>
     </div>
   </div>
 
-  <div class="card">
-    <div style="font-family:Orbitron;font-weight:900;font-size:13px;margin-bottom:10px">➕ Cadastrar / Editar Produto</div>
-    
-    <div class="label">Nome do Produto</div>
-    <input id="nome" class="pro-input" placeholder="Ex: PS5 Slim ou Limpeza PS5">
-
-    <div class="grid2">
-      <div>
-        <div class="label">Categoria *</div>
-        <select id="categoria" class="pro-select">
-          <option value="">Selecione</option>
-          <option>Console</option>
-          <option>Jogo</option>
-          <option>Acessório</option>
-          <option>Controle</option>
-          <option>Manutenção</option>
-        </select>
-      </div>
-      <div>
-        <div class="label">Preço R$</div>
-        <input id="preco" class="pro-input" type="number" placeholder="150">
-      </div>
-    </div>
-
-    <div class="label">Subgêneros / Tags (separar por vírgula)</div>
-    <input id="subgeneros" class="pro-input" placeholder="Ex: PS5, Limpeza, Pasta Térmica">
-
-    <div class="label">Imagem</div>
-    <input id="imagemFile" class="pro-input" type="file" accept="image/*" onchange="previewImagem(this)">
-    <input id="imagem" class="pro-input" placeholder="Cole link https:// ou deixe a foto carregada">
-    <img id="preview" class="preview-img">
-
-    <div style="display:flex;gap:8px;margin-top:14px">
-      <button class="btn btn-primary" style="flex:1;padding:14px" onclick="salvarProduto()">💾 SALVAR PRODUTO</button>
-      <button class="btn" style="background:#11112a;border:1px solid #1f2937;color:#fff" onclick="limparForm()">🧹 Limpar</button>
-    </div>
-    <input type="hidden" id="editId">
+  <div id="aba-config" style="display:none">
+    <div class="card" style="border-color:#facc15a0"><div style="font-family:Orbitron;font-weight:900;color:#facc15;font-size:12px">⚙️ CONFIG GERAL (Rodapé e Hero sem poluição)</div><div class="label">Imagem Hero (banner topo site)</div><input id="cfgHero" class="pro-input" placeholder="https://..."><div class="label">Nome no Rodapé</div><input id="cfgFooterNome" class="pro-input" placeholder="DIVINOS GAMES"><div class="label">Whats Rodapé</div><input id="cfgFooterWhats" class="pro-input" placeholder="73 9962-7083"><button class="btn btn-yellow" style="width:100%;margin-top:12px;padding:12px" onclick="salvarConfig()">💾 Salvar Config Geral</button></div>
   </div>
 
-  <div class="card">
-    <div style="display:flex;justify-content:space-between;align-items:center">
-      <div style="font-family:Orbitron;font-weight:900;font-size:13px">📦 Produtos (<span id="count">0</span>)</div>
-      <button class="btn" style="background:#11112a;border:1px solid #1f2937;color:#fff;padding:6px 10px;font-size:10px" onclick="carregarProdutos()">🔄 Atualizar</button>
-    </div>
-    <div class="lista" id="listaProdutos"></div>
+  <div id="aba-dash" style="display:none">
+    <div class="grid2"><div class="card" style="text-align:center"><div style="font-size:10px;opacity:.6">TOTAL</div><div id="dashTotal" style="font-family:Orbitron;font-size:28px;font-weight:900;color:#00e5ff">0</div></div><div class="card" style="text-align:center"><div style="font-size:10px;opacity:.6">OFERTAS</div><div id="dashOfertas" style="font-family:Orbitron;font-size:28px;font-weight:900;color:#facc15">0</div></div></div>
+    <div class="grid2"><div class="card" style="text-align:center"><div style="font-size:10px;opacity:.6">MANUTENÇÃO</div><div id="dashManut" style="font-family:Orbitron;font-size:28px;font-weight:900;color:#22c55e">0</div></div><div class="card" style="text-align:center"><div style="font-size:10px;opacity:.6">CONSOLES</div><div id="dashConsoles" style="font-family:Orbitron;font-size:28px;font-weight:900;color:#a855f7">0</div></div></div>
   </div>
 </div>
 
-<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script><script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
 <script>
-const firebaseConfig={apiKey:"AIzaSyCUL-tD4pPp7GEExJD08mEHdVzp-fbBxfs",authDomain:"divinosgames-63867.firebaseapp.com",projectId:"divinosgames-63867",storageBucket:"divinosgames-63867.firebasestorage.app",messagingSenderId:"859830472940",appId:"1:859830472940:web:fa77258b659e1bbe4455c9"};
-firebase.initializeApp(firebaseConfig);
-const db=firebase.firestore();
-
-function fazerLogin(){
-  const u=document.getElementById('loginUser').value.trim();
-  const p=document.getElementById('loginPass').value.trim();
-  if(u==='divinos' && p==='divinos2024'){
-    localStorage.setItem('divinos_admin_logado','1');
-    mostrarAdmin();
-  }else alert('Login inválido! Use divinos / divinos2024');
-}
-function mostrarAdmin(){
-  document.getElementById('loginScreen').style.display='none';
-  document.getElementById('adminScreen').style.display='block';
-  carregarProdutos();
-}
+const firebaseConfig={apiKey:"AIzaSyCUL-tD4pPp7GEExJD08mEHdVzp-fbBxfs",authDomain:"divinosgames-63867.firebaseapp.com",projectId:"divinosgames-63867",storageBucket:"divinosgames-63867.firebasestorage.app",messagingSenderId:"859830472940",appId:"1:859830472940:web:fa77258b659e1bbe4455c9"};firebase.initializeApp(firebaseConfig);const db=firebase.firestore();
+let produtosCache=[];
+function trocarAba(nome,el){document.getElementById('aba-produto').style.display=nome==='produto'?'block':'none';document.getElementById('aba-config').style.display=nome==='config'?'block':'none';document.getElementById('aba-dash').style.display=nome==='dash'?'block':'none';document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));if(el)el.classList.add('active');}
+function fazerLogin(){if(document.getElementById('loginUser').value.trim()==='divinos'&&document.getElementById('loginPass').value.trim()==='divinos2024'){localStorage.setItem('divinos_admin_logado','1');mostrarAdmin();}else alert('divinos / divinos2024');}
+function mostrarAdmin(){document.getElementById('loginScreen').style.display='none';document.getElementById('adminScreen').style.display='block';carregarProdutos();carregarConfig();}
 function sair(){localStorage.removeItem('divinos_admin_logado');location.reload();}
-if(localStorage.getItem('divinos_admin_logado')==='1'){mostrarAdmin();}
-
-function previewImagem(input){
-  if(input.files && input.files[0]){
-    const r=new FileReader();
-    r.onload=function(e){
-      document.getElementById('imagem').value=e.target.result;
-      const pr=document.getElementById('preview');
-      pr.src=e.target.result;
-      pr.style.display='block';
-    };
-    r.readAsDataURL(input.files[0]);
-  }
-}
-document.getElementById('imagem').addEventListener('input',function(){
-  if(this.value){
-    const pr=document.getElementById('preview');
-    pr.src=this.value;
-    pr.style.display='block';
-  }
-});
-
-function limparForm(){
-  document.getElementById('nome').value='';
-  document.getElementById('categoria').value='';
-  document.getElementById('preco').value='';
-  document.getElementById('subgeneros').value='';
-  document.getElementById('imagem').value='';
-  document.getElementById('imagemFile').value='';
-  document.getElementById('editId').value='';
-  document.getElementById('preview').style.display='none';
-}
-
+if(localStorage.getItem('divinos_admin_logado')==='1')mostrarAdmin();
+function previewImagem(input){if(input.files&&input.files[0]){const r=new FileReader();r.onload=e=>{document.getElementById('imagem').value=e.target.result;const pr=document.getElementById('preview');pr.src=e.target.result;pr.style.display='block';calcularParcelas();};r.readAsDataURL(input.files[0]);}}
+function mostrarPreviewLink(){const v=document.getElementById('imagem').value.trim();if(v){const pr=document.getElementById('preview');pr.src=v;pr.style.display='block';}}
+function calcularParcelas(){const preco=parseFloat(document.getElementById('preco').value)||0;const qtd=parseInt(document.getElementById('parcelasQtd').value)||12;const semJuros=document.getElementById('semJuros').checked;if(!preco)return;let texto='';if(qtd===1)texto=`À vista R$ ${preco.toFixed(2)}`;else{const valor=(preco/qtd).toFixed(2);texto=`${qtd}x R$ ${valor}${semJuros?' sem juros':''}`;}document.getElementById('parcela').value=texto;}
+function toggleSemJuros(){const chk=document.getElementById('semJuros');chk.checked=!chk.checked;document.getElementById('cardSemJuros').classList.toggle('active',chk.checked);calcularParcelas();}
+function toggleOferta(){const chk=document.getElementById('emOferta');chk.checked=!chk.checked;document.getElementById('cardOferta').classList.toggle('active',chk.checked);}
+document.getElementById('semJuros').addEventListener('change',function(){document.getElementById('cardSemJuros').classList.toggle('active',this.checked);calcularParcelas();});
+document.getElementById('emOferta').addEventListener('change',function(){document.getElementById('cardOferta').classList.toggle('active',this.checked);});
+document.getElementById('categoria').addEventListener('change',function(){const isManut=this.value==='Manutenção';document.getElementById('cardManut').style.borderColor=isManut?'#22c55e':'rgba(34,197,94,.25)';document.getElementById('cardManut').style.background=isManut?'rgba(34,197,94,.12)':'';});
+function limparForm(){['nome','categoria','tipo','preco','precoOriginal','parcela','subgeneros','descricao','imagem','editId'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});document.getElementById('parcelasQtd').value='12';document.getElementById('emOferta').checked=false;document.getElementById('semJuros').checked=true;document.getElementById('cardOferta').classList.remove('active');document.getElementById('cardSemJuros').classList.add('active');document.getElementById('cardManut').style.borderColor='rgba(34,197,94,.25)';document.getElementById('cardManut').style.background='';document.getElementById('preview').style.display='none';document.getElementById('imagemFile').value='';document.getElementById('editandoBadge').style.display='none';}
 async function salvarProduto(){
   const nome=document.getElementById('nome').value.trim();
   const categoria=document.getElementById('categoria').value;
+  const tipo=document.getElementById('tipo').value;
   const preco=parseFloat(document.getElementById('preco').value)||0;
+  const precoOriginal=parseFloat(document.getElementById('precoOriginal').value)||0;
+  const parcelasQtd=document.getElementById('parcelasQtd').value;
+  const parcela=document.getElementById('parcela').value.trim() || `${parcelasQtd}x R$ ${(preco/parcelasQtd).toFixed(2)} sem juros`;
+  const semJuros=document.getElementById('semJuros').checked;
   const subgeneros=document.getElementById('subgeneros').value.split(',').map(s=>s.trim()).filter(s=>s);
+  const descricao=document.getElementById('descricao').value.trim();
   const imagem=document.getElementById('imagem').value.trim();
+  const emOferta=document.getElementById('emOferta').checked;
   const editId=document.getElementById('editId').value;
-  if(!nome || !categoria || !preco){alert('Preencha Nome, Categoria e Preço!');return;}
-  const dados={nome,categoria,preco,subgeneros,imagem,parcela:`12x R$ ${(preco/12).toFixed(2)}`,criado:new Date().toISOString()};
-  try{
-    if(editId){await db.collection('produtos').doc(editId).update(dados);alert('✅ Atualizado!');}
-    else{await db.collection('produtos').add(dados);alert('✅ Cadastrado! Categoria: '+categoria);}
-    limparForm();carregarProdutos();
-  }catch(e){alert('Erro: '+e.message);}
-}
-
+  if(!nome||!categoria||!preco){alert('Preencha Nome, Categoria e Preço');return;}
+  const dados={nome,categoria,tipo,preco,precoOriginal,parcelasQtd,parcela,semJuros,subgeneros,descricao,imagem,emOferta,criado:new Date().toISOString()};
+  try{if(editId){await db.collection('produtos').doc(editId).update(dados);alert('✅ Produto atualizado com parcelas!');}else{await db.collection('produtos').add(dados);alert('✅ Cadastrado: '+categoria+' - '+parcela+(emOferta?' 🔥 OFERTA':''));}limparForm();carregarProdutos();}catch(e){alert('Erro: '+e.message);}}
 async function carregarProdutos(){
-  const lista=document.getElementById('listaProdutos');
+  const lista=document.getElementById('listaProdutos');const busca=(document.getElementById('buscaAdmin').value||'').toLowerCase();
   lista.innerHTML='<div style="text-align:center;opacity:.5;padding:20px">Carregando...</div>';
   try{
-    const snap=await db.collection('produtos').get();
-    let html='';let count=0;
-    snap.forEach(doc=>{
-      const p=doc.data();count++;
-      html+=`<div class="prod-item"><img src="${p.imagem||'https://via.placeholder.com/60x60/0a0f24/00e5ff?text=?'}" onerror="this.src='https://via.placeholder.com/60x60/0a0f24/00e5ff?text=?'"><div style="flex:1"><div style="font-size:12px;font-weight:800">${p.nome}</div><div style="font-size:10px;color:#8b8ba7;margin-top:2px">R$ ${p.preco} • ${p.categoria} • ${(p.subgeneros||[]).join(', ')}</div></div><div style="display:flex;flex-direction:column;gap:4px"><button class="btn btn-primary" style="padding:6px 10px;font-size:10px" onclick="editarProduto('${doc.id}')">✏️</button><button class="btn btn-danger" style="padding:6px 10px;font-size:10px" onclick="deletarProduto('${doc.id}')">🗑️</button></div></div>`;
-    });
-    lista.innerHTML=html||'<div style="text-align:center;opacity:.5;padding:20px">Nenhum produto</div>';
-    document.getElementById('count').textContent=count;
-  }catch(e){lista.innerHTML='<div style="color:#ef4444">Erro: '+e.message+'</div>';}
+    const snap=await db.collection('produtos').get();produtosCache=[];snap.forEach(d=>produtosCache.push({id:d.id,...d.data()}));
+    let filtrados=produtosCache.filter(p=>!busca||p.nome.toLowerCase().includes(busca)||p.categoria.toLowerCase().includes(busca));
+    document.getElementById('dashTotal').textContent=produtosCache.length;document.getElementById('dashOfertas').textContent=produtosCache.filter(p=>p.emOferta).length;document.getElementById('dashManut').textContent=produtosCache.filter(p=>p.categoria==='Manutenção').length;document.getElementById('dashConsoles').textContent=produtosCache.filter(p=>p.categoria==='Console').length;document.getElementById('count').textContent=filtrados.length;
+    let html='';filtrados.forEach(p=>{
+      const isOferta=p.emOferta||p.tipo==='OFERTA DO DIA';const isManut=p.categoria==='Manutenção';
+      html+=`<div class="prod-item"><img src="${p.imagem||''}" onerror="this.src='https://via.placeholder.com/60/0a0f24/00e5ff?text=?'"><div style="flex:1"><div style="font-size:12px;font-weight:800;display:flex;gap:6px;flex-wrap:wrap">${p.nome} ${isOferta?'<span class=badge-oferta>OFERTA</span>':''} ${isManut?'<span class=badge-manut>MANUT</span>':''}</div><div style="font-size:10px;color:#8b8ba7;margin-top:3px">R$ ${p.preco}${p.precoOriginal?' <span style=text-decoration:line-through;opacity:.5>De R$ '+p.precoOriginal+'</span>':''} • ${p.parcela||''} • ${p.categoria}<br><span style=opacity:.6>${(p.descricao||'').slice(0,55)}</span></div></div><div style="display:flex;flex-direction:column;gap:4px"><div style="display:flex;gap:4px"><button class="btn ${isOferta?'btn-yellow':'btn-dark'}" style="padding:6px 8px;font-size:9px" onclick="toggleOfertaLista('${p.id}')">🔥</button><button class="btn btn-dark" style="padding:6px 8px;font-size:9px" onclick="duplicarProduto('${p.id}')">📋</button></div><div style="display:flex;gap:4px"><button class="btn btn-primary" style="padding:6px 10px;font-size:10px" onclick="editarProduto('${p.id}')">✏️</button><button class="btn btn-danger" style="padding:6px 8px;font-size:10px" onclick="deletarProduto('${p.id}')">🗑️</button></div></div></div>`;
+    });lista.innerHTML=html||'<div style=text-align:center;opacity:.5;padding:20px>Nenhum</div>';
+  }catch(e){lista.innerHTML='<div style=color:#ef4444>Erro: '+e.message+'</div>';}
 }
 async function editarProduto(id){
-  try{
-    const doc=await db.collection('produtos').doc(id).get();
-    const p=doc.data();
-    document.getElementById('nome').value=p.nome||'';
-    document.getElementById('categoria').value=p.categoria||'';
-    document.getElementById('preco').value=p.preco||'';
-    document.getElementById('subgeneros').value=(p.subgeneros||[]).join(', ');
-    document.getElementById('imagem').value=p.imagem||'';
-    document.getElementById('editId').value=id;
-    if(p.imagem){const pr=document.getElementById('preview');pr.src=p.imagem;pr.style.display='block';}
-    window.scrollTo({top:0,behavior:'smooth'});
-  }catch(e){alert(e.message);}
+  const p=produtosCache.find(x=>x.id===id);
+  document.getElementById('nome').value=p.nome||'';document.getElementById('categoria').value=p.categoria||'';document.getElementById('tipo').value=p.tipo||'';document.getElementById('preco').value=p.preco||'';document.getElementById('precoOriginal').value=p.precoOriginal||'';document.getElementById('parcelasQtd').value=p.parcelasQtd||'12';document.getElementById('parcela').value=p.parcela||'';document.getElementById('subgeneros').value=(p.subgeneros||[]).join(', ');document.getElementById('descricao').value=p.descricao||'';document.getElementById('imagem').value=p.imagem||'';document.getElementById('emOferta').checked=!!p.emOferta;document.getElementById('semJuros').checked=p.semJuros!==false;document.getElementById('cardOferta').classList.toggle('active',!!p.emOferta);document.getElementById('cardSemJuros').classList.toggle('active',p.semJuros!==false);document.getElementById('editId').value=id;document.getElementById('editandoBadge').style.display='inline-flex';if(p.imagem){const pr=document.getElementById('preview');pr.src=p.imagem;pr.style.display='block';}window.scrollTo({top:0,behavior:'smooth'});
 }
-async function deletarProduto(id){
-  if(!confirm('Deletar esse produto?'))return;
-  try{await db.collection('produtos').doc(id).delete();alert('🗑️ Deletado');carregarProdutos();}catch(e){alert(e.message);}
-}
+async function duplicarProduto(id){const p=produtosCache.find(x=>x.id===id);const novo={...p,nome:p.nome+' (Cópia)',criado:new Date().toISOString()};delete novo.id;await db.collection('produtos').add(novo);alert('📋 Duplicado!');carregarProdutos();}
+async function toggleOfertaLista(id){const p=produtosCache.find(x=>x.id===id);await db.collection('produtos').doc(id).update({emOferta:!p.emOferta});carregarProdutos();}
+async function deletarProduto(id){if(!confirm('Deletar?'))return;await db.collection('produtos').doc(id).delete();carregarProdutos();}
+async function carregarConfig(){try{const doc=await db.collection('config').doc('geral').get();if(doc.exists){const c=doc.data();document.getElementById('cfgHero').value=c.heroBg||'';document.getElementById('cfgFooterNome').value=c.footerNome||'';document.getElementById('cfgFooterWhats').value=c.footerWhats||'';}}catch(e){}}
+async function salvarConfig(){const dados={heroBg:document.getElementById('cfgHero').value.trim(),footerNome:document.getElementById('cfgFooterNome').value.trim(),footerWhats:document.getElementById('cfgFooterWhats').value.trim()};await db.collection('config').doc('geral').set(dados,{merge:true});alert('✅ Config salva!');}
 </script>
 </body>
 </html>
