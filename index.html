@@ -64,7 +64,6 @@ body{font-family:Inter;background:radial-gradient(900px at 0% 0%, rgba(0,229,255
 .cart-modal{position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;align-items:flex-end;justify-content:center;z-index:200}
 .cart-box{background:#121228;border:1px solid #00e5ff30;border-radius:16px 16px 0 0;max-width:500px;width:100%;max-height:80vh;overflow:auto;padding:16px}
 .preview-modal-client{position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;z-index:999;padding:14px}
-/* ADMIN OCULTO */
 #adminSecretModal{position:fixed;inset:0;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;z-index:99999}
 #adminSecretBox{background:#121228;border:1px solid #00e5ff60;border-radius:16px;padding:22px;width:90%;max-width:320px;text-align:center}
 #adminSecretBox input{width:100%;background:#0a0a1a;border:1px solid #1f2937;padding:14px;border-radius:10px;color:#fff;outline:none;font-size:18px;text-align:center;margin:14px 0;letter-spacing:4px}
@@ -74,7 +73,6 @@ body{font-family:Inter;background:radial-gradient(900px at 0% 0%, rgba(0,229,255
 </head>
 <body>
 <div class="header"><div class="logo" id="logoDivinos" onclick="selecionarCatalogo('todos',document.querySelector('.catalog-btn'))">🎮 DIVINOS <span>GAMES</span></div><div class="search"><input id="searchInput" placeholder="Buscar PlayStation, PS5, Xbox, Ação, Manutenção..." oninput="filtrar()"><button class="btn btn-primary" onclick="filtrar()">🔍</button></div><button class="btn-cart" onclick="abrirCarrinho()">🛒 Carrinho <span class="cart-count" id="cartCount">0</span></button></div>
-
 <div class="hero" id="hero"><div class="hero-bg" id="heroBg"></div><div class="hero-content"><div class="hero-badge">🔥 OFERTA DO DIA</div><div class="hero-title">DIVINOS <span>GAMES</span><br>CONSOLES & JOGOS</div><div style="font-size:13px;opacity:.8;margin-bottom:14px">PlayStation 5 • Xbox Series X/S • Nintendo Switch • Manutenção</div><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-primary" onclick="scrollToProdutos()">🎮 Ver Produtos</button><button class="btn" style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff" onclick="abrirWhats()">💬 Whats 73 9962-7083</button></div></div></div>
 <div class="catalogs">
   <button class="catalog-btn active" onclick="selecionarCatalogo('todos',this)">🎮 Todos</button>
@@ -92,11 +90,8 @@ body{font-family:Inter;background:radial-gradient(900px at 0% 0%, rgba(0,229,255
 <div class="toast" id="toast"></div>
 <div class="cart-modal" id="cartModal"><div class="cart-box"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><div style="font-family:Orbitron;font-weight:900">🛒 Carrinho</div><button class="btn" style="background:#1a0a14;border:1px solid #ef444440;color:#ff6b8a" onclick="fecharCarrinho()">❌</button></div><div id="cartItems"></div><div style="margin-top:12px;display:flex;justify-content:space-between;font-weight:900"><div>Total:</div><div id="cartTotal" style="color:#00e5ff">R$ 0,00</div></div><button class="btn btn-primary" style="width:100%;margin-top:12px;padding:12px" onclick="finalizarWhats()">💬 Finalizar no Whats</button></div></div>
 <div class="preview-modal-client" id="previewModalClient"><div style="background:linear-gradient(180deg, rgba(18,18,40,.95) 0%, rgba(10,10,20,.98) 100%);border:1px solid #00e5ff60;border-radius:16px;max-width:420px;width:100%;overflow:hidden;position:relative"><button onclick="fecharPreviewClient()" style="position:absolute;top:10px;right:10px;background:#1a0a14;border:1px solid #ef444440;color:#ff6b8a;width:32px;height:32px;border-radius:50%;cursor:pointer;z-index:10;font-weight:900">✕</button><img id="previewClientImg" style="width:100%;height:280px;object-fit:contain;background:#000"><div style="padding:14px"><div id="previewClientBadge"></div><div id="previewClientNome" style="font-family:Orbitron;font-weight:900;font-size:14px;margin-top:8px"></div><div id="previewClientSub" style="font-size:10px;color:#8b8ba7;margin-top:6px;display:flex;gap:4px;flex-wrap:wrap"></div><div id="previewClientPreco" style="font-family:Orbitron;font-size:18px;font-weight:900;color:#00e5ff;margin-top:8px"></div><div id="previewClientParcela" style="font-size:10px;opacity:.6;margin-top:2px"></div><div style="display:flex;gap:8px;margin-top:12px"><button class="btn-small btn-buy" style="flex:1;padding:12px" onclick="comprarDoPreview()">🛒 Comprar - R$ <span id="previewClientPrecoBtn"></span></button><button class="btn-small btn-details" style="flex:1;padding:12px;background:#11112a;border:1px solid #00e5ff30;color:#fff" onclick="zapDoPreview()">💬 Zap</button></div></div></div></div>
-
-<!-- BOLHA INSTA + ADMIN OCULTO -->
 <a id="instaBubble" href="https://www.instagram.com/divinosgames" target="_blank"><svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.2 5.2 0 0 1-5.2 5.2H7.8C4.6 22 2 19.4 2 16.2V7.8A5.2 5.2 0 0 1 7.8 2m-.2 2A3.2 3.2 0 0 0 4.4 7.2v8.4C4.4 17.9 5.9 19.4 8.2 19.4h8.4c2.3 0 3.8-1.5 3.8-3.8V7.2A3.2 3.2 0 0 0 16.2 4H7.6m9.65 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10m0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg></a>
 <div id="adminSecretModal"><div id="adminSecretBox"><div style="font-weight:900;color:#00e5ff;letter-spacing:1px">🔒 ADMIN DIVINOS</div><input id="adminSecretPass" type="password" placeholder="••••••••"><div style="display:flex;gap:8px"><button onclick="document.getElementById('adminSecretModal').style.display='none'" style="flex:1;padding:12px;border-radius:10px;background:#11112a;border:1px solid #333;color:#fff;font-weight:700">Cancelar</button><button onclick="checkSecretAdmin()" style="flex:1;padding:12px;border-radius:10px;background:linear-gradient(135deg,#00e5ff,#7c3aed);border:none;font-weight:900;color:#fff">ENTRAR</button></div></div></div>
-
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script><script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
 <script>
 const firebaseConfig={apiKey:"AIzaSyCUL-tD4pPp7GEExJD08mEHdVzp-fbBxfs",authDomain:"divinosgames-63867.firebaseapp.com",projectId:"divinosgames-63867",storageBucket:"divinosgames-63867.firebasestorage.app",messagingSenderId:"859830472940",appId:"1:859830472940:web:fa77258b659e1bbe4455c9"};firebase.initializeApp(firebaseConfig);const db=firebase.firestore();
@@ -134,15 +129,74 @@ function renderProdutos(){
 function abrirPreviewClient(id){const p=produtos.find(x=>x.id===id);if(!p)return;produtoPreviewAtual=p;const isManut=p.categoria==='Manutenção';document.getElementById('previewClientImg').src=p.imagem||'';document.getElementById('previewClientNome').textContent=p.nome||'';document.getElementById('previewClientPreco').textContent='R$ '+(p.preco||0);document.getElementById('previewClientPreco').style.color=isManut?'#22c55e':'#00e5ff';document.getElementById('previewClientPrecoBtn').textContent=p.preco||0;document.getElementById('previewClientParcela').textContent=p.parcela||`12x R$ ${((p.preco||0)/12).toFixed(2)}`;document.getElementById('previewClientSub').innerHTML=(p.subgeneros||[]).map(s=>`<span style="background:#0f0f1f;border:1px solid #1f2937;padding:3px 8px;border-radius:12px;font-size:9px">${s}</span>`).join('')||`<span style="opacity:.5">Categoria: ${p.categoria||''}</span>`;document.getElementById('previewClientBadge').innerHTML=(p.emOferta||p.tipo?.includes('OFERTA'))?'<div style="display:inline-flex;background:linear-gradient(135deg,#facc15,#f59e0b);color:#000;padding:5px 10px;border-radius:20px;font-weight:900;font-size:10px">🔥 OFERTA DO DIA</div>':(isManut?'<div style="display:inline-flex;background:linear-gradient(135deg,#22c55e,#16a34a);color:#000;padding:5px 10px;border-radius:20px;font-weight:900;font-size:10px">🔧 MANUTENÇÃO</div>':'');document.getElementById('previewModalClient').style.display='flex';}
 function fecharPreviewClient(){document.getElementById('previewModalClient').style.display='none';produtoPreviewAtual=null;}
 function comprarDoPreview(){if(!produtoPreviewAtual)return;if(produtoPreviewAtual.categoria==='Manutenção')agendarManut(produtoPreviewAtual.id);else addCarrinho(produtoPreviewAtual.id);fecharPreviewClient();}
-function zapDoPreview(){const p=produtoPreviewAtual;if(!p)return;if(p.categoria==='Manutenção')agendarManut(p.id);else window.open('https://wa.me/557399627083?text='+encodeURIComponent(`Olá, quero ${p.nome} - R$ ${p.preco}`),'_blank');}
 function addCarrinho(id){const p=produtos.find(x=>x.id===id);if(!p)return;if(p.categoria==='Manutenção'){agendarManut(id);return;}const e=carrinho.find(x=>x.id===id);if(e)e.qtd++;else carrinho.push({...p,qtd:1});localStorage.setItem('divinos_cart',JSON.stringify(carrinho));atualizarCarrinho();toast('✅ '+p.nome);}
 function atualizarCarrinho(){document.getElementById('cartCount').textContent=carrinho.reduce((s,i)=>s+i.qtd,0);document.getElementById('cartTotal').textContent='R$ '+carrinho.reduce((s,i)=>s+(i.preco*i.qtd),0).toFixed(2);let h='';carrinho.forEach(i=>{h+=`<div style="display:flex;gap:8px;padding:8px 0;border-bottom:1px solid #ffffff0f;align-items:center"><img src="${i.imagem||''}" style="width:40px;height:40px;object-fit:cover;border-radius:8px;background:#000"><div style="flex:1"><div style="font-size:11px;font-weight:700">${i.nome}</div><div style="font-size:10px;color:#00e5ff">R$ ${i.preco} x ${i.qtd}</div></div><button class="btn" style="background:#1a0a14;border:1px solid #ef444440;color:#ff6b8a;padding:4px 8px" onclick="removerCarrinho('${i.id}')">🗑️</button></div>`;});document.getElementById('cartItems').innerHTML=h||'<div style="text-align:center;opacity:.5;padding:20px">Carrinho vazio</div>';}
 function removerCarrinho(id){carrinho=carrinho.filter(x=>x.id!==id);localStorage.setItem('divinos_cart',JSON.stringify(carrinho));atualizarCarrinho();}
 function abrirCarrinho(){document.getElementById('cartModal').style.display='flex';atualizarCarrinho();}
 function fecharCarrinho(){document.getElementById('cartModal').style.display='none';}
-function finalizarWhats(){if(carrinho.length===0){toast('Carrinho vazio');return;}let msg='Olá DIVINOS GAMES, quero comprar:\n\n';carrinho.forEach(i=>{msg+=`• ${i.nome} - R$ ${i.preco} x ${i.qtd} = R$ ${(i.preco*i.qtd).toFixed(2)}\n`;});const total=carrinho.reduce((s,i)=>s+(i.preco*i.qtd),0);msg+=`\nTotal: R$ ${total.toFixed(2)}`;window.open('https://wa.me/557399627083?text='+encodeURIComponent(msg),'_blank');}
-function agendarManut(id){const p=produtos.find(x=>x.id===id);if(!p)return;const msg=`Olá DIVINOS GAMES 🔧%0A%0AQuero agendar MANUTENÇÃO:%0A%0A🔧 Serviço: ${p.nome}%0A💰 Valor: R$ ${p.preco}%0A📦 Tags: ${(p.subgeneros||[]).join(', ')}%0A%0AMeu console: [PS5 / PS4 / Xbox]%0AProblema:`;window.open('https://wa.me/557399627083?text='+msg,'_blank');}
-// ADMIN OCULTO + SENHA COM BOLINHA
+
+// MENSAGENS BONITAS WHATSAPP
+function finalizarWhats(){
+  if(carrinho.length===0){toast('Carrinho vazio');return;}
+  let data = new Date().toLocaleDateString('pt-BR');
+  let msg = `🎮 *DIVINOS GAMES - NOVO PEDIDO* 🎮%0A`;
+  msg += `📅 Data: ${data}%0A`;
+  msg += `📍 Teixeira de Freitas - BA%0A`;
+  msg += `━━━━━━━━━━━━━━━━━━━━%0A%0A`;
+  msg += `Olá! Vim pelo site e quero comprar:%0A%0A`;
+  carrinho.forEach((i, idx)=>{
+    let nome = i.nome.charAt(0).toUpperCase() + i.nome.slice(1);
+    let precoFormat = Number(i.preco).toLocaleString('pt-BR', {minimumFractionDigits: 2});
+    let totalItem = (i.preco * i.qtd).toLocaleString('pt-BR', {minimumFractionDigits: 2});
+    msg += `*${idx+1}. ${nome}*%0A`;
+    msg += `   └ R$ ${precoFormat} x ${i.qtd} = *R$ ${totalItem}*%0A%0A`;
+  });
+  let totalGeral = carrinho.reduce((s,i)=>s+(i.preco*i.qtd),0).toLocaleString('pt-BR', {minimumFractionDigits: 2});
+  let qtdTotal = carrinho.reduce((s,i)=>s+i.qtd,0);
+  msg += `━━━━━━━━━━━━━━━━━━━━%0A`;
+  msg += `📦 *Itens:* ${qtdTotal}%0A`;
+  msg += `💰 *TOTAL: R$ ${totalGeral}*%0A`;
+  msg += `💳 Parcelamos em até 12x sem juros%0A`;
+  msg += `━━━━━━━━━━━━━━━━━━━━%0A%0A`;
+  msg += `Aguardo retorno! 🙏`;
+  window.open('https://wa.me/557399627083?text='+msg,'_blank');
+}
+function agendarManut(id){
+  const p=produtos.find(x=>x.id===id);
+  if(!p)return;
+  let data = new Date().toLocaleDateString('pt-BR');
+  let precoFormat = Number(p.preco).toLocaleString('pt-BR', {minimumFractionDigits: 2});
+  let tags = (p.subgeneros||[]).join(', ') || p.categoria;
+  let msg = `🔧 *DIVINOS GAMES - MANUTENÇÃO* 🔧%0A`;
+  msg += `📅 Data: ${data}%0A`;
+  msg += `📍 Teixeira de Freitas - BA%0A`;
+  msg += `━━━━━━━━━━━━━━━━━━━━%0A%0A`;
+  msg += `Olá! Quero agendar:%0A%0A`;
+  msg += `🛠️ *Serviço:* ${p.nome}%0A`;
+  msg += `💰 *Valor:* R$ ${precoFormat}%0A`;
+  msg += `🏷️ *Tipo:* ${tags}%0A%0A`;
+  msg += `━━━━━━━━━━━━━━━━━━━━%0A`;
+  msg += `🎮 *Meu console:* [PS5 / PS4 / Xbox / Controle]%0A`;
+  msg += `❓ *Defeito:* %0A%0A`;
+  msg += `Aguardo orçamento! 🙏`;
+  window.open('https://wa.me/557399627083?text='+msg,'_blank');
+}
+function zapDoPreview(){
+  const p=produtoPreviewAtual;
+  if(!p)return;
+  if(p.categoria==='Manutenção'){agendarManut(p.id);return;}
+  let precoFormat = Number(p.preco).toLocaleString('pt-BR', {minimumFractionDigits: 2});
+  let parcela = p.parcela || `12x de R$ ${(p.preco/12).toLocaleString('pt-BR', {minimumFractionDigits: 2})}`;
+  let msg = `🎮 *DIVINOS GAMES - INTERESSE* 🎮%0A`;
+  msg += `━━━━━━━━━━━━━━━━━━━━%0A%0A`;
+  msg += `Olá! Tenho interesse em:%0A%0A`;
+  msg += `🎯 *${p.nome}*%0A`;
+  msg += `💰 *R$ ${precoFormat}*%0A`;
+  msg += `💳 ${parcela}%0A%0A`;
+  msg += `Tem disponível?%0A`;
+  msg += `Entrega em Teixeira de Freitas?%0A`;
+  window.open('https://wa.me/557399627083?text='+msg,'_blank');
+}
 let toquesLogo=0,tempoLogo;
 function abrirSecretAdmin(){document.getElementById('adminSecretModal').style.display='flex';document.getElementById('adminSecretPass').value='';setTimeout(()=>document.getElementById('adminSecretPass').focus(),100)}
 function checkSecretAdmin(){const s=document.getElementById('adminSecretPass').value.trim().toLowerCase();if(s==='divinos2024'){window.location.href='admin/index.html?admin=divinos2024';}else{alert('Senha incorreta');document.getElementById('adminSecretPass').value='';}}
