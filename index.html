@@ -5,125 +5,65 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DIVINOS GAMES - V10.3 FINAL</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,system-ui}
-body{background:#0a0e2a;color:#fff}
-header{background:#0a102a;padding:12px 16px;border-bottom:1px solid #1a2550;position:sticky;top:0;z-index:100}
-.top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.logo{font-weight:900;font-size:22px;letter-spacing:1px;cursor:pointer;user-select:none}
-.logo span:first-child{color:#a78bfa}
-.logo span:last-child{color:#22d3ee}
-.search{flex:1;max-width:520px;background:#11183a;border:1px solid #1f2a5a;border-radius:12px;padding:10px 14px;color:#8aa0d0;outline:none}
-.filters{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
-.filters button{background:#111b3d;border:1px solid #22306a;color:#8aa0d0;padding:8px 14px;border-radius:10px;font-weight:600;font-size:13px}
-.filters button.active{background:#1a2758;color:#fff;border-color:#3b5bff}
-.section-title{background:linear-gradient(90deg,#111a3e,#1a234a);border:1px solid #2a3a7a;border-radius:12px;padding:10px 14px;margin:16px 12px 8px;font-size:13px;display:flex;gap:8px;align-items:center}
-.section-title b{color:#facc15}
-.oferta-wrap{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 12px}
-@media(max-width:700px){.oferta-wrap{grid-template-columns:1fr}}
-.card{background:#0e1433;border:2px solid #facc15;border-radius:16px;overflow:hidden;box-shadow:0 0 25px rgba(250,204,21,.25);position:relative}
-.card .tag{position:absolute;top:8px;left:8px;background:#facc15;color:#000;font-size:9px;font-weight:900;padding:4px 8px;border-radius:20px;z-index:2}
-.card img{width:100%;height:180px;object-fit:contain;background:#000;padding:10px}
-.card-info{padding:10px 12px;background:#0e1433}
-.card-info small{font-size:11px;color:#9aa3c0}
-.card-info .price{color:#22d3ee;font-weight:900;font-size:15px;margin-top:4px}
-.card-info .parc{color:#cbd5e1;font-size:12px}
-.btns{display:flex;gap:6px;margin-top:10px}
-.btns button{flex:1;padding:10px;border-radius:10px;border:none;font-weight:700;font-size:12px;cursor:pointer}
-.btn-buy{background:linear-gradient(135deg,#22d3ee,#3b82f6);color:#000}
-.btn-view{background:#131c3f;border:1px solid #22306a !important;color:#8aa0d0}
-.outros{padding:12px}
-.outros h4{font-size:12px;color:#8aa0d0;margin-bottom:8px}
-.outros-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
-footer{text-align:center;padding:24px 10px;font-size:11px;color:#6b7ab0;border-top:1px solid #1a2550;margin-top:20px}
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,Arial}
+body{background:#08102e;color:#dbe6ff}
+header{padding:14px;background:#08102e;position:sticky;top:0;z-index:10;border-bottom:1px solid #14204a}
+.logo{font-weight:900;font-size:20px;cursor:pointer;user-select:none;letter-spacing:.5px}
+.logo span:first-child{color:#8b9eff}.logo span:last-child{color:#22e5ff}
+.search{width:100%;max-width:500px;background:#0f1b3e;border:1px solid #1d2a5a;border-radius:999px;padding:10px 16px;color:#9fb0d6;outline:none;font-size:13px;float:right;margin-top:-32px}
+.filters{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.filters button{background:#12204a;border:1px solid #1e2f6a;color:#8aa0d0;padding:8px 14px;border-radius:999px;font-weight:700;font-size:13px;cursor:pointer}
+.bar{margin:12px 10px;background:#0f1c3d;border:1px solid #1c2c5e;border-radius:12px;padding:10px 12px;font-size:12px;color:#8aa0d0;display:flex;gap:8px;align-items:center}
+.bar .y{color:#facc15;background:#1a1800;border:1px solid #3a3200;padding:3px 8px;border-radius:999px;font-size:11px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 10px}
+@media(max-width:700px){.grid{grid-template-columns:1fr}}
+.card{border:2px solid #facc15;border-radius:18px;overflow:hidden;background:#0a1435;position:relative}
+.card-top{background:#000;height:160px;display:flex;align-items:center;justify-content:center;position:relative}
+.card-top img{max-height:140px}
+.badge{position:absolute;top:8px;left:8px;background:#facc15;color:#000;font-size:9px;font-weight:900;padding:4px 8px;border-radius:999px}
+.card-body{padding:12px;background:linear-gradient(180deg,#0c1940,#0a1435)}
+.price{color:#2cf2ff;font-weight:900;font-size:15px;margin-top:4px}
+.parc{color:#7f90b8;font-size:11px}
+.btns{display:flex;gap:8px;margin-top:10px}
+.btn-buy{flex:1;background:#8eeaff;border:none;border-radius:999px;padding:11px;font-weight:800;font-size:12px;color:#001a2e}
+.btn-view{flex:1;background:#10204a;border:1px solid #1e305e;border-radius:999px;padding:11px;font-weight:700;font-size:12px;color:#8aa0d0}
+footer{text-align:center;padding:28px 10px;color:#5a6a95;font-size:11px;border-top:1px solid #14204a;margin-top:20px}
+#instaBubble{position:fixed;bottom:18px;right:18px;width:58px;height:58px;border-radius:50%;background:radial-gradient(circle at 30% 110%,#ffdb8b 0%,#ee653d 25%,#d42e81 50%,#a237b6 75%,#4a5fd7 100%);display:flex;align-items:center;justify-content:center;z-index:9998;box-shadow:0 8px 24px rgba(0,0,0,.5)}
+#instaBubble svg{width:28px;height:28px;fill:#fff}
 #adminSecretModal{position:fixed;inset:0;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;z-index:99999}
 #adminSecretBox{background:#121228;border:1px solid #00e5ff60;border-radius:16px;padding:22px;width:90%;max-width:320px;text-align:center}
-#adminSecretBox input{width:100%;background:#0a0a1a;border:1px solid #1f2937;padding:14px;border-radius:10px;color:#fff;outline:none;font-size:18px;text-align:center;margin:14px 0;letter-spacing:4px}
-#instaBubble{position:fixed;bottom:20px;right:20px;width:62px;height:62px;border-radius:50%;background:radial-gradient(circle at 30% 110%,#ffdb8b 0%,#ee653d 25%,#d42e81 50%,#a237b6 75%,#4a5fd7 100%);display:flex;align-items:center;justify-content:center;z-index:9998;box-shadow:0 8px 25px rgba(0,0,0,.5);animation:instaPulse 2s infinite;text-decoration:none}
-#instaBubble svg{width:32px;height:32px;fill:white}
-@keyframes instaPulse{0%{transform:scale(1);box-shadow:0 0 0 0 rgba(212,46,129,.7)}70%{transform:scale(1.08);box-shadow:0 0 0 14px rgba(212,46,129,0)}100%{transform:scale(1);box-shadow:0 0 0 0 rgba(212,46,129,0)}}
+#adminSecretBox input{width:100%;background:#0a0a1a;border:1px solid #1f2937;padding:14px;border-radius:10px;color:#fff;text-align:center;margin:14px 0;letter-spacing:4px;font-size:18px}
 </style>
 </head>
 <body>
 <header>
-<div class="top">
 <div id="logoDivinos" class="logo"><span>DIVINOS</span> <span>GAMES</span></div>
 <input class="search" placeholder="Buscar PlayStation, PS5, Xbox, Ação, Manutenção...">
-</div>
 <div class="filters">
-<button class="active">💎 Todos</button>
-<button>🎮 Consoles</button>
-<button>🕹️ Jogos</button>
-<button>🎮 Controles</button>
-<button>🎧 Acessórios</button>
-<button>🔧 Manutenção</button>
+<button>🎮 Consoles</button><button>🎯 Jogos</button><button>🎮 Controles</button><button>🎧 Acessórios</button><button>🔧 Manutenção</button>
 </div>
 </header>
 
-<div class="section-title">🎮 Produtos - 3 (2 ofertas) <span style="margin-left:8px;background:#111b3d;border-radius:8px;padding:4px 8px;border:1px solid #22306a;font-size:11px">🔥 OFERTA DO DIA - 2 com amarelo exclusivo</span></div>
+<div class="bar">🎮 Produtos - 3 (2 ofertas) <span class="y">🔥 OFERTA DO DIA - 2 com amarelo exclusivo</span></div>
 
-<div class="oferta-wrap">
-<div class="card">
-<span class="tag">OFERTA DO DIA</span>
-<img src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=400" alt="Demon Souls">
-<div class="card-info">
-<small>Demon Souls</small>
-<div class="price">R$ 299</div>
-<div class="parc">12x R$ 24,92</div>
-<div class="btns"><button class="btn-buy">🛒 Comprar</button><button class="btn-view">👁️ Ver</button></div>
-</div>
-</div>
-<div class="card">
-<span class="tag">OFERTA DO DIA</span>
-<img src="https://images.unsplash.com/photo-1607853202273-797f1c22a38a?w=400" alt="PlayStation 4">
-<div class="card-info">
-<small>playstation 4</small>
-<div class="price">R$ 1999</div>
-<div class="parc">12x R$ 166,58 sem juros</div>
-<div class="btns"><button class="btn-buy">🛒 Comprar</button><button class="btn-view">👁️ Ver</button></div>
-</div>
-</div>
+<div class="grid">
+<div class="card"><div class="card-top"><span class="badge">OFERTA DO DIA</span><img src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=400" alt="ps4"></div><div class="card-body"><small>playstation 4</small><div class="price">R$ 1999</div><div class="parc">12x R$ 166,58 sem juros</div><div class="btns"><button class="btn-buy">🛒 Comprar</button><button class="btn-view">👁 Ver</button></div></div></div>
+<div class="card"><div class="card-top"><span class="badge">OFERTA DO DIA</span><img src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=400" alt="ps4"></div><div class="card-body"><small>playstation 4</small><div class="price">R$ 1999</div><div class="parc">12x R$ 166,58 sem juros</div><div class="btns"><button class="btn-buy">🛒 Comprar</button><button class="btn-view">👁 Ver</button></div></div></div>
 </div>
 
-<div class="outros">
-<h4>Outros produtos</h4>
-<div class="outros-grid">
-<div class="card" style="border-color:#1a2550;box-shadow:none"><img src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=300" style="height:120px"><div class="card-info"><small>Controle Rosa</small><div class="price">R$ 199</div></div></div>
-</div>
-</div>
-
-<footer>
-DIVINOS GAMES - Teixeira de Freitas, BA • 73 9962-7083<br>
-<span style="opacity:.5">WhatsApp (73) 9962-7083 • Instagram @divinosgames</span>
-</footer>
+<footer><b>DIVINOS GAMES</b> - Teixeira de Freitas, BA • 73 9962-7083<br>WhatsApp (73) 9962-7083 • Instagram @divinosgames</footer>
 
 <a id="instaBubble" href="https://www.instagram.com/divinosgames" target="_blank"><svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.2 5.2 0 0 1-5.2 5.2H7.8C4.6 22 2 19.4 2 16.2V7.8A5.2 5.2 0 0 1 7.8 2m-.2 2A3.2 3.2 0 0 0 4.4 7.2v8.4C4.4 17.9 5.9 19.4 8.2 19.4h8.4c2.3 0 3.8-1.5 3.8-3.8V7.2A3.2 3.2 0 0 0 16.2 4H7.6m9.65 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10m0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg></a>
 
-<div id="adminSecretModal">
-<div id="adminSecretBox">
-<div style="font-weight:900;color:#00e5ff">🔒 ADMIN DIVINOS</div>
-<input id="adminSecretPass" type="password" placeholder="••••••••">
-<div style="display:flex;gap:8px">
-<button onclick="document.getElementById('adminSecretModal').style.display='none'" style="flex:1;padding:12px;border-radius:10px;background:#11112a;border:1px solid #333;color:#fff">Cancelar</button>
-<button onclick="checkSecretAdmin()" style="flex:1;padding:12px;border-radius:10px;background:linear-gradient(135deg,#00e5ff,#7c3aed);border:none;font-weight:900;color:#fff">ENTRAR</button>
-</div>
-</div>
-</div>
+<div id="adminSecretModal"><div id="adminSecretBox"><div style="font-weight:900;color:#00e5ff">🔒 ADMIN DIVINOS</div><input id="adminSecretPass" type="password" placeholder="••••••••"><div style="display:flex;gap:8px"><button onclick="document.getElementById('adminSecretModal').style.display='none'" style="flex:1;padding:12px;border-radius:10px;background:#11112a;border:1px solid #333;color:#fff">Cancelar</button><button onclick="if(document.getElementById('adminSecretPass').value.toLowerCase()==='divinos2024')location.href='admin/index.html?admin=divinos2024';else alert('Senha incorreta')" style="flex:1;padding:12px;border-radius:10px;background:linear-gradient(135deg,#00e5ff,#7c3aed);border:none;font-weight:900;color:#fff">ENTRAR</button></div></div></div>
 
 <script>
-let toquesLogo=0,tempoLogo;
-function abrirSecretAdmin(){document.getElementById('adminSecretModal').style.display='flex';document.getElementById('adminSecretPass').value='';setTimeout(()=>document.getElementById('adminSecretPass').focus(),100)}
-function checkSecretAdmin(){const s=document.getElementById('adminSecretPass').value.trim().toLowerCase();if(s==='divinos2024'){window.location.href='admin/index.html?admin=divinos2024';}else{alert('Senha incorreta');document.getElementById('adminSecretPass').value='';}}
+let toques=0,tm;function abrir(){document.getElementById('adminSecretModal').style.display='flex';document.getElementById('adminSecretPass').value='';setTimeout(()=>document.getElementById('adminSecretPass').focus(),100)}
 document.addEventListener('DOMContentLoaded',()=>{
-  document.querySelectorAll('*').forEach(el=>{
-    if(el.children.length===0 && el.textContent.includes('V10.3') && !el.closest('footer')){
-      el.style.display='none';
-    }
-  });
   const logo=document.getElementById('logoDivinos');
-  const contar=()=>{toquesLogo++;clearTimeout(tempoLogo);tempoLogo=setTimeout(()=>toquesLogo=0,2000);if(toquesLogo>=5){toquesLogo=0;abrirSecretAdmin();}};
-  logo.addEventListener('click',contar);
-  logo.addEventListener('touchstart',contar);
-  document.getElementById('adminSecretPass').addEventListener('keypress',e=>{if(e.key==='Enter')checkSecretAdmin();});
+  const contar=()=>{toques++;clearTimeout(tm);tm=setTimeout(()=>toques=0,2000);if(toques>=5){toques=0;abrir();}};
+  logo.addEventListener('click',contar);logo.addEventListener('touchstart',contar);
+  document.getElementById('adminSecretPass').addEventListener('keypress',e=>{if(e.key==='Enter'){if(e.target.value.toLowerCase()==='divinos2024')location.href='admin/index.html?admin=divinos2024';else alert('Senha incorreta')}});
 });
 </script>
 </body>
