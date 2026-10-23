@@ -4,57 +4,64 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DIVINOS GAMES - Teixeira de Freitas</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:Inter,system-ui,Segoe UI,Roboto}
-body{background:#0f0f14;color:#fff;min-height:100vh}
-header{background:#111827;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:20;border-bottom:1px solid #1f2937}
-.logo{font-weight:900;font-size:24px;letter-spacing:1px;cursor:pointer;user-select:none}
-.logo span{color:#a855f7}
-.admin-badge{background:#a855f7;color:#fff;padding:5px 12px;border-radius:20px;font-size:12px;display:none;font-weight:700}
-.hero{max-width:1200px;margin:0 auto;padding:20px}
-.busca{width:100%;background:#1f2937;border:1px solid #2a3441;padding:14px 16px;border-radius:12px;color:#fff;font-size:15px;outline:none;margin-bottom:18px}
+*{box-sizing:border-box;margin:0;padding:0;font-family:'Inter',system-ui}
+body{background:#080a12;color:#fff;min-height:100vh}
+header{background:#111827;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:50;border-bottom:1px solid #ffffff10}
+.logo{font-family:'Orbitron';font-weight:900;font-size:22px;letter-spacing:1px;cursor:pointer} .logo span{color:#a855f7} .logo small{display:block;font-size:8px;letter-spacing:2px;color:#6b7280;margin-top:2px}
+.admin-badge{background:#a855f7;padding:5px 12px;border-radius:20px;font-size:11px;display:none;font-weight:800}
+.hero{max-width:1280px;margin:0 auto;padding:16px 20px}
+/* HERO-BG ORIGINAL QUE JA ESTAVA - NUNCA SOME, É CSS PURO */
+.hero-bg{background:linear-gradient(105deg,#0f172a 0%,#1e1b4b 30%,#312e81 70%,#4c1d95 100%);border:1px solid #ffffff12;border-radius:20px;padding:24px 28px;display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;position:relative;overflow:hidden;min-height:140px}
+.hero-bg::before{content:'';position:absolute;right:-20px;top:-30px;width:260px;height:260px;background:radial-gradient(circle,#a855f740 0%,transparent 70%);pointer-events:none}
+.hero-bg::after{content:'🎮';position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:80px;opacity:.12;pointer-events:none}
+.hero-bg h1{font-family:'Orbitron';font-size:26px;line-height:1.1;position:relative;z-index:1}
+.hero-bg h1 span{color:#a855f7;text-shadow:0 0 20px #a855f7aa}
+.hero-bg p{font-size:13px;opacity:.75;margin-top:6px;max-width:480px;position:relative;z-index:1}
+.busca{width:100%;background:#121826;border:1px solid #1f2937;padding:14px 16px;border-radius:12px;color:#fff;font-size:15px;outline:none;margin-bottom:18px}
 .busca:focus{border-color:#a855f7}
-.ofertas{background:linear-gradient(135deg,#7c3aed,#ec4899);border-radius:18px;padding:18px;margin-bottom:22px}
-.ofertas h2{font-size:18px;margin-bottom:12px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px}
-@media(max-width:600px){.grid{grid-template-columns:repeat(2,1fr);gap:10px} header{padding:12px 14px} .logo{font-size:20px}}
-.card{background:#1f2937;border-radius:16px;padding:12px;border:1px solid #2a3441;position:relative;display:flex;flex-direction:column}
-.card img{width:100%;height:150px;object-fit:contain;background:#111827;border-radius:12px;display:block}
-.card h3{font-size:14px;margin:10px 0 4px;min-height:36px;line-height:1.3;font-weight:600}
-.preco{color:#22c55e;font-weight:900;font-size:17px}
-.estoque-admin{display:none;margin-top:6px;font-size:11px;background:#111827;color:#fbbf24;padding:4px 8px;border-radius:6px;align-self:flex-start}
-.estoque-admin.show{display:block}
-.badge-oferta{position:absolute;top:10px;left:10px;background:#ef4444;color:#fff;font-size:11px;font-weight:900;padding:4px 8px;border-radius:20px;z-index:2}
-.btn-zap{background:#25D366;color:#fff;border:none;padding:11px;width:100%;border-radius:10px;font-weight:800;margin-top:10px;cursor:pointer;font-size:13px}
-.btn-comp{background:transparent;color:#9ca3af;border:1px solid #374151;padding:8px;width:100%;border-radius:10px;font-weight:600;margin-top:6px;cursor:pointer;font-size:12px}
-.filtros{display:flex;gap:8px;overflow:auto;padding-bottom:8px;margin-bottom:12px}
-.filtros button{background:#1f2937;border:1px solid #334155;color:#9ca3af;padding:7px 14px;border-radius:20px;font-size:12px;white-space:nowrap;cursor:pointer}
-.filtros button.active{background:#a855f7;color:#fff;border-color:#a855f7}
-.admin-panel{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:100;overflow:auto;padding:16px}
-.admin-panel.open{display:block}
-.form{background:#1f2937;padding:18px;border-radius:18px;max-width:520px;margin:0 auto;border:1px solid #334155}
-.form h2{font-size:18px;margin-bottom:8px}
-.form input,.form select{width:100%;padding:13px;border-radius:10px;border:1px solid #2a3441;margin:6px 0;background:#111827;color:#fff;font-size:15px;outline:none}
-.form input:focus,.form select:focus{border-color:#a855f7}
-.btn-salvar{background:#a855f7;color:#fff;border:none;padding:15px;width:100%;border-radius:12px;font-weight:900;font-size:15px;margin-top:12px;cursor:pointer}
-.preview{width:100%;height:200px;object-fit:contain;background:#111827;border-radius:12px;margin-top:10px;display:none;border:1px dashed #334155}
-.float-wrap{position:fixed;right:16px;bottom:20px;display:flex;flex-direction:column;gap:12px;z-index:50}
-.float-btn{width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 8px 22px rgba(0,0,0,.5);text-decoration:none;color:#fff}
-.float-zap{background:#25D366}
-.float-insta{background:radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%)}
-.toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:#22c55e;color:#000;padding:12px 20px;border-radius:24px;font-weight:800;display:none;z-index:200}
+.ofertas{background:linear-gradient(135deg,#7c3aed,#ec4899);border-radius:18px;padding:18px;margin-bottom:18px;box-shadow:0 8px 25px #7c3aed33}
+.ofertas h2{font-family:'Orbitron';font-size:15px;letter-spacing:1px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+@media(max-width:700px){.grid{grid-template-columns:repeat(2,1fr);gap:10px} .hero-bg{padding:18px} .hero-bg h1{font-size:18px} .hero-bg::after{font-size:50px}}
+.card{background:linear-gradient(180deg,#1c2538,#121826);border-radius:18px;padding:12px;border:1px solid #ffffff10;position:relative;display:flex;flex-direction:column}
+.card img{width:100%;height:150px;object-fit:contain;background:#0f172a;border-radius:12px;padding:8px}
+.card h3{font-size:13px;margin:9px 0 4px;min-height:36px;line-height:1.3}
+.preco{color:#22ff88;font-weight:900;font-size:17px}
+.estoque-admin{display:none;margin-top:6px;font-size:11px;background:#000a;color:#fbbf24;padding:4px 8px;border-radius:6px} .estoque-admin.show{display:block}
+.badge-oferta{position:absolute;top:10px;left:10px;background:#ff1a4a;color:#fff;font-size:10px;font-weight:900;padding:4px 9px;border-radius:20px}
+.btn-zap{background:#25D366;color:#fff;border:none;padding:11px;width:100%;border-radius:11px;font-weight:800;margin-top:10px;cursor:pointer}
+.btn-comp{background:#0f172a;color:#94a3b8;border:1px solid #1e293b;padding:7px;width:100%;border-radius:10px;margin-top:6px;cursor:pointer;font-size:12px}
+.filtros{display:flex;gap:8px;overflow:auto;padding-bottom:10px;margin-bottom:12px} .filtros button{background:#121826;border:1px solid #1f2937;color:#94a3b8;padding:7px 14px;border-radius:20px;font-size:12px;white-space:nowrap;cursor:pointer} .filtros button.active{background:#a855f7;color:#fff;border-color:#a855f7}
+.float-wrap{position:fixed;right:16px;bottom:20px;display:flex;flex-direction:column;gap:12px;z-index:60} .float-btn{width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;color:#fff;text-decoration:none;box-shadow:0 8px 24px #0008} .float-zap{background:#25D366} .float-insta{background:radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%)}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#22ff88;color:#000;padding:10px 18px;border-radius:20px;font-weight:800;display:none;z-index:200}
+.admin-panel{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:100;overflow:auto;padding:16px} .admin-panel.open{display:block}
+.form{background:#121826;padding:18px;border-radius:18px;max-width:520px;margin:0 auto;border:1px solid #1f2937}
+.form h2{font-family:'Orbitron';font-size:15px}
+.form input,.form select{width:100%;padding:12px;border-radius:10px;border:1px solid #1f2937;margin:6px 0;background:#0b0f1a;color:#fff}
+.btn-salvar{background:linear-gradient(135deg,#a855f7,#7c3aed);color:#fff;border:none;padding:14px;width:100%;border-radius:12px;font-weight:900;margin-top:10px;cursor:pointer}
+.preview{width:100%;height:180px;object-fit:contain;background:#0b0f1a;border-radius:12px;margin-top:8px;display:none;border:1px dashed #334155}
 </style>
 </head>
 <body>
 <header>
-<div class="logo" id="logoClick">DIVINOS<span>GAMES</span></div>
-<div style="display:flex;gap:10px;align-items:center"><div class="admin-badge" id="adminBadge">ADMIN ON</div><button onclick="abrirAdmin()" style="background:#1f2937;border:1px solid #334155;color:#fff;padding:8px 14px;border-radius:10px;font-size:12px;cursor:pointer">⚙️ Admin</button></div>
+<div class="logo" id="logoClick">DIVINOS<span>GAMES</span><small>GAME HUB • TEIXEIRA DE FREITAS</small></div>
+<div style="display:flex;gap:10px;align-items:center"><div class="admin-badge" id="adminBadge">ADMIN ON</div><button onclick="abrirAdmin()" style="background:#1f2937;border:1px solid #ffffff15;color:#fff;padding:8px 14px;border-radius:10px;font-size:12px;cursor:pointer">⚙️ Admin</button></div>
 </header>
 <div class="hero">
+<div class="hero-bg">
+<div>
+<h1>DIVINOS<br><span>GAMES</span><br>Teixeira de Freitas</h1>
+<p>🎮 Sua loja gamer • Consoles • Acessórios • Gaming Gear - Tudo com garantia da loja de Teixeira</p>
+<p style="margin-top:10px;font-size:11px;opacity:.9">📱 WhatsApp 73 9962-7083 • 📸 @divinosgames</p>
+</div>
+<div style="font-size:28px;opacity:.8;position:relative;z-index:1">🚀</div>
+</div>
 <input id="busca" class="busca" placeholder="🔍 Buscar playstation, controle, jogo..." oninput="filtrar()">
 <div class="ofertas">
 <h2>🔥 3 OFERTAS DO DIA</h2>
-<div class="grid" id="gridOfertas"></div>
+<div class="grid" id="gridOfertas" style="margin-top:12px"></div>
 </div>
 <div class="filtros">
 <button class="active" onclick="filtrarCat('')" id="fTodos">Todos</button>
@@ -63,107 +70,57 @@ header{background:#111827;padding:16px 20px;display:flex;justify-content:space-b
 <button onclick="filtrarCat('Controle')" id="fControle">Controles</button>
 <button onclick="filtrarCat('Acessório')" id="fAcess">Acessórios</button>
 </div>
-<h2 style="font-size:16px;margin:6px 0 12px">Todos os produtos <span id="count" style="opacity:.5;font-size:13px"></span></h2>
+<h2 style="font-size:13px;margin:6px 0 12px;font-family:'Orbitron';letter-spacing:1px">TODOS OS PRODUTOS <span id="count" style="opacity:.5;font-size:11px"></span></h2>
 <div class="grid" id="gridTodos"></div>
 </div>
 <div class="float-wrap">
-<a class="float-btn float-insta" href="https://www.instagram.com/divinosgames?srtk=Nmc4M29yMXIwMmFk" target="_blank">📸</a>
+<a class="float-btn float-insta" href="https://www.instagram.com/divinosgames" target="_blank">📸</a>
 <a class="float-btn float-zap" href="https://wa.me/5573999627083?text=Ol%C3%A1%20Divinos%20Games!%20Vim%20pelo%20site" target="_blank">💬</a>
 </div>
 <div class="toast" id="toast"></div>
 <div class="admin-panel" id="adminPanel">
 <div class="form">
-<h2>Admin - Adicionar / Editar tudo</h2>
-<p style="font-size:12px;opacity:.7;margin:8px 0 12px">Edite nome, preço, foto, estoque, categoria e tipo. Foto já comprime sem Storage pago. Celular e PC.</p>
-<input id="nome" placeholder="Nome ex: Playstation 4" />
-<input id="preco" type="number" inputmode="decimal" placeholder="Preço ex: 2500" />
+<h2>Admin - Game Hub</h2>
+<p style="font-size:11px;opacity:.6;margin:8px 0 12px">hero-bg original restaurada. Edite tudo aqui. Foto comprime sozinha sem Storage pago.</p>
+<input id="nome" placeholder="Nome ex: Playstation 4">
+<input id="preco" type="number" placeholder="Preço ex: 2500">
 <select id="categoria"><option value="">Categoria</option><option>Console</option><option>Jogo</option><option>Acessório</option><option>Controle</option></select>
 <select id="subcategoria"><option value="">Subcategoria</option><option>PlayStation</option><option>Xbox</option><option>Nintendo</option><option>Outros</option></select>
-<select id="tipo"><option value="NORMAL">NORMAL</option><option value="OFERTA DO DIA">OFERTA DO DIA - vai pro topo</option></select>
-<input id="estoque" type="number" inputmode="numeric" placeholder="Estoque ex: 10 (só você vê)" />
-<input id="foto" type="file" accept="image/*" />
-<img id="preview" class="preview" />
-<button class="btn-salvar" id="btnSalvar">💾 SALVAR - JÁ PODE CLICAR E APARECE NO SITE</button>
-<button id="btnCancelar" onclick="cancelarEdicao()" style="display:none;margin-top:10px;width:100%;padding:13px;border-radius:10px;border:none;background:#e11d48;color:#fff;font-weight:800;cursor:pointer">❌ Cancelar edição</button>
-<button onclick="fecharAdmin()" style="margin-top:10px;width:100%;padding:13px;border-radius:10px;border:none;background:#111827;color:#fff;border:1px solid #334155;cursor:pointer">Fechar painel</button>
-<div id="listaAdmin" style="margin-top:18px"></div>
-<button onclick="limparProdutosZerados()" style="margin-top:14px;width:100%;padding:10px;border-radius:10px;border:1px dashed #ef4444;background:transparent;color:#ef4444;font-size:12px;cursor:pointer">🧹 Apagar produtos com preço R$ 0 ou sem foto</button>
+<select id="tipo"><option value="NORMAL">NORMAL</option><option value="OFERTA DO DIA">OFERTA DO DIA</option></select>
+<input id="estoque" type="number" placeholder="Estoque ex: 10 (só admin vê)">
+<input id="foto" type="file" accept="image/*">
+<img id="preview" class="preview">
+<button class="btn-salvar" id="btnSalvar">💾 SALVAR - APARECE NA HORA</button>
+<button id="btnCancelar" onclick="cancelarEdicao()" style="display:none;margin-top:10px;width:100%;padding:12px;border-radius:10px;border:none;background:#e11d48;color:#fff;font-weight:800;cursor:pointer">❌ Cancelar edição</button>
+<button onclick="fecharAdmin()" style="margin-top:10px;width:100%;padding:12px;border-radius:10px;border:none;background:#0b0f1a;color:#fff;border:1px solid #1f2937;cursor:pointer">Fechar painel</button>
+<div id="listaAdmin" style="margin-top:16px"></div>
+<button onclick="limparProdutosZerados()" style="margin-top:12px;width:100%;padding:10px;border-radius:10px;border:1px dashed #ef4444;background:transparent;color:#ff6b8a;font-size:12px;cursor:pointer">🧹 Apagar produtos R$0 Sem Foto (limpar sua print)</button>
 </div>
 </div>
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
 <script>
-const firebaseConfig = {
-  apiKey: "AIzaSyCUL-tD4pPp7GEExJD08mEHdVzp-fbBxfs",
-  authDomain: "divinosgames-63867.firebaseapp.com",
-  projectId: "divinosgames-63867",
-  storageBucket: "divinosgames-63867.firebasestorage.app",
-  messagingSenderId: "859830472940",
-  appId: "1:859830472940:web:fa77258b659e1bbe4455c9"
-};
+const firebaseConfig={apiKey:"AIzaSyCUL-tD4pPp7GEExJD08mEHdVzp-fbBxfs",authDomain:"divinosgames-63867.firebaseapp.com",projectId:"divinosgames-63867",storageBucket:"divinosgames-63867.firebasestorage.app",messagingSenderId:"859830472940",appId:"1:859830472940:web:fa77258b659e1bbe4455c9"};
 firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
-let isAdmin=false, clicksLogo=0, imagemBase64="", editandoId=null, todos=[], filtroCatAtual="", buscaAtual="";
-function abrirAdmin(){document.getElementById('adminPanel').classList.add('open'); carregarAdminLista();}
+const db=firebase.firestore();
+let isAdmin=false,clicksLogo=0,imagemBase64="",editandoId=null,todos=[],filtroCatAtual="",buscaAtual="";
+function abrirAdmin(){document.getElementById('adminPanel').classList.add('open');carregarAdminLista();}
 function fecharAdmin(){document.getElementById('adminPanel').classList.remove('open');}
-document.getElementById('logoClick').addEventListener('click',()=>{
-  clicksLogo++; if(clicksLogo>=5){clicksLogo=0; const s=prompt('Senha admin:'); if(s==='divinos2024'){isAdmin=true; document.getElementById('adminBadge').style.display='block'; abrirAdmin(); toast('ADMIN ON - editar tudo + ver estoque');} else if(s) toast('Senha errada');} setTimeout(()=>clicksLogo=0,3000);
-});
-function toast(m){const t=document.getElementById('toast'); t.textContent=m; t.style.display='block'; setTimeout(()=>t.style.display='none',3000);}
-document.getElementById('foto').addEventListener('change', async(e)=>{
-  const f=e.target.files[0]; if(!f) return; toast('Comprimindo foto...'); imagemBase64=await comprimir(f); const p=document.getElementById('preview'); p.src=imagemBase64; p.style.display='block'; toast('✅ Foto pronta!');
-});
-function comprimir(file){return new Promise(res=>{const img=new Image(); img.src=URL.createObjectURL(file); img.onload=()=>{const c=document.createElement('canvas'); const MAX=700; let w=img.width,h=img.height; if(w>h){if(w>MAX){h*=MAX/w;w=MAX;}}else{if(h>MAX){w*=MAX/h;h=MAX;}} c.width=w;c.height=h; c.getContext('2d').drawImage(img,0,0,w,h); res(c.toDataURL('image/jpeg',0.65));};});}
-function filtrarCat(cat){filtroCatAtual=cat; document.querySelectorAll('.filtros button').forEach(b=>b.classList.remove('active')); if(cat==='') document.getElementById('fTodos').classList.add('active'); if(cat==='Console') document.getElementById('fConsole').classList.add('active'); if(cat==='Jogo') document.getElementById('fJogo').classList.add('active'); if(cat==='Controle') document.getElementById('fControle').classList.add('active'); if(cat==='Acessório') document.getElementById('fAcess').classList.add('active'); filtrar();}
-function filtrar(){buscaAtual=document.getElementById('busca').value.toLowerCase(); let lista=todos; if(filtroCatAtual) lista=lista.filter(p=>(p.categoria||'').includes(filtroCatAtual)); if(buscaAtual) lista=lista.filter(p=>(p.nome||'').toLowerCase().includes(buscaAtual)); renderTodos(lista);}
-function editarProduto(id){const p=todos.find(x=>x.id===id); if(!p) return; editandoId=id; document.getElementById('nome').value=p.nome||''; document.getElementById('preco').value=p.preco||''; document.getElementById('categoria').value=p.categoria||''; document.getElementById('subcategoria').value=p.subcategoria||''; document.getElementById('tipo').value=p.tipo||'NORMAL'; document.getElementById('estoque').value=p.estoque??''; if(p.imagem){imagemBase64=p.imagem; document.getElementById('preview').src=p.imagem; document.getElementById('preview').style.display='block';} document.getElementById('btnSalvar').textContent='✏️ ATUALIZAR PRODUTO - SALVAR EDIÇÃO'; document.getElementById('btnCancelar').style.display='block'; toast('Editando: '+p.nome);}
-function cancelarEdicao(){editandoId=null; imagemBase64=''; document.getElementById('nome').value=''; document.getElementById('preco').value=''; document.getElementById('estoque').value=''; document.getElementById('preview').style.display='none'; document.getElementById('foto').value=''; document.getElementById('btnSalvar').textContent='💾 SALVAR - JÁ PODE CLICAR E APARECE NO SITE'; document.getElementById('btnCancelar').style.display='none';}
-document.getElementById('btnSalvar').addEventListener('click', async()=>{
-  const nome=document.getElementById('nome').value.trim();
-  const precoStr=document.getElementById('preco').value.trim();
-  const preco=Number(precoStr);
-  const cat=document.getElementById('categoria').value;
-  const sub=document.getElementById('subcategoria').value;
-  const tipo=document.getElementById('tipo').value;
-  const estoque=document.getElementById('estoque').value.trim();
-  if(!nome){toast('Coloque o nome'); return;}
-  if(!precoStr || preco<=0){toast('Coloque preço válido maior que 0'); return;}
-  const btn=document.getElementById('btnSalvar'); btn.disabled=true; btn.textContent='Salvando...';
-  try{
-    const dados={nome, preco: preco, categoria:cat, subcategoria:sub, tipo, estoque: Number(estoque||0), imagem: imagemBase64 || document.getElementById('preview').src || '', atualizadoEm: firebase.firestore.FieldValue.serverTimestamp()};
-    if(editandoId){await db.collection('produtos').doc(editandoId).update(dados); toast('✅ Atualizado!');}
-    else{dados.criadoEm=firebase.firestore.FieldValue.serverTimestamp(); await db.collection('produtos').add(dados); toast('✅ Salvo e já no site!');}
-    cancelarEdicao(); carregarProdutos(); carregarAdminLista();
-  }catch(e){alert('Erro: '+e.message);} finally{btn.disabled=false; btn.textContent= editandoId ? '✏️ ATUALIZAR PRODUTO - SALVAR EDIÇÃO' : '💾 SALVAR - JÁ PODE CLICAR E APARECE NO SITE';}
-});
-function cardHTML(p){
-  const zap='5573999627083';
-  const nomeEnc=encodeURIComponent(p.nome||'');
-  const msg=`Olá Divinos Games! 🎮%0AQuero comprar:%0A*${nomeEnc}*%0APreço: R$ ${p.preco}%0ATem em estoque?`;
-  const precoFormat = Number(p.preco||0).toLocaleString('pt-BR');
-  return `<div class="card">${p.tipo==='OFERTA DO DIA'?'<div class="badge-oferta">OFERTA</div>':''}<img src="${p.imagem && p.imagem.length>100 ? p.imagem : 'https://via.placeholder.com/300x300/111827/555?text=Sem+Foto'}" loading="lazy"><h3>${p.nome||'Sem nome'}</h3><div class="preco">R$ ${precoFormat}</div><div class="estoque-admin ${isAdmin?'show':''}">Estoque: ${p.estoque??0} (só admin)</div><button class="btn-zap" onclick="window.open('https://wa.me/${zap}?text=${msg}','_blank')">🟢 Pedir no WhatsApp</button><button class="btn-comp" onclick="window.open('https://wa.me/${zap}?text=${encodeURIComponent('Olha esse '+p.nome)}','_blank')">↗️ Compartilhar</button></div>`;
-}
-function renderTodos(lista){document.getElementById('gridTodos').innerHTML= lista.length ? lista.map(cardHTML).join('') : '<p style="opacity:.6;text-align:center;padding:20px">Nenhum produto</p>'; document.getElementById('count').textContent='('+lista.length+')';}
-async function carregarProdutos(){
-  try{
-    const snap=await db.collection('produtos').orderBy('criadoEm','desc').get();
-    todos=[]; const ofertas=[];
-    snap.forEach(d=>{const o=d.data(); o.id=d.id; if(!o.preco) o.preco=0; todos.push(o); if(o.tipo==='OFERTA DO DIA') ofertas.push(o);});
-    document.getElementById('gridOfertas').innerHTML= ofertas.slice(0,3).length ? ofertas.slice(0,3).map(cardHTML).join('') : '<p style="opacity:.8">Nenhuma oferta ainda. Cadastre marcando OFERTA DO DIA</p>';
-    filtrar();
-  }catch(e){document.getElementById('gridOfertas').innerHTML='<p style="color:#f87171">'+e.message+'</p>';}
-}
-async function carregarAdminLista(){
-  const snap=await db.collection('produtos').orderBy('criadoEm','desc').limit(80).get();
-  let html='<h3 style="margin-top:14px">📦 Produtos - toque em EDITAR pra mudar tudo</h3>';
-  snap.forEach(doc=>{
-    const d=doc.data();
-    html+=`<div style="background:#111827;padding:12px;border-radius:12px;margin:10px 0;border:1px solid #2a3441"><div style="display:flex;gap:10px;align-items:center"><img src="${d.imagem||''}" style="width:56px;height:56px;object-fit:contain;background:#000;border-radius:8px"><div style="flex:1"><b>${d.nome||''}</b><br><span style="color:#22c55e;font-weight:800">R$ ${d.preco||0}</span> <span style="font-size:11px;opacity:.6">${d.tipo==='OFERTA DO DIA'?'🔥':''} Est:${d.estoque??0}</span></div></div><div style="display:flex;gap:8px;margin-top:10px"><button onclick="editarProduto('${doc.id}')" style="flex:1;background:#a855f7;border:none;color:#fff;padding:10px;border-radius:8px;font-weight:800;cursor:pointer">✏️ EDITAR TUDO</button><button onclick="deletar('${doc.id}')" style="background:#ef4444;border:none;color:#fff;padding:10px 14px;border-radius:8px;cursor:pointer">🗑️</button></div></div>`;
-  });
-  document.getElementById('listaAdmin').innerHTML=html;
-}
-async function deletar(id){if(confirm('Apagar este produto?')){await db.collection('produtos').doc(id).delete(); toast('Apagado'); carregarProdutos(); carregarAdminLista();}}
-async function limparProdutosZerados(){if(!confirm('Apagar todos com preço 0 ou sem foto?')) return; const snap=await db.collection('produtos').get(); let c=0; for(const doc of snap.docs){const d=doc.data(); if(!d.preco || d.preco==0 || !d.imagem || d.imagem.length<100){await db.collection('produtos').doc(doc.id).delete(); c++;}} toast('Limpou '+c+' produtos'); carregarProdutos(); carregarAdminLista();}
+document.getElementById('logoClick').addEventListener('click',()=>{clicksLogo++;if(clicksLogo>=5){clicksLogo=0;const s=prompt('Senha admin:');if(s==='divinos2024'){isAdmin=true;document.getElementById('adminBadge').style.display='block';abrirAdmin();toast('ADMIN ON');}else if(s)toast('Senha errada');}setTimeout(()=>clicksLogo=0,3000);});
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.style.display='block';setTimeout(()=>t.style.display='none',3000);}
+document.getElementById('foto').addEventListener('change',async(e)=>{const f=e.target.files[0];if(!f)return;toast('Comprimindo...');imagemBase64=await comprimir(f);const p=document.getElementById('preview');p.src=imagemBase64;p.style.display='block';toast('✅ Foto pronta!');});
+function comprimir(file){return new Promise(res=>{const img=new Image();img.src=URL.createObjectURL(file);img.onload=()=>{const c=document.createElement('canvas');const MAX=800;let w=img.width,h=img.height;if(w>h){if(w>MAX){h*=MAX/w;w=MAX;}}else{if(h>MAX){w*=MAX/h;h=MAX;}}c.width=w;c.height=h;c.getContext('2d').drawImage(img,0,0,w,h);res(c.toDataURL('image/jpeg',0.68));};});}
+function filtrarCat(cat){filtroCatAtual=cat;document.querySelectorAll('.filtros button').forEach(b=>b.classList.remove('active'));if(cat==='')document.getElementById('fTodos').classList.add('active');if(cat==='Console')document.getElementById('fConsole').classList.add('active');if(cat==='Jogo')document.getElementById('fJogo').classList.add('active');if(cat==='Controle')document.getElementById('fControle').classList.add('active');if(cat==='Acessório')document.getElementById('fAcess').classList.add('active');filtrar();}
+function filtrar(){buscaAtual=document.getElementById('busca').value.toLowerCase();let lista=todos;if(filtroCatAtual)lista=lista.filter(p=>(p.categoria||'').includes(filtroCatAtual));if(buscaAtual)lista=lista.filter(p=>(p.nome||'').toLowerCase().includes(buscaAtual));renderTodos(lista);}
+function editarProduto(id){const p=todos.find(x=>x.id===id);if(!p)return;editandoId=id;document.getElementById('nome').value=p.nome||'';document.getElementById('preco').value=p.preco||'';document.getElementById('categoria').value=p.categoria||'';document.getElementById('subcategoria').value=p.subcategoria||'';document.getElementById('tipo').value=p.tipo||'NORMAL';document.getElementById('estoque').value=p.estoque??'';if(p.imagem&&p.imagem.length>100){imagemBase64=p.imagem;document.getElementById('preview').src=p.imagem;document.getElementById('preview').style.display='block';}document.getElementById('btnSalvar').textContent='✏️ ATUALIZAR PRODUTO';document.getElementById('btnCancelar').style.display='block';abrirAdmin();}
+function cancelarEdicao(){editandoId=null;imagemBase64='';document.getElementById('nome').value='';document.getElementById('preco').value='';document.getElementById('estoque').value='';document.getElementById('preview').style.display='none';document.getElementById('foto').value='';document.getElementById('btnSalvar').textContent='💾 SALVAR - APARECE NA HORA';document.getElementById('btnCancelar').style.display='none';}
+document.getElementById('btnSalvar').addEventListener('click',async()=>{const nome=document.getElementById('nome').value.trim();const precoStr=document.getElementById('preco').value.trim();const preco=Number(precoStr);const cat=document.getElementById('categoria').value;const sub=document.getElementById('subcategoria').value;const tipo=document.getElementById('tipo').value;const estoque=document.getElementById('estoque').value.trim();if(!nome){toast('Coloque nome');return;}if(!precoStr||preco<=0){toast('Preço >0');return;}if(!imagemBase64&&!document.getElementById('preview').src.includes('data:image')){toast('Escolha foto');return;}const btn=document.getElementById('btnSalvar');btn.disabled=true;btn.textContent='Salvando...';try{const dados={nome,preco,categoria:cat,subcategoria:sub,tipo,estoque:Number(estoque||0),imagem:imagemBase64||document.getElementById('preview').src||'',atualizadoEm:firebase.firestore.FieldValue.serverTimestamp()};if(editandoId){await db.collection('produtos').doc(editandoId).update(dados);toast('✅ Atualizado!');}else{dados.criadoEm=firebase.firestore.FieldValue.serverTimestamp();await db.collection('produtos').add(dados);toast('✅ Salvo e já no site!');}cancelarEdicao();carregarProdutos();carregarAdminLista();}catch(e){alert('Erro:'+e.message);}finally{btn.disabled=false;btn.textContent=editandoId?'✏️ ATUALIZAR PRODUTO':'💾 SALVAR - APARECE NA HORA';}});
+function cardHTML(p){const zap='5573999627083';const nomeEnc=encodeURIComponent(p.nome||'');const msg=`Olá Divinos Games! 🎮%0AQuero comprar:%0A*${nomeEnc}*%0APreço: R$ ${p.preco}%0ATem em estoque?`;const precoFormat=Number(p.preco||0).toLocaleString('pt-BR');const temFoto=p.imagem&&p.imagem.length>100;return `<div class="card">${p.tipo==='OFERTA DO DIA'?'<div class="badge-oferta">OFERTA</div>':''}<img src="${temFoto?p.imagem:'https://via.placeholder.com/400x400/121826/a855f7?text=SEM+FOTO'}" loading="lazy"><h3>${p.nome||''}</h3><div class="preco">R$ ${precoFormat}</div><div class="estoque-admin ${isAdmin?'show':''}">Estoque:${p.estoque??0} (só admin)</div><button class="btn-zap" onclick="window.open('https://wa.me/${zap}?text=${msg}','_blank')">🟢 Pedir no WhatsApp</button><button class="btn-comp" onclick="window.open('https://wa.me/${zap}?text=${encodeURIComponent('Olha esse '+p.nome)}','_blank')">↗️ Compartilhar</button></div>`;}
+function renderTodos(lista){document.getElementById('gridTodos').innerHTML=lista.length?lista.map(cardHTML).join(''):'<p style="opacity:.6;text-align:center;padding:20px">Nenhum produto</p>';document.getElementById('count').textContent='('+lista.length+')';}
+async function carregarProdutos(){try{const snap=await db.collection('produtos').orderBy('criadoEm','desc').get();todos=[];const ofertas=[];snap.forEach(d=>{const o=d.data();o.id=d.id;todos.push(o);if(o.tipo==='OFERTA DO DIA')ofertas.push(o);});document.getElementById('gridOfertas').innerHTML=ofertas.slice(0,3).length?ofertas.slice(0,3).map(cardHTML).join(''):'<p style="opacity:.7">Nenhuma oferta ainda. Marque OFERTA DO DIA</p>';filtrar();}catch(e){document.getElementById('gridOfertas').innerHTML='<p style="color:#ff6b8a">'+e.message+'</p>';}}
+async function carregarAdminLista(){const snap=await db.collection('produtos').orderBy('criadoEm','desc').limit(80).get();let html='<h3 style="margin-top:12px;font-family:Orbitron;font-size:13px">📦 Editar tudo</h3>';snap.forEach(doc=>{const d=doc.data();const temFoto=d.imagem&&d.imagem.length>100;html+=`<div style="background:#0b0f1a;padding:10px;border-radius:12px;margin:8px 0;border:1px solid #1f2937"><div style="display:flex;gap:8px;align-items:center"><img src="${temFoto?d.imagem:'https://via.placeholder.com/80'}" style="width:52px;height:52px;object-fit:contain;background:#000;border-radius:8px"><div style="flex:1"><b style="font-size:13px">${d.nome||''}</b><br><span style="color:#22ff88;font-weight:800;font-size:13px">R$ ${d.preco||0}</span> <span style="font-size:10px;opacity:.6">${temFoto?'✅':'❌ Sem Foto'} Est:${d.estoque??0}</span></div></div><div style="display:flex;gap:6px;margin-top:8px"><button onclick="editarProduto('${doc.id}')" style="flex:1;background:#a855f7;border:none;color:#fff;padding:9px;border-radius:8px;font-weight:700;cursor:pointer">✏️ EDITAR TUDO</button><button onclick="deletar('${doc.id}')" style="background:#ff1a4a;border:none;color:#fff;padding:9px 12px;border-radius:8px;cursor:pointer">🗑️</button></div></div>`;});document.getElementById('listaAdmin').innerHTML=html;}
+async function deletar(id){if(confirm('Apagar?')){await db.collection('produtos').doc(id).delete();toast('Apagado');carregarProdutos();carregarAdminLista();}}
+async function limparProdutosZerados(){if(!confirm('Apagar R$0 e sem foto? Vai limpar o da sua print.'))return;const snap=await db.collection('produtos').get();let c=0;for(const doc of snap.docs){const d=doc.data();if(!d.preco||d.preco==0||!d.imagem||d.imagem.length<100){await db.collection('produtos').doc(doc.id).delete();c++;}}toast('Limpou '+c);carregarProdutos();carregarAdminLista();}
 carregarProdutos();
 </script>
 </body>
