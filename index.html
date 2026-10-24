@@ -3,13 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DIVINOS GAMES - V10.6 PER PRODUTO</title>
+<title>DIVINOS GAMES - V13 FINAL LOGO + % POR PRODUTO</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Inter;background:radial-gradient(900px at 0% 0%, rgba(0,229,255,.15) 0%, transparent 55%), radial-gradient(800px at 100% 0%, rgba(168,85,247,.18) 0%, transparent 50%), linear-gradient(180deg, #0a0f24 0%, #080810 100%);background-attachment:fixed;color:#fff;min-height:100vh}
-.header{position:sticky;top:0;z-index:100;background:rgba(8,8,16,.92);backdrop-filter:blur(14px);border-bottom:1px solid rgba(0,229,255,.15);padding:10px 14px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
-.logo{font-family:Orbitron;font-weight:900;font-size:18px;color:#00e5ff;display:flex;align-items:center;gap:8px;cursor:pointer;user-select:none}
+.header{position:sticky;top:0;z-index:100;background:rgba(8,8,16,.92);backdrop-filter:blur(14px);border-bottom:1px solid rgba(0,229,255,.15);padding:8px 14px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.logo{font-family:Orbitron;font-weight:900;font-size:18px;color:#00e5ff;display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none}
+.logo img{height:46px;width:auto;object-fit:contain;filter:drop-shadow(0 0 10px rgba(255,106,0,.3))}
 .logo span{color:#a855f7}
 .search{flex:1;max-width:400px;display:flex;gap:8px;min-width:200px}
 .search input{flex:1;background:#0f0f1f;border:1px solid #1f2937;padding:10px 12px;border-radius:10px;color:#fff;outline:none}
@@ -72,7 +73,7 @@ body{font-family:Inter;background:radial-gradient(900px at 0% 0%, rgba(0,229,255
 </style>
 </head>
 <body>
-<div class="header"><div class="logo" id="logoDivinos">🎮 DIVINOS <span>GAMES</span></div><div class="search"><input id="searchInput" placeholder="Buscar PlayStation, PS5, Xbox, Ação, Manutenção..." oninput="filtrar()"><button class="btn btn-primary" onclick="filtrar()">🔍</button></div><button class="btn-cart" onclick="abrirCarrinho()">🛒 Carrinho <span class="cart-count" id="cartCount">0</span></button></div>
+<div class="header"><div class="logo" id="logoDivinos"><img src="logo.png" alt="DG" onerror="this.src='https://via.placeholder.com/50x50/ff6a00/ffffff?text=DG'"> DIVINOS <span>GAMES</span></div><div class="search"><input id="searchInput" placeholder="Buscar PlayStation, PS5, Xbox, Ação, Manutenção..." oninput="filtrar()"><button class="btn btn-primary" onclick="filtrar()">🔍</button></div><button class="btn-cart" onclick="abrirCarrinho()">🛒 Carrinho <span class="cart-count" id="cartCount">0</span></button></div>
 <div class="hero" id="hero"><div class="hero-bg" id="heroBg"></div><div class="hero-content"><div class="hero-badge">🔥 OFERTA DO DIA</div><div class="hero-title">DIVINOS <span>GAMES</span><br>CONSOLES & JOGOS</div><div style="font-size:13px;opacity:.8;margin-bottom:14px">PlayStation 5 • Xbox Series X/S • Nintendo Switch • Manutenção</div><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-primary" onclick="scrollToProdutos()">🎮 Ver Produtos</button><button class="btn" style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff" onclick="abrirWhats()">💬 Whats 73 9962-7083</button></div></div></div>
 <div class="catalogs">
   <button class="catalog-btn active" onclick="selecionarCatalogo('todos',this)">🎮 Todos</button>
@@ -85,15 +86,15 @@ body{font-family:Inter;background:radial-gradient(900px at 0% 0%, rgba(0,229,255
 <div class="subcatalogs" id="subConsoles"><button class="sub-btn" onclick="filtrarSub('PlayStation',this)">PlayStation</button><button class="sub-btn" onclick="filtrarSub('PS5',this)">💎 PS5</button><button class="sub-btn" onclick="filtrarSub('PS5 Pro',this)">PS5 Pro</button><button class="sub-btn" onclick="filtrarSub('PS4',this)">PS4</button><button class="sub-btn" onclick="filtrarSub('Xbox',this)">🟩 Xbox</button><button class="sub-btn" onclick="filtrarSub('Xbox Series X/S',this)">Series X/S</button><button class="sub-btn" onclick="filtrarSub('Nintendo Switch',this)">Switch</button><button class="sub-btn" onclick="filtrarSub('SSD 825GB',this)">SSD 825GB</button><button class="sub-btn" onclick="filtrarSub('4K',this)">4K</button></div>
 <div class="subcatalogs" id="subJogos"><button class="sub-btn" onclick="filtrarSub('Ação',this)">🎯 Ação</button><button class="sub-btn" onclick="filtrarSub('FPS',this)">🔫 FPS</button><button class="sub-btn" onclick="filtrarSub('RPG',this)">⚔️ RPG</button><button class="sub-btn" onclick="filtrarSub('Corrida',this)">🏎️ Corrida</button><button class="sub-btn" onclick="filtrarSub('Esportes',this)">Esportes</button><button class="sub-btn" onclick="filtrarSub('Mundo Aberto',this)">Mundo Aberto</button></div>
 <div class="subcatalogs" id="subManutencao"><button class="sub-btn" onclick="filtrarSub('Limpeza',this)">🧹 Limpeza</button><button class="sub-btn" onclick="filtrarSub('PS5',this)">💎 PS5</button><button class="sub-btn" onclick="filtrarSub('PS4',this)">PS4</button><button class="sub-btn" onclick="filtrarSub('Xbox',this)">🟩 Xbox</button><button class="sub-btn" onclick="filtrarSub('Controle',this)">🎮 Controle</button><button class="sub-btn" onclick="filtrarSub('Reparo',this)">🔧 Reparo</button><button class="sub-btn" onclick="filtrarSub('Troca Pasta',this)">Pasta Térmica</button><button class="sub-btn" onclick="filtrarSub('HDMI',this)">HDMI</button></div>
-<div class="products" id="produtosSection"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap;gap:6px"><div style="font-family:Orbitron;font-weight:900;font-size:14px">🎮 Produtos - <span id="prodCount">0</span></div><div style="font-size:10px;opacity:.6">V10.6 % por produto</div></div><div class="products-grid" id="productsGrid"></div></div>
-<div class="footer"><div style="font-family:Orbitron;font-weight:900;font-size:16px;letter-spacing:2px;color:#00e5ff" id="footerNome">DIVINOS GAMES</div><div style="margin-top:10px;display:flex;justify-content:center;align-items:center;gap:14px;flex-wrap:wrap;font-size:12px;color:#8b8ba7"><span>📍 Teixeira de Freitas - BA</span><span style="width:3px;height:3px;background:#1f2937;border-radius:50%"></span><a href="https://wa.me/557399627083" target="_blank" style="color:#22c55e;text-decoration:none;font-weight:700">💬 Whats <span id="footerWhats">73 9962-7083</span></a></div><div style="margin-top:14px;font-size:10px;opacity:.35">© 2026 DIVINOS GAMES • Consoles, Jogos e Manutenção</div></div>
+<div class="products" id="produtosSection"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap;gap:6px"><div style="font-family:Orbitron;font-weight:900;font-size:14px">🎮 Produtos - <span id="prodCount">0</span></div><div style="font-size:10px;opacity:.6">V13 Logo + % por produto</div></div><div class="products-grid" id="productsGrid"></div></div>
+<div class="footer"><div style="display:flex;justify-content:center;margin-bottom:10px"><img src="logo.png" style="height:60px" onerror="this.style.display='none'"></div><div style="font-family:Orbitron;font-weight:900;font-size:16px;letter-spacing:2px;color:#00e5ff" id="footerNome">DIVINOS GAMES</div><div style="margin-top:10px;display:flex;justify-content:center;align-items:center;gap:14px;flex-wrap:wrap;font-size:12px;color:#8b8ba7"><span>📍 Teixeira de Freitas - BA</span><span style="width:3px;height:3px;background:#1f2937;border-radius:50%"></span><a href="https://wa.me/557399627083" target="_blank" style="color:#22c55e;text-decoration:none;font-weight:700">💬 Whats <span id="footerWhats">73 9962-7083</span></a></div><div style="margin-top:14px;font-size:10px;opacity:.35">© 2026 DIVINOS GAMES • Consoles, Jogos e Manutenção</div></div>
 <div class="toast" id="toast"></div>
 <div class="cart-modal" id="cartModal"><div class="cart-box"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><div style="font-family:Orbitron;font-weight:900">🛒 Carrinho</div><button class="btn" style="background:#1a0a14;border:1px solid #ef444440;color:#ff6b8a" onclick="fecharCarrinho()">❌</button></div><div id="cartItems"></div><div style="margin-top:12px;display:flex;justify-content:space-between;font-weight:900"><div>Total:</div><div id="cartTotal" style="color:#00e5ff">R$ 0,00</div></div><button class="btn btn-primary" style="width:100%;margin-top:12px;padding:12px" onclick="finalizarWhats()">💬 Finalizar no Whats</button></div></div>
 <div class="preview-modal-client" id="previewModalClient"><div style="background:linear-gradient(180deg, rgba(18,18,40,.95) 0%, rgba(10,10,20,.98) 100%);border:1px solid #00e5ff60;border-radius:16px;max-width:420px;width:100%;overflow:hidden;position:relative;max-height:90vh;overflow-y:auto"><button onclick="fecharPreviewClient()" style="position:absolute;top:10px;right:10px;background:#1a0a14;border:1px solid #ef444440;color:#ff6b8a;width:32px;height:32px;border-radius:50%;cursor:pointer;z-index:10;font-weight:900">✕</button><img id="previewClientImg" style="width:100%;height:280px;object-fit:contain;background:#000"><div style="padding:14px"><div id="previewClientBadge"></div><div id="previewClientNome" style="font-family:Orbitron;font-weight:900;font-size:14px;margin-top:8px"></div><div id="previewClientSub" style="font-size:10px;color:#8b8ba7;margin-top:6px;display:flex;gap:4px;flex-wrap:wrap"></div><div id="previewClientPreco" style="font-family:Orbitron;font-size:18px;font-weight:900;color:#00e5ff;margin-top:8px"></div><div id="previewClientParcela" style="font-size:10px;opacity:.6;margin-top:2px"></div>
 <div id="previewPagamentoBox" style="margin-top:12px;background:#0f0f1f;border:1px solid #1f2937;border-radius:12px;padding:10px">
 <div style="font-size:11px;font-weight:800;margin-bottom:8px;color:#9aa0b8">💳 FORMA DE PAGAMENTO - POR PRODUTO:</div>
 <label id="labelAvista" style="display:flex;align-items:center;gap:8px;padding:10px;border-radius:10px;background:#11112a;border:1px solid #00e5ff60;margin-bottom:6px;cursor:pointer"><input type="radio" name="pagamentoPreview" value="avista" checked onchange="atualizarPagamentoPreview()"><span style="font-size:12px">💰 <b>À Vista</b> - <span id="previewAvista" style="color:#22c55e;font-weight:900"></span> <small id="previewAvistaDesc" style="color:#22c55e"></small></span></label>
-<label id="labelParcelado" style="display:flex;align-items:center;gap:8px;padding:10px;border-radius:10px;background:#0a0a1a;border:1px solid #1f2937;cursor:pointer"><input type="radio" name="pagamentoPreview" value="parcelado" onchange="atualizarPagamentoPreview()"><span style="font-size:12px">💳 <b>Parcelado</b> - <span id="previewParcelado" style="font-weight:800"></span></span></label>
+<label id="labelParcelado" style="display:flex;align-items:center;gap:8px;padding:10px;border-radius:10px;background:#0a0a1a;border:1px solid #1f2937;cursor:pointer"><input type="radio" name="pagamentoPreview" value="parcelado" onchange="atualizarPagamentoPreview()"><span style="font-size:12px">💳 <b>Parcelado</b> - <span id="previewParcelado" style="font-weight:800"></span> sem juros</span></label>
 </div>
 <div style="display:flex;gap:8px;margin-top:12px"><button class="btn-small btn-buy" style="flex:1;padding:12px" onclick="comprarDoPreview()">🛒 Comprar - <span id="previewClientPrecoBtn"></span></button><button class="btn-small btn-details" style="flex:1;padding:12px;background:#11112a;border:1px solid #00e5ff30;color:#fff" onclick="zapDoPreview()">💬 Zap</button></div></div></div></div>
 <a id="instaBubble" href="https://www.instagram.com/divinosgames" target="_blank"><svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.2 5.2 0 0 1-5.2 5.2H7.8C4.6 22 2 19.4 2 16.2V7.8A5.2 5.2 0 0 1 7.8 2m-.2 2A3.2 3.2 0 0 0 4.4 7.2v8.4C4.4 17.9 5.9 19.4 8.2 19.4h8.4c2.3 0 3.8-1.5 3.8-3.8V7.2A3.2 3.2 0 0 0 16.2 4H7.6m9.65 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10m0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg></a>
@@ -102,36 +103,16 @@ body{font-family:Inter;background:radial-gradient(900px at 0% 0%, rgba(0,229,255
 <script>
 const firebaseConfig={apiKey:"AIzaSyCUL-tD4pPp7GEExJD08mEHdVzp-fbBxfs",authDomain:"divinosgames-63867.firebaseapp.com",projectId:"divinosgames-63867",storageBucket:"divinosgames-63867.firebasestorage.app",messagingSenderId:"859830472940",appId:"1:859830472940:web:fa77258b659e1bbe4455c9"};firebase.initializeApp(firebaseConfig);const db=firebase.firestore();
 let produtos=[],carrinho=JSON.parse(localStorage.getItem('divinos_cart')||'[]'),filtroCat='todos',filtroSub=null,produtoPreviewAtual=null;
-
-// ===== ALTERAÇÃO 1: CONFIG PADRÃO =====
-let descontoPadrao = 5;
-let parcelasPadrao = 12;
-
-function formatarBR(v){ return Number(v).toLocaleString('pt-BR',{minimumFractionDigits:2, maximumFractionDigits:2}); }
-
-// ===== ALTERAÇÃO 2: CALCULA % POR PRODUTO =====
+let descontoPadrao=5,parcelasPadrao=12;
+function formatarBR(v){return Number(v).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});}
 function calcAvista(preco, produto=null){
-  const p = Number(preco)||0;
-  let perc = descontoPadrao;
-  // Se produto tem desconto próprio, usa ele
-  if(produto && produto.descontoAvista!=null && produto.descontoAvista!==''){
-    perc = Number(produto.descontoAvista);
-  } else if(produto && produto.desconto!=null){
-    perc = Number(produto.desconto);
-  }
-  return { valor: p * (1 - perc/100), perc: perc };
+  let p=Number(preco)||0;
+  let perc=descontoPadrao;
+  if(produto && produto.descontoAvista!=null && produto.descontoAvista!==''){perc=Number(produto.descontoAvista);}
+  else if(produto && produto.desconto!=null){perc=Number(produto.desconto);}
+  return {valor:p*(1-perc/100), perc:perc};
 }
-
-async function carregarConfigPagamento(){
-  try{
-    const doc = await db.collection('config').doc('pagamento').get();
-    if(doc.exists){
-      descontoPadrao = Number(doc.data().descontoAvista ?? 5);
-      parcelasPadrao = Number(doc.data().parcelas ?? 12);
-    }
-  }catch(e){}
-}
-
+async function carregarConfigPagamento(){try{const d=await db.collection('config').doc('pagamento').get();if(d.exists){descontoPadrao=Number(d.data().descontoAvista??5);parcelasPadrao=Number(d.data().parcelas??12);}}catch(e){}}
 function toast(m){const t=document.getElementById('toast');t.textContent=m;t.style.display='block';setTimeout(()=>t.style.display='none',3000);}
 function scrollToProdutos(){document.getElementById('produtosSection').scrollIntoView({behavior:'smooth'});}
 function abrirWhats(){window.open('https://wa.me/557399627083?text=Olá, vim pelo site DIVINOS GAMES','_blank');}
@@ -162,7 +143,7 @@ function renderProdutos(){
       ? `<button class="btn-small" style="flex:1;background:linear-gradient(135deg,#22c55e,#16a34a);color:#000;font-weight:900;padding:10px" onclick="event.stopPropagation();agendarManut('${p.id}')">💬 Agendar</button>`
       : `<button class="btn-small btn-buy" onclick="event.stopPropagation();abrirPreviewClient('${p.id}')">🛒 Comprar</button>`;
     const precoColor=isManut?'color:#22c55e':'';
-    const infoPagamento = isManut ? '' : `<div style="margin-top:6px;display:flex;gap:4px;flex-wrap:wrap"><span style="font-size:7px;background:#22c55e15;border:1px solid #22c55e30;color:#22c55e;padding:2px 5px;border-radius:6px;font-weight:800">💰 À Vista R$ ${precoAvista} (${perc}% OFF)</span><span style="font-size:7px;background:#00e5ff15;border:1px solid #00e5ff30;color:#00e5ff;padding:2px 5px;border-radius:6px;font-weight:800">💳 ${(p.parcelasQtd||parcelasPadrao)}x R$ ${parcela}</span></div>`;
+    const infoPagamento = isManut ? '' : `<div style="margin-top:6px;display:flex;gap:4px;flex-wrap:wrap"><span style="font-size:7px;background:#22c55e15;border:1px solid #22c55e30;color:#22c55e;padding:2px 5px;border-radius:6px;font-weight:800">💰 À Vista R$ ${precoAvista} (${perc}% OFF)</span><span style="font-size:7px;background:#00e5ff15;border:1px solid #00e5ff30;color:#00e5ff;padding:2px 5px;border-radius:6px;font-weight:800">💳 ${p.parcelasQtd||parcelasPadrao}x R$ ${parcela}</span></div>`;
     return `<div class="product-card${cardClass}"><div class="product-img-wrap" onclick="abrirPreviewClient('${p.id}')">${badge}<img src="${p.imagem||'https://via.placeholder.com/200x140/0a0f24/00e5ff?text=DIVINOS+GAMES'}" class="product-img"></div><div class="product-info" onclick="abrirPreviewClient('${p.id}')"><div class="product-name">${p.nome||''}</div><div class="product-price" style="${precoColor}">R$ ${formatarBR(preco)}</div><div class="product-parcela">${p.parcela||`${p.parcelasQtd||parcelasPadrao}x R$ ${parcela}`}</div>${infoPagamento}<div class="product-sub">${subs}</div></div><div class="product-actions">${btnAcao}<button class="btn-small btn-details" onclick="event.stopPropagation();abrirPreviewClient('${p.id}')">👁️ Ver</button></div></div>`;
   };
   ofertas.forEach(p=>{html+=renderCard(p,true);});
@@ -184,7 +165,7 @@ function abrirPreviewClient(id){
   const preco = Number(p.preco||0);
   const calc = calcAvista(preco, p);
   const precoAvista = formatarBR(calc.valor);
-  const parcela = formatarBR(preco / (Number(p.parcelasQtd)||parcelasPadrao));
+  const parcela = formatarBR(preco/(Number(p.parcelasQtd)||parcelasPadrao));
   const precoFormat = formatarBR(preco);
   document.getElementById('previewClientImg').src=p.imagem||'';
   document.getElementById('previewClientNome').textContent=p.nome||'';
@@ -217,24 +198,20 @@ function addCarrinho(id, pagamentoEscolhido){
   else carrinho.push({...p,qtd:1,pagamento:pag});
   localStorage.setItem('divinos_cart',JSON.stringify(carrinho));
   atualizarCarrinho();
-  const calc = calcAvista(p.preco, p);
-  toast('✅ '+p.nome+' - '+(pag==='avista'?`À Vista ${calc.perc}% OFF`:'Parcelado'));
+  const calc = calcAvista(p.preco,p);
+  toast('✅ '+p.nome+' - '+(pag==='avista'?calc.perc+'% OFF':'Parcelado'));
 }
 function atualizarCarrinho(){
   document.getElementById('cartCount').textContent=carrinho.reduce((s,i)=>s+i.qtd,0);
   let total = 0;
-  carrinho.forEach(i=>{ 
-    const calc = calcAvista(i.preco, i);
-    let precoItem = i.pagamento === 'avista' ? calc.valor : i.preco; 
-    total += precoItem * i.qtd;
-  });
+  carrinho.forEach(i=>{let c=calcAvista(i.preco,i); total+= (i.pagamento==='avista'?c.valor:i.preco)*i.qtd;});
   document.getElementById('cartTotal').textContent='R$ '+formatarBR(total);
   let h='';
   carrinho.forEach(i=>{
-    const calc = calcAvista(i.preco, i);
+    const calc=calcAvista(i.preco,i);
     let precoFormat = formatarBR(i.preco);
-    let precoFinal = formatarBR(i.pagamento === 'avista' ? calc.valor : i.preco);
-    let pagBadge = i.pagamento === 'avista' ? `<span style="background:#22c55e20;border:1px solid #22c55e60;color:#22c55e;padding:1px 6px;border-radius:8px;font-size:8px">💰 À VISTA ${calc.perc}% OFF</span>` : `<span style="background:#00e5ff20;border:1px solid #00e5ff40;color:#00e5ff;padding:1px 6px;border-radius:8px;font-size:8px">💳 ${(i.parcelasQtd||parcelasPadrao)}x</span>`;
+    let precoFinal = formatarBR(i.pagamento==='avista'?calc.valor:i.preco);
+    let pagBadge = i.pagamento === 'avista' ? `<span style="background:#22c55e20;border:1px solid #22c55e60;color:#22c55e;padding:1px 6px;border-radius:8px;font-size:8px">💰 À VISTA ${calc.perc}% OFF</span>` : `<span style="background:#00e5ff20;border:1px solid #00e5ff40;color:#00e5ff;padding:1px 6px;border-radius:8px;font-size:8px">💳 ${i.parcelasQtd||parcelasPadrao}x</span>`;
     h+=`<div style="display:flex;gap:8px;padding:10px 0;border-bottom:1px solid #ffffff0f;align-items:center"><img src="${i.imagem||''}" style="width:40px;height:40px;object-fit:cover;border-radius:8px;background:#000"><div style="flex:1"><div style="font-size:11px;font-weight:700;display:flex;gap:6px;align-items:center">${i.nome} ${pagBadge}</div><div style="font-size:10px;color:#8b8ba7">De R$ ${precoFormat} por <b style="color:${i.pagamento==='avista'?'#22c55e':'#00e5ff'}">R$ ${precoFinal}</b> x ${i.qtd}</div></div><button class="btn" style="background:#1a0a14;border:1px solid #ef444440;color:#ff6b8a;padding:4px 8px" onclick="removerCarrinho('${i.id}')">🗑️</button></div>`;
   });
   document.getElementById('cartItems').innerHTML=h||'<div style="text-align:center;opacity:.5;padding:20px">Carrinho vazio</div>';
@@ -247,17 +224,17 @@ function finalizarWhats(){
   let data = new Date().toLocaleDateString('pt-BR');
   let msg = `🎮 *DIVINOS GAMES - NOVO PEDIDO* 🎮%0A📅 Data: ${data}%0A📍 Teixeira de Freitas - BA%0A━━━━━━━━━━━━━━━━━━━━%0A%0AOlá! Vim pelo site e quero comprar:%0A%0A`;
   carrinho.forEach((i, idx)=>{
-    const calc = calcAvista(i.preco, i);
+    const calc=calcAvista(i.preco,i);
     let nome = i.nome.charAt(0).toUpperCase() + i.nome.slice(1);
     let precoOriginal = formatarBR(i.preco);
-    let precoFinal = formatarBR(i.pagamento === 'avista' ? calc.valor : i.preco);
+    let precoFinal = formatarBR(i.pagamento==='avista'?calc.valor:i.preco);
     let pagInfo = i.pagamento === 'avista' ? `💰 À VISTA PIX ${calc.perc}% OFF` : `💳 Parcelado ${i.parcelasQtd||parcelasPadrao}x sem juros`;
-    let totalItem = formatarBR((i.pagamento === 'avista' ? calc.valor : i.preco) * i.qtd);
+    let totalItem = formatarBR((i.pagamento==='avista'?calc.valor:i.preco)*i.qtd);
     msg += `*${idx+1}. ${nome}*%0A   ${pagInfo}%0A   De R$ ${precoOriginal} por *R$ ${precoFinal}* x ${i.qtd} = *R$ ${totalItem}*%0A%0A`;
   });
-  let totalGeral = formatarBR(carrinho.reduce((s,i)=>{const c=calcAvista(i.preco,i);return s+((i.pagamento==='avista'?c.valor:i.preco)*i.qtd)},0));
+  let totalGeral = formatarBR(carrinho.reduce((s,i)=>{let c=calcAvista(i.preco,i);return s+((i.pagamento==='avista'?c.valor:i.preco)*i.qtd)},0));
   let qtdTotal = carrinho.reduce((s,i)=>s+i.qtd,0);
-  msg += `━━━━━━━━━━━━━━━━━━━━%0A📦 *Itens:* ${qtdTotal}%0A💰 *TOTAL: R$ ${totalGeral}*%0A━━━━━━━━━━━━━━━━━━━━%0A%0AAguardo retorno! 🙏`;
+  msg += `━━━━━━━━━━━━━━━━━━━━%0A📦 *Itens:* ${qtdTotal}%0A💰 *TOTAL: R$ ${totalGeral}*%0A━━━━━━━━━━━━━━━━━━━━%0A%0AAguardo retorno para fechar! 🙏`;
   window.open('https://wa.me/557399627083?text='+msg,'_blank');
 }
 function agendarManut(id){
@@ -272,12 +249,12 @@ function zapDoPreview(){
   const p=produtoPreviewAtual;if(!p)return;
   if(p.categoria==='Manutenção'){agendarManut(p.id);return;}
   const pagamento = document.querySelector('input[name="pagamentoPreview"]:checked')?.value || 'avista';
-  const calc = calcAvista(p.preco, p);
+  const calc = calcAvista(p.preco,p);
   const preco = Number(p.preco);
-  const parcela = formatarBR(preco / (Number(p.parcelasQtd)||parcelasPadrao));
+  const parcela = formatarBR(preco/(Number(p.parcelasQtd)||parcelasPadrao));
   const precoFormat = formatarBR(preco);
-  const precoAvistaFormat = formatarBR(calc.valor);
-  let pagTexto = pagamento === 'avista' ? `💰 *À Vista (PIX):* R$ ${precoAvistaFormat} com ${calc.perc}% OFF` : `💳 *Parcelado:* ${p.parcelasQtd||parcelasPadrao}x R$ ${parcela} sem juros (Total R$ ${precoFormat})`;
+  const precoAvista = formatarBR(calc.valor);
+  let pagTexto = pagamento === 'avista' ? `💰 *À Vista (PIX):* R$ ${precoAvista} com ${calc.perc}% OFF` : `💳 *Parcelado:* ${p.parcelasQtd||parcelasPadrao}x R$ ${parcela} sem juros (Total R$ ${precoFormat})`;
   let msg = `🎮 *DIVINOS GAMES - INTERESSE* 🎮%0A━━━━━━━━━━━━━━━━━━━━%0A%0AOlá! Tenho interesse em:%0A%0A🎯 *${p.nome}*%0A💰 *Preço:* R$ ${precoFormat}%0A%0A${pagTexto}%0A%0A━━━━━━━━━━━━━━━━━━━━%0AQuero pagar: *${pagamento === 'avista' ? `À VISTA ${calc.perc}% OFF` : `PARCELADO ${p.parcelasQtd||parcelasPadrao}x`}*%0A%0ATem disponível?%0A`;
   window.open('https://wa.me/557399627083?text='+msg,'_blank');
 }
